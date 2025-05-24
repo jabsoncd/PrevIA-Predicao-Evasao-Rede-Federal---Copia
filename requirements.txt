@@ -1,28 +1,23 @@
-aiobotocore 
-aiofiles 
+aiobotocore
+aiofiles
 aiohappyeyeballs==2.3.5
 aiohttp==3.10.3
-aioitertools 
-aiosignal 
-aiosqlite 
+aioitertools
+aiosignal
+aiosqlite
 alabaster==1.0.0
 alembic==1.13.2
 altair==5.3.0
-# anaconda-anon-usage 
-# anaconda-catalogs
-# anaconda-client==1.13.0
-# anaconda-navigator==2.4.3
-# anaconda-project 
 annotated-types==0.7.0
-anyio 
+anyio
 appdirs==1.4.4
-argon2-cffi 
-argon2-cffi-bindings 
-arrow 
+argon2-cffi
+argon2-cffi-bindings
+arrow
 asgiref==3.8.1
-astroid 
-astropy 
-asttokens 
+astroid
+astropy
+asttokens
 async-timeout
 atomicwrites==1.4.0
 attrs==24.2.0
@@ -529,3 +524,5 @@ zict
 zipp
 zope.interface
 zstandard==0.19.0
+
+
