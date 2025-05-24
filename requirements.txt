@@ -503,7 +503,7 @@ xyzservices
 y-py
 yapf
 yarl
-ydata-profiling
+# ydata-profiling
 ypy-websocket
 zict
 zipp
