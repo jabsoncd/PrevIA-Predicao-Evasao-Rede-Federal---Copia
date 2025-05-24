@@ -53,7 +53,7 @@ chroma-hnswlib
 chromadb
 click
 cloudpickle
-clyent
+# clyent
 colorama
 colorcet
 coloredlogs
