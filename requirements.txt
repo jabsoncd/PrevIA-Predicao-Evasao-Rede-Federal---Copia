@@ -58,7 +58,7 @@ colorama
 colorcet
 coloredlogs
 colorlog
-comm
+# comm
 # common
 conda
 conda-build
