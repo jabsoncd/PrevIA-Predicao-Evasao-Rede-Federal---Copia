@@ -224,9 +224,9 @@ mdurl
 # menuinst
 missingno
 mistune
-mkl-fft
-mkl-random
-mkl-service
+# mkl-fft
+# mkl-random
+# mkl-service
 mmh3
 monotonic
 more-itertools
