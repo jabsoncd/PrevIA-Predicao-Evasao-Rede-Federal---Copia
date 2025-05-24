@@ -3,7 +3,6 @@ pandas
 scikit-learn
 seaborn
 visions
-ydata-profiling
 aiobotocore
 aiofiles
 aiohttp
