@@ -129,7 +129,7 @@ h5py
 HeapDict
 holoviews
 htbuilder
-htmlmin
+# htmlmin
 httpcore
 httplib2
 httptools
