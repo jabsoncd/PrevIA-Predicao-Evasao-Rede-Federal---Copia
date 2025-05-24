@@ -1,9 +1,9 @@
-numpy==1.25.2
-pandas==2.0.0
-scikit-learn==1.3.0
-seaborn==0.12.2
-visions==0.7.6
-ydata-profiling==4.12.0
+numpy
+pandas
+scikit-learn
+seaborn
+visions
+ydata-profiling
 aiobotocore
 aiofiles
 aiohttp
