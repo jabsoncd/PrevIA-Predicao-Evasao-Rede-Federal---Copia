@@ -44,7 +44,7 @@ branca==0.8.1
 brotlipy==0.7.0
 build==1.2.1
 cachetools==5.4.0
-catboost==1.2.7
+catboost
 certifi==2024.2.2
 cffi
 chardet==5.2.0
