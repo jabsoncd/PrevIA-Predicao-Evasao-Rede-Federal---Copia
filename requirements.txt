@@ -10,9 +10,9 @@ alembic==1.13.2
 altair==5.3.0
 # anaconda-anon-usage 
 # anaconda-catalogs
-anaconda-client==1.13.0
-anaconda-navigator==2.4.3
-anaconda-project 
+# anaconda-client==1.13.0
+# anaconda-navigator==2.4.3
+# anaconda-project 
 annotated-types==0.7.0
 anyio 
 appdirs==1.4.4
