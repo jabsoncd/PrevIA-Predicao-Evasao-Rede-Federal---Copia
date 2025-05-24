@@ -8,7 +8,7 @@ aiosqlite
 alabaster==1.0.0
 alembic==1.13.2
 altair==5.3.0
-anaconda-anon-usage 
+# anaconda-anon-usage 
 # anaconda-catalogs
 anaconda-client==1.12.0
 anaconda-navigator==2.4.3
