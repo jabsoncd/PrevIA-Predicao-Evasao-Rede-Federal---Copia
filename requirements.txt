@@ -201,7 +201,7 @@ langsmith
 lazy-object-proxy
 lazy_loader
 lazypredict
-libarchive-c
+# libarchive-c
 libmambapy
 lightgbm
 linkify-it-py
