@@ -61,15 +61,13 @@ st.markdown(
 # left_co, cent_co, last_co = st.columns([1, 2, 1])
 # with cent_co:
 #     st.image("images/logo_previa.jpg", width=250, caption="")
-
-st.markdown(
-    """
-    <div style="text-align: center;">
-        <img src="templates/logo_previa.jpg" width="250">
-    </div>
-    """,
-    unsafe_allow_html=True
-)
+st.markdown("<h1 style='text-align: center;'> </h1>", unsafe_allow_html=True)
+# Centralizar com colunas
+left, center, right = st.columns([1, 2, 1])
+with center:
+    st.image("images/logo_previa.jpg", width=250)
+    
+    
 # 🔹 Centraliza o título
 st.markdown("<h2 style='text-align: center; color: white; margin-bottom: 5px;'>PrevIA - Predição de Evasão na Rede Federal com Inteligência Artificial</h2>", unsafe_allow_html=True)
 # 🔹 Texto introdutório centralizado
