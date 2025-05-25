@@ -81,7 +81,7 @@ with col2:
                     box-shadow: 2px 2px 10px rgba(0,0,0,0.1);">
             <h3>Indicadores de Evasão</h3>
             <p>Análises e estatísticas sobre evasão escolar.</p>
-            <a href="Indicadores_Eficiencia" target="_self">
+            <a href="pages/Indicadores_Eficiencia" target="_self">
                 <button style="padding: 4px 15px; border-radius: 7px; 
                               border: none; background-color: #007BFF; 
                               color: white; font-size: 19px; cursor: pointer;">
@@ -103,7 +103,7 @@ with col2:
                     box-shadow: 2px 2px 10px rgba(0,0,0,0.1);">
             <h3>Simulador de Evasão</h3>
             <p>Simule a probabilidade de evasão de um aluno.</p>
-            <a href="Simulador_Eficiencia" target="_self">
+            <a href="pages/Simulador_Eficiencia" target="_self">
                 <button style="padding: 4px 15px; border-radius: 7px; 
                               border: none; background-color: #28A745; 
                               color: white; font-size: 19px; cursor: pointer;">
