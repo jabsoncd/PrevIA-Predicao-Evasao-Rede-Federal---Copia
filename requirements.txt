@@ -7,7 +7,6 @@ geopandas
 gitdb
 GitPython
 imbalanced-learn
-json
 lightgbm
 Markdown
 markdown-it-py
