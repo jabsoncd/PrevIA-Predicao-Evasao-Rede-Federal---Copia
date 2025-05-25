@@ -34,10 +34,7 @@ st.markdown(
     <style>
     section[data-testid="stSidebar"] a[href*="Home_Eficiencia"],
     section[data-testid="stSidebar"] a[href*="Indicadores_Eficiencia"],
-    section[data-testid="stSidebar"] a[href*="Simulador_Eficiencia"], 
-    section[data-testid="stSidebar"] a[href*="Home"],
-    section[data-testid="stSidebar"] a[href*="Indicadores"],
-    section[data-testid="stSidebar"] a[href*="Simulador"] {
+    section[data-testid="stSidebar"] a[href*="Simulador_Eficiencia"] {
         display: none !important;
     }
     </style>
