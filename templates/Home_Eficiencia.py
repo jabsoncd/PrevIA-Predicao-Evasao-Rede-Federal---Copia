@@ -64,8 +64,6 @@ with cent_co:
 st.markdown("<h2 style='text-align: center; color: white; margin-bottom: 5px;'>PrevIA - Predição de Evasão na Rede Federal com Inteligência Artificial</h2>", unsafe_allow_html=True)
 # 🔹 Texto introdutório centralizado
 st.markdown("<p style='text-align: center; color: white; margin-top: 0px;'>Este projeto tem por objetivo ser uma plataforma para todos aqueles que desejam obter informações do comportamento da evasão na RFEPCT.</p>", unsafe_allow_html=True)
-# Linha divisória
-st.write("---")
 
 # 🔹 Criando colunas para centralizar os cards
 col1, col2, col3 = st.columns([1, 3, 1])
