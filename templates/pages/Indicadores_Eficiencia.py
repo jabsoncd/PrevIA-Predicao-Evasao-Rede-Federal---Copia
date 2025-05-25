@@ -46,9 +46,9 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 st.markdown(
     """
     <style>
-    section[data-testid="stSidebar"] a[href*="templates/Home_Eficiencia"],
-    section[data-testid="stSidebar"] a[href*="pages/Indicadores_Eficiencia"],
-    section[data-testid="stSidebar"] a[href*="pages/Simulador_Eficiencia"] {
+    section[data-testid="stSidebar"] a[href*="Home_Eficiencia"],
+    section[data-testid="stSidebar"] a[href*="Indicadores_Eficiencia"],
+    section[data-testid="stSidebar"] a[href*="Simulador_Eficiencia"] {
         display: none !important;
     }
     </style>
