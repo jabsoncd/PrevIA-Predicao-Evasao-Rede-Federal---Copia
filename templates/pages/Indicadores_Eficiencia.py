@@ -470,8 +470,9 @@ if st.session_state.selected_tab == "📈 Demográficos":
 
     # Configuração da chave de API
     # load_dotenv()  # Carrega variáveis do .env
+    from openai import OpenAI
     load_dotenv()
-    openai.api_key = os.getenv("OPENAI_API_KEY")
+    client  = OpenAI(api_key = os.getenv("OPENAI_API_KEY"))
 
     # Adicionar CSS personalizado
     st.markdown("""
