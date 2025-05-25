@@ -57,7 +57,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 # 🔹 Cabeçalho
-left_co, cent_co, last_co = st.columns([1, 5, 1])
+left_co, cent_co, last_co = st.columns([1, 50, 1])
 with cent_co:
     st.image("images/logo_previa.jpg", width=250, caption="")
 # 🔹 Centraliza o título
