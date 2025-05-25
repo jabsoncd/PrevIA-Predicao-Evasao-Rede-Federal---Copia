@@ -509,7 +509,7 @@ if st.session_state.selected_tab == "📈 Demográficos":
         )
 
         # Exibir os insights
-        st.markdown(response['choices'][0]['message']['content'])
+        st.markdown(response.choices[0].message.content)
 
     # Agrupar os evadidos por instituição
     evadidos_por_instituicao = filtered_df[filtered_df['CATEGORIA_SITUACAO']
@@ -538,7 +538,8 @@ if st.session_state.selected_tab == "📈 Demográficos":
         response = openai.ChatCompletion.create(
             model="gpt-4o-mini",
             messages=[
-                {"role": "user", "content": f'O dataset a seguir corresponde aos dados de matrículas em cursos técnicos separados por categorias de matrículas: Em curso, Concluintes e Evadidos. Me informe 3 insights sobre este dataset {fig2}'}
+                {"role": "user", 
+                 "content": f'O dataset a seguir corresponde aos dados de matrículas em cursos técnicos separados por categorias de matrículas: Em curso, Concluintes e Evadidos. Me informe 3 insights sobre este dataset {fig2}'}
             ],
             temperature=0.7,
             max_tokens=500  # Limite o tamanho da resposta
