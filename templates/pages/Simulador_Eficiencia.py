@@ -100,7 +100,7 @@ st.markdown(
             background-color: #003366; /* Azul mais escuro no hover */
         }
     </style>
-    <a class="botao-voltar" href="/Home_Eficiencia" target="_self">Voltar para Home</a>
+    <a class="botao-voltar" href="https://previa.streamlit.app/~/+/" target="_self">Voltar para Home</a>
     """,
     unsafe_allow_html=True
 )
