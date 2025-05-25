@@ -63,7 +63,7 @@ st.markdown(
 #     st.image("images/logo_previa.jpg", width=250, caption="")
 st.markdown("<h1 style='text-align: center;'> </h1>", unsafe_allow_html=True)
 # Centralizar com colunas
-left, center, right = st.columns([1, 2, 1])
+left, center, right = st.columns([1, 5, 1])
 with center:
     st.image("images/logo_previa.jpg", width=250)
     
