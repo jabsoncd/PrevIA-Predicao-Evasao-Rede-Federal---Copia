@@ -16,7 +16,7 @@ def get_base64_of_image(image_path):
 
 
 # Converter a imagem local
-img_base64 = get_base64_of_image("simulador.jpg")
+img_base64 = get_base64_of_image("templates/simulador.jpg")
 
 st.set_page_config(
     page_title="Plataforma PrevIA",
