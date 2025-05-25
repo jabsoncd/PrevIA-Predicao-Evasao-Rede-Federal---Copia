@@ -30,18 +30,42 @@ hide_st_style = """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
 # 🔹 Ocultar apenas os links Home, Indicadores e Simulador do sidebar
+# st.markdown(
+#     """ 
+#     <style>
+#     section[data-testid="stSidebar"] a[href*="templates/Home_Eficiencia"],
+#     section[data-testid="stSidebar"] a[href*="pages/Indicadores_Eficiencia"],
+#     section[data-testid="stSidebar"] a[href*="pages/Simulador_Eficiencia"] {
+#         display: none !important;
+#     }
+#     </style>
+#     """,
+#     unsafe_allow_html=True
+# )
+
+
+# CSS para ocultar links com nomes específicos no sidebar
 st.markdown(
-    """ 
+    """
     <style>
-    section[data-testid="stSidebar"] a[href*="templates/Home_Eficiencia"],
-    section[data-testid="stSidebar"] a[href*="pages/Indicadores_Eficiencia"],
-    section[data-testid="stSidebar"] a[href*="pages/Simulador_Eficiencia"] {
+    /* Oculta entradas específicas no sidebar pela label de texto */
+    [data-testid="stSidebar"] ul {
+        list-style: none;
+        padding-left: 0;
+    }
+    [data-testid="stSidebar"] ul li {
+        display: block;
+    }
+    [data-testid="stSidebar"] ul li:has(a:contains("Home_Eficiencia")),
+    [data-testid="stSidebar"] ul li:has(a:contains("Indicadores_Eficiencia")),
+    [data-testid="stSidebar"] ul li:has(a:contains("Simulador_Eficiencia")) {
         display: none !important;
     }
     </style>
     """,
     unsafe_allow_html=True
 )
+
 
 # Estilo CSS para customizar o fundo da barra lateral
 st.markdown(
@@ -104,7 +128,7 @@ st.markdown(
             background-color: #003366; /* Azul mais escuro no hover */
         }
     </style>
-    <a class="botao-voltar" href="Home_Eficiencia" target="_self">Voltar para Home</a>
+    <a class="botao-voltar" href="templates/Home_Eficiencia" target="_self">Voltar para Home</a>
     """,
     unsafe_allow_html=True
 )
