@@ -65,7 +65,6 @@ onnxruntime
 openai
 openpyxl
 packaging
-pandas-profiling
 pandocfilters
 panel
 phik
