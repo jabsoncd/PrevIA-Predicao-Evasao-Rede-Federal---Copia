@@ -57,9 +57,9 @@ st.markdown(
     unsafe_allow_html=True
 )
 # 🔹 Cabeçalho
-left_co, cent_co, last_co = st.columns([25, 30, 1])
+left_co, cent_co, last_co = st.columns([1, 5, 1])
 with cent_co:
-    st.image("images/logo_previa.jpg", width=240, caption="")
+    st.image("images/logo_previa.jpg", width=250, caption="")
 # 🔹 Centraliza o título
 st.markdown("<h2 style='text-align: center; color: white; margin-bottom: 5px;'>PrevIA - Predição de Evasão na Rede Federal com Inteligência Artificial</h2>", unsafe_allow_html=True)
 # 🔹 Texto introdutório centralizado
