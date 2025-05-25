@@ -28,13 +28,14 @@ hide_st_style = """
     </style>
     """
 st.markdown(hide_st_style, unsafe_allow_html=True)
+
 # 🔹 Ocultar apenas os links Home, Indicadores e Simulador do sidebar
 st.markdown(
     """ 
     <style>
-    section[data-testid="stSidebar"] a[href*="Home_Eficiencia"],
-    section[data-testid="stSidebar"] a[href*="Indicadores_Eficiencia"],
-    section[data-testid="stSidebar"] a[href*="Simulador_Eficiencia"] {
+    section[data-testid="stSidebar"] a[href*="templates/Home_Eficiencia"],
+    section[data-testid="stSidebar"] a[href*="pages/Indicadores_Eficiencia"],
+    section[data-testid="stSidebar"] a[href*="pages/Simulador_Eficiencia"] {
         display: none !important;
     }
     </style>
@@ -458,8 +459,6 @@ if st.session_state.selected_tab == "📈 Demográficos":
     # load_dotenv()  # Carrega variáveis do .env
     load_dotenv()
     openai.api_key = os.getenv("OPENAI_API_KEY")
-
-    openai.api_key = st.secrets["openai"]["api_key"]
 
     # Adicionar CSS personalizado
     st.markdown("""
