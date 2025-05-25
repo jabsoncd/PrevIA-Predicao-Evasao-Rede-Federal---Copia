@@ -42,30 +42,19 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 #     """,
 #     unsafe_allow_html=True
 # )
-
-
 # CSS para ocultar links com nomes específicos no sidebar
 st.markdown(
     """
     <style>
-    /* Oculta entradas específicas no sidebar pela label de texto */
-    [data-testid="stSidebar"] ul {
-        list-style: none;
-        padding-left: 0;
-    }
-    [data-testid="stSidebar"] ul li {
-        display: block;
-    }
-    [data-testid="stSidebar"] ul li:has(a:contains("Home_Eficiencia")),
-    [data-testid="stSidebar"] ul li:has(a:contains("Indicadores_Eficiencia")),
-    [data-testid="stSidebar"] ul li:has(a:contains("Simulador_Eficiencia")) {
+    section[data-testid="stSidebar"] a[href*="Home_Eficiencia"],
+    section[data-testid="stSidebar"] a[href*="Indicadores_Eficiencia"],
+    section[data-testid="stSidebar"] a[href*="Simulador_Eficiencia"] {
         display: none !important;
     }
     </style>
     """,
     unsafe_allow_html=True
 )
-
 
 # Estilo CSS para customizar o fundo da barra lateral
 st.markdown(
