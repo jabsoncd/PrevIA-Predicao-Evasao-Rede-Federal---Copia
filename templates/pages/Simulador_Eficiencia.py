@@ -56,7 +56,7 @@ def load_model():
     # modelo_lightgbm_220325.pkl
     # modelo_catboost_categorico_campeao.pkl ou modelo_lightgbm_220325.pkl
     model_path = os.path.join(
-        "../notebooks", "modelo_catboost_categorico_campeao.pkl") 
+        "notebooks", "modelo_catboost_categorico_campeao.pkl") 
     with open(model_path, "rb") as file:
         model = pickle.load(file)
     return model
@@ -263,7 +263,7 @@ mapeamento_eixos = {
 
 def carregar_dados():
     # '../artifacts/cnct2025.xlsx' ou cnct2025_base_eficiencia.xlsx
-    file_path = '../artifacts/cnct2025v1.xlsx'
+    file_path = 'artifacts/cnct2025v1.xlsx'
     df = pd.read_excel(file_path, sheet_name="Plan1", engine="openpyxl")
     return df
 
