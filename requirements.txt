@@ -15,7 +15,7 @@ matplotlib
 matplotlib-inline
 notebook
 notebook_shim
-openai
+openai<=0.28.1
 openpyxl
 dotenv
 folium
