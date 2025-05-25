@@ -56,9 +56,9 @@ st.markdown(
     [data-testid="stSidebar"] ul li {
         display: block;
     }
-    [data-testid="stSidebar"] ul li:has(a:contains("templates/Home_Eficiencia")),
-    [data-testid="stSidebar"] ul li:has(a:contains("pages/Indicadores_Eficiencia")),
-    [data-testid="stSidebar"] ul li:has(a:contains("pages/Simulador_Eficiencia")) {
+    [data-testid="stSidebar"] ul li:has(a:contains("Home_Eficiencia")),
+    [data-testid="stSidebar"] ul li:has(a:contains("Indicadores_Eficiencia")),
+    [data-testid="stSidebar"] ul li:has(a:contains("Simulador_Eficiencia")) {
         display: none !important;
     }
     </style>
