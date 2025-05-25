@@ -24,6 +24,5 @@ scipy
 xgboost
 streamlit_folium
 streamlit
-PIL
 shap
 imblearn
