@@ -499,7 +499,7 @@ if st.session_state.selected_tab == "📈 Demográficos":
     if st.button('Insights chatGPT', key="insights_button"):
         # Solicitar insights via ChatGPT
 
-        response = openai.chat.completions.create(
+        response = client.chat.completions.create(
             model="gpt-4o-mini",
             messages=[
                 {"role": "user", "content": f'O dataset a seguir corresponde aos dados de matrículas em cursos técnicos separados por categorias de matrículas: Em curso, Concluintes e Evadidos. Me informe 3 insights sobre este dataset {fig1}'}
