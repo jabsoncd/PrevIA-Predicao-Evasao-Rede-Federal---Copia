@@ -470,9 +470,8 @@ if st.session_state.selected_tab == "📈 Demográficos":
 
     # Configuração da chave de API
     # load_dotenv()  # Carrega variáveis do .env
-    from openai import OpenAI
     load_dotenv()
-    client  = OpenAI(api_key = os.getenv("OPENAI_API_KEY"))
+    openai.api_key = os.getenv("OPENAI_API_KEY")
 
     # Adicionar CSS personalizado
     st.markdown("""
@@ -499,7 +498,7 @@ if st.session_state.selected_tab == "📈 Demográficos":
     if st.button('Insights chatGPT', key="insights_button"):
         # Solicitar insights via ChatGPT
 
-        response = client.chat.completions.create(
+        response = openai.ChatCompletion.create(
             model="gpt-4o-mini",
             messages=[
                 {"role": "user", "content": f'O dataset a seguir corresponde aos dados de matrículas em cursos técnicos separados por categorias de matrículas: Em curso, Concluintes e Evadidos. Me informe 3 insights sobre este dataset {fig1}'}
@@ -509,7 +508,7 @@ if st.session_state.selected_tab == "📈 Demográficos":
         )
 
         # Exibir os insights
-        st.markdown(response.choices[0].message.content)
+        st.markdown(response['choices'][0]['message']['content'])
 
     # Agrupar os evadidos por instituição
     evadidos_por_instituicao = filtered_df[filtered_df['CATEGORIA_SITUACAO']
@@ -538,8 +537,7 @@ if st.session_state.selected_tab == "📈 Demográficos":
         response = openai.ChatCompletion.create(
             model="gpt-4o-mini",
             messages=[
-                {"role": "user", 
-                 "content": f'O dataset a seguir corresponde aos dados de matrículas em cursos técnicos separados por categorias de matrículas: Em curso, Concluintes e Evadidos. Me informe 3 insights sobre este dataset {fig2}'}
+                {"role": "user", "content": f'O dataset a seguir corresponde aos dados de matrículas em cursos técnicos separados por categorias de matrículas: Em curso, Concluintes e Evadidos. Me informe 3 insights sobre este dataset {fig2}'}
             ],
             temperature=0.7,
             max_tokens=500  # Limite o tamanho da resposta
