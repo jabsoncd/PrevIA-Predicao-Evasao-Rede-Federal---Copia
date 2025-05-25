@@ -18,7 +18,6 @@ notebook_shim
 openai
 openpyxl
 dotenv
-os
 folium
 plotly
 scipy
