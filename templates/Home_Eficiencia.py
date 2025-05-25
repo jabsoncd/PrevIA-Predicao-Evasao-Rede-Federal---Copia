@@ -58,7 +58,7 @@ st.markdown(
 )
 
 # 🔹 Cabeçalho
-left_co, cent_co, last_co = st.columns([1, 2, 1])
+left_co, cent_co, last_co = st.columns([1, 1, 1])
 with cent_co:
     st.image("images/logo_previa.jpg", width=250, caption="")
 
