@@ -8,7 +8,7 @@ from streamlit_folium import folium_static
 import openai
 import requests
 import os
-from dotenv import load_dotenv
+from dotenv import load_dotenv 
 
 
 st.set_page_config(

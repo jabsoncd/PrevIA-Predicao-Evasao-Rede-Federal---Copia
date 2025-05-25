@@ -4,7 +4,7 @@ import pandas as pd
 import lightgbm as lgb
 import pickle
 import os
-import base64
+import base64 
 
 
 # Função para converter imagem local em Base64
