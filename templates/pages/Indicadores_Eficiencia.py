@@ -70,7 +70,7 @@ df = pd.read_csv(file_path, delimiter=';')
 # Ajuste as proporções conforme necessário
 col1, col2, col3 = st.sidebar.columns([1, 5, 1])
 with col2:  # Centraliza a imagem na coluna do meio
-    st.image("../images/previa_cinza_menor.png", width=300)
+    st.image("images/previa_cinza_menor.png", width=300)
 
 # 🔹 Centraliza o título
 st.markdown("<h2 style='text-align: center; color: #12125c; margin-bottom: 5px;'>Inteligência Artificial para Predição da Evasão na Rede Federal EPCT</h2>", unsafe_allow_html=True)

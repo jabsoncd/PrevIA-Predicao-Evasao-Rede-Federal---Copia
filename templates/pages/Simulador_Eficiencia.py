@@ -66,7 +66,7 @@ def load_model():
 model = load_model()
 
 # Título do painel
-st.image("../images/previa_gemini.png", width=200)
+st.image("images/previa_gemini.png", width=200)
 st.markdown("<h2 style='text-align: center; color: #12125c;'>Inteligência Artificial para Predição da Evasão na Rede Federal EPCT</h2>", unsafe_allow_html=True)
 st.markdown("<p style='text-align: center; color: #1e1e8f;'>Plataforma para análise do comportamento da evasão na RFEPCT.</p>", unsafe_allow_html=True)
 st.markdown("---")
@@ -514,30 +514,30 @@ if submit:
         if prob_evasao < 0.50:
             st.success(
                 f"✅ Baixa probabilidade de evasão. (Não evade: {prob_nao_evasao:.2%})")
-            imagem = Image.open("n_evade.jpg")
+            imagem = Image.open("templates/n_evade.jpg")
             legenda = "Estudante aliviado por não evadir"
 
         elif 0.51 <= prob_evasao <= 0.60:
             st.warning(
                 f"⚠️ Moderada chance de evasão. (Evade: {prob_evasao:.2%})")
-            imagem = Image.open("moderada.jpg")
+            imagem = Image.open("templates/moderada.jpg")
             legenda = "Estudante com dúvidas sobre continuar o curso"
 
         elif 0.61 <= prob_evasao <= 0.70:
             st.warning(
                 f"⚠️ Considerável probabilidade de evasão. (Evade: {prob_evasao:.2%})")
-            imagem = Image.open("evade1.jpg")
+            imagem = Image.open("templates/evade1.jpg")
             legenda = "Estudante em risco moderado de evasão"
 
         elif 0.71 <= prob_evasao <= 0.90:
             st.error(f"⚠️ Alta chance de evasão! (Evade: {prob_evasao:.2%})")
-            imagem = Image.open("alta.jpg")
+            imagem = Image.open("templates/alta.jpg")
             legenda = "Estudante preocupado com a evasão"
 
         else:  # 0.91 a 1.00
             st.error(
                 f"🚨 Muito alta chance de evasão! (Evade: {prob_evasao:.2%})")
-            imagem = Image.open("evade.jpg")
+            imagem = Image.open("templates/evade.jpg")
             legenda = "Estudante com grande risco de abandonar o curso"
 
         # Exibir os resultados
