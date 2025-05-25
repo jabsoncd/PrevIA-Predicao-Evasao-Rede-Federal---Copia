@@ -17,7 +17,6 @@ notebook
 notebook_shim
 openai
 openpyxl
-pickle
 dotenv
 os
 folium
