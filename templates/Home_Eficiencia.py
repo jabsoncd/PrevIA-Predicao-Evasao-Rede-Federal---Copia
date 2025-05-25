@@ -56,12 +56,10 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-
 # 🔹 Cabeçalho
 left_co, cent_co, last_co = st.columns([25, 30, 1])
 with cent_co:
     st.image("images/logo_previa.jpg", width=250, caption="")
-
 # 🔹 Centraliza o título
 st.markdown("<h2 style='text-align: center; color: white; margin-bottom: 5px;'>PrevIA - Predição de Evasão na Rede Federal com Inteligência Artificial</h2>", unsafe_allow_html=True)
 # 🔹 Texto introdutório centralizado
@@ -81,7 +79,7 @@ with col2:
                     box-shadow: 2px 2px 10px rgba(0,0,0,0.1);">
             <h3>Indicadores de Evasão</h3>
             <p>Análises e estatísticas sobre evasão escolar.</p>
-            <a href="pages/Indicadores_Eficiencia" target="_self">
+            <a href="Indicadores_Eficiencia" target="_self">
                 <button style="padding: 4px 15px; border-radius: 7px; 
                               border: none; background-color: #007BFF; 
                               color: white; font-size: 19px; cursor: pointer;">
@@ -103,7 +101,7 @@ with col2:
                     box-shadow: 2px 2px 10px rgba(0,0,0,0.1);">
             <h3>Simulador de Evasão</h3>
             <p>Simule a probabilidade de evasão de um aluno.</p>
-            <a href="pages/Simulador_Eficiencia" target="_self">
+            <a href="Simulador_Eficiencia" target="_self">
                 <button style="padding: 4px 15px; border-radius: 7px; 
                               border: none; background-color: #28A745; 
                               color: white; font-size: 19px; cursor: pointer;">
@@ -114,22 +112,5 @@ with col2:
         """,
         unsafe_allow_html=True
     )
-
 st.markdown("<hr style='border: 1px solid white;'>", unsafe_allow_html=True)
 st.markdown("<p style='color: white;'>Versão 0.0.1 - Brasília - 2025. Universidade Federal do Tocantins - UFT.</p>", unsafe_allow_html=True)
-
-
-# http://localhost:8501/
-
-#   You can now view your Streamlit app in your browser.
-
-#   Local URL: http://localhost:8501
-#   Network URL: http://192.168.15.200:8501
-
-# Criar ambiente virtual
-
-# python3 -m venv .venv
-# source .venv/bin/activate
-
-
-# pip install --upgrade pip
