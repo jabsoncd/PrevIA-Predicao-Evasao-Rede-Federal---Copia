@@ -1026,8 +1026,8 @@ elif st.session_state.selected_tab == "🗺 Mapa da Evasão":
 
     # Carregar shapefile dos estados do Brasil (GeoJSON)
     geojson_path = 'artifacts/BR_Municipios_2023/brazil.geojson'   
-    # url = 'https://example.com/path/to/your/BR_Municipios_2023.geojson' # teste removido
-    gdf_estados = gpd.read_file(geojson_path)
+    # url = 'https://example.com/path/to/your/BR_Municipios_2023.geojson' # removido
+    gdf_estados = gpd.read_file(geojson_path) 
 
     # Dissolver para obter geometria por estado
     gdf_estados = gdf_estados.dissolve(by='name', as_index=False) 
