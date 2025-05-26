@@ -1030,10 +1030,10 @@ elif st.session_state.selected_tab == "🗺 Mapa da Evasão":
     gdf_estados = gpd.read_file(geojson_path) 
 
     # Dissolver para obter geometria por estado
-    gdf_estados = gdf_estados.dissolve(by='name', as_index=False) 
+    gdf_estados = gdf_estados.dissolve(by='id', as_index=False) 
 
     # Merge com dados de proporção
-    gdf_mapa = gdf_estados.merge(proporcao_df, on='NM_UF', how='left')
+    gdf_mapa = gdf_estados.merge(proporcao_df, on='id', how='left')
     gdf_mapa['proporcao'] = gdf_mapa['proporcao'].fillna(0)
 
     # Centro aproximado do Brasil
