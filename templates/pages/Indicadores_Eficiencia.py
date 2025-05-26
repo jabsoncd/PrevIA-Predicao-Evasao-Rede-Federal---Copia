@@ -1032,7 +1032,7 @@ elif st.session_state.selected_tab == "🗺 Mapa da Evasão":
     gdf_estados = gdf_estados.dissolve(by='NM_UF', as_index=False) 
 
     # Merge com dados de proporção
-    gdf_mapa = gdf_estados.merge(proporcao_df, on='UF', how='left')
+    gdf_mapa = gdf_estados.merge(proporcao_df, on='NM_UF', how='left')
     gdf_mapa['proporcao'] = gdf_mapa['proporcao'].fillna(0)
 
     # Centro aproximado do Brasil
