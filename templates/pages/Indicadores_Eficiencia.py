@@ -1025,7 +1025,7 @@ elif st.session_state.selected_tab == "🗺 Mapa da Evasão":
         proporcao_df['evadidos'] / proporcao_df['total_matriculas']) * 100
 
     # Carregar shapefile dos estados do Brasil (GeoJSON)
-    geojson_path = 'artifacts/BR_Municipios_2023/brazil.geojson'
+    geojson_path = 'artifacts/BR_Municipios_2023/brazil.geojson'   
     # url = 'https://example.com/path/to/your/BR_Municipios_2023.geojson' # teste removido
     gdf_estados = gpd.read_file(geojson_path)
 
