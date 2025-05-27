@@ -389,7 +389,7 @@ if st.session_state.selected_tab == "📈 Demográficos":
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
         
         .metric-card-solid {
-            padding: 1.5rem 0.5rem !important;
+            padding: 0px !important;
             border-radius: 16px !important;
             text-align: center !important;
             box-shadow: 0 4px 20px rgba(0,0,0,0.12) !important;
