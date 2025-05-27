@@ -627,6 +627,57 @@ elif st.session_state.selected_tab == "📉 Sociais":
     # Usando colunas para exibir os cards lado a lado
     col1, col2, col3 = st.columns(3)
     
+    # CSS com prioridade máxima e cores sólidas
+    st.markdown("""
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        
+        .metric-card-solid {
+            padding: 1.5rem 0.5rem !important;
+            border-radius: 16px !important;
+            text-align: center !important;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.12) !important;
+            font-family: 'Inter', sans-serif !important;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1) !important;
+            border: none !important;
+            height: 100% !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: center !important;
+            color: white !important;
+        }
+        
+        .metric-card-solid:hover {
+            transform: translateY(-5px) !important;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.18) !important;
+        }
+        
+        .metric-card-solid h3 {
+            font-size: 1.15rem !important;
+            font-weight: 600 !important;
+            margin-bottom: 0.75rem !important;
+            letter-spacing: 0.03em !important;
+            color: white !important;
+        }
+        
+        .metric-card-solid h2 {
+            font-size: 2.4rem !important;
+            font-weight: 700 !important;
+            margin: 0.5rem 0 !important;
+            color: white !important;
+            line-height: 1 !important;
+        }
+        
+        .metric-card-solid p {
+            font-size: 1.05rem !important;
+            opacity: 0.95 !important;
+            margin-top: 0.5rem !important;
+            color: white !important;
+            font-weight: 500 !important;
+        }
+    </style>
+    """, unsafe_allow_html=True)
+    
     # Cards com cores sólidas vibrantes
     with col1:
         st.markdown(
@@ -773,6 +824,57 @@ elif st.session_state.selected_tab == "📚 Cursos":
 
     # Usando colunas para exibir os cards lado a lado
     col1, col2, col3 = st.columns(3)
+    
+    # CSS com prioridade máxima e cores sólidas
+    st.markdown("""
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        
+        .metric-card-solid {
+            padding: 1.5rem 0.5rem !important;
+            border-radius: 16px !important;
+            text-align: center !important;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.12) !important;
+            font-family: 'Inter', sans-serif !important;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1) !important;
+            border: none !important;
+            height: 100% !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: center !important;
+            color: white !important;
+        }
+        
+        .metric-card-solid:hover {
+            transform: translateY(-5px) !important;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.18) !important;
+        }
+        
+        .metric-card-solid h3 {
+            font-size: 1.15rem !important;
+            font-weight: 600 !important;
+            margin-bottom: 0.75rem !important;
+            letter-spacing: 0.03em !important;
+            color: white !important;
+        }
+        
+        .metric-card-solid h2 {
+            font-size: 2.4rem !important;
+            font-weight: 700 !important;
+            margin: 0.5rem 0 !important;
+            color: white !important;
+            line-height: 1 !important;
+        }
+        
+        .metric-card-solid p {
+            font-size: 1.05rem !important;
+            opacity: 0.95 !important;
+            margin-top: 0.5rem !important;
+            color: white !important;
+            font-weight: 500 !important;
+        }
+    </style>
+    """, unsafe_allow_html=True)
     
     # Cards com cores sólidas vibrantes
     with col1:
