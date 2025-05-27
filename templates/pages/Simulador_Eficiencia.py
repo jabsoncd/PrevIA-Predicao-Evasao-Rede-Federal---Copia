@@ -70,7 +70,7 @@ model = load_model()
 st.markdown(
     """
     <div style='text-align: center;'>
-        <img src='https://raw.githubusercontent.com/jabsoncd/PrevIA-Predicao-Evasao-Rede-Federal---Copia/main/images/previa_gemini.png' width='200'/>
+        <img src='https://raw.githubusercontent.com/jabsoncd/PrevIA-Predicao-Evasao-Rede-Federal---Copia/main/images/previa_gemini.png' width='240'/>
     </div>
     """,
     unsafe_allow_html=True
@@ -394,11 +394,11 @@ if submit:
             st.write("Simulações limpas com sucesso!")
 
         # Código para realizar a previsão aqui, se não houver erros
-        st.success("Processando a previsão de evasão...")
+        # st.success("Processando a previsão de evasão...")
 
         # --- Mensagem temporária ---
-        # placeholder_mensagem = st.empty()  # Cria um placeholder vazio
-        # placeholder_mensagem.success("Processando a previsão de evasão...")  # Exibe a mensagem
+        placeholder_mensagem = st.empty()  # Cria um placeholder vazio
+        placeholder_mensagem.success("Processando a previsão de evasão...")  # Exibe a mensagem
 
         # Predição
         probabilidades = model.predict_proba(input_data)[0]
@@ -456,7 +456,7 @@ if submit:
             time.sleep(0.1)  # Ajuste esse tempo para controlar a velocidade
 
         # --- Remover a mensagem inicial após a animação ---
-        # placeholder_mensagem.empty()  # Faz a mensagem desaparecer
+        placeholder_mensagem.empty()  # Faz a mensagem desaparecer
 
         # Definir categorias de risco com base na probabilidade de evasão
         if prob_evasao < 0.50:
