@@ -5,6 +5,8 @@ import geopandas as gpd
 import folium
 from folium import Choropleth
 from streamlit_folium import folium_static
+from streamlit_folium import st_folium
+
 import openai
 import requests
 import os
