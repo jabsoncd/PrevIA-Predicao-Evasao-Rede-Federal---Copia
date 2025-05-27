@@ -1,5 +1,5 @@
 import streamlit as st
-import base64 
+import base64
 
 # Função para converter imagem local em Base64
 
@@ -11,7 +11,7 @@ def get_base64_of_image(image_path):
 
 # Converter a imagem local
 # Certifique-se de que o arquivo está no mesmo diretório do código
-img_base64 = get_base64_of_image("templates/dropout1.jpg") 
+img_base64 = get_base64_of_image("dropout1.jpg")
 
 # Configuração da página
 st.set_page_config(
@@ -20,7 +20,7 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="collapsed"
 )
-#Ocultar barra streamlit
+# Ocultar barra streamlit
 hide_st_style = """
     <style>:
     #MainMenu {visibility: hidden;}
@@ -59,7 +59,8 @@ st.markdown(
 # 🔹 Cabeçalho
 left_co, cent_co, last_co = st.columns([12, 5, 12])
 with cent_co:
-    st.image("images/logo_previa.jpg", width=100, use_container_width=True)
+    # use_column_width use_container_width
+    st.image("logo_previa.jpg", width=100, use_column_width=True) #images/
 # 🔹 Centraliza o título
 st.markdown("<h2 style='text-align: center; color: white; margin-bottom: 5px;'>PrevIA - Predição de Evasão na Rede Federal com Inteligência Artificial</h2>", unsafe_allow_html=True)
 # 🔹 Texto introdutório centralizado

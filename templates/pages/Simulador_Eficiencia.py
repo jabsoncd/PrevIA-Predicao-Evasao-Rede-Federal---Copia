@@ -4,23 +4,21 @@ import pandas as pd
 import lightgbm as lgb
 import pickle
 import os
-import base64 
+import base64
 
 
 # Função para converter imagem local em Base64
-
-
 def get_base64_of_image(image_path):
     with open(image_path, "rb") as image_file:
         return base64.b64encode(image_file.read()).decode()
 
 
 # Converter a imagem local
-img_base64 = get_base64_of_image("templates/simulador.jpg")
+img_base64 = get_base64_of_image("../templates/simulador.jpg")
 
 st.set_page_config(
     page_title="Plataforma PrevIA",
-    page_icon="previa_azulmenor.png",
+    page_icon="images/previa_azulmenor.png",
     initial_sidebar_state="collapsed"
 )
 
@@ -39,8 +37,9 @@ st.markdown(
     <style>
     .stApp {{
         background-image: url("data:image/jpg;base64,{img_base64}");
-        background-size: 100%;
-        background-position: center;
+        background-size: cover;  # Cobrir toda a tela sem repetição
+        background-repeat: no-repeat;
+        background-position: center center;
         background-attachment: fixed;
     }}
     </style>
@@ -56,7 +55,7 @@ def load_model():
     # modelo_lightgbm_220325.pkl
     # modelo_catboost_categorico_campeao.pkl ou modelo_lightgbm_220325.pkl
     model_path = os.path.join(
-        "notebooks", "modelo_catboost_categorico_campeao.pkl") 
+        "../notebooks", "modelo_catboost_categorico_campeao.pkl")  # ../
     with open(model_path, "rb") as file:
         model = pickle.load(file)
     return model
@@ -66,7 +65,7 @@ def load_model():
 model = load_model()
 
 # Título do painel
-st.image("images/previa_gemini.png", width=200)
+st.image("../..images/previa_gemini.png", width=200)
 st.markdown("<h2 style='text-align: center; color: #12125c;'>Inteligência Artificial para Predição da Evasão na Rede Federal EPCT</h2>", unsafe_allow_html=True)
 st.markdown("<p style='text-align: center; color: #1e1e8f;'>Plataforma para análise do comportamento da evasão na RFEPCT.</p>", unsafe_allow_html=True)
 st.markdown("---")
@@ -113,16 +112,7 @@ st.write(" ")
 
 st.header("Simulador de Evasão em Cursos Técnicos")
 
-
 st.subheader("Dados da Instituição")
-# Seleção de Região e Estado
-# regioes = {
-#     "regiao_Região_Norte": ["AC", "AM", "AP", "PA", "TO", "RO", "RR"],
-#     "regiao_Região_Nordeste": ["AL", "BA", "CE", "MA", "PB", "PE", "PI", "RN", "SE"],
-#     "regiao_Região_Centro_Oeste": ["DF", "GO", "MS", "MT"],
-#     "regiao_Região_Sudeste": ["ES", "MG", "RJ", "SP"],
-#     "regiao_Região_Sul": ["PR", "SC", "RS"]
-# }
 
 # Dicionário com regiões, UFs e instituições federais
 regioes = {
@@ -226,22 +216,6 @@ st.subheader("Dados do Curso")
 
 
 # # Definição de eixos tecnologicos
-# eixos = {
-#     "eixo_tecnologico_Ambiente_e_Saúde",
-#     "eixo_tecnologico_Controle_e_Processos_Industriais",
-#     "eixo_tecnologico_Desenvolvimento_Educacional_e_Social",
-#     "eixo_tecnologico_Gestão_e_Negócios",
-#     "eixo_tecnologico_Informação_e_Comunicação",
-#     "eixo_tecnologico_Infraestrutura",
-#     "eixo_tecnologico_Produção_Alimentícia",
-#     "eixo_tecnologico_Produção_Cultural_e_Design",
-#     "eixo_tecnologico_Produção_Industrial",
-#     "eixo_tecnologico_Recursos_Naturais",
-#     "eixo_tecnologico_Segurança",
-#     "eixo_tecnologico_Militar",
-#     "eixo_tecnologico_Turismo__Hospitalidade_e_Lazer"
-# }
-# Dicionário para renomear os Eixos Tecnológicos
 mapeamento_eixos = {
     "Ambiente e Saúde": "Ambiente e Saúde",
     "Controle e Processos Industriais": "Controle e Processos Industriais",
@@ -320,10 +294,6 @@ nome_de_curso = st.selectbox(
     help="Selecione o Curso Técnico que estuda ou deseja cursar."
 )
 
-# Se o usuário não escolher um curso válido, exibir mensagem de erro
-# if nome_curso == "Selecione um Curso Técnico":
-#     st.error("⚠️ Por favor, selecione um Curso Técnico.")
-
 # Inicializa a carga horária mínima
 carga_horaria_minima = 0
 
@@ -376,22 +346,6 @@ if submit:
             st.error(erro)
     else:
         # # Se não houver erros, realiza o processamento dos dados
-        # # Criando as colunas das regiões (1 para escolhida, 0 para as outras)
-        # regioes_dummies = {regiao: 1 if regiao ==
-        #                    regiao_escolhida else 0 for regiao in regioes}
-
-        # # Eixo Tecnologico
-        # eixos_tecnologico_dumies = {eixo_tecnologico: 1 if eixo_tecnologico ==
-        #                             eixo_tecnologico_escolhido else 0 for eixo_tecnologico in eixos_mapeados}
-
-        #  # Instituicao
-        # instituicao_dumies = {instituicao_escolhida: 1 if instituicao_escolhida ==
-        #                             instituicao_escolhida else 0 for instituicao in instituicao_escolhida}
-
-        #          # Instituicao
-        # nome_de_curso_dumies = {nome_de_curso: 1 if nome_de_curso ==
-        #                             nome_de_curso else 0 for nome_de_curso in nome_de_curso}
-
         # Criando o DataFrame de entrada
         input_data = pd.DataFrame({
             "cor_raca": ["AmarelaBranca" if cor_raca in ["Amarela", "Branca"] else cor_raca],
@@ -410,28 +364,6 @@ if submit:
             "região_metropolina_ue": (região_metropolina_ue)
         })
         # # Criando o DataFrame de entrada
-        # input_data = pd.DataFrame({
-        #     "idade": [int(idade)],
-        #     "carga_horaria_minima": [int(carga_horaria_minima)],
-        #     "renda_familiar": [
-        #         1 if renda_familiar == "0<RFP<=0,5" else
-        #         2 if renda_familiar == "0,5<RFP<=1,0" else
-        #         3 if renda_familiar == "1,0<RFP<=1,5" else
-        #         4 if renda_familiar == "1,5<RFP<=2,5" else
-        #         5 if renda_familiar == "2,5<RFP<=3,5" else
-        #         6 if renda_familiar == "RFP>3,5" else
-        #         None  # Para garantir que o valor será None se não corresponder a nenhum critério
-        #     ],
-        #     "cor_raca_": [if cor_raca in ["Amarela", "Branca"] else ["AmarelaBranca"]],
-        #     "sexo_Masculino": [1 if sexo_Masculino == "Masculino" else 0],
-        #     "modalidade_de_ensino_Educação_Presencial": [1 if modalidade_de_ensino_Educação_Presencial == "Presencial" else 0],
-        #     "tipo_de_oferta_Integrado": [1 if tipo_de_oferta_Integrado == "Integrado" else 0],
-        #     "turno_Noturno": [1 if turno_Noturno == "Noturno" else 0],
-        #     **eixos_tecnologico_dumies,  # Adiciona as colunas de eixos tecnológicos ao DataFrame
-        #     **regioes_dummies,  # Adiciona as colunas de região ao DataFrame
-        #     **instituicao_dumies,
-        #     "região_metropolina_ue_SIM": [1 if região_metropolina_ue_SIM == "Sim" else 0]
-        # })
 
         st.subheader("📋 Simulações Realizadas")
         if "input_data" in st.session_state:
@@ -454,6 +386,10 @@ if submit:
 
         # Código para realizar a previsão aqui, se não houver erros
         st.success("Processando a previsão de evasão...")
+
+        # --- Mensagem temporária ---
+        # placeholder_mensagem = st.empty()  # Cria um placeholder vazio
+        # placeholder_mensagem.success("Processando a previsão de evasão...")  # Exibe a mensagem
 
         # Predição
         probabilidades = model.predict_proba(input_data)[0]
@@ -510,6 +446,9 @@ if submit:
             # Pausa para criar o efeito de transição
             time.sleep(0.1)  # Ajuste esse tempo para controlar a velocidade
 
+        # --- Remover a mensagem inicial após a animação ---
+        # placeholder_mensagem.empty()  # Faz a mensagem desaparecer
+
         # Definir categorias de risco com base na probabilidade de evasão
         if prob_evasao < 0.50:
             st.success(
@@ -520,7 +459,8 @@ if submit:
         elif 0.51 <= prob_evasao <= 0.60:
             st.warning(
                 f"⚠️ Moderada chance de evasão. (Evade: {prob_evasao:.2%})")
-            imagem = Image.open("templates/moderada.jpg")
+            # Trocar por outra imagem
+            imagem = Image.open("templates/moderada1.jpg")
             legenda = "Estudante com dúvidas sobre continuar o curso"
 
         elif 0.61 <= prob_evasao <= 0.70:
@@ -549,4 +489,4 @@ if submit:
 
 
 st.markdown("<hr style='border: 1px solid white;'>", unsafe_allow_html=True)
-st.markdown("<p style='color: white;'>Versão 0.0.1 - Brasília - 2025. Universidade Federal do Tocantins - UFT.</p>", unsafe_allow_html=True) 
+st.markdown("<p style='color: white;'>Versão 0.0.1 - Brasília - 2025. Universidade Federal do Tocantins - UFT.</p>", unsafe_allow_html=True)

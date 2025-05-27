@@ -8,7 +8,7 @@ from streamlit_folium import folium_static
 import openai
 import requests
 import os
-from dotenv import load_dotenv 
+from dotenv import load_dotenv
 
 
 st.set_page_config(
@@ -31,7 +31,7 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 
 # 🔹 Ocultar apenas os links Home, Indicadores e Simulador do sidebar
 # st.markdown(
-#     """ 
+#     """
 #     <style>
 #     section[data-testid="stSidebar"] a[href*="templates/Home_Eficiencia"],
 #     section[data-testid="stSidebar"] a[href*="pages/Indicadores_Eficiencia"],
@@ -72,7 +72,7 @@ st.markdown(
 # Carregar os dados
 # @st.cache_data
 # microdados_eficiencia_academica_RedeFederal_2023_tecnico_RegiaoMetropolitana #base_redeFederal_2022_tecnico_regiaoMetropolitana
-file_path = 'artifacts/microdados_eficiencia_academica_RedeFederal_2023_tecnico_RegiaoMetropolitana.csv'
+file_path = '../artifacts/microdados_eficiencia_academica_RedeFederal_2023_tecnico_RegiaoMetropolitana.csv'
 # '../artifacts/base_redeFederal_2022_tecnico_regiaoMetropolitana.csv'
 df = pd.read_csv(file_path, delimiter=';')
 
@@ -81,7 +81,7 @@ df = pd.read_csv(file_path, delimiter=';')
 # Ajuste as proporções conforme necessário
 col1, col2, col3 = st.sidebar.columns([1, 5, 1])
 with col2:  # Centraliza a imagem na coluna do meio
-    st.image("images/previa_cinza_menor.png", width=300)
+    st.image("../images/previa_cinza_menor.png", width=300)  # ../images/
 
 # 🔹 Centraliza o título
 st.markdown("<h2 style='text-align: center; color: #12125c; margin-bottom: 5px;'>Inteligência Artificial para Predição da Evasão na Rede Federal EPCT</h2>", unsafe_allow_html=True)
@@ -168,8 +168,8 @@ UNIDADE_DE_ENSINO = st.sidebar.multiselect(
 )
 REGIÃO_METROPOLINA_UE = st.sidebar.multiselect(
     key=6,
-    label="Unidade de Ensino",
-    placeholder="Selecione a Região Metropolitana",
+    label="Região Metropolitana",
+    placeholder="Selecione se é Região Metropolitana",
     # format_func=lambda x: "Todos" if x == -1 else f"INSTITUICAO {x}",
     options=sorted(df["REGIÃO_METROPOLINA_UE"].unique()),
     # default=df["INSTITUICAO"].unique()
@@ -246,11 +246,11 @@ if INSTITUICAO:
     filtered_df = filtered_df[filtered_df['INSTITUICAO'].isin(INSTITUICAO)]
 
 if UNIDADE_DE_ENSINO:
-    filtered_df = filtered_df[filtered_df['INSTITUICAO'].isin(
+    filtered_df = filtered_df[filtered_df['UNIDADE_DE_ENSINO'].isin(
         UNIDADE_DE_ENSINO)]
 
 if REGIÃO_METROPOLINA_UE:
-    filtered_df = filtered_df[filtered_df['INSTITUICAO'].isin(
+    filtered_df = filtered_df[filtered_df['REGIÃO_METROPOLINA_UE'].isin(
         REGIÃO_METROPOLINA_UE)]
 
 if COR_RACA:
@@ -275,7 +275,8 @@ if MODALIDADE_DE_ENSINO:
         MODALIDADE_DE_ENSINO)]
 
 if TIPO_DE_OFERTA:
-    filtered_df = filtered_df[filtered_df['TURNO'].isin(TIPO_DE_OFERTA)]
+    filtered_df = filtered_df[filtered_df['TIPO_DE_OFERTA'].isin(
+        TIPO_DE_OFERTA)]
 
 if TURNO:
     filtered_df = filtered_df[filtered_df['TURNO'].isin(TURNO)]
@@ -283,53 +284,6 @@ if TURNO:
 
 st.write(" ")
 st.write(" ")
-
-
-# # CSS customizado para estilizar os botões
-# st.markdown("""
-#     <style>
-#         .button-container {
-#             display: flex;
-#             justify-content: space-between;
-#             width: 100%;
-#             margin-top: 20px;
-#         }
-#         .button-container button {
-#             flex: 1;
-#             margin: 0;
-#             background-color: #4CAF50;
-#             color: white;
-#             border: none;
-#             padding: 15px 0;
-#             text-align: center;
-#             cursor: pointer;
-#             font-size: 16px;
-#             transition: background-color 0.3s;
-#             font-weight: bold;
-#         }
-#         .button-container button:hover {
-#             background-color: #45a049;
-#         }
-#         .button-container button:active {
-#             background-color: #3e8e41;
-#         }
-#     </style>
-# """, unsafe_allow_html=True)
-
-# # Se não houver uma chave de estado para a aba selecionada, vamos definir a padrão.
-# if 'selected_tab' not in st.session_state:
-#     st.session_state.selected_tab = "📈 Indicadores Demográficos"
-
-# # Criando os botões com CSS personalizado
-# st.markdown("""
-#     <div class="button-container">
-#         <button onclick="window.location.href='#'">📈 Indicadores Demográficos</button>
-#         <button onclick="window.location.href='#'">Sociais</button>
-#         <button onclick="window.location.href='#'">🗃 Cursos</button>
-#         <button onclick="window.location.href='#'">Mapa da Evasão</button>
-#     </div>
-# """, unsafe_allow_html=True)
-
 
 # CSS para alinhar os botões corretamente e manter a letra branca no botão selecionado
 st.markdown("""
@@ -394,16 +348,16 @@ with cols[0]:
         st.session_state.selected_tab = "📈 Demográficos"
 
 with cols[1]:
-    if st.button("📊 Sociais"):
-        st.session_state.selected_tab = "📊 Sociais"
+    if st.button("📉 Sociais"):
+        st.session_state.selected_tab = "📉 Sociais"
 
 with cols[2]:
-    if st.button("🗃 Cursos"):
-        st.session_state.selected_tab = "🗃 Cursos"
+    if st.button("📚 Cursos"):
+        st.session_state.selected_tab = "📚 Cursos"
 
 with cols[3]:
-    if st.button("🗺 Mapa da Evasão"):
-        st.session_state.selected_tab = "🗺 Mapa da Evasão"
+    if st.button("🌎 Mapa da Evasão"):
+        st.session_state.selected_tab = "🌎 Mapa da Evasão"
 
 
 # Exibir conteúdo com base na seleção do botão
@@ -429,33 +383,93 @@ if st.session_state.selected_tab == "📈 Demográficos":
     # Usando colunas para exibir os cards lado a lado
     col1, col2, col3 = st.columns(3)
 
-    # Exibindo as métricas nos cartões, com formatação de número e cores diferentes
+# CSS com prioridade máxima e cores sólidas
+    st.markdown("""
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        
+        .metric-card-solid {
+            padding: 1.5rem 0.5rem !important;
+            border-radius: 16px !important;
+            text-align: center !important;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.12) !important;
+            font-family: 'Inter', sans-serif !important;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1) !important;
+            border: none !important;
+            height: 100% !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: center !important;
+            color: white !important;
+        }
+        
+        .metric-card-solid:hover {
+            transform: translateY(-5px) !important;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.18) !important;
+        }
+        
+        .metric-card-solid h3 {
+            font-size: 1.15rem !important;
+            font-weight: 600 !important;
+            margin-bottom: 0.75rem !important;
+            letter-spacing: 0.03em !important;
+            color: white !important;
+        }
+        
+        .metric-card-solid h2 {
+            font-size: 2.4rem !important;
+            font-weight: 700 !important;
+            margin: 0.5rem 0 !important;
+            color: white !important;
+            line-height: 1 !important;
+        }
+        
+        .metric-card-solid p {
+            font-size: 1.05rem !important;
+            opacity: 0.95 !important;
+            margin-top: 0.5rem !important;
+            color: white !important;
+            font-weight: 500 !important;
+        }
+    </style>
+    """, unsafe_allow_html=True)
+
+    # Cards com cores sólidas vibrantes
     with col1:
-        st.markdown("<div style='background-color: #fa5923; padding: 4px; border-radius: 20px; text-align: center; color: white;'>"
-                    "<h3>Evadidos</h3>"
-                    f"<h2 style='color:white'>{evadidos:,.0f}".replace(
-                        ',', '.')+"</h2>"
-                    f"<p style='color:white;font-size:16px'>({evadidos_pct:.2f}%)</p>"
-                    "</div>", unsafe_allow_html=True
-                    )
+        st.markdown(
+            f"""
+            <div class="metric-card-solid" style="background-color: #FF6B6B;">
+                <h3>Evadidos</h3>
+                <h2>{evadidos:,.0f}</h2>
+                <p>({evadidos_pct:.2f}%)</p>
+            </div>
+            """.replace(',', '.'),
+            unsafe_allow_html=True
+        )
 
     with col2:
-        st.markdown("<div style='background-color: #0f91f5; padding: 4px; border-radius: 20px; text-align: center; color: white;'>"
-                    "<h3>Em Curso</h3>"
-                    f"<h2 style='color:white'>{em_curso:,.0f}".replace(
-                        ',', '.')+"</h2>"
-                    f"<p style='color:white;font-size:16px'>({em_curso_pct:.2f}%)</p>"
-                    "</div>", unsafe_allow_html=True
-                    )
+        st.markdown(
+            f"""
+            <div class="metric-card-solid" style="background-color: #4ECDC4;">
+                <h3>Em Curso</h3>
+                <h2>{em_curso:,.0f}</h2>
+                <p>({em_curso_pct:.2f}%)</p>
+            </div>
+            """.replace(',', '.'),
+            unsafe_allow_html=True
+        )
 
     with col3:
-        st.markdown("<div style='background-color: #10de73; padding: 4px; border-radius: 20px; text-align: center; color: white;'>"
-                    "<h3>Concluintes</h3>"
-                    f"<h2 style='color:white'>{concluintes:,.0f}".replace(
-                        ',', '.')+"</h2>"
-                    f"<p style='color:white;font-size:16px'>({concluintes_pct:.2f}%)</p>"
-                    "</div>", unsafe_allow_html=True
-                    )
+        st.markdown(
+            f"""
+            <div class="metric-card-solid" style="background-color: #77DD77;">
+                <h3>Concluintes</h3>
+                <h2>{concluintes:,.0f}</h2>
+                <p>({concluintes_pct:.2f}%)</p>
+            </div>
+            """.replace(',', '.'),
+            unsafe_allow_html=True
+        )
 
     # Gráfico de barras com total de evadidos, em curso e concluintes
     fig1 = px.bar(x=status_counts.index,
@@ -590,7 +604,7 @@ if st.session_state.selected_tab == "📈 Demográficos":
         st.markdown(response['choices'][0]['message']['content'])
 
 
-elif st.session_state.selected_tab == "📊 Sociais":
+elif st.session_state.selected_tab == "📉 Sociais":
     st.header("Sociais")
     st.write("Indicadores Sociais")
     # Adicione o código relevante aqui
@@ -615,7 +629,7 @@ elif st.session_state.selected_tab == "📊 Sociais":
 
     # Exibindo as métricas nos cartões, com formatação de número e cores diferentes
     with col1:
-        st.markdown("<div style='background-color: #fa5923; padding: 4px; border-radius: 20px; text-align: center; color: white;'>"
+        st.markdown("<div style='background-color: #fa5923; padding: 0px; border-radius: 20px; text-align: center; color: white;'>"
                     "<h3>Evadidos</h3>"
                     f"<h2 style='color:white'>{evadidos:,.0f}".replace(
                         ',', '.')+"</h2>"
@@ -624,7 +638,7 @@ elif st.session_state.selected_tab == "📊 Sociais":
                     )
 
     with col2:
-        st.markdown("<div style='background-color: #0f91f5; padding: 4px; border-radius: 20px; text-align: center; color: white;'>"
+        st.markdown("<div style='background-color: #0f91f5; padding: 0px; border-radius: 20px; text-align: center; color: white;'>"
                     "<h3>Em Curso</h3>"
                     f"<h2 style='color:white'>{em_curso:,.0f}".replace(
                         ',', '.')+"</h2>"
@@ -633,7 +647,7 @@ elif st.session_state.selected_tab == "📊 Sociais":
                     )
 
     with col3:
-        st.markdown("<div style='background-color: #10de73; padding: 4px; border-radius: 20px; text-align: center; color: white;'>"
+        st.markdown("<div style='background-color: #10de73; padding: 0px; border-radius: 20px; text-align: center; color: white;'>"
                     "<h3>Concluintes</h3>"
                     f"<h2 style='color:white'>{concluintes:,.0f}".replace(
                         ',', '.')+"</h2>"
@@ -727,7 +741,7 @@ elif st.session_state.selected_tab == "📊 Sociais":
         st.markdown(response['choices'][0]['message']['content'])
 
 
-elif st.session_state.selected_tab == "🗃 Cursos":
+elif st.session_state.selected_tab == "📚 Cursos":
     st.header("Cursos")
     st.write("Indicadores Cursos")
     # Adicione o código relevante aqui
@@ -752,7 +766,7 @@ elif st.session_state.selected_tab == "🗃 Cursos":
 
     # Exibindo as métricas nos cartões, com formatação de número e cores diferentes
     with col1:
-        st.markdown("<div style='background-color: #fa5923; padding: 4px; border-radius: 20px; text-align: center; color: white;'>"
+        st.markdown("<div style='background-color: #fa5923; padding: 0px; border-radius: 20px; text-align: center; color: white;'>"
                     "<h3>Evadidos</h3>"
                     f"<h2 style='color:white'>{evadidos:,.0f}".replace(
                         ',', '.')+"</h2>"
@@ -761,7 +775,7 @@ elif st.session_state.selected_tab == "🗃 Cursos":
                     )
 
     with col2:
-        st.markdown("<div style='background-color: #0f91f5; padding: 4px; border-radius: 20px; text-align: center; color: white;'>"
+        st.markdown("<div style='background-color: #0f91f5; padding: 0px; border-radius: 20px; text-align: center; color: white;'>"
                     "<h3>Em Curso</h3>"
                     f"<h2 style='color:white'>{em_curso:,.0f}".replace(
                         ',', '.')+"</h2>"
@@ -770,7 +784,7 @@ elif st.session_state.selected_tab == "🗃 Cursos":
                     )
 
     with col3:
-        st.markdown("<div style='background-color: #10de73; padding: 4px; border-radius: 20px; text-align: center; color: white;'>"
+        st.markdown("<div style='background-color: #10de73; padding: 0px; border-radius: 20px; text-align: center; color: white;'>"
                     "<h3>Concluintes</h3>"
                     f"<h2 style='color:white'>{concluintes:,.0f}".replace(
                         ',', '.')+"</h2>"
@@ -932,7 +946,7 @@ elif st.session_state.selected_tab == "🗃 Cursos":
         template="plotly_dark"  # Fundo preto
     )
     # Exibindo o gráfico
-    st.plotly_chart(fig11) 
+    st.plotly_chart(fig11)
 
     # Criação do botão "Insights chatGPT"
     if st.button('Insights chatGPT', key="insights_button10"):
@@ -985,7 +999,7 @@ elif st.session_state.selected_tab == "🗃 Cursos":
         st.markdown(response['choices'][0]['message']['content'])
 
 
-elif st.session_state.selected_tab == "🗺 Mapa da Evasão":
+elif st.session_state.selected_tab == "🌎 Mapa da Evasão":
     st.header("Mapa da Evasão - Proporção de evadidos")
     st.write("Mapa da Evasão no Brasil")
     # Adicione o código relevante aqui
@@ -994,10 +1008,10 @@ elif st.session_state.selected_tab == "🗺 Mapa da Evasão":
     # st.set_page_config(page_title="Mapa de Evadidos", layout="wide")
 
     # Carregar datasets
-    data_path = 'artifacts/microdados_eficiencia_academica_RedeFederal_2023_tecnico_RegiaoMetropolitana.csv'
+    data_path = '../artifacts/microdados_eficiencia_academica_RedeFederal_2023_tecnico_RegiaoMetropolitana.csv'
     data_geo = pd.read_csv(data_path, sep=';')
 
-    codUF_path = 'artifacts/codigo_estados.csv'
+    codUF_path = '../artifacts/codigo_estados.csv'
     data_cod = pd.read_csv(codUF_path, sep=';', encoding='ISO-8859-1')
 
     # Converter colunas para string
@@ -1025,11 +1039,11 @@ elif st.session_state.selected_tab == "🗺 Mapa da Evasão":
         proporcao_df['evadidos'] / proporcao_df['total_matriculas']) * 100
 
     # Carregar shapefile dos estados do Brasil (GeoJSON)
-    geojson_path = 'BR_UF_2024.geojson'
-    gdf_estados = gpd.read_file(geojson_path) 
+    geojson_path = '../artifacts/BR_UF_2024.geojson'
+    gdf_estados = gpd.read_file(geojson_path)
 
     # Dissolver para obter geometria por estado
-    gdf_estados = gdf_estados.dissolve(by='NM_UF', as_index=False) 
+    gdf_estados = gdf_estados.dissolve(by='NM_UF', as_index=False)
 
     # Merge com dados de proporção
     gdf_mapa = gdf_estados.merge(proporcao_df, on='NM_UF', how='left')
