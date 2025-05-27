@@ -65,14 +65,43 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-st.markdown("<h2 style='text-align: center; color: #12125c;'>Inteligência Artificial para Predição da Evasão na Rede Federal EPCT</h2>", unsafe_allow_html=True)
-st.markdown("<p style='text-align: center; color: #1e1e8f;'>Plataforma para análise do comportamento da evasão na RFEPCT.</p>", unsafe_allow_html=True)
-st.markdown("---")
+# st.markdown("<h2 style='text-align: center; color: #12125c; margin-bottom: 5px;'>Inteligência Artificial para Predição da Evasão na Rede Federal EPCT</h2>", unsafe_allow_html=True)
+# st.markdown("<p style='text-align: center; color: #1e1e8f;'>Plataforma para análise do comportamento da evasão na RFEPCT.</p>", unsafe_allow_html=True)
+# <hr style='margin-top: 10px; margin-bottom: 10px;' />
+# st.markdown("---")
+# # 🔹 Texto introdutório centralizado
+# st.markdown("<p style='text-align: center; color: #3f3f4f; margin-top: 0px;'>Olá! Faça agora a sua simulação e descubra a probabilidade de evasão em um curso técnico da Rede Federal EPCT. Nossa plataforma utiliza um modelo avançado de aprendizado de máquina treinado com dados históricos de matrículas de estudantes para analisar padrões e prever a chance de permanência ou evasão no curso. Essa ferramenta pode ajudá-lo a tomar decisões mais informadas, seja para o seu próprio percurso acadêmico ou para apoiar alguém que está considerando ingressar em um curso técnico. Experimente e veja as possibilidades! </p>", unsafe_allow_html=True)
+# # Linha divisória
+# st.write("---")
+# Título e subtítulo com margens ajustadas
+st.markdown(
+    """
+    <h2 style='text-align: center; color: #12125c; margin-bottom: 5px;'>
+        Inteligência Artificial para Predição da Evasão na Rede Federal EPCT
+    </h2>
+    <p style='text-align: center; color: #1e1e8f; margin-top: 0px; margin-bottom: 10px;'>
+        Plataforma para análise do comportamento da evasão na RFEPCT.
+    </p>
+    <hr style='margin-top: 10px; margin-bottom: 10px;' />
+    """,
+    unsafe_allow_html=True
+)
+# Texto introdutório centralizado e compacto
+st.markdown(
+    """
+    <p style='text-align: center; color: #3f3f4f; margin-top: 0px; margin-bottom: 0px; font-size: 16px;'>
+        Olá! Faça agora a sua simulação e descubra a probabilidade de evasão em um curso técnico da Rede Federal EPCT.
+        Nossa plataforma utiliza um modelo avançado de aprendizado de máquina treinado com dados históricos de matrículas de estudantes
+        para analisar padrões e prever a chance de permanência ou evasão no curso.
+        Essa ferramenta pode ajudá-lo a tomar decisões mais informadas, seja para o seu próprio percurso acadêmico
+        ou para apoiar alguém que está considerando ingressar em um curso técnico. Experimente e veja as possibilidades!
+    </p>
+    """,
+    unsafe_allow_html=True
+)
 
-# 🔹 Texto introdutório centralizado
-st.markdown("<p style='text-align: center; color: #3f3f4f; margin-top: 0px;'>Olá! Faça agora a sua simulação e descubra a probabilidade de evasão em um curso técnico da Rede Federal EPCT. Nossa plataforma utiliza um modelo avançado de aprendizado de máquina treinado com dados históricos de matrículas de estudantes para analisar padrões e prever a chance de permanência ou evasão no curso. Essa ferramenta pode ajudá-lo a tomar decisões mais informadas, seja para o seu próprio percurso acadêmico ou para apoiar alguém que está considerando ingressar em um curso técnico. Experimente e veja as possibilidades! </p>", unsafe_allow_html=True)
-# Linha divisória
-st.write("---")
+# Linha divisória final (com espaçamento menor)
+st.markdown("<hr style='margin-top: 10px; margin-bottom: 10px;'>", unsafe_allow_html=True)
 
 # Botão para voltar à página Home.py
 st.markdown(
