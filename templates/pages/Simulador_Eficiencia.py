@@ -65,7 +65,16 @@ def load_model():
 model = load_model()
 
 # Título do painel
-st.image("images/previa_gemini.png", width=200)
+# st.image("images/previa_gemini.png", width=200)
+# Título do painel com imagem centralizada
+st.markdown(
+    """
+    <div style='text-align: center;'>
+        <img src='https://raw.githubusercontent.com/jabsoncd/PrevIA-Predicao-Evasao-Rede-Federal---Copia/main/images/previa_gemini.png' width='200'/>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 st.markdown("<h2 style='text-align: center; color: #12125c;'>Inteligência Artificial para Predição da Evasão na Rede Federal EPCT</h2>", unsafe_allow_html=True)
 st.markdown("<p style='text-align: center; color: #1e1e8f;'>Plataforma para análise do comportamento da evasão na RFEPCT.</p>", unsafe_allow_html=True)
 st.markdown("---")
