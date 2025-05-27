@@ -14,7 +14,7 @@ def get_base64_of_image(image_path):
 
 
 # Converter a imagem local
-img_base64 = get_base64_of_image("../templates/simulador.jpg")
+img_base64 = get_base64_of_image("templates/simulador.jpg")
 
 st.set_page_config(
     page_title="Plataforma PrevIA",
@@ -55,7 +55,7 @@ def load_model():
     # modelo_lightgbm_220325.pkl
     # modelo_catboost_categorico_campeao.pkl ou modelo_lightgbm_220325.pkl
     model_path = os.path.join(
-        "../notebooks", "modelo_catboost_categorico_campeao.pkl")  # ../
+        "notebooks", "modelo_catboost_categorico_campeao.pkl")  # ../
     with open(model_path, "rb") as file:
         model = pickle.load(file)
     return model
@@ -65,7 +65,7 @@ def load_model():
 model = load_model()
 
 # Título do painel
-st.image("../..images/previa_gemini.png", width=200)
+st.image("images/previa_gemini.png", width=200)
 st.markdown("<h2 style='text-align: center; color: #12125c;'>Inteligência Artificial para Predição da Evasão na Rede Federal EPCT</h2>", unsafe_allow_html=True)
 st.markdown("<p style='text-align: center; color: #1e1e8f;'>Plataforma para análise do comportamento da evasão na RFEPCT.</p>", unsafe_allow_html=True)
 st.markdown("---")
