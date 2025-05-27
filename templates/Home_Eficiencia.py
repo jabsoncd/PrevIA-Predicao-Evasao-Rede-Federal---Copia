@@ -11,7 +11,7 @@ def get_base64_of_image(image_path):
 
 # Converter a imagem local
 # Certifique-se de que o arquivo está no mesmo diretório do código
-img_base64 = get_base64_of_image("dropout1.jpg")
+img_base64 = get_base64_of_image("templates/dropout1.jpg")
 
 # Configuração da página
 st.set_page_config(
@@ -41,7 +41,7 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-
+ 
 # 🔹 CSS para definir a imagem de fundo
 st.markdown(
     f"""

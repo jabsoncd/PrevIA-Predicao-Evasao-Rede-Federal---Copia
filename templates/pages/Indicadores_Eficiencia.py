@@ -1006,7 +1006,7 @@ elif st.session_state.selected_tab == "🌎 Mapa da Evasão":
 
     # Configuração da página no Streamlit
     # st.set_page_config(page_title="Mapa de Evadidos", layout="wide")
-
+ 
     # Carregar datasets
     data_path = '../artifacts/microdados_eficiencia_academica_RedeFederal_2023_tecnico_RegiaoMetropolitana.csv'
     data_geo = pd.read_csv(data_path, sep=';')
