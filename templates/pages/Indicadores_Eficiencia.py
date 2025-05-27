@@ -626,34 +626,44 @@ elif st.session_state.selected_tab == "📉 Sociais":
 
     # Usando colunas para exibir os cards lado a lado
     col1, col2, col3 = st.columns(3)
-
-    # Exibindo as métricas nos cartões, com formatação de número e cores diferentes
+    
+    # Cards com cores sólidas vibrantes
     with col1:
-        st.markdown("<div style='background-color: #fa5923; padding: 0px; border-radius: 20px; text-align: center; color: white;'>"
-                    "<h3>Evadidos</h3>"
-                    f"<h2 style='color:white'>{evadidos:,.0f}".replace(
-                        ',', '.')+"</h2>"
-                    f"<p style='color:white;font-size:16px'>({evadidos_pct:.2f}%)</p>"
-                    "</div>", unsafe_allow_html=True
-                    )
+        st.markdown(
+            f"""
+            <div class="metric-card-solid" style="background-color: #FF6B6B;">
+                <h3>Evadidos</h3>
+                <h2>{evadidos:,.0f}</h2>
+                <p>({evadidos_pct:.2f}%)</p>
+            </div>
+            """.replace(',', '.'),
+            unsafe_allow_html=True
+        )
 
     with col2:
-        st.markdown("<div style='background-color: #0f91f5; padding: 0px; border-radius: 20px; text-align: center; color: white;'>"
-                    "<h3>Em Curso</h3>"
-                    f"<h2 style='color:white'>{em_curso:,.0f}".replace(
-                        ',', '.')+"</h2>"
-                    f"<p style='color:white;font-size:16px'>({em_curso_pct:.2f}%)</p>"
-                    "</div>", unsafe_allow_html=True
-                    )
+        st.markdown(
+            f"""
+            <div class="metric-card-solid" style="background-color: #4ECDC4;">
+                <h3>Em Curso</h3>
+                <h2>{em_curso:,.0f}</h2>
+                <p>({em_curso_pct:.2f}%)</p>
+            </div>
+            """.replace(',', '.'),
+            unsafe_allow_html=True
+        )
 
     with col3:
-        st.markdown("<div style='background-color: #10de73; padding: 0px; border-radius: 20px; text-align: center; color: white;'>"
-                    "<h3>Concluintes</h3>"
-                    f"<h2 style='color:white'>{concluintes:,.0f}".replace(
-                        ',', '.')+"</h2>"
-                    f"<p style='color:white;font-size:16px'>({concluintes_pct:.2f}%)</p>"
-                    "</div>", unsafe_allow_html=True
-                    )
+        st.markdown(
+            f"""
+            <div class="metric-card-solid" style="background-color: #77DD77;">
+                <h3>Concluintes</h3>
+                <h2>{concluintes:,.0f}</h2>
+                <p>({concluintes_pct:.2f}%)</p>
+            </div>
+            """.replace(',', '.'),
+            unsafe_allow_html=True
+        )
+
 
     # Gráfico de evadidos por renda familiar
     fig4 = px.histogram(df[df['CATEGORIA_SITUACAO'] == 'Evadidos'],
@@ -763,34 +773,44 @@ elif st.session_state.selected_tab == "📚 Cursos":
 
     # Usando colunas para exibir os cards lado a lado
     col1, col2, col3 = st.columns(3)
-
-    # Exibindo as métricas nos cartões, com formatação de número e cores diferentes
+    
+    # Cards com cores sólidas vibrantes
     with col1:
-        st.markdown("<div style='background-color: #fa5923; padding: 0px; border-radius: 20px; text-align: center; color: white;'>"
-                    "<h3>Evadidos</h3>"
-                    f"<h2 style='color:white'>{evadidos:,.0f}".replace(
-                        ',', '.')+"</h2>"
-                    f"<p style='color:white;font-size:16px'>({evadidos_pct:.2f}%)</p>"
-                    "</div>", unsafe_allow_html=True
-                    )
+        st.markdown(
+            f"""
+            <div class="metric-card-solid" style="background-color: #FF6B6B;">
+                <h3>Evadidos</h3>
+                <h2>{evadidos:,.0f}</h2>
+                <p>({evadidos_pct:.2f}%)</p>
+            </div>
+            """.replace(',', '.'),
+            unsafe_allow_html=True
+        )
 
     with col2:
-        st.markdown("<div style='background-color: #0f91f5; padding: 0px; border-radius: 20px; text-align: center; color: white;'>"
-                    "<h3>Em Curso</h3>"
-                    f"<h2 style='color:white'>{em_curso:,.0f}".replace(
-                        ',', '.')+"</h2>"
-                    f"<p style='color:white;font-size:16px'>({em_curso_pct:.2f}%)</p>"
-                    "</div>", unsafe_allow_html=True
-                    )
+        st.markdown(
+            f"""
+            <div class="metric-card-solid" style="background-color: #4ECDC4;">
+                <h3>Em Curso</h3>
+                <h2>{em_curso:,.0f}</h2>
+                <p>({em_curso_pct:.2f}%)</p>
+            </div>
+            """.replace(',', '.'),
+            unsafe_allow_html=True
+        )
 
     with col3:
-        st.markdown("<div style='background-color: #10de73; padding: 0px; border-radius: 20px; text-align: center; color: white;'>"
-                    "<h3>Concluintes</h3>"
-                    f"<h2 style='color:white'>{concluintes:,.0f}".replace(
-                        ',', '.')+"</h2>"
-                    f"<p style='color:white;font-size:16px'>({concluintes_pct:.2f}%)</p>"
-                    "</div>", unsafe_allow_html=True
-                    )
+        st.markdown(
+            f"""
+            <div class="metric-card-solid" style="background-color: #77DD77;">
+                <h3>Concluintes</h3>
+                <h2>{concluintes:,.0f}</h2>
+                <p>({concluintes_pct:.2f}%)</p>
+            </div>
+            """.replace(',', '.'),
+            unsafe_allow_html=True
+        )
+
 
     # Gráfico de Treemap de Evadidos por Eixo Tecnológico
     evadidos_por_eixo = filtered_df[filtered_df['CATEGORIA_SITUACAO']
