@@ -6,22 +6,18 @@ import pickle
 import os
 import base64
 
-
 # Função para converter imagem local em Base64
 def get_base64_of_image(image_path):
     with open(image_path, "rb") as image_file:
         return base64.b64encode(image_file.read()).decode()
 
-
 # Converter a imagem local
 img_base64 = get_base64_of_image("templates/simulador.jpg")
-
 st.set_page_config(
     page_title="Plataforma PrevIA",
     page_icon="images/previa_azulmenor.png",
     initial_sidebar_state="collapsed"
 )
-
 # Ocultar barra streamlit
 hide_st_style = """
     <style>:
@@ -46,10 +42,7 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-
 # Função para carregar o modelo
-
-
 @st.cache_resource
 def load_model():
     # modelo_lightgbm_220325.pkl
@@ -59,11 +52,8 @@ def load_model():
     with open(model_path, "rb") as file:
         model = pickle.load(file)
     return model
-
-
 # Carregar o modelo treinado
 model = load_model()
-
 # Título do painel
 # st.image("images/previa_gemini.png", width=200)
 # Título do painel com imagem centralizada
