@@ -1008,10 +1008,10 @@ elif st.session_state.selected_tab == "🌎 Mapa da Evasão":
     # st.set_page_config(page_title="Mapa de Evadidos", layout="wide")
  
     # Carregar datasets
-    data_path = '../artifacts/microdados_eficiencia_academica_RedeFederal_2023_tecnico_RegiaoMetropolitana.csv'
+    data_path = 'artifacts/microdados_eficiencia_academica_RedeFederal_2023_tecnico_RegiaoMetropolitana.csv' #../artifacts/microdados_eficiencia_academica_RedeFederal_2023_tecnico_RegiaoMetropolitana.csv
     data_geo = pd.read_csv(data_path, sep=';')
 
-    codUF_path = '../artifacts/codigo_estados.csv'
+    codUF_path = 'artifacts/codigo_estados.csv'
     data_cod = pd.read_csv(codUF_path, sep=';', encoding='ISO-8859-1')
 
     # Converter colunas para string
@@ -1039,7 +1039,7 @@ elif st.session_state.selected_tab == "🌎 Mapa da Evasão":
         proporcao_df['evadidos'] / proporcao_df['total_matriculas']) * 100
 
     # Carregar shapefile dos estados do Brasil (GeoJSON)
-    geojson_path = '../artifacts/BR_UF_2024.geojson'
+    geojson_path = 'artifacts/BR_UF_2024.geojson'
     gdf_estados = gpd.read_file(geojson_path)
 
     # Dissolver para obter geometria por estado
