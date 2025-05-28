@@ -73,28 +73,6 @@ with col2:
     # 🔹 Card 1 - Indicadores de Evasão
     st.markdown(
         """
-        <div style="text-align: center; padding: 16px; border-radius: 10px;
-                    background-color: rgba(255, 255, 255, 0.8); 
-                    box-shadow: 2px 2px 10px rgba(0,0,0,0.1);">
-            <h3>Indicadores de Evasão</h3>
-            <p>Análises e estatísticas sobre evasão escolar.</p>
-            <a href="Indicadores_Eficiencia" target="_self">
-                <button style="padding: 4px 15px; border-radius: 7px; 
-                              border: none; background-color: #007BFF; 
-                              color: white; font-size: 19px; cursor: pointer;">
-                    Acessar
-                </button>
-            </a>
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
-
-    st.markdown("<br>", unsafe_allow_html=True)
-
-    # 🔹 Card 2 - Simulador de Evasão
-    st.markdown(
-        """
         <div style="text-align: center; padding: 16px; border-radius: 10px; 
                     background-color: rgba(255, 255, 255, 0.8); 
                     box-shadow: 2px 2px 10px rgba(0,0,0,0.1);">
@@ -111,5 +89,28 @@ with col2:
         """,
         unsafe_allow_html=True
     )
+    
+    st.markdown("<br>", unsafe_allow_html=True)
+    
+     # 🔹 Card 2 - Simulador de Evasão
+    st.markdown(
+        """
+        <div style="text-align: center; padding: 16px; border-radius: 10px;
+                    background-color: rgba(255, 255, 255, 0.8); 
+                    box-shadow: 2px 2px 10px rgba(0,0,0,0.1);">
+            <h3>Indicadores de Evasão</h3>
+            <p>Análises e estatísticas sobre evasão escolar.</p>
+            <a href="Indicadores_Eficiencia" target="_self">
+                <button style="padding: 4px 15px; border-radius: 7px; 
+                              border: none; background-color: #007BFF; 
+                              color: white; font-size: 19px; cursor: pointer;">
+                    Acessar
+                </button>
+            </a>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )   
+
 st.markdown("<hr style='border: 1px solid white;'>", unsafe_allow_html=True)
 st.markdown("<p style='color: white;'>Versão 0.0.1 - Brasília - 2025. Universidade Federal do Tocantins - UFT.</p>", unsafe_allow_html=True)
