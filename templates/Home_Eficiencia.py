@@ -89,10 +89,8 @@ with col2:
         """,
         unsafe_allow_html=True
     )
-    
     st.markdown("<br>", unsafe_allow_html=True)
-    
-     # 🔹 Card 2 - Simulador de Evasão
+         # 🔹 Card 2 - Simulador de Evasão
     st.markdown(
         """
         <div style="text-align: center; padding: 16px; border-radius: 10px;
