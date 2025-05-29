@@ -206,11 +206,11 @@ left_co, cent_co, last_co = st.columns([12, 5, 12])
 with cent_co:
 # Logo
 # st.image("images/logo_previa.jpg", width=280)
-    st.image("images/logo_previa.jpg", width=120, use_container_width=True) 
+    st.image("images/logo_previa.jpg", width=100, use_container_width=True) 
 # Cabeçalho
     # st.markdown("<h2>PrevIA - Predição de Evasão na Rede Federal com Inteligência Artificial</h2>", unsafe_allow_html=True)
-    st.markdown("<h2 style='text-align: center; color: white; margin-bottom: 5px;'>PrevIA - Predição de Evasão na Rede Federal com Inteligência Artificial</h2>", unsafe_allow_html=True)
-    st.markdown("<p>Este projeto tem por objetivo ser uma plataforma para todos aqueles que desejam obter informações do comportamento da evasão na RFEPCT.</p>", unsafe_allow_html=True)
+st.markdown("<h2 style='text-align: center; color: white; margin-bottom: 5px;'>PrevIA - Predição de Evasão na Rede Federal com Inteligência Artificial</h2>", unsafe_allow_html=True)
+st.markdown("<p>Este projeto tem por objetivo ser uma plataforma para todos aqueles que desejam obter informações do comportamento da evasão na RFEPCT.</p>", unsafe_allow_html=True)
 
 # Layout: cards à esquerda, imagem à direita
 # col_left, col_right = st.columns([1.2, 2.5])
