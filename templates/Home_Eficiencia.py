@@ -147,13 +147,6 @@ st.markdown(f"""
         font-family: 'Segoe UI', sans-serif;
     }}
 
-    h2 {{
-        font-size: 36px;
-        color: #ffffff;
-        text-shadow: 2px 2px 4px #000;
-        margin-bottom: 5px;
-    }}
-
     p {{
         color: #f0f0f0;
         font-size: 18px;
