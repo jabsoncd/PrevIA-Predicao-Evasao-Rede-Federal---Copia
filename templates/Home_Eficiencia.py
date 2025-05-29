@@ -252,7 +252,6 @@
 
 
 
-
 import streamlit as st
 import base64
 
@@ -272,7 +271,7 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# CSS global moderno
+# CSS global moderno com centralização geral
 st.markdown(f"""
     <style>
     #MainMenu, footer, header {{ visibility: hidden; }}
@@ -284,20 +283,22 @@ st.markdown(f"""
         background-position: center;
         background-attachment: fixed;
         font-family: 'Segoe UI', sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        padding: 20px;
     }}
 
-    .centered-container {{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+    .content {{
         text-align: center;
-        padding-top: 30px;
+        max-width: 1000px;
+        width: 100%;
     }}
 
     .logo {{
         width: 280px;
-        margin-bottom: 10px;
+        margin-bottom: 20px;
     }}
 
     .system-title {{
@@ -305,22 +306,21 @@ st.markdown(f"""
         color: #ffffff;
         font-family: 'Poppins', sans-serif;
         text-shadow: 2px 2px 5px #000;
-        margin-bottom: 5px;
+        margin-bottom: 10px;
     }}
 
     .description {{
         color: #f0f0f0;
         font-size: 18px;
-        max-width: 800px;
         text-shadow: 1px 1px 3px #000;
-        margin-bottom: 50px;
+        margin-bottom: 40px;
     }}
 
-    .card-wrapper {{
+    .cards {{
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 30px;
+        justify-content: center;
+        gap: 40px;
+        flex-wrap: wrap;
     }}
 
     .custom-card {{
@@ -329,7 +329,7 @@ st.markdown(f"""
         border: 1px solid rgba(255,255,255,0.3);
         border-radius: 20px;
         padding: 30px;
-        width: 350px;
+        width: 320px;
         box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
         transition: all 0.3s ease-in-out;
     }}
@@ -382,52 +382,37 @@ st.markdown(f"""
     </style>
 """, unsafe_allow_html=True)
 
-# Layout centralizado
-st.markdown('<div class="centered-container">', unsafe_allow_html=True)
-
-# Logo
-st.markdown('<img src="images/logo_previa.jpg" class="logo">', unsafe_allow_html=True)
-
-# Cabeçalho
-st.markdown('<div class="system-title">PrevIA - Predição de Evasão na Rede Federal com Inteligência Artificial</div>', unsafe_allow_html=True)
-st.markdown('<div class="description">Este projeto tem por objetivo ser uma plataforma para todos aqueles que desejam obter informações do comportamento da evasão na RFEPCT.</div>', unsafe_allow_html=True)
-
-# Cards
-st.markdown('<div class="card-wrapper">', unsafe_allow_html=True)
-
-# Card 1 - Simulador
+# HTML estruturado centralizado
 st.markdown("""
-    <div class="custom-card">
-        <h3>Simulador de Evasão</h3>
-        <p>Simule a probabilidade de evasão de um aluno.</p>
-        <div style="text-align:center;">
-            <a href="Simulador_Eficiencia" target="_self">
-                <button class="custom-button green-btn">Acessar</button>
-            </a>
+    <div class="content">
+        <img src="images/logo_previa.jpg" class="logo">
+        <div class="system-title">PrevIA - Predição de Evasão na Rede Federal com Inteligência Artificial</div>
+        <div class="description">Este projeto tem por objetivo ser uma plataforma para todos aqueles que desejam obter informações do comportamento da evasão na RFEPCT.</div>
+
+        <div class="cards">
+
+            <div class="custom-card">
+                <h3>Simulador de Evasão</h3>
+                <p>Simule a probabilidade de evasão de um aluno.</p>
+                <div style="text-align:center;">
+                    <a href="Simulador_Eficiencia" target="_self">
+                        <button class="custom-button green-btn">Acessar</button>
+                    </a>
+                </div>
+            </div>
+
+            <div class="custom-card">
+                <h3>Indicadores de Evasão</h3>
+                <p>Análises e estatísticas sobre evasão escolar.</p>
+                <div style="text-align:center;">
+                    <a href="Indicadores_Eficiencia" target="_self">
+                        <button class="custom-button blue-btn">Acessar</button>
+                    </a>
+                </div>
+            </div>
+
         </div>
+
+        <p class='footer'>Versão 0.0.1 - Brasília - 2025. Universidade Federal do Tocantins - UFT.</p>
     </div>
 """, unsafe_allow_html=True)
-
-# Card 2 - Indicadores
-st.markdown("""
-    <div class="custom-card">
-        <h3>Indicadores de Evasão</h3>
-        <p>Análises e estatísticas sobre evasão escolar.</p>
-        <div style="text-align:center;">
-            <a href="Indicadores_Eficiencia" target="_self">
-                <button class="custom-button blue-btn">Acessar</button>
-            </a>
-        </div>
-    </div>
-""", unsafe_allow_html=True)
-
-# Fechar div do card-wrapper
-st.markdown("</div>", unsafe_allow_html=True)
-
-# Fechar div do container principal
-st.markdown("</div>", unsafe_allow_html=True)
-
-# Rodapé
-st.markdown("<p class='footer'>Versão 0.0.1 - Brasília - 2025. Universidade Federal do Tocantins - UFT.</p>", unsafe_allow_html=True)
-
-
