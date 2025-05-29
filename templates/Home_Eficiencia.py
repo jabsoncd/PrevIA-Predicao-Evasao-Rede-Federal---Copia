@@ -211,9 +211,10 @@ st.markdown("<h2>PrevIA - Predição de Evasão na Rede Federal com Inteligênci
 st.markdown("<p>Este projeto tem por objetivo ser uma plataforma para todos aqueles que desejam obter informações do comportamento da evasão na RFEPCT.</p>", unsafe_allow_html=True)
 
 # Layout: cards à esquerda, imagem à direita
-col_left, col_right = st.columns([1.2, 2.5])
+# col_left, col_right = st.columns([1.2, 2.5])
+col1, col2, col3 = st.columns([1, 3, 1])
 
-with col_left:
+with col2:
     # Card 1 - Simulador
     st.markdown("""
         <div class="custom-card">
