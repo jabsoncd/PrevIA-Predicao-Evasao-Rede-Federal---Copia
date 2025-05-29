@@ -123,7 +123,7 @@ def get_base64_of_image(image_path):
         return base64.b64encode(image_file.read()).decode()
 
 # Carregar imagem de fundo
-img_base64 = get_base64_of_image("templates/dropout1.jpg")  # Substitua pelo caminho da imagem desejada
+img_base64 = get_base64_of_image("templates/dropout1_uniform.jpg")  # Substitua pelo caminho da imagem desejada
 
 # Configurar página
 st.set_page_config(
