@@ -253,8 +253,6 @@
 
 
 
-
-
 import streamlit as st
 import base64
 
@@ -431,3 +429,5 @@ st.markdown("</div>", unsafe_allow_html=True)
 
 # Rodapé
 st.markdown("<p class='footer'>Versão 0.0.1 - Brasília - 2025. Universidade Federal do Tocantins - UFT.</p>", unsafe_allow_html=True)
+
+
