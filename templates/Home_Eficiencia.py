@@ -204,7 +204,30 @@ st.markdown(f"""
 """, unsafe_allow_html=True)
 # Layout centralizado com 3 colunas: esquerda (vazia), centro (conteúdo), direita (vazia)
 
-st.image("images/logo_previa.jpg", width=50, use_container_width=True)
+# Esconde o menu e o rodapé para uma aparência mais limpa
+st.markdown("""
+    <style>
+        #MainMenu, header, footer {visibility: hidden;}
+        .logo-container {
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+        .logo-container img {
+            width: 280px;  /* Tamanho confortável */
+        }
+    </style>
+""", unsafe_allow_html=True)
+
+# Exibe a imagem centralizada no topo da página
+st.markdown("""
+    <div class="logo-container">
+        <img src="images/logo_previa.jpg" alt="Logo PrevIA">
+    </div>
+""", unsafe_allow_html=True)
+
+
+
 left_co, cent_co, right_co = st.columns([1, 2, 1])
 
 with cent_co:
