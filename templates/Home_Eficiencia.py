@@ -210,7 +210,7 @@ with cent_co:
 # Cabeçalho
     # st.markdown("<h2>PrevIA - Predição de Evasão na Rede Federal com Inteligência Artificial</h2>", unsafe_allow_html=True)
 st.markdown("<h2 style='text-align: center; color: white; margin-bottom: 5px;'>PrevIA - Predição de Evasão na Rede Federal com Inteligência Artificial</h2>", unsafe_allow_html=True)
-st.markdown("<p>Este projeto tem por objetivo ser uma plataforma para todos aqueles que desejam obter informações do comportamento da evasão na RFEPCT.</p>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center;> Este projeto tem por objetivo ser uma plataforma para todos aqueles que desejam obter informações do comportamento da evasão na RFEPCT.</p>", unsafe_allow_html=True)
 
 # Layout: cards à esquerda, imagem à direita
 # col_left, col_right = st.columns([1.2, 2.5])
