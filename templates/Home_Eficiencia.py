@@ -202,15 +202,29 @@ st.markdown(f"""
     }}
     </style>
 """, unsafe_allow_html=True)
-left_co, cent_co, last_co = st.columns([12, 5, 12])
+# Layout centralizado com 3 colunas: esquerda (vazia), centro (conteúdo), direita (vazia)
+left_co, cent_co, right_co = st.columns([1, 2, 1])
+
 with cent_co:
-# Logo
-# st.image("images/logo_previa.jpg", width=280)
-    st.image("images/logo_previa.jpg", width=250) 
-# Cabeçalho
-    # st.markdown("<h2>PrevIA - Predição de Evasão na Rede Federal com Inteligência Artificial</h2>", unsafe_allow_html=True)
-st.markdown("<h2 style='text-align: center; color: white; margin-bottom: 5px;'>PrevIA - Predição de Evasão na Rede Federal com Inteligência Artificial</h2>", unsafe_allow_html=True)
-    st.markdown("<p> Este projeto tem por objetivo ser uma plataforma para todos aqueles que desejam obter informações do comportamento da evasão na RFEPCT.</p>", unsafe_allow_html=True)
+    # Logo centralizada com tamanho maior
+    st.image("images/logo_previa.jpg", width=280)
+
+    # Título centralizado com fonte branca moderna
+    st.markdown("""
+        <h2 style='text-align: center; color: white; font-family: "Segoe UI", sans-serif;
+        font-weight: 600; margin-bottom: 10px; text-shadow: 2px 2px 4px #000;'>
+            PrevIA - Predição de Evasão na Rede Federal com Inteligência Artificial
+        </h2>
+    """, unsafe_allow_html=True)
+
+    # Parágrafo descritivo também centralizado
+    st.markdown("""
+        <p style='text-align: center; color: #f0f0f0; font-size: 18px;
+        font-family: "Segoe UI", sans-serif; text-shadow: 1px 1px 3px #000;'>
+            Este projeto tem por objetivo ser uma plataforma para todos aqueles que desejam obter informações
+            sobre o comportamento da evasão na Rede Federal de Educação Profissional, Científica e Tecnológica.
+        </p>
+    """, unsafe_allow_html=True)
 
 # Layout: cards à esquerda, imagem à direita
 # col_left, col_right = st.columns([1.2, 2.5])
