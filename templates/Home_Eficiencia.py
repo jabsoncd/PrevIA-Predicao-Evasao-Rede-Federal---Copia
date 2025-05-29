@@ -114,177 +114,18 @@
 # st.markdown("<p style='color: white;'>Versão 0.0.1 - Brasília - 2025. Universidade Federal do Tocantins - UFT.</p>", unsafe_allow_html=True)
 
 
-
-
-
-
-
-
-
-
-
-
-
-# import streamlit as st
-# import base64
-
-# # Função para converter imagem local em Base64
-# def get_base64_of_image(image_path):
-#     with open(image_path, "rb") as image_file:
-#         return base64.b64encode(image_file.read()).decode()
-
-# # Carregar imagem de fundo
-# img_base64 = get_base64_of_image("templates/dropout1.jpg")  # Substitua pelo caminho da imagem desejada
-
-# # Configurar página
-# st.set_page_config(
-#     page_title="Plataforma PrevIA",
-#     page_icon="previa_azulmenor.png",
-#     layout="wide",
-#     initial_sidebar_state="collapsed"
-# )
-
-# # CSS global moderno
-# st.markdown(f"""
-#     <style>
-#     #MainMenu, footer, header {{ visibility: hidden; }}
-#     [data-testid="stSidebar"] {{ display: none; }}
-
-#     .stApp {{
-#         background-image: url("data:image/jpg;base64,{img_base64}");
-#         background-size: cover;
-#         background-position: center;
-#         background-attachment: fixed;
-#         font-family: 'Segoe UI', sans-serif;
-#     }}
-
-#     h2 {{
-#         font-size: 36px;
-#         color: #ffffff;
-#         text-shadow: 2px 2px 4px #000;
-#         margin-bottom: 5px;
-#     }}
-
-#     p {{
-#         color: #f0f0f0;
-#         font-size: 18px;
-#         text-align: left;
-#         text-shadow: 1px 1px 3px #000;
-#     }}
-
-#     .custom-card {{
-#         background: rgba(255, 255, 255, 0.15);
-#         backdrop-filter: blur(10px);
-#         border: 1px solid rgba(255,255,255,0.3);
-#         border-radius: 20px;
-#         padding: 30px;
-#         margin-bottom: 30px;
-#         box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-#         transition: all 0.3s ease-in-out;
-#     }}
-
-#     .custom-card:hover {{
-#         transform: translateY(-5px);
-#         box-shadow: 0 12px 48px rgba(31, 38, 135, 0.5);
-#     }}
-
-#     .custom-button {{
-#         padding: 10px 25px;
-#         font-size: 18px;
-#         border: none;
-#         border-radius: 30px;
-#         cursor: pointer;
-#         margin-top: 15px;
-#         transition: 0.2s;
-#     }}
-
-#     .green-btn {{
-#         background-color: #00c853;
-#         color: white;
-#     }}
-
-#     .blue-btn {{
-#         background-color: #2979ff;
-#         color: white;
-#     }}
-
-#     .custom-button:hover {{
-#         filter: brightness(1.1);
-#     }}
-
-#     .footer {{
-#         color: #ffffff;
-#         font-size: 13px;
-#         margin-top: 40px;
-#         text-align: left;
-#     }}
-#     </style>
-# """, unsafe_allow_html=True)
-
-# # Logo
-# st.image("images/logo_previa.jpg", width=150)
-
-# # Cabeçalho
-# st.markdown("<h2>PrevIA - Predição de Evasão na Rede Federal com Inteligência Artificial</h2>", unsafe_allow_html=True)
-# st.markdown("<p>Este projeto tem por objetivo ser uma plataforma para todos aqueles que desejam obter informações do comportamento da evasão na RFEPCT.</p>", unsafe_allow_html=True)
-
-# # Layout: cards à esquerda, imagem à direita
-# col_left, col_right = st.columns([1.2, 2.5])
-
-# with col_left:
-#     # Card 1 - Simulador
-#     st.markdown("""
-#         <div class="custom-card">
-#             <h3 style="color:white; text-align:center;">Simulador de Evasão</h3>
-#             <p style="text-align:center;">Simule a probabilidade de evasão de um aluno.</p>
-#             <div style="text-align:center;">
-#                 <a href="Simulador_Eficiencia" target="_self">
-#                     <button class="custom-button green-btn">Acessar</button>
-#                 </a>
-#             </div>
-#         </div>
-#     """, unsafe_allow_html=True)
-
-#     # Card 2 - Indicadores
-#     st.markdown("""
-#         <div class="custom-card">
-#             <h3 style="color:white; text-align:center;">Indicadores de Evasão</h3>
-#             <p style="text-align:center;">Análises e estatísticas sobre evasão escolar.</p>
-#             <div style="text-align:center;">
-#                 <a href="Indicadores_Eficiencia" target="_self">
-#                     <button class="custom-button blue-btn">Acessar</button>
-#                 </a>
-#             </div>
-#         </div>
-#     """, unsafe_allow_html=True)
-
-# # Rodapé
-# st.markdown("<p class='footer'>Versão 0.0.1 - Brasília - 2025. Universidade Federal do Tocantins - UFT.</p>", unsafe_allow_html=True)
-
-
-
-
-
-
-
-
-
-
-
-
-
 import streamlit as st
 import base64
 
-# Função para converter imagem local em base64
+# Função para converter imagem local em Base64
 def get_base64_of_image(image_path):
     with open(image_path, "rb") as image_file:
         return base64.b64encode(image_file.read()).decode()
 
-# Caminho para a imagem de fundo
-img_base64 = get_base64_of_image("templates/dropout1.jpg")
+# Carregar imagem de fundo
+img_base64 = get_base64_of_image("templates/dropout1.jpg")  # Substitua pelo caminho da imagem desejada
 
-# Configuração da página
+# Configurar página
 st.set_page_config(
     page_title="Plataforma PrevIA",
     page_icon="previa_azulmenor.png",
@@ -292,15 +133,12 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# CSS personalizado com Glassmorphism e cores sofisticadas
+# CSS global moderno
 st.markdown(f"""
     <style>
-    #MainMenu, footer, header {{
-        visibility: hidden;
-    }}
-    [data-testid="stSidebar"] {{
-        display: none;
-    }}
+    #MainMenu, footer, header {{ visibility: hidden; }}
+    [data-testid="stSidebar"] {{ display: none; }}
+
     .stApp {{
         background-image: url("data:image/jpg;base64,{img_base64}");
         background-size: cover;
@@ -308,67 +146,61 @@ st.markdown(f"""
         background-attachment: fixed;
         font-family: 'Segoe UI', sans-serif;
     }}
+
     h2 {{
-        color: #fff;
         font-size: 36px;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
-        margin-bottom: 0px;
+        color: #ffffff;
+        text-shadow: 2px 2px 4px #000;
+        margin-bottom: 5px;
     }}
+
     p {{
-        color: #f5f5f5;
-        font-size: 17px;
-        margin-top: 5px;
-        text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        color: #f0f0f0;
+        font-size: 18px;
+        text-align: left;
+        text-shadow: 1px 1px 3px #000;
     }}
-    .glass-card {{
-        background: rgba(255, 255, 255, 0.25);
+
+    .custom-card {{
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255,255,255,0.3);
         border-radius: 20px;
-        padding: 25px;
+        padding: 30px;
         margin-bottom: 30px;
-        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.3);
-        backdrop-filter: blur(15px);
-        -webkit-backdrop-filter: blur(15px);
-        border: 1px solid rgba(255, 255, 255, 0.18);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
         transition: all 0.3s ease-in-out;
     }}
-    .glass-card:hover {{
-        transform: scale(1.02);
+
+    .custom-card:hover {{
+        transform: translateY(-5px);
         box-shadow: 0 12px 48px rgba(31, 38, 135, 0.5);
     }}
-    .card-title {{
-        color: #222;
-        text-align: center;
-        font-size: 24px;
-        font-weight: bold;
-    }}
-    .card-text {{
-        text-align: center;
-        color: #444;
-        font-size: 16px;
-        margin-bottom: 20px;
-    }}
+
     .custom-button {{
-        padding: 10px 28px;
-        border-radius: 30px;
+        padding: 10px 25px;
+        font-size: 18px;
         border: none;
-        font-size: 17px;
+        border-radius: 30px;
         cursor: pointer;
-        transition: 0.3s;
-        text-decoration: none;
-        display: inline-block;
+        margin-top: 15px;
+        transition: 0.2s;
     }}
+
     .green-btn {{
-        background-color: #28a745;
+        background-color: #00c853;
         color: white;
     }}
+
     .blue-btn {{
-        background-color: #007bff;
+        background-color: #2979ff;
         color: white;
     }}
+
     .custom-button:hover {{
         filter: brightness(1.1);
-        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }}
+
     .footer {{
         color: #ffffff;
         font-size: 13px;
@@ -378,35 +210,39 @@ st.markdown(f"""
     </style>
 """, unsafe_allow_html=True)
 
-# Logo centralizado
+# Logo
 st.image("images/logo_previa.jpg", width=150)
 
 # Cabeçalho
 st.markdown("<h2>PrevIA - Predição de Evasão na Rede Federal com Inteligência Artificial</h2>", unsafe_allow_html=True)
 st.markdown("<p>Este projeto tem por objetivo ser uma plataforma para todos aqueles que desejam obter informações do comportamento da evasão na RFEPCT.</p>", unsafe_allow_html=True)
 
-# Divisão: cards à esquerda
-col_left, col_right = st.columns([1.3, 2.5])
+# Layout: cards à esquerda, imagem à direita
+col_left, col_right = st.columns([1.2, 2.5])
 
 with col_left:
-    # Card 1
+    # Card 1 - Simulador
     st.markdown("""
-        <div class="glass-card">
-            <div class="card-title">Simulador de Evasão</div>
-            <div class="card-text">Simule a probabilidade de evasão de um aluno.</div>
+        <div class="custom-card">
+            <h3 style="color:white; text-align:center;">Simulador de Evasão</h3>
+            <p style="text-align:center;">Simule a probabilidade de evasão de um aluno.</p>
             <div style="text-align:center;">
-                <a href="Simulador_Eficiencia" class="custom-button green-btn">Acessar</a>
+                <a href="Simulador_Eficiencia" target="_self">
+                    <button class="custom-button green-btn">Acessar</button>
+                </a>
             </div>
         </div>
     """, unsafe_allow_html=True)
 
-    # Card 2
+    # Card 2 - Indicadores
     st.markdown("""
-        <div class="glass-card">
-            <div class="card-title">Indicadores de Evasão</div>
-            <div class="card-text">Análises e estatísticas sobre evasão escolar.</div>
+        <div class="custom-card">
+            <h3 style="color:white; text-align:center;">Indicadores de Evasão</h3>
+            <p style="text-align:center;">Análises e estatísticas sobre evasão escolar.</p>
             <div style="text-align:center;">
-                <a href="Indicadores_Eficiencia" class="custom-button blue-btn">Acessar</a>
+                <a href="Indicadores_Eficiencia" target="_self">
+                    <button class="custom-button blue-btn">Acessar</button>
+                </a>
             </div>
         </div>
     """, unsafe_allow_html=True)
