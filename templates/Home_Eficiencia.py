@@ -16,7 +16,7 @@ img_base64 = get_base64_of_image("templates/dropout1.jpg")
 # Configuração da página
 st.set_page_config(
     page_title="Plataforma PrevIA",
-    page_icon="previa_azulmenor.png",
+    page_icon="images/previa_azulmenor.png",
     layout="wide",
     initial_sidebar_state="collapsed"
 )
