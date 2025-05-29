@@ -207,7 +207,7 @@ left_co, cent_co, right_co = st.columns([1, 2, 1])
 
 with cent_co:
     # Logo centralizada com tamanho maior
-    st.image("images/logo_previa.jpg", width=50, use_container_width=True)
+    st.image("images/logo_previa.jpg", use_container_width=True)
 
     # Título centralizado com fonte branca moderna
     st.markdown("""
