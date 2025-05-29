@@ -205,7 +205,8 @@ st.markdown(f"""
 left_co, cent_co, last_co = st.columns([12, 5, 12])
 with cent_co:
 # Logo
-st.image("images/logo_previa.jpg", width=280)
+# st.image("images/logo_previa.jpg", width=280)
+    st.image("images/logo_previa.jpg", width=280, use_container_width=True) 
 
 # Cabeçalho
 st.markdown("<h2>PrevIA - Predição de Evasão na Rede Federal com Inteligência Artificial</h2>", unsafe_allow_html=True)
