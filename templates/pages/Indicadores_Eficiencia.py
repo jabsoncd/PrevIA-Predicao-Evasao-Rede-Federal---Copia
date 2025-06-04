@@ -131,7 +131,7 @@ st.write("---")
 # Menu
 st.sidebar.title("Filtros")
 
-# st.sidebar.markdown("Situação das Matrículas")
+st.sidebar.markdown("Situação das Matrículas")
 # CATEGORIA_SITUACAO = st.sidebar.multiselect(
 #     key=1,
 #     label="Categoria da Situação",
@@ -143,13 +143,16 @@ st.sidebar.title("Filtros")
 situacao_fixa = ["Evadidos"]
 
 # Exibir como desabilitado
-st.sidebar.multiselect(
+CATEGORIA_SITUACAO =  st.sidebar.multiselect(
     key=1,
     label="Categoria da Situação",
-    options=df["CATEGORIA_SITUACAO"].unique(),
+    options=situacao_fixa,
     default=situacao_fixa,
     disabled=True
 )
+
+# Usar o valor fixo no filtro
+df_filtrado = df[df["CATEGORIA_SITUACAO"].isin(situacao_fixa)]
 
 
 
