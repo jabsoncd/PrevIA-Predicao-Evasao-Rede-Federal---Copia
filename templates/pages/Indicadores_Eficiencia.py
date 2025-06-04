@@ -147,7 +147,7 @@ st.sidebar.markdown("Situação das Matrículas")
 situacao_fixa = ["Evadidos"]
 
 # Exibe campo desabilitado (somente leitura)
-ATEGORIA_SITUACAO = st.sidebar.multiselect(
+CATEGORIA_SITUACAO = st.sidebar.multiselect(
     key=1,
     label="Categoria da Situação",
     options=situacao_fixa,
@@ -156,7 +156,7 @@ ATEGORIA_SITUACAO = st.sidebar.multiselect(
 )
 
 # Dados não são filtrados — mostram todas as situações
-df_filtrado = df["CATEGORIA_SITUACAO"]  # Nenhum filtro aplicado aqui
+df_filtrado = df  # Nenhum filtro aplicado aqui
 
 
 
