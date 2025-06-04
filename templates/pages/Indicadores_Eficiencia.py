@@ -154,15 +154,6 @@ CATEGORIA_SITUACAO = st.sidebar.multiselect(
     disabled=True
 )
 
-# Dados não são filtrados — mostram todas as situações
-df_filtrado = df  # Nenhum filtro aplicado aqui
-
-
-
-
-
-
-
 st.sidebar.markdown("---")
 st.sidebar.markdown("Demográficos")
 REGIAO = st.sidebar.multiselect(
