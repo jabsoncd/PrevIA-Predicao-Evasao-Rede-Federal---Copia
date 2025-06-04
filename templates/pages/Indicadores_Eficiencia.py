@@ -131,13 +131,21 @@ st.write("---")
 # Menu
 st.sidebar.title("Filtros")
 
+# Valor fixo
+situacao_fixa = ["Evadidos"]
+
 st.sidebar.markdown("Situação das Matrículas")
 CATEGORIA_SITUACAO = st.sidebar.multiselect(
     key=1,
     label="Categoria da Situação",
     placeholder="Selecione a situação",
-    options=df["CATEGORIA_SITUACAO"].unique(),
+    options=situacao_fixa,
+    default=situacao_fixa,
+    disabled=True
 )
+# Usar o valor fixo no filtro
+df_filtrado = df[df["CATEGORIA_SITUACAO"].isin(situacao_fixa)]
+
 st.sidebar.markdown("---")
 st.sidebar.markdown("Demográficos")
 REGIAO = st.sidebar.multiselect(
@@ -548,7 +556,7 @@ if st.session_state.selected_tab == "📈 Demográficos":
     st.plotly_chart(fig2)
 
     # Criação do botão "Insights chatGPT"
-    if st.button('Insights chatGPT', key="insights_button2"):
+    if st.button('Gerar Insights com IA Generativa', key="insights_button2"):
         # Solicitar insights via ChatGPT
         response = openai.ChatCompletion.create(
             model="gpt-4o-mini",
@@ -591,7 +599,7 @@ if st.session_state.selected_tab == "📈 Demográficos":
     st.plotly_chart(figuf)
 
     # Criação do botão "Insights chatGPT"
-    if st.button('Insights chatGPT', key="insights_button3"):
+    if st.button('Gerar Insights com IA Generativa', key="insights_button3"):
         # Solicitar insights via ChatGPT
         response = openai.ChatCompletion.create(
             model="gpt-4o-mini",
@@ -725,7 +733,7 @@ elif st.session_state.selected_tab == "📉 Sociais":
     st.plotly_chart(fig4)
 
     # Criação do botão "Insights chatGPT"
-    if st.button('Insights chatGPT', key="insights_button4"):
+    if st.button('Gerar Insights com IA Generativa', key="insights_button4"):
         # Solicitar insights via ChatGPT
         response = openai.ChatCompletion.create(
             model="gpt-4o-mini",
@@ -756,7 +764,7 @@ elif st.session_state.selected_tab == "📉 Sociais":
     st.plotly_chart(fig5)
 
     # Criação do botão "Insights chatGPT"
-    if st.button('Insights chatGPT', key="insights_button5"):
+    if st.button('Gerar Insights com IA Generativa', key="insights_button5"):
         # Solicitar insights via ChatGPT
         response = openai.ChatCompletion.create(
             model="gpt-4o-mini",
@@ -789,7 +797,7 @@ elif st.session_state.selected_tab == "📉 Sociais":
     st.plotly_chart(fig7)
 
     # Criação do botão "Insights chatGPT"
-    if st.button('Insights chatGPT', key="insights_button6"):
+    if st.button('Gerar Insights com IA Generativa', key="insights_button6"):
         # Solicitar insights via ChatGPT
         response = openai.ChatCompletion.create(
             model="gpt-4o-mini",
@@ -934,7 +942,7 @@ elif st.session_state.selected_tab == "📚 Cursos":
     st.plotly_chart(fig9)
 
     # Criação do botão "Insights chatGPT"
-    if st.button('Insights chatGPT', key="insights_button7"):
+    if st.button('Gerar Insights com IA Generativa', key="insights_button7"):
         # Solicitar insights via ChatGPT
         response = openai.ChatCompletion.create(
             model="gpt-4o-mini",
@@ -981,7 +989,7 @@ elif st.session_state.selected_tab == "📚 Cursos":
     st.plotly_chart(fig8)
 
     # Criação do botão "Insights chatGPT"
-    if st.button('Insights chatGPT', key="insights_button8"):
+    if st.button('Gerar Insights com IA Generativa', key="insights_button8"):
         # Solicitar insights via ChatGPT
         response = openai.ChatCompletion.create(
             model="gpt-4o-mini",
@@ -1009,7 +1017,7 @@ elif st.session_state.selected_tab == "📚 Cursos":
     st.dataframe(ranking_cursos, use_container_width=True)
 
     # Criação do botão "Insights chatGPT"
-    if st.button('Insights chatGPT', key="insights_button12"):
+    if st.button('Gerar Insights com IA Generativa', key="insights_button12"):
         # Solicitar insights via ChatGPT
         response = openai.ChatCompletion.create(
             model="gpt-4o-mini",
@@ -1041,7 +1049,7 @@ elif st.session_state.selected_tab == "📚 Cursos":
     st.plotly_chart(fig10)
 
     # Criação do botão "Insights chatGPT"
-    if st.button('Insights chatGPT', key="insights_button9"):
+    if st.button('Gerar Insights com IA Generativa', key="insights_button9"):
         # Solicitar insights via ChatGPT
         response = openai.ChatCompletion.create(
             model="gpt-4o-mini",
@@ -1073,7 +1081,7 @@ elif st.session_state.selected_tab == "📚 Cursos":
     st.plotly_chart(fig11)
 
     # Criação do botão "Insights chatGPT"
-    if st.button('Insights chatGPT', key="insights_button10"):
+    if st.button('Gerar Insights com IA Generativa', key="insights_button10"):
         # Solicitar insights via ChatGPT
         response = openai.ChatCompletion.create(
             model="gpt-4o-mini",
@@ -1108,7 +1116,7 @@ elif st.session_state.selected_tab == "📚 Cursos":
     st.plotly_chart(fig12)
 
     # Criação do botão "Insights chatGPT"
-    if st.button('Insights chatGPT', key="insights_button11"):
+    if st.button('Gerar Insights com IA Generativa', key="insights_button11"):
         # Solicitar insights via ChatGPT
         response = openai.ChatCompletion.create(
             model="gpt-4o-mini",
