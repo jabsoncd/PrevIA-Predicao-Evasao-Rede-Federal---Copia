@@ -144,7 +144,7 @@ CATEGORIA_SITUACAO = st.sidebar.multiselect(
     disabled=True
 )
 # Usar o valor fixo no filtro
-df_filtrado = df[df["CATEGORIA_SITUACAO"].isin(situacao_fixa)]
+# df_filtrado = df[df["CATEGORIA_SITUACAO"].isin(situacao_fixa)]
 
 st.sidebar.markdown("---")
 st.sidebar.markdown("Demográficos")
