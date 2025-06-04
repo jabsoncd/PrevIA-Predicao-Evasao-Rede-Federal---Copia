@@ -131,13 +131,29 @@ st.write("---")
 # Menu
 st.sidebar.title("Filtros")
 
-st.sidebar.markdown("Situação das Matrículas")
-CATEGORIA_SITUACAO = st.sidebar.multiselect(
+# st.sidebar.markdown("Situação das Matrículas")
+# CATEGORIA_SITUACAO = st.sidebar.multiselect(
+#     key=1,
+#     label="Categoria da Situação",
+#     placeholder="Selecione a situação",
+#     options=df["CATEGORIA_SITUACAO"].unique(),
+# )
+
+# Valor fixo
+situacao_fixa = ["Evadidos"]
+
+# Exibir como desabilitado
+st.sidebar.multiselect(
     key=1,
     label="Categoria da Situação",
-    placeholder="Selecione a situação",
     options=df["CATEGORIA_SITUACAO"].unique(),
+    default=situacao_fixa,
+    disabled=True
 )
+
+
+
+
 st.sidebar.markdown("---")
 st.sidebar.markdown("Demográficos")
 REGIAO = st.sidebar.multiselect(
