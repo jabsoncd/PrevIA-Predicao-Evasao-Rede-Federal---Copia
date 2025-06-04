@@ -152,7 +152,7 @@ CATEGORIA_SITUACAO =  st.sidebar.multiselect(
 )
 
 # Usar o valor fixo no filtro
-df_filtrado = df[df["CATEGORIA_SITUACAO"].isin(situacao_fixa)]
+df_filtrado = df["CATEGORIA_SITUACAO"].unique()
 
 
 
