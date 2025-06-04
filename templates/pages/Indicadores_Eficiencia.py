@@ -141,8 +141,6 @@ st.sidebar.markdown("Situação das Matrículas")
 #     # disabled=True
 
 # )
-
-
 # Valor fixo apenas para exibição, sem uso no filtro
 situacao_fixa = ["Evadidos"]
 
@@ -150,7 +148,7 @@ situacao_fixa = ["Evadidos"]
 CATEGORIA_SITUACAO = st.sidebar.multiselect(
     key=1,
     label="Categoria da Situação",
-    options=situacao_fixa,
+    # options=situacao_fixa,
     default=situacao_fixa,
     disabled=True
 )
