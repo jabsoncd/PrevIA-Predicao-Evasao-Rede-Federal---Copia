@@ -149,6 +149,7 @@ CATEGORIA_SITUACAO = st.sidebar.multiselect(
     key=1,
     label="Categoria da Situação",
     options=df["CATEGORIA_SITUACAO"].unique(),
+    placeholder="Evadidos",
     # default=situacao_fixa,
     disabled=True
 )
