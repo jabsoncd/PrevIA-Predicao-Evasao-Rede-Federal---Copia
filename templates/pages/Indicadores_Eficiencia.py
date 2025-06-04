@@ -511,7 +511,7 @@ if st.session_state.selected_tab == "📈 Demográficos":
         </style>
     """, unsafe_allow_html=True)
     # Criação do botão "Insights chatGPT"
-    if st.button('Insights chatGPT', key="insights_button"):
+    if st.button('Gerar Insights com IA Generativa', key="insights_button"):
         # Solicitar insights via ChatGPT
 
         response = openai.ChatCompletion.create(
