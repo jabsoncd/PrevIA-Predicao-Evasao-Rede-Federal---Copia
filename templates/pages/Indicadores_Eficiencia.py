@@ -147,7 +147,7 @@ CATEGORIA_SITUACAO =  st.sidebar.multiselect(
     key=1,
     label="Categoria da Situação",
     options=situacao_fixa,
-    default=situacao_fixa,
+    # default=situacao_fixa,
     disabled=True
 )
 
