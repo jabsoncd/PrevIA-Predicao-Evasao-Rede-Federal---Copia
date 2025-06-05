@@ -132,14 +132,16 @@ st.write("---")
 st.sidebar.title("Filtros")
 
 st.sidebar.markdown("Situação das Matrículas")
+# Label da categoria com cor
+st.sidebar.markdown("<span style='color: black;'>Categoria da Situação:</span>", unsafe_allow_html=True)
+
 CATEGORIA_SITUACAO = st.sidebar.multiselect(
     key=1,
-    label="Categoria da Situação",
+    label="",
     placeholder="Evadidos",
     options=df["CATEGORIA_SITUACAO"].unique(),
     # default="Evadidos",
-    disabled=True
-
+    disabled=True,
 )
 
 st.sidebar.markdown("---")
