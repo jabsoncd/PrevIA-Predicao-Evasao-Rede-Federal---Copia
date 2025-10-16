@@ -58,7 +58,7 @@ idna==3.10
 imbalanced-learn==0.13.0
 imblearn==0.0
 ipykernel==6.29.5
-ipython==9.4.0
+ipython
 ipython_pygments_lexers==1.1.1
 isoduration==20.11.0
 jedi==0.19.2
