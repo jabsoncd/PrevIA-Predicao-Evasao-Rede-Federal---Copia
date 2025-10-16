@@ -14,7 +14,7 @@ def get_base64_of_image(image_path):
 img_base64 = get_base64_of_image("templates/dropout1.jpg")
 
 # Configuração da página
-st.set_page_config(
+st.set_page_config( 
     page_title="Plataforma PrevIA",
     page_icon="images/previa_azulmenor.png",
     layout="wide",

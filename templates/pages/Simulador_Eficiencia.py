@@ -516,5 +516,5 @@ if submit:
         st.image(imagem, caption=legenda)  # use_container_width=True
 
 
-st.markdown("<hr style='border: 1px solid white;'>", unsafe_allow_html=True)
-st.markdown("<p style='color: white;'>Versão 0.0.1 - Brasília - 2025. Universidade Federal do Tocantins - UFT.</p>", unsafe_allow_html=True)
+st.markdown("<hr style='border: 1px solid black;'>", unsafe_allow_html=True)
+st.markdown("<p style='color: black;'>Versão 0.0.1 - Brasília - 2025. Universidade Federal do Tocantins - UFT.</p>", unsafe_allow_html=True)
