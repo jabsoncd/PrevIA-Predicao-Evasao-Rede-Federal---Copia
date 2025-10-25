@@ -193,7 +193,7 @@ if st.session_state.current_page == "home":
 
     st.markdown("---")
 
-    col1, col2, col3 = st.columns(3)
+    col1, col2 = st.columns(2)
 
     with col1:
         st.markdown("""
@@ -239,29 +239,6 @@ if st.session_state.current_page == "home":
         """,
         unsafe_allow_html=True
         )   
-
-    with col3:
-        st.markdown("""
-        <div class="feature-card">
-            <h3>Módulo Gestor</h3>
-            <p>Ferramentas avançadas para gestores educacionais com relatórios detalhados e análises preditivas.</p>
-        </div>
-        """, unsafe_allow_html=True)
-
-        st.markdown(
-        """
-        <div>        
-            <a href="Simulador_Eficiencia" target="_self">
-                <button style="padding: 4px 15px; border-radius: 7px; 
-                              border: none; background-color: #dedede; 
-                              color: #696b6e; font-size: 19px; cursor: pointer;">
-                    Acessar Módulos
-                </button>
-            </a>
-        </div>
-        """,
-        unsafe_allow_html=True
-        ) 
 
 
     st.markdown("""
