@@ -3,7 +3,7 @@ import base64
 from pathlib import Path
 
 # Caminho da logo (ajuste se necessário)
-logo_path = Path("logo_branca_laranja.png")
+logo_path = Path("templates/logo_branca_laranja.png")
 
 
 # Função para converter imagem em base64
@@ -18,7 +18,7 @@ logo_b64 = get_base64_image(logo_path)
 # Configuração da página
 st.set_page_config(
     page_title="PrevIA - Predição de Evasão",
-    page_icon="previa_azulmenor.png",
+    page_icon="images/previa_azulmenor.png",
     layout="wide",
     initial_sidebar_state="collapsed"
 )
