@@ -677,12 +677,12 @@ if submit:
         st.write(f"🔴 Probabilidade de **EVADIR**: {prob_evasao:.2%}")
         
         # Exibir a imagem correspondente
-        st.image(imagem, caption=legenda, width=350)  # use_container_width=True
+        # st.image(imagem, caption=legenda, width=400)  # use_container_width=True
 
         # Exibir a imagem correspondente (centralizada e com largura 400px)
-        # col1, col2, col3 = st.columns([1, 2, 1])   # a coluna do meio é mais larga
-        # with col2:
-        #     st.image(imagem, caption=legenda, width=400)
+        col1, col2, col3 = st.columns([1, 2, 1])   # a coluna do meio é mais larga
+        with col2:
+            st.image(imagem, caption=legenda, width=400)
 
         
 
