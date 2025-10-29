@@ -683,12 +683,14 @@ if submit:
         st.markdown(
             f"""
             <div style='display: flex; justify-content: center;'>
-                <img src='{imagem}' alt='{legenda}' width='400'>
+                <img src='{imagem}' alt='{legenda}'>
             </div>
             <p style='text-align:center; font-style: italic;'>{legenda}</p>
             """,
             unsafe_allow_html=True
         )       
+
+
 
 
 
