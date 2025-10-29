@@ -220,14 +220,14 @@ model = load_model()
 # st.image("images/previa_gemini.png", width=200)
 # Título do painel com imagem centralizada
 # https://raw.githubusercontent.com/jabsoncd/PrevIA-Predicao-Evasao-Rede-Federal---Copia/main/images/previa_gemini.png
-st.markdown(
-    """
-    <div style='text-align: center;'>
-        <img src='https://github.com/jabsoncd/PrevIA-Predicao-Evasao-Rede-Federal---Copia/blob/main/images/previa_gemini.png' width='280'/>
-    </div>
-    """,
-    unsafe_allow_html=True
-)
+# st.markdown(
+#     """
+#     <div style='text-align: center;'>
+#         <img src='https://github.com/jabsoncd/PrevIA-Predicao-Evasao-Rede-Federal---Copia/blob/main/images/previa_gemini.png' width='280'/>
+#     </div>
+#     """,
+#     unsafe_allow_html=True
+# )
 # st.markdown("<h2 style='text-align: center; color: #12125c; margin-bottom: 5px;'>Inteligência Artificial para Predição da Evasão na Rede Federal EPCT</h2>", unsafe_allow_html=True)
 # st.markdown("<p style='text-align: center; color: #1e1e8f;'>Plataforma para análise do comportamento da evasão na RFEPCT.</p>", unsafe_allow_html=True)
 # <hr style='margin-top: 10px; margin-bottom: 10px;' />
@@ -237,18 +237,18 @@ st.markdown(
 # # Linha divisória
 # st.write("---")
 # Título e subtítulo com margens ajustadas
-st.markdown(
-    """
-    <h2 style='text-align: center; color: #12125c; margin-bottom: 5px;'>
-        Inteligência Artificial para Predição da Evasão na Rede Federal EPCT
-    </h2>
-    <p style='text-align: center; color: #1e1e8f; margin-top: 0px; margin-bottom: 10px;'>
-        Plataforma para análise do comportamento da evasão na RFEPCT.
-    </p>
-    <hr style='margin-top: 10px; margin-bottom: 10px;' />
-    """,
-    unsafe_allow_html=True
-)
+# st.markdown(
+#     """
+#     <h2 style='text-align: center; color: #12125c; margin-bottom: 5px;'>
+#         Inteligência Artificial para Predição da Evasão na Rede Federal EPCT
+#     </h2>
+#     <p style='text-align: center; color: #1e1e8f; margin-top: 0px; margin-bottom: 10px;'>
+#         Plataforma para análise do comportamento da evasão na RFEPCT.
+#     </p>
+#     <hr style='margin-top: 10px; margin-bottom: 10px;' />
+#     """,
+#     unsafe_allow_html=True
+# )
 # Texto introdutório centralizado e compacto
 st.markdown(
     """
