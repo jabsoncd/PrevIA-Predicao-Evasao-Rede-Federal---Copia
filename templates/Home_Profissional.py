@@ -240,7 +240,7 @@ if st.session_state.current_page == "home":
         unsafe_allow_html=True
         )   
 
-    with col3:
+    with col3: 
         st.markdown("""
         <div class="feature-card">
             <h3>Módulo Gestor</h3>
