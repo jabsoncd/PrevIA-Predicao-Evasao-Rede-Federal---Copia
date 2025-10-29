@@ -679,12 +679,19 @@ if submit:
         # Exibir a imagem correspondente
         st.image(imagem, caption=legenda, width=450)  # use_container_width=True
 
+
+        # Exibir a imagem correspondente (centralizada e com largura 450px)
+        col1, col2, col3 = st.columns([1, 1, 1])  # colunas: esquerda, centro, direita
+        with col2:
+            st.image(imagem, caption=legenda, width=450)
+
         # Centralizar e redimensionar a imagem (400px)
         st.markdown(
             f"""
             <div style='display: flex; justify-content: center;'>
                 <img src='{imagem}' alt='{legenda}'>
             </div>
+            
             <p style='text-align:center; font-style: italic;'>{legenda}</p>
             """,
             unsafe_allow_html=True
