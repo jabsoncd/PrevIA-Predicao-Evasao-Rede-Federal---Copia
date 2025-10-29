@@ -206,7 +206,7 @@ if st.session_state.current_page == "home":
         st.markdown(
         """
         <div>
-            <a href="Simulador_Eficiencia" target="_self">
+            <a href="Simulador_Eficiencia_Layout" target="_self">
                 <button style="padding: 4px 15px; border-radius: 7px; 
                               border: none; background-color: #dedede; 
                               color: #696b6e; font-size: 19px; cursor: pointer;">
@@ -228,7 +228,7 @@ if st.session_state.current_page == "home":
         st.markdown(
         """
         <div>        
-            <a href="Indicadores_Eficiencia" target="_self">
+            <a href="Indicadores_Eficiencia_Layout" target="_self">
                 <button style="padding: 4px 15px; border-radius: 7px; 
                               border: none; background-color: #dedede; 
                               color: #696b6e; font-size: 19px; cursor: pointer;">
@@ -251,7 +251,7 @@ if st.session_state.current_page == "home":
         st.markdown(
         """
         <div>        
-            <a href="Simulador_Eficiencia" target="_self">
+            <a href="Simulador_Eficiencia_Layout" target="_self">
                 <button style="padding: 4px 15px; border-radius: 7px; 
                               border: none; background-color: #dedede; 
                               color: #696b6e; font-size: 19px; cursor: pointer;">
