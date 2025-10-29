@@ -297,3 +297,4 @@ elif st.session_state.current_page == "gestor":
 elif st.session_state.current_page == "sobre":
     st.title("Sobre o PrevIA")
     st.write("Informações sobre o projeto...")
+ 
