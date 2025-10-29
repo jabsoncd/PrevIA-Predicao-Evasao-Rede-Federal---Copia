@@ -677,14 +677,18 @@ if submit:
         st.write(f"🔴 Probabilidade de **EVADIR**: {prob_evasao:.2%}")
         
         # Exibir a imagem correspondente
-        # st.image(imagem, caption=legenda, width=400)  # use_container_width=True
+        st.image(imagem, caption=legenda, width=450)  # use_container_width=True
 
-        # Exibir a imagem correspondente (centralizada e com largura 400px)
-        col1, col2, col3 = st.columns([1, 2, 1])   # a coluna do meio é mais larga
-        with col2:
-            st.image(imagem, caption=legenda, width=400)
-
-        
+        # Centralizar e redimensionar a imagem (400px)
+        st.markdown(
+            f"""
+            <div style='display: flex; justify-content: center;'>
+                <img src='{imagem}' alt='{legenda}' width='400'>
+            </div>
+            <p style='text-align:center; font-style: italic;'>{legenda}</p>
+            """,
+            unsafe_allow_html=True
+        )       
 
 
 
