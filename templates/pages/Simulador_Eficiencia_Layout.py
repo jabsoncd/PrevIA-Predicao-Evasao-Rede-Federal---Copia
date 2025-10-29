@@ -301,7 +301,7 @@ st.write(" ")
 st.write(" ")
 
 
-st.header("Simulador de Evasão em Cursos Técnicos")
+# st.header("Simulador de Evasão em Cursos Técnicos")
 
 st.subheader("Dados da Instituição")
 
