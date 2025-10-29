@@ -171,7 +171,7 @@ st.markdown(f"""
 <div class="nav-container">
     <div class="nav-logo"></div>
     <div class="nav-links">
-        <span class="nav-link" onclick="window.location.href='https://previa-beta.streamlit.app/~/+/',">Início</span>
+        <span class="nav-link" onclick="window.location.href='https://previa-beta.streamlit.app/~/+/';">Início</span>
         <span class="nav-link" onclick="window.location.href='Simulador_Eficiencia_Layout';">Simular</span>
         <span class="nav-link" onclick="window.location.href='Indicadores_Eficiencia_Layout';">Indicadores</span>
         <span class="nav-link" onclick="window.location.href='#gestor';">Módulo Gestor</span>
