@@ -61,7 +61,7 @@ model = load_model()
 st.markdown(
     """
     <div style='text-align: center;'>
-        <img src='https://github.com/jabsoncd/PrevIA-Predicao-Evasao-Rede-Federal---Copia/blob/main/images/previa_gemini.png' width='280'/> #
+        <img src='https://github.com/jabsoncd/PrevIA-Predicao-Evasao-Rede-Federal---Copia/blob/main/images/previa_gemini.png' width='280'/>
     </div>
     """,
     unsafe_allow_html=True
