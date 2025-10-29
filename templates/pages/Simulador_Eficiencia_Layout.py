@@ -57,10 +57,11 @@ model = load_model()
 # Título do painel
 # st.image("images/previa_gemini.png", width=200)
 # Título do painel com imagem centralizada
+# https://raw.githubusercontent.com/jabsoncd/PrevIA-Predicao-Evasao-Rede-Federal---Copia/main/images/previa_gemini.png
 st.markdown(
     """
     <div style='text-align: center;'>
-        <img src='https://raw.githubusercontent.com/jabsoncd/PrevIA-Predicao-Evasao-Rede-Federal---Copia/main/images/previa_gemini.png' width='280'/>
+        <img src='https://github.com/jabsoncd/PrevIA-Predicao-Evasao-Rede-Federal---Copia/blob/main/images/previa_gemini.png' width='280'/> #
     </div>
     """,
     unsafe_allow_html=True
