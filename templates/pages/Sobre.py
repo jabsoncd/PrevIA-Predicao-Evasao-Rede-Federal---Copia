@@ -123,7 +123,7 @@ st.markdown("""
         text-align: center
     }
     .feature-card {
-        background-color: #f5f7fa;
+        background-color: ##8c8e91;
         border-radius: 10px;
         padding: 1.5rem;
         margin: 1rem 0;
