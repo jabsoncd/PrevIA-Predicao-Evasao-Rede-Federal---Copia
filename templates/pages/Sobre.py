@@ -231,22 +231,17 @@ a, a:visited, a:active {{
 
 
 #########################################################################################################################################################
-
 # Criar colunas para centralizar a imagem
 # Ajuste as proporções conforme necessário
 col1, col2, col3 = st.sidebar.columns([1, 5, 1])
 with col2:  # Centraliza a imagem na coluna do meio
     st.image("images/previa_cinza_menor.png", width=300)  # ../images/
 
-# 🔹 Conteúdo das páginas
-if st.session_state.current_page == "home":
-    st.markdown('<h1 class="main-header">PrevIA - Predição de Evasão na Rede Federal com Inteligência Artificial</h1>', unsafe_allow_html=True)
-# Linha divisória
-st.write("---")
-
-
-
-
+# # 🔹 Conteúdo das páginas
+# if st.session_state.current_page == "home":
+#     st.markdown('<h1 class="main-header">PrevIA - Predição de Evasão na Rede Federal com Inteligência Artificial</h1>', unsafe_allow_html=True)
+# # Linha divisória
+# st.write("---")
 ####################################################################################################################
 
 # Configurações da página
@@ -274,17 +269,6 @@ st.markdown("""
             justify-content: center;
         }
 
-        /* Container centralizado e estilizado */
-        .stContainer {
-            background-color: #b0acac;
-            padding: 40px 60px;
-            border-radius: 15px;
-            box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
-            width: 12cm;               /* Define largura exata */
-            max-width: 100%;           /* Evita estouro em telas pequenas */
-            margin: 0 auto;            /* Centraliza horizontalmente */max-width: 500px;
-        }
-
         /* Estilo das abas */
         div[data-baseweb="tab-list"] {
             justify-content: center;
@@ -302,7 +286,7 @@ st.markdown("""
 
         /* Aba selecionada */
         button[data-baseweb="tab"][aria-selected="true"] {
-            background-color: #0059b3 !important; /* Azul mais claro */
+            background-color: #dcdee0 !important; /* Azul mais claro */
             border-radius: 1px;
         }
 
@@ -322,26 +306,7 @@ st.markdown("""
 
 with st.container():
     st.markdown('<div class="stContainer">', unsafe_allow_html=True)
-
-    # CSS personalizado para largura centralizada das abas
-    st.markdown("""
-        <style>
-            /* Container principal centralizado com largura de 1200px */
-            .custom-tabs-container {
-                max-width: 1200px;
-                margin: 0 auto;          /* Centraliza horizontalmente */
-                background-color: #ffffff;
-                padding: 30px 50px;
-                border-radius: 12px;
-                box-shadow: 0 0 20px rgba(0,0,0,0.05);
-            }
-        </style>
-    """, unsafe_allow_html=True)
-
-    # 👉 Novo container centralizado
-    st.markdown('<div class="custom-tabs-container">', unsafe_allow_html=True)
-
-        # Criação das abas
+    # Criação das abas
     abas = st.tabs([
         "Apresentação",
         "Objetivo",
@@ -412,7 +377,6 @@ with st.container():
         )
 
     st.markdown('</div>', unsafe_allow_html=True)
-    st.markdown('</div>', unsafe_allow_html=True)  # Fecha o custom-tabs-container
 
 
 
