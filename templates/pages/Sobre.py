@@ -257,23 +257,7 @@ if st.session_state.current_page == "home":
 # st.write("---")
 
 
-    st.markdown("""
-    <div style="
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        text-align: center;
-        color: #6B7280;
-        background-color: #dedede;  /* cinza claro */
-        padding: 0.5rem 0;
-        border-top: 2px solid #d1d5db;  /* linha no topo do rodapé */
-        z-index: 1000;
-    ">
-        <p>© 2025 PrevIA - Universidade Federal do Tocantins</p>
-        <p>Versão 0.3.1 - Brasília/DF</p>
-    </div>
-    """, unsafe_allow_html=True)
+
 
 
 ####################################################################################################################
@@ -407,3 +391,21 @@ with st.container():
         )
 
     st.markdown('</div>', unsafe_allow_html=True)
+
+st.markdown("""
+    <div style="
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        color: #6B7280;
+        background-color: #dedede;  /* cinza claro */
+        padding: 0.5rem 0;
+        border-top: 2px solid #d1d5db;  /* linha no topo do rodapé */
+        z-index: 1000;
+    ">
+        <p>© 2025 PrevIA - Universidade Federal do Tocantins</p>
+        <p>Versão 0.3.1 - Brasília/DF</p>
+    </div>
+""", unsafe_allow_html=True)
