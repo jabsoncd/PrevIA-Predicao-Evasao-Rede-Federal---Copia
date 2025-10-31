@@ -294,10 +294,34 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Container centralizado
+# CSS personalizado para largura centralizada das abas
+st.markdown("""
+    <style>
+        /* Container principal centralizado com largura de 1200px */
+        .custom-tabs-container {
+            max-width: 1200px;
+            margin: 0 auto;          /* Centraliza horizontalmente */
+            background-color: #ffffff;
+            padding: 30px 50px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+        }
+    </style>
+""", unsafe_allow_html=True)
 
+
+
+
+
+
+# Container centralizado
 with st.container():
+
     st.markdown('<div class="stContainer">', unsafe_allow_html=True)
+
+
+
+    st.markdown('<div class="custom-tabs-container">', unsafe_allow_html=True)
     # Criação das abas
     abas = st.tabs([
         "Apresentação",
@@ -369,6 +393,8 @@ with st.container():
         )
 
     st.markdown('</div>', unsafe_allow_html=True)
+    st.markdown('</div>', unsafe_allow_html=True)  # Fecha o stContainer
+
 
 
 ######################################################### FOOTER #############################################################
