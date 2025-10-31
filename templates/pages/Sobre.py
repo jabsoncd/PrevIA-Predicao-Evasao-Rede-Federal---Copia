@@ -228,10 +228,6 @@ a, a:visited, a:active {{
 
 
 
-
-
-
-
 #########################################################################################################################################################
 
 # Criar colunas para centralizar a imagem
@@ -310,7 +306,7 @@ st.markdown("""
         /* Aba selecionada */
         button[data-baseweb="tab"][aria-selected="true"] {
             background-color: #0059b3 !important; /* Azul mais claro */
-            border-radius: 10px;
+            border-radius: 1px;
         }
 
         h1, h2, h3, h4, h5 {
