@@ -119,7 +119,7 @@ st.markdown("""
     }
     .sub-header {
         font-size: 1.2rem;
-        color: #4B5563;
+        color: #FFFFFF;
         text-align: center
     }
     .feature-card {
@@ -209,7 +209,7 @@ st.markdown(f"""
 
 /* Garante que os links não sejam estilizados por padrão do navegador */
 a, a:visited, a:active {{
-    color: white;
+    color: #ffffff;
     text-decoration: none;
 }}
 </style>
@@ -394,7 +394,7 @@ with st.container():
         )
 
     st.markdown('</div>', unsafe_allow_html=True)
-
+######################################################### FOOTER #############################################################
     st.markdown("""
     <div style="
         position: fixed;
@@ -416,18 +416,3 @@ with st.container():
         <p>Versão 0.3.1 - Brasília/DF</p>
     </div>
         """, unsafe_allow_html=True)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
