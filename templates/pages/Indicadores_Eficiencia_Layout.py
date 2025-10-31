@@ -212,8 +212,8 @@ st.markdown(f"""
         <div class="nav-link"> {st.page_link("Home_Profissional.py", label="Início")}</div>
         <div class="nav-link"> {st.page_link("pages/Simulador_Eficiencia_Layout.py", label="Simular")}</div>
         <div class="nav-link"> {st.page_link("pages/Indicadores_Eficiencia_Layout.py", label="Indicadores")}</div>
-        <div class="nav-link"> {st.page_link("#", label="Módulo Gestor")}</div>
-        <div class="nav-link"> {st.page_link("#", label="Sobre")}</div>
+        <div class="nav-link"> {st.page_link("pages/Indicadores_Eficiencia_Layout.py", label="Módulo Gestor")}</div>
+        <div class="nav-link"> {st.page_link("pages/Indicadores_Eficiencia_Layout.py", label="Sobre")}</div>
     </div>
 </div>
 
