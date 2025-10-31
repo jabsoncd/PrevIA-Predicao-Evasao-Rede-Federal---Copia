@@ -240,6 +240,15 @@ col1, col2, col3 = st.sidebar.columns([1, 5, 1])
 with col2:  # Centraliza a imagem na coluna do meio
     st.image("images/previa_cinza_menor.png", width=300)  # ../images/
 
+
+
+# 🔹 Conteúdo das páginas
+if st.session_state.current_page == "home":
+    st.markdown('<h1 class="main-header">PrevIA - Predição de Evasão na Rede Federal com Inteligência Artificial</h1>', unsafe_allow_html=True)
+    st.markdown('<p class="sub-header">Sistema inteligente de análise e predição de evasão escolar na RFEPCT</p>', unsafe_allow_html=True)
+
+    st.markdown("---")
+
 # 🔹 Centraliza o título
 st.markdown("<h2 style='text-align: center; color: #12125c; margin-bottom: 5px;'>Inteligência Artificial para Predição da Evasão na Rede Federal EPCT</h2>", unsafe_allow_html=True)
 
@@ -248,6 +257,12 @@ st.markdown("<p style='text-align: center; color: #1e1e8f; margin-top: 0px;'>Pla
 
 # 🔹 Texto introdutório centralizado
 st.markdown("<p style='text-align: center; color: #3f3f4f; margin-top: 0px;'>Olá! Conheça os indicadores relacionados a evasão na Rede Federal EPCT </p>", unsafe_allow_html=True)
+
+
+
+
+
+
 # Linha divisória
 st.write("---")
 # Botão para voltar à página Home.py
