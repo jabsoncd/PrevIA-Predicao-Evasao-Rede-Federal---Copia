@@ -233,13 +233,6 @@ a, a:visited, a:active {{
 
 
 #########################################################################################################################################################
-# Carregar os dados
-# @st.cache_data
-# microdados_eficiencia_academica_RedeFederal_2023_tecnico_RegiaoMetropolitana #base_redeFederal_2022_tecnico_regiaoMetropolitana
-file_path = 'artifacts/microdados_eficiencia_academica_RedeFederal_2023_tecnico_RegiaoMetropolitana.csv'
-# '../artifacts/base_redeFederal_2022_tecnico_regiaoMetropolitana.csv'
-df = pd.read_csv(file_path, delimiter=';')
-
 
 # Criar colunas para centralizar a imagem
 # Ajuste as proporções conforme necessário
@@ -257,12 +250,30 @@ if st.session_state.current_page == "home":
 # st.write("---")
 
 
-
+    st.markdown("""
+    <div style="
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        color: #6B7280;
+        background-color: #dedede;  /* cinza claro */
+        padding: 0.5rem 0;
+        border-top: 2px solid #d1d5db;  /* linha no topo do rodapé */
+        z-index: 1000;
+    ">
+        <p>© 2025 PrevIA - Universidade Federal do Tocantins</p>
+        <p>Versão 0.3.1 - Brasília/DF</p>
+    </div>
+    """, unsafe_allow_html=True)
 
 
 ####################################################################################################################
 
 # Configurações da página
+st.set_page_config(page_title="Sobre o PrevIA", layout="wide")
+
 # CSS personalizado para centralização e estilo das abas
 st.markdown("""
     <style>
@@ -285,7 +296,7 @@ st.markdown("""
         div[data-baseweb="tab-list"] {
             justify-content: center;
             background-color: #5a7794; /* Azul escuro */
-            border-radius: 10px;
+            border-radius: 1px;
             padding: 5px;
         }
 
@@ -317,7 +328,6 @@ st.markdown("""
 # Container centralizado
 with st.container():
     st.markdown('<div class="stContainer">', unsafe_allow_html=True)
-
     # Criação das abas
     abas = st.tabs([
         "Apresentação",
@@ -391,21 +401,3 @@ with st.container():
         )
 
     st.markdown('</div>', unsafe_allow_html=True)
-
-st.markdown("""
-    <div style="
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        text-align: center;
-        color: #6B7280;
-        background-color: #dedede;  /* cinza claro */
-        padding: 0.5rem 0;
-        border-top: 2px solid #d1d5db;  /* linha no topo do rodapé */
-        z-index: 1000;
-    ">
-        <p>© 2025 PrevIA - Universidade Federal do Tocantins</p>
-        <p>Versão 0.3.1 - Brasília/DF</p>
-    </div>
-""", unsafe_allow_html=True)
