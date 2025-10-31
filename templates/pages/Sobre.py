@@ -252,8 +252,6 @@ st.write("---")
 # Configurações da página
 st.set_page_config(page_title="Sobre o PrevIA", layout="wide")
 
-
-
 # CSS personalizado para centralização e estilo das abas
 st.markdown("""
     <style>
@@ -373,21 +371,6 @@ with st.container():
     st.markdown('</div>', unsafe_allow_html=True)
 
 
-
-
-
-
-    # Centraliza o conteúdo principal em largura fixa (~12cm ou 500px)
-    st.markdown("""
-        <style>
-            .block-container {
-                max-width: 1200px;   /* ou use 12cm se preferir */
-                margin: 0 auto;     /* centraliza horizontalmente */
-                padding-top: 2rem;
-                padding-bottom: 5rem; /* deixa espaço para o footer */
-            }
-        </style>
-    """, unsafe_allow_html=True)
 ######################################################### FOOTER #############################################################
     st.markdown("""
     <div style="
