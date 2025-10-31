@@ -155,7 +155,7 @@ logo_b64 = get_base64_image(logo_path)
 
 
 # Barra azul com logo à esquerda e links à direita
-st.markdown("""
+st.markdown(f"""
 <style>
 .nav-container {{
     background-color: #152847;
@@ -206,26 +206,19 @@ st.markdown("""
 }}
 </style>
 
-
+<div class="nav-container">
+    <div class="nav-logo"></div>
+    <div class="nav-links">
+        <a class="nav-link" href="/">Início</a>
+        <a class="nav-link" href="/Simulador_Eficiencia_Layout">Simular</a>
+        <a class="nav-link" href="/Indicadores_Eficiencia_Layout">Indicadores</a>
+        <a class="nav-link" href="#gestor">Módulo Gestor</a>
+        <a class="nav-link" href="#sobre">Sobre</a>
+    </div>
+</div>
 
 <div class="app-content"></div>
 """, unsafe_allow_html=True)
-
-# Navbar
-with st.container():
-    st.markdown('<div class="nav-container">', unsafe_allow_html=True)
-    cols = st.columns([1, 5])  # primeira col: logo, segunda: links
-    with cols[0]:
-        st.image("", width=140)
-    with cols[1]:
-        st.page_link("Home_Profisional.py", label="🏠 Início")
-        st.page_link("pages/Simulador_Eficiencia_Layout.py", label="🧮 Simular")
-        st.page_link("pages/Indicadores_Eficiencia_Layout.py", label="📊 Indicadores")
-        st.page_link("pages/Simulador_Eficiencia_Layout.py", label="👤 Módulo Gestor")
-        st.page_link("pages/Simulador_Eficiencia_Layout.py", label="ℹ️ Sobre")
-    st.markdown('</div>', unsafe_allow_html=True)
- 
-
 
 
 
