@@ -63,14 +63,163 @@ st.markdown(
     """
     <style>
         [data-testid="stSidebar"] {
-            background-color: #blue;
+            background-color: #f5f7fa;
         }
     </style>
     """,
     unsafe_allow_html=True
 )
+#########################################################################################################################################################
 
 
+# CSS personalizado (barra azul alta com ícones dentro)
+st.markdown("""
+<style>
+    /* 🔹 Barra superior azul */
+    .nav-container {
+        background-color: #152847;
+        height: 2cm; /* Altura da faixa azul */
+        display: flex;
+        align-items: center;        /* Centraliza verticalmente os botões */
+        justify-content: flex-end;  /* Alinha botões à direita */
+        padding: 0 3rem;
+        border-radius: 8px;
+        margin-bottom: 2rem;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    /* 🔹 Botões da barra */
+    .nav-button {
+        background-color: transparent;
+        border: none;
+        color: #FFFFFF;
+        font-weight: 600;
+        font-size: 1.1rem;
+        margin-left: 1.2rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+    }
+    .nav-button:hover {
+        background-color: rgba(255,255,255,0.15);
+        border-radius: 6px;
+        transition: 0.2s;
+    }
+
+    /* 🔹 Cabeçalhos e cards */
+    .main-header {
+        font-size: 2.5rem;
+        color: #1E3A8A;
+        text-align: center
+    }
+    .sub-header {
+        font-size: 1.2rem;
+        color: #4B5563;
+        text-align: center
+    }
+    .feature-card {
+        background-color: #f5f7fa;
+        border-radius: 10px;
+        padding: 1.5rem;
+        margin: 1rem 0;
+        border-left: 4px solid #3b82f6;
+    }
+</style>
+""", unsafe_allow_html=True)
+
+
+# 🔹 Ocultar sidebar
+st.markdown("""
+    <style>
+    [data-testid="stSidebar"] {display: none;}
+    </style>
+""", unsafe_allow_html=True)
+# Estado inicial
+if "current_page" not in st.session_state:
+    st.session_state.current_page = "home"
+
+def get_base64_image(path: Path):
+    if not path.exists():
+        return None
+    with open(path, "rb") as f:
+        return base64.b64encode(f.read()).decode("utf-8")
+
+logo_b64 = get_base64_image(logo_path)
+
+
+# Barra azul com logo à esquerda e links à direita
+st.markdown(f"""
+<style>
+.nav-container {{
+    background-color: #152847;
+    height: 2cm;
+    display: flex;
+    justify-content: space-between; /* logo à esquerda, links à direita */
+    align-items: center;
+    width: 100%;
+    padding: 0 2rem;
+    margin: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    border-radius: 0; /* <- garante cantos quadrados */
+}}
+
+.nav-logo {{
+    width: 200px; /* largura da logo */
+    height: 60px; /* altura da logo */
+    background-image: url("data:image/jpg;base64,{logo_b64}");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: left center;
+}}
+
+.nav-links {{
+    display: flex;
+    gap: 2rem;
+}}
+
+.nav-link {{
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    text-decoration: none;
+}}
+.nav-link:hover {{
+    color: #FFA500; /* laranja claro ao passar o mouse */
+    transition: color 0.2s;
+}}
+
+/* Espaço no topo para não sobrepor o conteúdo */
+.app-content {{
+    padding-top: 3.5rem; /* >= altura da nav */
+}}
+</style>
+
+<div class="nav-container">
+    <div class="nav-logo"></div>
+    <div class="nav-links">
+        <span class="nav-link" onclick="window.location.href='https://previa-beta.streamlit.app/~/+/';">Início</span>
+        <span class="nav-link" onclick="window.location.href='Simulador_Eficiencia_Layout';">Simular</span>
+        <span class="nav-link" onclick="window.location.href='Indicadores_Eficiencia_Layout';">Indicadores</span>
+        <span class="nav-link" onclick="window.location.href='#gestor';">Módulo Gestor</span>
+        <span class="nav-link" onclick="window.location.href='#sobre';">Sobre</span>
+    </div>
+</div>
+
+<div class="app-content"></div>
+""", unsafe_allow_html=True)
+
+
+
+
+
+
+
+#########################################################################################################################################################
 # Carregar os dados
 # @st.cache_data
 # microdados_eficiencia_academica_RedeFederal_2023_tecnico_RegiaoMetropolitana #base_redeFederal_2022_tecnico_regiaoMetropolitana
