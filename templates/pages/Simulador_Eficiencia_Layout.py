@@ -134,6 +134,7 @@ st.markdown(f"""
     left: 0;
     z-index: 999;
     border-radius: 0; /* <- garante cantos quadrados */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2)
 }}
 
 .nav-logo {{
@@ -155,7 +156,7 @@ st.markdown(f"""
     font-weight: 600;
     font-size: 1.1rem;
     cursor: pointer;
-    text-decoration: none;
+    text-decoration: none !important;
 }}
 .nav-link:hover {{
     color: #FFA500; /* laranja claro ao passar o mouse */
@@ -166,16 +167,22 @@ st.markdown(f"""
 .app-content {{
     padding-top: 3.5rem; /* >= altura da nav */
 }}
+
+/* Garante que os links não sejam estilizados por padrão do navegador */
+a, a:visited, a:active {{
+    color: white;
+    text-decoration: none;
+}}
 </style>
 
 <div class="nav-container">
     <div class="nav-logo"></div>
     <div class="nav-links">
-        <span class="nav-link" onclick="window.location.href='https://previa-beta.streamlit.app/~/+/';">Início</span>
-        <span class="nav-link" onclick="window.location.href='Simulador_Eficiencia_Layout';">Simular</span>
-        <span class="nav-link" onclick="window.location.href='Indicadores_Eficiencia_Layout';">Indicadores</span>
-        <span class="nav-link" onclick="window.location.href='#gestor';">Módulo Gestor</span>
-        <span class="nav-link" onclick="window.location.href='#sobre';">Sobre</span>
+        <a class="nav-link" href="/", target="_self">Início</a>
+        <a class="nav-link" href="/Simulador_Eficiencia_Layout", target="_self">Simular</a>
+        <a class="nav-link" href="/Indicadores_Eficiencia_Layout", target="_self">Indicadores</a>
+        <a class="nav-link" href="#gestor", target="_self">Módulo Gestor</a>
+        <a class="nav-link" href="#sobre", target="_self">Sobre</a>
     </div>
 </div>
 
