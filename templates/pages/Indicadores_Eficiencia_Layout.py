@@ -209,11 +209,11 @@ st.markdown(f"""
 <div class="nav-container">
     <div class="nav-logo"></div>
     <div class="nav-links">
-        <div class="nav-item">{st.page_link("Home.py", label="Início")}</div>
-        <div class="nav-item">{st.page_link("pages/Simulador_Eficiencia_Layout.py", label="Simular")}</div>
-        <div class="nav-item">{st.page_link("pages/Indicadores_Eficiencia_Layout.py", label="Indicadores")}</div>
-        <div class="nav-item">{st.page_link("pages/Modulo_Gestor.py", label="Módulo Gestor")}</div>
-        <div class="nav-item">{st.page_link("pages/Sobre.py", label="Sobre")}</div>
+        <div class="nav-link">{st.page_link("Home.py", label="Início")}</div>
+        <div class="nav-link">{st.page_link("pages/Simulador_Eficiencia_Layout.py", label="Simular")}</div>
+        <div class="nav-link">{st.page_link("pages/Indicadores_Eficiencia_Layout.py", label="Indicadores")}</div>
+        <div class="nav-link">{st.page_link("pages/Modulo_Gestor.py", label="Módulo Gestor")}</div>
+        <div class="nav-link">{st.page_link("pages/Sobre.py", label="Sobre")}</div>
     </div>
 </div>
 
