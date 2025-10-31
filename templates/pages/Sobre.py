@@ -294,99 +294,100 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# CSS personalizado para largura centralizada das abas
-st.markdown("""
-    <style>
-        /* Container principal centralizado com largura de 1200px */
-        .custom-tabs-container {
-            max-width: 1200px;
-            margin: 0 auto;          /* Centraliza horizontalmente */
-            background-color: #ffffff;
-            padding: 30px 50px;
-            border-radius: 12px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.05);
-        }
-    </style>
-""", unsafe_allow_html=True)
-
 
 
 # Container centralizado
 with st.container():
     st.markdown('<div class="stContainer">', unsafe_allow_html=True)
 
-        st.markdown('<div class="custom-tabs-container">', unsafe_allow_html=True)
-        # Criação das abas
-        abas = st.tabs([
-            "Apresentação",
-            "Objetivo",
-            "Metodologia",
-            "Software",
-            "Publicações e Referências"
-        ])
+    # CSS personalizado para largura centralizada das abas
+    st.markdown("""
+        <style>
+            /* Container principal centralizado com largura de 1200px */
+            .custom-tabs-container {
+                max-width: 1200px;
+                margin: 0 auto;          /* Centraliza horizontalmente */
+                background-color: #ffffff;
+                padding: 30px 50px;
+                border-radius: 12px;
+                box-shadow: 0 0 20px rgba(0,0,0,0.05);
+            }
+        </style>
+    """, unsafe_allow_html=True)
 
-        with abas[0]:
-            st.subheader("Apresentação")
-            st.markdown(
-                """
-                O **PrevIA** (Predição de Evasão na Rede Federal com Inteligência Artificial) é uma ferramenta web 
-                desenvolvida no contexto da **Tese de Doutorado** vinculada ao **Programa de Pós-Graduação em Modelagem Computacional de Sistemas (PPGMCS/UFT)**.  
-                O projeto foi conduzido entre os anos de **2024 e 2025** com o propósito de apoiar a **tomada de decisão baseada em dados**, 
-                promovendo a análise, visualização e predição do fenômeno da **evasão em cursos técnicos** ofertados pela Rede Federal de Educação Profissional, Científica e Tecnológica (RFEPCT).
 
-                A plataforma foi concebida como um ambiente interativo e informativo, que permite aos gestores educacionais e pesquisadores
-                explorar indicadores associados ao comportamento de evasão e simular cenários a partir de modelos de aprendizado de máquina.
-                """
-            )
+    st.markdown('<div class="custom-tabs-container">', unsafe_allow_html=True)
+    # Criação das abas
+    abas = st.tabs([
+        "Apresentação",
+        "Objetivo",
+        "Metodologia",
+        "Software",
+        "Publicações e Referências"
+    ])
 
-        with abas[1]:
-            st.subheader("Objetivo")
-            st.markdown(
-                """
-                O principal objetivo do **PrevIA** é **apoiar estratégias de mitigação da evasão escolar** por meio da aplicação de 
-                técnicas de **inteligência artificial** e **modelagem preditiva**.  
-                A ferramenta busca proporcionar **subsídios analíticos e interpretativos** para gestores e pesquisadores da RFEPCT, 
-                possibilitando uma compreensão mais profunda dos fatores que influenciam a permanência e o abandono escolar.
+    with abas[0]:
+        st.subheader("Apresentação")
+        st.markdown(
+            """
+            O **PrevIA** (Predição de Evasão na Rede Federal com Inteligência Artificial) é uma ferramenta web 
+            desenvolvida no contexto da **Tese de Doutorado** vinculada ao **Programa de Pós-Graduação em Modelagem Computacional de Sistemas (PPGMCS/UFT)**.  
+            O projeto foi conduzido entre os anos de **2024 e 2025** com o propósito de apoiar a **tomada de decisão baseada em dados**, 
+            promovendo a análise, visualização e predição do fenômeno da **evasão em cursos técnicos** ofertados pela Rede Federal de Educação Profissional, Científica e Tecnológica (RFEPCT).
 
-                Além disso, a iniciativa visa **fortalecer a eficiência acadêmica**, reduzir impactos **sociais e financeiros** da evasão
-                e contribuir para a **formação profissional inclusiva e sustentável** no Brasil.
-                """
-            )
+            A plataforma foi concebida como um ambiente interativo e informativo, que permite aos gestores educacionais e pesquisadores
+            explorar indicadores associados ao comportamento de evasão e simular cenários a partir de modelos de aprendizado de máquina.
+            """
+        )
 
-        with abas[2]:
-            st.subheader("Metodologia")
-            st.markdown(
-                """
-                O desenvolvimento do PrevIA foi estruturado conforme o modelo **CRISP-DM (Cross Industry Standard Process for Data Mining)**,
-                contemplando as etapas de **compreensão do problema**, **preparo dos dados**, **modelagem**, **avaliação** e **implementação**.  
-                A etapa final envolveu a criação de um **ambiente web interativo** utilizando o framework **Streamlit**, 
-                permitindo a simulação de novos cenários de evasão com base no modelo treinado.
-                """
-            )
+    with abas[1]:
+        st.subheader("Objetivo")
+        st.markdown(
+            """
+            O principal objetivo do **PrevIA** é **apoiar estratégias de mitigação da evasão escolar** por meio da aplicação de 
+            técnicas de **inteligência artificial** e **modelagem preditiva**.  
+            A ferramenta busca proporcionar **subsídios analíticos e interpretativos** para gestores e pesquisadores da RFEPCT, 
+            possibilitando uma compreensão mais profunda dos fatores que influenciam a permanência e o abandono escolar.
 
-        with abas[3]:
-            st.subheader("Software")
-            st.markdown(
-                """
-                - **Período:** 2024–2025  
-                - **Ambiente de desenvolvimento:** Python 3.11 
-                - **Principais bibliotecas:** Streamlit, Pandas, Scikit-learn, CatBoost, SHAP  
-                - **Hospedagem:** Plataforma web interativa  
-                - **Base de dados:** Dados de dados de eficência acadêmica da Rede Federal EPCT 2023
-                """
-            )
+            Além disso, a iniciativa visa **fortalecer a eficiência acadêmica**, reduzir impactos **sociais e financeiros** da evasão
+            e contribuir para a **formação profissional inclusiva e sustentável** no Brasil.
+            """
+        )
 
-        with abas[4]:
-            st.subheader("Publicações e Referências")
-            st.markdown(
-                """
-                - DIAS, J. C.; SILVA, T. L. da; JULIATTO, M. A.; PAIXÃO, A. N. da; PRATA, D. N. *School dropout in the Federal Network Education of Brazil: is it an inherent individual attribute or it lies on setting conditions?*.
-                In: INTERNATIONAL SYMPOSIUM ON COMPUTERS IN EDUCATION (SIIE), 2023, Setúbal, Portugal. Proceedings… Setúbal: 
-                IEEE, 2023. p. 1-10. DOI: 10.1109/SIIE59826.2023.10423698.
-                """
-            )
+    with abas[2]:
+        st.subheader("Metodologia")
+        st.markdown(
+            """
+            O desenvolvimento do PrevIA foi estruturado conforme o modelo **CRISP-DM (Cross Industry Standard Process for Data Mining)**,
+            contemplando as etapas de **compreensão do problema**, **preparo dos dados**, **modelagem**, **avaliação** e **implementação**.  
+            A etapa final envolveu a criação de um **ambiente web interativo** utilizando o framework **Streamlit**, 
+            permitindo a simulação de novos cenários de evasão com base no modelo treinado.
+            """
+        )
 
-        st.markdown('</div>', unsafe_allow_html=True)
+    with abas[3]:
+        st.subheader("Software")
+        st.markdown(
+            """
+            - **Período:** 2024–2025  
+            - **Ambiente de desenvolvimento:** Python 3.11 
+            - **Principais bibliotecas:** Streamlit, Pandas, Scikit-learn, CatBoost, SHAP  
+            - **Hospedagem:** Plataforma web interativa  
+            - **Base de dados:** Dados de dados de eficência acadêmica da Rede Federal EPCT 2023
+            """
+        )
+
+    with abas[4]:
+        st.subheader("Publicações e Referências")
+        st.markdown(
+            """
+            - DIAS, J. C.; SILVA, T. L. da; JULIATTO, M. A.; PAIXÃO, A. N. da; PRATA, D. N. *School dropout in the Federal Network Education of Brazil: is it an inherent individual attribute or it lies on setting conditions?*.
+              In: INTERNATIONAL SYMPOSIUM ON COMPUTERS IN EDUCATION (SIIE), 2023, Setúbal, Portugal. Proceedings… Setúbal: 
+              IEEE, 2023. p. 1-10. DOI: 10.1109/SIIE59826.2023.10423698.
+            """
+        )
+
+    st.markdown('</div>', unsafe_allow_html=True)
     st.markdown('</div>', unsafe_allow_html=True)  # Fecha o stContainer
 
 
