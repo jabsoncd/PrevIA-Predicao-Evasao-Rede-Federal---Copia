@@ -236,7 +236,7 @@ a, a:visited, a:active {{
 # Ajuste as proporções conforme necessário
 col1, col2, col3 = st.sidebar.columns([1, 5, 1])
 with col2:  # Centraliza a imagem na coluna do meio
-    st.image("images/previa_cinza_menor.png", width=30)  # ../images/
+    st.image("images/previa_cinza_menor.png", width=300)  # ../images/
 
 
 
@@ -337,7 +337,7 @@ with st.container():
         st.markdown(
             """
             O **PrevIA** (Predição de Evasão na Rede Federal com Inteligência Artificial) é uma ferramenta web 
-            desenvolvida no contexto da **Tese de Doutorado** vinculada ao **Programa de Pós-Graduação em Modelagem Computacional de Sistemas (PPGMC/UFT)**.  
+            desenvolvida no contexto da **Tese de Doutorado** vinculada ao **Programa de Pós-Graduação em Modelagem Computacional de Sistemas (PPGMCS/UFT)**.  
             O projeto foi conduzido entre os anos de **2024 e 2025** com o propósito de apoiar a **tomada de decisão baseada em dados**, 
             promovendo a análise, visualização e predição do fenômeno da **evasão em cursos técnicos** ofertados pela Rede Federal de Educação Profissional, Científica e Tecnológica (RFEPCT).
 
@@ -372,14 +372,14 @@ with st.container():
         )
 
     with abas[3]:
-        st.subheader("Desenvolvimento")
+        st.subheader("Software")
         st.markdown(
             """
             - **Período:** 2024–2025  
-            - **Ambiente de desenvolvimento:** Python 3.11  
+            - **Ambiente de desenvolvimento:** Python 3.11 
             - **Principais bibliotecas:** Streamlit, Pandas, Scikit-learn, CatBoost, SHAP  
             - **Hospedagem:** Plataforma web interativa  
-            - **Base de dados:** Dados anonimizados da Rede Federal EPCT  
+            - **Base de dados:** Dados de dados de eficência acadêmica da Rede Federal EPCT 2023
             """
         )
 
@@ -387,11 +387,9 @@ with st.container():
         st.subheader("Publicações e Referências")
         st.markdown(
             """
-            - DIAS, J. C. *PrevIA – Predição de Evasão na Rede Federal com Inteligência Artificial.*  
-              Tese (Doutorado em Modelagem Computacional de Sistemas) – Universidade Federal do Tocantins, 2025.  
-            - WIRTH, R.; HIPP, J. *CRISP-DM: Towards a Standard Process Model for Data Mining.*  
-              In: Proceedings of the 4th International Conference on the Practical Applications of Knowledge Discovery and Data Mining, 2000.  
-            - MOLNAR, C. *Interpretable Machine Learning.* 2nd Edition, 2022.
+            - DIAS, J. C.; SILVA, T. L. da; JULIATTO, M. A.; PAIXÃO, A. N. da; PRATA, D. N. *School dropout in the Federal Network Education of Brazil: is it an inherent individual attribute or it lies on setting conditions?*.
+              In: INTERNATIONAL SYMPOSIUM ON COMPUTERS IN EDUCATION (SIIE), 2023, Setúbal, Portugal. Proceedings… Setúbal: 
+              IEEE, 2023. p. 1-10. DOI: 10.1109/SIIE59826.2023.10423698.
             """
         )
 
