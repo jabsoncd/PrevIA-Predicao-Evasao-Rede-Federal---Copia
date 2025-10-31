@@ -207,7 +207,7 @@ st.markdown(f"""
 
 /* Garante que os links não sejam estilizados por padrão do navegador */
 a, a:visited, a:active {{
-    color: inherit;
+    color: white;
     text-decoration: none;
 }}
 </style>
