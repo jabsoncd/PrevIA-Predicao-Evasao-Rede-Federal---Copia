@@ -279,8 +279,6 @@ if st.session_state.current_page == "home":
 ####################################################################################################################
 
 # Configurações da página
-st.set_page_config(page_title="Sobre o PrevIA", layout="wide")
-
 # CSS personalizado para centralização e estilo das abas
 st.markdown("""
     <style>
@@ -335,12 +333,6 @@ st.markdown("""
 # Container centralizado
 with st.container():
     st.markdown('<div class="stContainer">', unsafe_allow_html=True)
-
-    st.title("📘 Sobre o PrevIA")
-    st.markdown("### Predição de Evasão na Rede Federal com Inteligência Artificial")
-    st.markdown(
-        "Conheça os indicadores relacionados à evasão em cursos técnicos da Rede Federal de Educação Profissional, Científica e Tecnológica (RFEPCT)."
-    )
 
     # Criação das abas
     abas = st.tabs([
