@@ -209,11 +209,11 @@ st.markdown(f"""
 <div class="nav-container">
     <div class="nav-logo"></div>
     <div class="nav-links">
-        <a class="nav-link" href="/">Início</a>
-        <a class="nav-link" href="/Simulador_Eficiencia_Layout">Simular</a>
-        <a class="nav-link" href="/Indicadores_Eficiencia_Layout">Indicadores</a>
-        <a class="nav-link" href="#gestor">Módulo Gestor</a>
-        <a class="nav-link" href="#sobre">Sobre</a>
+        <a class="nav-link" href="/", '_self'>Início</a>
+        <a class="nav-link" href="/Simulador_Eficiencia_Layout", '_self'>Simular</a>
+        <a class="nav-link" href="/Indicadores_Eficiencia_Layout", '_self'>Indicadores</a>
+        <a class="nav-link" href="#gestor", '_self'>Módulo Gestor</a>
+        <a class="nav-link" href="#sobre", '_self'>Sobre</a>
     </div>
 </div>
 
