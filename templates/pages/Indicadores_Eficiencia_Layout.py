@@ -213,10 +213,10 @@ st.markdown("""
 
 # Navbar
 with st.container():
-    st.markdown('<div class="navbar">', unsafe_allow_html=True)
+    st.markdown('<div class="nav-container">', unsafe_allow_html=True)
     cols = st.columns([1, 5])  # primeira col: logo, segunda: links
     with cols[0]:
-        st.image("logo.png", width=140)
+       
     with cols[1]:
         st.page_link("Home_Profisional.py", label="🏠 Início")
         st.page_link("pages/Simulador_Eficiencia_Layout.py", label="🧮 Simular")
