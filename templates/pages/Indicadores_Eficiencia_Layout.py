@@ -246,7 +246,6 @@ with col2:  # Centraliza a imagem na coluna do meio
 if st.session_state.current_page == "home":
     st.markdown('<h1 class="main-header">PrevIA - Predição de Evasão na Rede Federal com Inteligência Artificial</h1>', unsafe_allow_html=True)
     st.markdown('<p class="sub-header">Conheça os indicadores relacionados a evasão em cursos técnicos na Rede Federal EPCT</p>', unsafe_allow_html=True)
-    st.markdown("---")
 
 # Linha divisória
 st.write("---")
