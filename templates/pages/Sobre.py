@@ -257,7 +257,7 @@ st.set_page_config(page_title="Sobre o PrevIA", layout="wide")
 st.markdown("""
     <style>
         .block-container {
-            max-width: 900px;   /* ou use 12cm se preferir */
+            max-width: 1200px;   /* ou use 12cm se preferir */
             margin: 0 auto;     /* centraliza horizontalmente */
             padding-top: 2rem;
             padding-bottom: 5rem; /* deixa espaço para o footer */
