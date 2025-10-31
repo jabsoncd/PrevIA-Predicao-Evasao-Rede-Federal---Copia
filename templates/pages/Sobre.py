@@ -252,6 +252,19 @@ st.write("---")
 # Configurações da página
 st.set_page_config(page_title="Sobre o PrevIA", layout="wide")
 
+    # Centraliza o conteúdo principal em largura fixa (~12cm ou 500px)
+st.markdown("""
+        <style>
+            .block-container {
+                max-width: 1200px;   /* ou use 12cm se preferir */
+                margin: 0 auto;     /* centraliza horizontalmente */
+                padding-top: 2rem;
+                padding-bottom: 5rem; /* deixa espaço para o footer */
+            }
+        </style>
+""", unsafe_allow_html=True)
+
+
 # CSS personalizado para centralização e estilo das abas
 st.markdown("""
     <style>
@@ -261,10 +274,21 @@ st.markdown("""
             justify-content: center;
         }
 
+        /* Container centralizado e estilizado */
+        .stContainer {
+            background-color: #b0acac;
+            padding: 40px 60px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
+            width: 12cm;               /* Define largura exata */
+            max-width: 100%;           /* Evita estouro em telas pequenas */
+            margin: 0 auto;            /* Centraliza horizontalmente */max-width: 500px;
+        }
+
         /* Estilo das abas */
         div[data-baseweb="tab-list"] {
             justify-content: center;
-            background-color: #FFFFFF; /* Azul escuro */
+            background-color: #5a7794; /* Azul escuro */
             border-radius: 1px;
             padding: 5px;
         }
@@ -278,7 +302,7 @@ st.markdown("""
 
         /* Aba selecionada */
         button[data-baseweb="tab"][aria-selected="true"] {
-            background-color: #f7f9fa !important; /* Azul mais claro */
+            background-color: #0059b3 !important; /* Azul mais claro */
             border-radius: 1px;
         }
 
@@ -294,9 +318,8 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-
-
 # Container centralizado
+
 with st.container():
     st.markdown('<div class="stContainer">', unsafe_allow_html=True)
 
@@ -315,9 +338,10 @@ with st.container():
         </style>
     """, unsafe_allow_html=True)
 
-
+    # 👉 Novo container centralizado
     st.markdown('<div class="custom-tabs-container">', unsafe_allow_html=True)
-    # Criação das abas
+
+        # Criação das abas
     abas = st.tabs([
         "Apresentação",
         "Objetivo",
@@ -388,9 +412,12 @@ with st.container():
         )
 
     st.markdown('</div>', unsafe_allow_html=True)
-    st.markdown('</div>', unsafe_allow_html=True)  # Fecha o stContainer
+    st.markdown('</div>', unsafe_allow_html=True)  # Fecha o custom-tabs-container
 
 
+
+
+    
 
 ######################################################### FOOTER #############################################################
     st.markdown("""
