@@ -238,6 +238,8 @@ a, a:visited, a:active {{
 # Ajuste as proporções conforme necessário
 col1, col2, col3 = st.sidebar.columns([1, 5, 1])
 with col2:  # Centraliza a imagem na coluna do meio
+    st.image("images/previa_cinza_menor.png", width=300)  # ../images/
+
 
 
 # 🔹 Conteúdo das páginas
