@@ -263,17 +263,6 @@ st.markdown("""
             justify-content: center;
         }
 
-        /* Container centralizado e estilizado */
-        .stContainer {
-            background-color: #b0acac;
-            padding: 40px 60px;
-            border-radius: 15px;
-            box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
-            width: 12cm;               /* Define largura exata */
-            max-width: 100%;           /* Evita estouro em telas pequenas */
-            margin: 0 auto;            /* Centraliza horizontalmente */max-width: 500px;
-        }
-
         /* Estilo das abas */
         div[data-baseweb="tab-list"] {
             justify-content: center;
@@ -382,6 +371,11 @@ with st.container():
         )
 
     st.markdown('</div>', unsafe_allow_html=True)
+
+
+
+
+
 
     # Centraliza o conteúdo principal em largura fixa (~12cm ou 500px)
     st.markdown("""
