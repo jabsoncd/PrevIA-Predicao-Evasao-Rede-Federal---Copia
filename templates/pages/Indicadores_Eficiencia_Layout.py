@@ -131,6 +131,10 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
+# Caminho da logo (ajuste se necessário)
+logo_path = Path("templates/logo_branca_laranja.png")
+
+
 # 🔹 Ocultar sidebar
 st.markdown("""
     <style>
