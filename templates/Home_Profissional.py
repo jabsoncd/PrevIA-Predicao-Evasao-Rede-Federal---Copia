@@ -165,11 +165,11 @@ st.markdown(f"""
 <div class="nav-container"> 
     <div class="nav-logo"></div>
     <div class="nav-links">
-        <span class="nav-link" onclick="window.location.href='/';">IIIInício</span>
-        <span class="nav-link" onclick="window.location.href="Simulador_Eficiencia_Layout";">Simular</span>
-        <span class="nav-link" onclick="window.location.href='/Indicadores_Eficiencia_Layout';">Indicadores</span>
-        <span class="nav-link" onclick="window.location.href='#gestor';">Módulo Gestor</span>
-        <span class="nav-link" onclick="window.location.href='#sobre';">Sobre</span>
+        <span class="nav-link" onclick="window.open=('/', '_self')">Início</span>
+        <span class="nav-link" onclick="window.open=('Simulador_Eficiencia_Layout', '_self')">Simular</span>
+        <span class="nav-link" onclick="window.open=('/Indicadores_Eficiencia_Layout', '_self')>Indicadores</span>
+        <span class="nav-link" onclick="window.open=('#gestor', '_self')")>Módulo Gestor</span>
+        <span class="nav-link" onclick="window.open=('#sobre', '_self')">Sobre</span>
     </div>
 </div>
 
