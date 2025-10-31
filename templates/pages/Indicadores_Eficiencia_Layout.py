@@ -204,6 +204,12 @@ st.markdown(f"""
 .app-content {{
     padding-top: 3.5rem; /* >= altura da nav */
 }}
+
+/* Garante que os links não sejam estilizados por padrão do navegador */
+a, a:visited, a:active {{
+    color: inherit;
+    text-decoration: none;
+}}
 </style>
 
 <div class="nav-container">
