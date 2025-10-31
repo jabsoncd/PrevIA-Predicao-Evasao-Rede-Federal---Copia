@@ -119,7 +119,7 @@ st.markdown("""
     }
     .sub-header {
         font-size: 1.2rem;
-        color: #4B5563;
+        color: #FFFFFF;
         text-align: center
     }
     .feature-card {
