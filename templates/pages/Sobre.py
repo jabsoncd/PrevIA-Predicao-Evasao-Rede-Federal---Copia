@@ -292,17 +292,17 @@ st.markdown("""
 
         /* Container centralizado e estilizado */
         .stContainer {
-            background-color: #f9f9f9;
+            background-color: #b0acac;
             padding: 40px 60px;
             border-radius: 15px;
             box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
-            max-width: 900px;
+            max-width: 500px;
         }
 
         /* Estilo das abas */
         div[data-baseweb="tab-list"] {
             justify-content: center;
-            background-color: #003366; /* Azul escuro */
+            background-color: #5a7794; /* Azul escuro */
             border-radius: 10px;
             padding: 5px;
         }
