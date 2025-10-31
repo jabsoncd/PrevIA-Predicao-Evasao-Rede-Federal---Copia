@@ -171,6 +171,7 @@ st.markdown(f"""
     left: 0;
     z-index: 999;
     border-radius: 0; /* <- garante cantos quadrados */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2)
 }}
 
 .nav-logo {{
@@ -208,11 +209,11 @@ st.markdown(f"""
 <div class="nav-container">
     <div class="nav-logo"></div>
     <div class="nav-links">
-        <a class="nav-link" href="/">Início</a>
-        <a class="nav-link" href="/Simulador_Eficiencia_Layout">Simular</a>
-        <a class="nav-link" href="/Indicadores_Eficiencia_Layout">Indicadores</a>
-        <a class="nav-link" href="#gestor">Módulo Gestor</a>
-        <a class="nav-link" href="#sobre">Sobre</a>
+        <div class="nav-item">{st.page_link("Home.py", label="Início")}</div>
+        <div class="nav-item">{st.page_link("pages/Simulador_Eficiencia_Layout.py", label="Simular")}</div>
+        <div class="nav-item">{st.page_link("pages/Indicadores_Eficiencia_Layout.py", label="Indicadores")}</div>
+        <div class="nav-item">{st.page_link("pages/Modulo_Gestor.py", label="Módulo Gestor")}</div>
+        <div class="nav-item">{st.page_link("pages/Sobre.py", label="Sobre")}</div>
     </div>
 </div>
 
