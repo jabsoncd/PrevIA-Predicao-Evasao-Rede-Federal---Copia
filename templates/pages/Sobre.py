@@ -396,7 +396,7 @@ with st.container():
             text-align: center;
             color: #6B7280;
             background-color: #dedede;  /* cinza claro */
-            padding: 0.5rem 0;
+            padding: 1rem 0;
             border-top: 2px solid #d1d5db;  /* linha no topo do rodapé */
             z-index: 1000;
             display: flex;
