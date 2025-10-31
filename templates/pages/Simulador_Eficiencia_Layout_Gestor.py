@@ -264,34 +264,34 @@ st.markdown(
 # Linha divisória final (com espaçamento menor)
 st.markdown("<hr style='margin-top: 10px; margin-bottom: 10px;'>", unsafe_allow_html=True)
 
-# Botão para voltar à página Home.py
-# st.markdown(
-#     """
-#     <style>
-#         .botao-voltar {
-#             position: absolute;
-#             top: 10px;
-#             left: 10px;
-#             background-color: #004A99; /* Azul escuro */
-#             color: white !important;
-#             padding: 10px 20px;
-#             border-radius: 5px;
-#             text-decoration: none;
-#             font-size: 16px;
-#             font-weight: bold;
-#             border: none;
-#             display: inline-block;
-#             text-align: center;
-#             cursor: pointer;
-#         }
-#         .botao-voltar:hover {
-#             background-color: #003366; /* Azul mais escuro no hover */
-#         }
-#     </style>
-#     <a class="botao-voltar" href="https://previa-beta.streamlit.app/~/+/" target="_self">Voltar para Home</a> 
-#     """,
-#     unsafe_allow_html=True
-# )
+                            # Botão para voltar à página Home.py
+                            # st.markdown(
+                            #     """
+                            #     <style>
+                            #         .botao-voltar {
+                            #             position: absolute;
+                            #             top: 10px;
+                            #             left: 10px;
+                            #             background-color: #004A99; /* Azul escuro */
+                            #             color: white !important;
+                            #             padding: 10px 20px;
+                            #             border-radius: 5px;
+                            #             text-decoration: none;
+                            #             font-size: 16px;
+                            #             font-weight: bold;
+                            #             border: none;
+                            #             display: inline-block;
+                            #             text-align: center;
+                            #             cursor: pointer;
+                            #         }
+                            #         .botao-voltar:hover {
+                            #             background-color: #003366; /* Azul mais escuro no hover */
+                            #         }
+                            #     </style>
+                            #     <a class="botao-voltar" href="https://previa-beta.streamlit.app/~/+/" target="_self">Voltar para Home</a> 
+                            #     """,
+                            #     unsafe_allow_html=True
+                            # )
 
  
 st.write(" ")
