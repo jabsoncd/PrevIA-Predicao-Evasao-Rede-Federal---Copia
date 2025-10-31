@@ -12,6 +12,8 @@ import requests
 import os
 from dotenv import load_dotenv
 
+from pathlib import Path
+
  
 st.set_page_config(
     page_title="Plataforma PrevIA",
