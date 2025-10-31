@@ -272,7 +272,7 @@ st.markdown("""
         /* Estilo das abas */
         div[data-baseweb="tab-list"] {
             justify-content: center;
-            background-color: #5a7794; /* Azul escuro */
+            background-color: #FFFFFF; /* Azul escuro */
             border-radius: 1px;
             padding: 5px;
         }
