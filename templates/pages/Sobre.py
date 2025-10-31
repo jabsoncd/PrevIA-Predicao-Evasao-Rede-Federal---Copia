@@ -253,6 +253,18 @@ if st.session_state.current_page == "home":
 # Configurações da página
 st.set_page_config(page_title="Sobre o PrevIA", layout="wide")
 
+# Centraliza o conteúdo principal em largura fixa (~12cm ou 500px)
+st.markdown("""
+    <style>
+        .block-container {
+            max-width: 500px;   /* ou use 12cm se preferir */
+            margin: 0 auto;     /* centraliza horizontalmente */
+            padding-top: 2rem;
+            padding-bottom: 5rem; /* deixa espaço para o footer */
+        }
+    </style>
+""", unsafe_allow_html=True)
+
 # CSS personalizado para centralização e estilo das abas
 st.markdown("""
     <style>
