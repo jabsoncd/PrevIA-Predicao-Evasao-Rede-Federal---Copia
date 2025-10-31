@@ -328,7 +328,7 @@ with st.container():
         "Apresentação",
         "Objetivo",
         "Metodologia",
-        "Desenvolvimento",
+        "Software",
         "Publicações e Referências"
     ])
 
