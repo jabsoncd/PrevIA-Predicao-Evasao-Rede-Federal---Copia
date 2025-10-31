@@ -285,7 +285,9 @@ st.markdown("""
             padding: 40px 60px;
             border-radius: 15px;
             box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
-            max-width: 500px;
+            width: 12cm;               /* Define largura exata */
+            max-width: 100%;           /* Evita estouro em telas pequenas */
+            margin: 0 auto;            /* Centraliza horizontalmente */max-width: 500px;
         }
 
         /* Estilo das abas */
