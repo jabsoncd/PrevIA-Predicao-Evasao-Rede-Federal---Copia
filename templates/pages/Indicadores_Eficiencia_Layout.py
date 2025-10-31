@@ -12,7 +12,7 @@ import requests
 import os
 from dotenv import load_dotenv
 
-
+ 
 st.set_page_config(
     page_title="Plataforma PrevIA",
     page_icon="images/previa_azulmenor.png",
