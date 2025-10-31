@@ -1,38 +1,77 @@
 import streamlit as st
+import pandas as pd
+import plotly.express as px
+import geopandas as gpd
+import folium
+from folium import Choropleth
+from streamlit_folium import folium_static
+from streamlit_folium import st_folium
 import base64
+import openai
+import requests
+import os
+from dotenv import load_dotenv
+
 from pathlib import Path
 
-# Caminho da logo (ajuste se necessário)
-logo_path = Path("templates/logo_branca_laranja.png")
-
-
-# Função para converter imagem em base64
-def get_base64_image(path: Path):
-    if not path.exists():
-        return None
-    with open(path, "rb") as f:
-        return base64.b64encode(f.read()).decode("utf-8")
-
-logo_b64 = get_base64_image(logo_path)
-
-# Configuração da página
+ 
 st.set_page_config(
-    page_title="PrevIA - Predição de Evasão",
+    page_title="Plataforma PrevIA",
     page_icon="images/previa_azulmenor.png",
+
     layout="wide",
-    initial_sidebar_state="collapsed"
+    initial_sidebar_state="expanded"  # collapsed expanded
 )
 
 # Ocultar barra streamlit
 hide_st_style = """
-    <style>
+    <style>:
     #MainMenu {visibility: hidden;}
     footer {visibility: hidden;}
     header {visibility: hidden;}
     </style>
-"""
+    """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
+# 🔹 Ocultar apenas os links Home, Indicadores e Simulador do sidebar
+# st.markdown(
+#     """
+#     <style>
+#     section[data-testid="stSidebar"] a[href*="templates/Home_Eficiencia"],
+#     section[data-testid="stSidebar"] a[href*="pages/Indicadores_Eficiencia"],
+#     section[data-testid="stSidebar"] a[href*="pages/Simulador_Eficiencia"] {
+#         display: none !important;
+#     }
+#     </style>
+#     """,
+#     unsafe_allow_html=True
+# )
+# CSS para ocultar links com nomes específicos no sidebar
+st.markdown(
+    """
+    <style>
+    section[data-testid="stSidebar"] a[href*="Home_Profissional"],
+    section[data-testid="stSidebar"] a[href*="Indicadores_Eficiencia_Layout"],
+    section[data-testid="stSidebar"] a[href*="Simulador_Eficiencia_Layout"] {
+        display: none !important;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+# Estilo CSS para customizar o fundo da barra lateral
+st.markdown(
+    """
+    <style>
+        [data-testid="stSidebar"] {
+            background-color: #f5f7fa;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+#########################################################################################################################################################
 
 
 # CSS personalizado (barra azul alta com ícones dentro)
@@ -90,6 +129,10 @@ st.markdown("""
     }
 </style>
 """, unsafe_allow_html=True)
+
+
+# Caminho da logo (ajuste se necessário)
+logo_path = Path("templates/logo_branca_laranja.png")
 
 
 # 🔹 Ocultar sidebar
@@ -175,7 +218,7 @@ a, a:visited, a:active {{
         <a class="nav-link" href="/", target="_self">Início</a>
         <a class="nav-link" href="/Simulador_Eficiencia_Layout", target="_self">Simular</a>
         <a class="nav-link" href="/Indicadores_Eficiencia_Layout", target="_self">Indicadores</a>
-        <a class="nav-link" href="", target="_self">Módulo Gestor</a>
+        <a class="nav-link" href="/Indicadores_Eficiencia_Layout_Gestor", target="_self">Módulo Gestor</a>
         <a class="nav-link" href="/Sobre", target="_self">Sobre</a>
     </div>
 </div>
@@ -189,86 +232,29 @@ a, a:visited, a:active {{
 
 
 
+#########################################################################################################################################################
+# Carregar os dados
+# @st.cache_data
+# microdados_eficiencia_academica_RedeFederal_2023_tecnico_RegiaoMetropolitana #base_redeFederal_2022_tecnico_regiaoMetropolitana
+file_path = 'artifacts/microdados_eficiencia_academica_RedeFederal_2023_tecnico_RegiaoMetropolitana.csv'
+# '../artifacts/base_redeFederal_2022_tecnico_regiaoMetropolitana.csv'
+df = pd.read_csv(file_path, delimiter=';')
 
+
+# Criar colunas para centralizar a imagem
+# Ajuste as proporções conforme necessário
+col1, col2, col3 = st.sidebar.columns([1, 5, 1])
+with col2:  # Centraliza a imagem na coluna do meio
+    st.image("images/previa_cinza_menor.png", width=300)  # ../images/
 
 
 
 # 🔹 Conteúdo das páginas
 if st.session_state.current_page == "home":
     st.markdown('<h1 class="main-header">PrevIA - Predição de Evasão na Rede Federal com Inteligência Artificial</h1>', unsafe_allow_html=True)
-    st.markdown('<p class="sub-header">Sistema inteligente de análise e predição de evasão escolar na RFEPCT</p>', unsafe_allow_html=True)
-
-    st.markdown("---")
-
-    col1, col2, col3 = st.columns(3)
-
-    with col1:
-        st.markdown("""
-        <div class="feature-card">
-            <h3>Simulador de Evasão</h3>
-            <p>Calcule a probabilidade de evasão de estudantes com base em indicadores acadêmicos e demográficos.</p>
-        </div>
-        """, unsafe_allow_html=True)
-
-        st.markdown(
-        """
-        <div>
-            <a href="Simulador_Eficiencia_Layout" target="_self">
-                <button style="padding: 4px 15px; border-radius: 7px; 
-                              border: none; background-color: #dedede; 
-                              color: #696b6e; font-size: 19px; cursor: pointer;">
-                    Acessar Simulador
-                </button>
-            </a>
-        </div>
-        """,
-        unsafe_allow_html=True
-        )
-
-    with col2:
-        st.markdown("""
-        <div class="feature-card">
-            <h3>Indicadores de Evasão</h3>
-            <p>Visualize análises, estatísticas e tendências sobre evasão escolar em tempo real.</p>
-        </div>
-        """, unsafe_allow_html=True)
-        st.markdown(
-        """
-        <div>        
-            <a href="Indicadores_Eficiencia_Layout" target="_self">
-                <button style="padding: 4px 15px; border-radius: 7px; 
-                              border: none; background-color: #dedede; 
-                              color: #696b6e; font-size: 19px; cursor: pointer;">
-                    Ver Indicadores
-                </button>
-            </a>
-        </div>
-        """,
-        unsafe_allow_html=True
-        )   
-
-    with col3: 
-        st.markdown("""
-        <div class="feature-card">
-            <h3>Módulo Gestor</h3>
-            <p>Ferramentas avançadas para gestores educacionais com relatórios detalhados e análises preditivas.</p>
-        </div>
-        """, unsafe_allow_html=True)
-
-        st.markdown(
-        """
-        <div>        
-            <a href="Simulador_Eficiencia_Layout" target="_self">
-                <button style="padding: 4px 15px; border-radius: 7px; 
-                              border: none; background-color: #dedede; 
-                              color: #696b6e; font-size: 19px; cursor: pointer;">
-                    Acessar Módulos
-                </button>
-            </a>
-        </div>
-        """,
-        unsafe_allow_html=True
-        ) 
+    st.markdown('<p class="sub-header">Conheça os indicadores relacionados a evasão em cursos técnicos na Rede Federal EPCT</p>', unsafe_allow_html=True)
+# Linha divisória
+# st.write("---")
 
 
     st.markdown("""
@@ -288,20 +274,3 @@ if st.session_state.current_page == "home":
         <p>Versão 0.3.1 - Brasília/DF</p>
     </div>
     """, unsafe_allow_html=True)
-
-elif st.session_state.current_page == "simular":
-    st.title("Simulador de Evasão")
-    st.write("Conteúdo do simulador será implementado aqui...")
-
-elif st.session_state.current_page == "indicadores":
-    st.title("Indicadores de Evasão")
-    st.write("Conteúdo dos indicadores será implementado aqui...")
-
-elif st.session_state.current_page == "gestor":
-    st.title("Módulo Gestor")
-    st.write("Conteúdo do módulo gestor será implementado aqui...")
-
-elif st.session_state.current_page == "sobre":
-    st.title("Sobre o PrevIA")
-    st.write("Informações sobre o projeto...")
- 
