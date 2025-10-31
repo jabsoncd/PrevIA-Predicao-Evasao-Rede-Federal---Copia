@@ -238,8 +238,6 @@ col1, col2, col3 = st.sidebar.columns([1, 5, 1])
 with col2:  # Centraliza a imagem na coluna do meio
     st.image("images/previa_cinza_menor.png", width=300)  # ../images/
 
-
-
 # 🔹 Conteúdo das páginas
 if st.session_state.current_page == "home":
     st.markdown('<h1 class="main-header">PrevIA - Predição de Evasão na Rede Federal com Inteligência Artificial</h1>', unsafe_allow_html=True)
@@ -310,6 +308,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Container centralizado
+
 with st.container():
     st.markdown('<div class="stContainer">', unsafe_allow_html=True)
     # Criação das abas
@@ -383,6 +382,18 @@ with st.container():
         )
 
     st.markdown('</div>', unsafe_allow_html=True)
+
+    # Centraliza o conteúdo principal em largura fixa (~12cm ou 500px)
+    st.markdown("""
+        <style>
+            .block-container {
+                max-width: 1200px;   /* ou use 12cm se preferir */
+                margin: 0 auto;     /* centraliza horizontalmente */
+                padding-top: 2rem;
+                padding-bottom: 5rem; /* deixa espaço para o footer */
+            }
+        </style>
+    """, unsafe_allow_html=True)
 ######################################################### FOOTER #############################################################
     st.markdown("""
     <div style="
