@@ -75,64 +75,6 @@ st.markdown(
 )
 #########################################################################################################################################################
 
-
-# CSS personalizado (barra azul alta com ícones dentro)
-st.markdown("""
-<style>
-    /* 🔹 Barra superior azul */
-    .nav-container {
-        background-color: #152847;
-        height: 2cm; /* Altura da faixa azul */
-        display: flex;
-        align-items: center;        /* Centraliza verticalmente os botões */
-        justify-content: flex-end;  /* Alinha botões à direita */
-        padding: 0 3rem;
-        border-radius: 8px;
-        margin-bottom: 2rem;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-
-    /* 🔹 Botões da barra */
-    .nav-button {
-        background-color: blue;
-        border: none;
-        color: #FFFFFF;
-        font-weight: 600;
-        font-size: 1.1rem;
-        margin-left: 1.2rem;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        gap: 0.4rem;
-    }
-    .nav-button:hover {
-        background-color: rgba(255,255,255,0.15);
-        border-radius: 6px;
-        transition: 0.2s;
-    }
-
-    /* 🔹 Cabeçalhos e cards */
-    .main-header {
-        font-size: 2.5rem;
-        color: #1E3A8A;
-        text-align: center
-    }
-    .sub-header {
-        font-size: 1.2rem;
-        color: #4B5563;
-        text-align: center
-    }
-    .feature-card {
-        background-color: #8c8e91;
-        border-radius: 10px;
-        padding: 1.5rem;
-        margin: 1rem 0;
-        border-left: 4px solid #3b82f6;
-    }
-</style>
-""", unsafe_allow_html=True)
-
-
 # Caminho da logo (ajuste se necessário)
 logo_path = Path("templates/logo_branca_laranja.png")
 
@@ -243,7 +185,7 @@ with col2:  # Centraliza a imagem na coluna do meio
 # 🔹 Conteúdo das páginas
 if st.session_state.current_page == "home":
     st.markdown('<h1 class="main-header">PrevIA - Predição de Evasão na Rede Federal com Inteligência Artificial</h1>', unsafe_allow_html=True)
-    st.markdown('<p class="sub-header">Conheça os indicadores relacionados a evasão em cursos técnicos na Rede Federal EPCT</p>', unsafe_allow_html=True)
+    st.markdown('<p class="sub-header">Sobre</p>', unsafe_allow_html=True)
 # Linha divisória
 # st.write("---")
 
