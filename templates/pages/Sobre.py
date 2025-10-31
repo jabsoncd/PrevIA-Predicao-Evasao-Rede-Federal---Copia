@@ -81,7 +81,7 @@ st.markdown("""
 <style>
     /* 🔹 Barra superior azul */
     .nav-container {
-        background-color: black;
+        background-color: #152847;
         height: 2cm; /* Altura da faixa azul */
         display: flex;
         align-items: center;        /* Centraliza verticalmente os botões */
@@ -94,7 +94,7 @@ st.markdown("""
 
     /* 🔹 Botões da barra */
     .nav-button {
-        background-color: transparent;
+        background-color: blue;
         border: none;
         color: #FFFFFF;
         font-weight: 600;
