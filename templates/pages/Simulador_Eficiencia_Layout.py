@@ -183,15 +183,6 @@ st.markdown(f"""
 """, unsafe_allow_html=True)
 
 
-
-
- 
-
-
-
-
-
-
 # 🔹 Conteúdo das páginas
 if st.session_state.current_page == "home":
     st.markdown('<h1 class="main-header">PrevIA - Predição de Evasão na Rede Federal com Inteligência Artificial</h1>', unsafe_allow_html=True)
