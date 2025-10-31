@@ -193,7 +193,7 @@ st.markdown(f"""
     font-weight: 600;
     font-size: 1.1rem;
     cursor: pointer;
-    text-decoration: none;
+    text-decoration: none !important;
 }}
 .nav-link:hover {{
     color: #FFA500; /* laranja claro ao passar o mouse */
