@@ -51,8 +51,10 @@ st.markdown(
     """
     <style>
     section[data-testid="stSidebar"] a[href*="Home_Profissional"],
+    section[data-testid="stSidebar"] a[href*="Simulador_Eficiencia_Layout"],
     section[data-testid="stSidebar"] a[href*="Indicadores_Eficiencia_Layout"],
-    section[data-testid="stSidebar"] a[href*="Simulador_Eficiencia_Layout"] {
+    ection[data-testid="stSidebar"] a[href*="Simulador_Eficiencia_Layout_Gestor"],
+    ection[data-testid="stSidebar"] a[href*="Gestor"] {
         display: none !important;
     }
     </style>
@@ -234,7 +236,7 @@ a, a:visited, a:active {{
 # Ajuste as proporções conforme necessário
 col1, col2, col3 = st.sidebar.columns([1, 5, 1])
 with col2:  # Centraliza a imagem na coluna do meio
-    st.image("images/previa_cinza_menor.png", width=300)  # ../images/
+    st.image("images/previa_cinza_menor.png", width=30)  # ../images/
 
 
 
