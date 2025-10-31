@@ -316,10 +316,7 @@ st.markdown("""
 
 # Container centralizado
 with st.container():
-
     st.markdown('<div class="stContainer">', unsafe_allow_html=True)
-
-
 
     st.markdown('<div class="custom-tabs-container">', unsafe_allow_html=True)
     # Criação das abas
