@@ -86,7 +86,7 @@ st.markdown("""
     left: 0;
     background-color: #f5f7fa;
     overflow-x: hidden;
-    transition: 0.4s;
+    transition: 3s;
     z-index: 1000;
     box-shadow: 2px 0 5px rgba(0,0,0,0.3);
     padding-top: 60px; /* Espaço para não cobrir a navbar */
@@ -103,7 +103,7 @@ st.markdown("""
 
 /* --- CONTEÚDO PRINCIPAL EMPURRADO --- */
 #mainContent {
-    transition: margin-left 0.4s;
+    transition: margin-left 3s;
     padding-top: 3.5rem;
 }
 .shifted {
@@ -145,8 +145,6 @@ function toggleSidebar() {
     </div>
 </div>
 
-<!-- CONTEÚDO PRINCIPAL -->
-<div id="mainContent">
 """, unsafe_allow_html=True)
 
 
