@@ -88,21 +88,6 @@ st.markdown("""
         box-shadow: 0 0 8px rgba(0,0,0,0.2);
     }
 
-    /* Faz o sidebar sobrepor o conteúdo */
-    [data-testid="stSidebar"] {
-        position: fixed !important;
-        left: 0;
-        top: 0;
-        height: 100vh;
-        z-index: 9998; /* logo abaixo do botão */
-        transition: all 0.4s ease;
-        box-shadow: 2px 0 10px rgba(0,0,0,0.2);
-    }
-
-    /* Evita empurrar o conteúdo quando o sidebar expande */
-    .main {
-        margin-left: 0 !important;
-    }
     
     
     
