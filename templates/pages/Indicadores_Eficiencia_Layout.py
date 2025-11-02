@@ -31,7 +31,6 @@ hide_st_style = """
     #MainMenu {visibility: hidden;}
     footer {visibility: hidden;}
     header {visibility: hidden;}
-    [data-testid="stSidebar"] {display: none;}
     </style>
     """
 st.markdown(hide_st_style, unsafe_allow_html=True)
