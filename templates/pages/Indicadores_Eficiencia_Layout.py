@@ -37,6 +37,20 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 
 
 
+# ===========================
+# CSS + JS para forçar o ícone e o comportamento overlay
+# ===========================
+logo_path = Path("templates/logo_branca_laranja.png")
+logo_b64 = ""
+try:
+    logo_b64 = base64.b64encode(open(logo_path, "rb").read()).decode("utf-8")
+except Exception:
+    logo_b64 = ""
+
+
+
+
+
 # 🔹 Mantém sidebar visível e apenas oculta links indesejados
 st.markdown(
     """
@@ -214,17 +228,6 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
-
-# ===========================
-# CSS + JS para forçar o ícone e o comportamento overlay
-# ===========================
-logo_path = Path("templates/logo_branca_laranja.png")
-logo_b64 = ""
-try:
-    logo_b64 = base64.b64encode(open(logo_path, "rb").read()).decode("utf-8")
-except Exception:
-    logo_b64 = ""
-
 
 
 
