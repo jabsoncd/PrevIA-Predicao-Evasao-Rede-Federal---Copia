@@ -45,6 +45,10 @@ st.markdown(
 
     /* Oculta links específicos */
     section[data-testid="stSidebar"] a[href*="Home_Profissional"],
+    section[data-testid="stSidebar"] a[href*="Indicadores_Eficiencia"],
+    section[data-testid="stSidebar"] a[href*="Simulador_Eficiencia"],
+    section[data-testid="stSidebar"] a[href*="Sobre"],
+    section[data-testid="stSidebar"] a[href*="Home_Profissional"],
     section[data-testid="stSidebar"] a[href*="Indicadores_Eficiencia_Layout"],
     section[data-testid="stSidebar"] a[href*="Simulador_Eficiencia_Layout"] {
         display: none !important;
@@ -118,13 +122,6 @@ st.markdown("""
 # Caminho da logo (ajuste se necessário)
 logo_path = Path("templates/logo_branca_laranja.png")
 
-
-# 🔹 Ocultar sidebar
-# st.markdown("""
-#     <style>
-#     [data-testid="stSidebar"] {display: none;}
-#     </style>
-# """, unsafe_allow_html=True)
 
 
 # Estado inicial
