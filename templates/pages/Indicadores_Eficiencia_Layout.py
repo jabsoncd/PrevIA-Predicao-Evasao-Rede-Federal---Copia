@@ -103,7 +103,7 @@ st.markdown("""
     .main {
         margin-left: 0 !important;
     }
-    </style>
+    
     
     
 /* Força o sidebar nativo a ficar em overlay (não desloca o main) */
