@@ -40,7 +40,7 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 # 🔹 Mantém sidebar visível e apenas oculta links indesejados
 st.markdown(
     """
-    <style>
+<style>
     section[data-testid="stSidebar"] {
         background-color: #f5f7fa; /* cor de fundo personalizada */
     }
@@ -55,6 +55,42 @@ st.markdown(
     section[data-testid="stSidebar"] a[href*="Simulador_Eficiencia_Layout"] {
         display: none !important;
     }
+
+/* Força o sidebar nativo a ficar em overlay (não desloca o main) */
+[data-testid="stSidebar"] {{
+    position: fixed !important;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    z-index: 9998;
+    transition: width 0.35s ease;
+    box-shadow: 2px 0 12px rgba(0,0,0,0.18);
+    background-color: #f5f7fa;
+}}
+
+/* Mantém main sem margin-left para não ser empurrado */
+main.block-container {{
+    margin-left: 0 !important;
+    transition: margin-left 0.35s ease;
+    padding-top: 3.5rem; /* espaço para nav fixa */
+}}
+
+/* Nav fixa no topo (exemplo) */
+.navbar {{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3.2rem;
+    background: #152847;
+    z-index: 9000;
+}}
+
+
+
+
+
+
 
 
 /* Estilo visual do botão re-estilizado (aplicado via JS) */
