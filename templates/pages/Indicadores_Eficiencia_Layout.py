@@ -91,98 +91,98 @@ st.markdown("""
     
     
     
-/* Força o sidebar nativo a ficar em overlay (não desloca o main) */
-[data-testid="stSidebar"] {{
-    position: fixed !important;
-    left: 0;
-    top: 0;
-    height: 100vh;
-    z-index: 9998;
-    transition: width 0.35s ease;
-    box-shadow: 2px 0 12px rgba(0,0,0,0.18);
-    background-color: #f5f7fa;
-}}
-
-/* Mantém main sem margin-left para não ser empurrado */
-main.block-container {{
-    margin-left: 0 !important;
-    transition: margin-left 0.35s ease;
-    padding-top: 3.5rem; /* espaço para nav fixa */
-}}
-
-/* Nav fixa no topo (exemplo) */
-.navbar {{
-    position: flex;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3.2rem;
-    background: #152847;
-    z-index: 9000;
-}}
-
-/* Estilo visual do botão re-estilizado (aplicado via JS) */
-.custom-collapsed-btn {{
-    display: flex !important;
-    visibility: visible !important;
-    position: fixed !important;
-    top: 12px !important;
-    left: 12px !important;
-    z-index: 10001 !important;
-    width: 44px !important;
-    height: 44px !important;
-    border-radius: 22px !important;
-    align-items: center !important;
-    justify-content: center !important;
-    background: #152847 !important;
-    color: #ffffff !important;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.25) !important;
-    border: none !important;
-    cursor: pointer !important;
-}
-
-/* Ajuste para quando o sidebar estiver aberto (opcional) */
-/* se quiser escurecer o conteúdo principal quando aberto, poderia adicionar uma overlay via JS/CSS */
-</style>
-
-<script>
-// Função que tenta localizar o botão nativo de recolher/expandir (testa vários seletores)
-// e aplica a classe custom-collapsed-btn com estilo e posicionamento.
-// Faz polling nos primeiros 10s para garantir que o elemento seja estilizado mesmo em carregamentos lentos.
-
-function styleCollapsedButton() {{
-    const selectors = [
-        '[data-testid="collapsedControl"]',            // seletor usado em muitas versões
-        'button[aria-label="Open sidebar"]',           // possível aria-label em algumas builds
-        'button[title="Open sidebar"]',                // alternativa
-        'button[aria-label="Toggle sidebar"]',         // outra variação possível
-        'div[role="button"][data-testid="collapsedControl"]'
-    ];
-    for (const s of selectors) {{
-        const el = document.querySelector(s);
-        if (el) {{
-            el.classList.add('custom-collapsed-btn');
-            // remove estilos inline conflitantes (opcional)
-            el.style.removeProperty('position');
-            el.style.removeProperty('top');
-            el.style.removeProperty('left');
-            el.style.removeProperty('display');
-            el.style.removeProperty('visibility');
-            // garante que ao abrir o sidebar o foco funcione - não interferimos no evento nativo
-            return true;
-        }}
+    /* Força o sidebar nativo a ficar em overlay (não desloca o main) */
+    [data-testid="stSidebar"] {{
+        position: fixed !important;
+        left: 0;
+        top: 0;
+        height: 100vh;
+        z-index: 9998;
+        transition: width 0.35s ease;
+        box-shadow: 2px 0 12px rgba(0,0,0,0.18);
+        background-color: #f5f7fa;
     }}
-    return false;
-}}
 
-// tenta imediatamente e depois a cada 400ms por até 10s
-styleCollapsedButton();
-const intervalId = setInterval(() => {{
-    const ok = styleCollapsedButton();
-    if (ok) clearInterval(intervalId);
-}}, 400);
-setTimeout(() => clearInterval(intervalId), 10000);
-</script>
+    /* Mantém main sem margin-left para não ser empurrado */
+    main.block-container {{
+        margin-left: 0 !important;
+        transition: margin-left 0.35s ease;
+        padding-top: 3.5rem; /* espaço para nav fixa */
+    }}
+
+    /* Nav fixa no topo (exemplo) */
+    .navbar {{
+        position: flex;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3.2rem;
+        background: #152847;
+        z-index: 9000;
+    }}
+
+    /* Estilo visual do botão re-estilizado (aplicado via JS) */
+    .custom-collapsed-btn {{
+        display: flex !important;
+        visibility: visible !important;
+        position: fixed !important;
+        top: 12px !important;
+        left: 12px !important;
+        z-index: 10001 !important;
+        width: 44px !important;
+        height: 44px !important;
+        border-radius: 22px !important;
+        align-items: center !important;
+        justify-content: center !important;
+        background: #152847 !important;
+        color: #ffffff !important;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.25) !important;
+        border: none !important;
+        cursor: pointer !important;
+    }
+
+    /* Ajuste para quando o sidebar estiver aberto (opcional) */
+    /* se quiser escurecer o conteúdo principal quando aberto, poderia adicionar uma overlay via JS/CSS */
+    </style>
+
+    <script>
+    // Função que tenta localizar o botão nativo de recolher/expandir (testa vários seletores)
+    // e aplica a classe custom-collapsed-btn com estilo e posicionamento.
+    // Faz polling nos primeiros 10s para garantir que o elemento seja estilizado mesmo em carregamentos lentos.
+
+    function styleCollapsedButton() {{
+        const selectors = [
+            '[data-testid="collapsedControl"]',            // seletor usado em muitas versões
+            'button[aria-label="Open sidebar"]',           // possível aria-label em algumas builds
+            'button[title="Open sidebar"]',                // alternativa
+            'button[aria-label="Toggle sidebar"]',         // outra variação possível
+            'div[role="button"][data-testid="collapsedControl"]'
+        ];
+        for (const s of selectors) {{
+            const el = document.querySelector(s);
+            if (el) {{
+                el.classList.add('custom-collapsed-btn');
+                // remove estilos inline conflitantes (opcional)
+                el.style.removeProperty('position');
+                el.style.removeProperty('top');
+                el.style.removeProperty('left');
+                el.style.removeProperty('display');
+                el.style.removeProperty('visibility');
+                // garante que ao abrir o sidebar o foco funcione - não interferimos no evento nativo
+                return true;
+            }}
+        }}
+        return false;
+    }}
+
+    // tenta imediatamente e depois a cada 400ms por até 10s
+    styleCollapsedButton();
+    const intervalId = setInterval(() => {{
+        const ok = styleCollapsedButton();
+        if (ok) clearInterval(intervalId);
+    }}, 400);
+    setTimeout(() => clearInterval(intervalId), 10000);
+    </script>
 
     
 """, unsafe_allow_html=True)
@@ -259,6 +259,55 @@ st.markdown("""
         margin: 1rem 0;
         border-left: 4px solid #3b82f6;
     }
+    
+    
+    
+    
+    .nav-title {
+        margin-left: 1rem;
+        color: white;
+        font-weight: 600;
+        transition: transform 0.35s ease;
+    }
+
+    /* ===== BOTÃO DE EXPANDIR ===== */
+    .custom-collapsed-btn {
+        display: flex !important;
+        visibility: visible !important;
+        position: fixed !important;
+        top: 12px !important;
+        left: 12px !important;
+        z-index: 10001 !important;
+        width: 44px !important;
+        height: 44px !important;
+        border-radius: 22px !important;
+        align-items: center !important;
+        justify-content: center !important;
+        background: #152847 !important;
+        color: #ffffff !important;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.25) !important;
+        border: none !important;
+        cursor: pointer !important;
+    }
+
+    /* ===== ESTADO EXPANDIDO ===== */
+    .sidebar-expanded .nav-logo {
+        transform: translateX(240px); /* desloca a logo */
+    }
+    .sidebar-expanded .nav-title {
+        transform: translateX(240px);
+    }
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 </style>
 """, unsafe_allow_html=True)
 
