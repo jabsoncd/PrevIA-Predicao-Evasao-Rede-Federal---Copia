@@ -55,6 +55,50 @@ st.markdown(
     section[data-testid="stSidebar"] a[href*="Simulador_Eficiencia_Layout"] {
         display: none !important;
     }
+    
+    .nav-title {{
+        margin-left: 1rem;
+        color: white;
+        font-weight: 600;
+        transition: transform 0.35s ease;
+    }}
+
+    /* ===== BOTÃO DE EXPANDIR ===== */
+    .custom-collapsed-btn {{
+        display: flex !important;
+        visibility: visible !important;
+        position: fixed !important;
+        top: 12px !important;
+        left: 12px !important;
+        z-index: 10001 !important;
+        width: 44px !important;
+        height: 44px !important;
+        border-radius: 22px !important;
+        align-items: center !important;
+        justify-content: center !important;
+        background: #152847 !important;
+        color: #ffffff !important;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.25) !important;
+        border: none !important;
+        cursor: pointer !important;
+    }}
+
+    /* ===== ESTADO EXPANDIDO ===== */
+    .sidebar-expanded .nav-logo {{
+        transform: translateX(240px); /* desloca a logo */
+    }}
+    .sidebar-expanded .nav-title {{
+        transform: translateX(240px);
+    }}
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     """,
     unsafe_allow_html=True
@@ -259,53 +303,6 @@ st.markdown("""
         margin: 1rem 0;
         border-left: 4px solid #3b82f6;
     }
-    
-    
-    
-    
-    .nav-title {{
-        margin-left: 1rem;
-        color: white;
-        font-weight: 600;
-        transition: transform 0.35s ease;
-    }}
-
-    /* ===== BOTÃO DE EXPANDIR ===== */
-    .custom-collapsed-btn {{
-        display: flex !important;
-        visibility: visible !important;
-        position: fixed !important;
-        top: 12px !important;
-        left: 12px !important;
-        z-index: 10001 !important;
-        width: 44px !important;
-        height: 44px !important;
-        border-radius: 22px !important;
-        align-items: center !important;
-        justify-content: center !important;
-        background: #152847 !important;
-        color: #ffffff !important;
-        box-shadow: 0 6px 18px rgba(0,0,0,0.25) !important;
-        border: none !important;
-        cursor: pointer !important;
-    }}
-
-    /* ===== ESTADO EXPANDIDO ===== */
-    .sidebar-expanded .nav-logo {{
-        transform: translateX(240px); /* desloca a logo */
-    }}
-    .sidebar-expanded .nav-title {{
-        transform: translateX(240px);
-    }}
-        
-    
-    
-    
-    
-    
-    
-    
-    
     
     
 </style>
