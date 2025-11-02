@@ -78,8 +78,6 @@ st.markdown("""
     /* Mantém o botão para expandir visível */
     [data-testid="collapsedControl"] {{
         display: fixed !important;
-        visibility: visible !important;
-        position: fixed;
         top: 1rem;
         left: 1rem;
         z-index: 9999; /* acima de tudo */
