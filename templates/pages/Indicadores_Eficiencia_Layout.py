@@ -66,44 +66,6 @@ st.markdown(
 # 🔹 CSS: nav + sidebar customizado + efeito de empurrar página
 st.markdown("""
 <style>
-/* --- NAVBAR SUPERIOR --- */
-.nav-container {
-    background-color: #152847;
-    height: 2cm;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 0 2rem;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 999;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-}
-.nav-logo {
-    width: 200px;
-    height: 60px;
-    background-image: url("data:image/png;base64,{}");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: left center;
-}
-.nav-links {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-}
-.nav-link {
-    color: #FFFFFF;
-    font-weight: 600;
-    font-size: 1.1rem;
-    text-decoration: none;
-}
-.nav-link:hover {
-    color: #FFA500;
-    transition: color 0.2s;
-}
 
 /* --- BOTÃO HAMBÚRGUER (ABRE O SIDEBAR) --- */
 .menu-btn {
@@ -167,18 +129,6 @@ function toggleSidebar() {
 }
 </script>
 
-<!-- NAV BAR -->
-<div class="nav-container">
-    <div class="nav-logo"></div>
-    <div class="nav-links">
-        <button class="menu-btn" onclick="toggleSidebar()">☰</button>
-        <a class="nav-link" href="/">Início</a>
-        <a class="nav-link" href="/Simulador_Eficiencia_Layout">Simular</a>
-        <a class="nav-link" href="/Indicadores_Eficiencia_Layout">Indicadores</a>
-        <a class="nav-link" href="/Indicadores_Eficiencia_Layout_Gestor">Módulo Gestor</a>
-        <a class="nav-link" href="/Sobre">Sobre</a>
-    </div>
-</div>
 
 <!-- SIDEBAR CUSTOM -->
 <div id="customSidebar">
