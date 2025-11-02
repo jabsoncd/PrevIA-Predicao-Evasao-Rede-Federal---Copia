@@ -111,7 +111,7 @@ st.markdown("""
 
     /* Estilo visual do botão re-estilizado (aplicado via JS) */
     .custom-collapsed-btn {{
-        display: flex !important;
+        display: fixed !important;
         visibility: visible !important;
         position: fixed !important;
         top: 12px !important;
