@@ -106,7 +106,7 @@ st.markdown("""
         right: 0;
         height: 3.2rem;
         background: #152847;
-        z-index: 9000;
+        z-index: 1000;
     }}
 
     /* Estilo visual do botão re-estilizado (aplicado via JS) */
@@ -129,8 +129,6 @@ st.markdown("""
         cursor: pointer !important;
     }
 
-    /* Ajuste para quando o sidebar estiver aberto (opcional) */
-    /* se quiser escurecer o conteúdo principal quando aberto, poderia adicionar uma overlay via JS/CSS */
     </style>
 
 
