@@ -76,8 +76,8 @@ st.markdown("""
     }}
     
     /* Mantém o botão para expandir visível */
-    [data-testid="collapsedControl"] {
-        display: flex !important;
+    [data-testid="collapsedControl"] {{
+        display: fixed !important;
         visibility: visible !important;
         position: fixed;
         top: 1rem;
@@ -86,7 +86,7 @@ st.markdown("""
         background-color: #f0f2f6;
         border-radius: 50%;
         box-shadow: 0 0 8px rgba(0,0,0,0.2);
-    }
+    }}
 
     
     
