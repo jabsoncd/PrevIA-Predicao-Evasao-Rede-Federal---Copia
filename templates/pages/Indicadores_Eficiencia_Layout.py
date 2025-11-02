@@ -68,7 +68,7 @@ st.markdown("""
     z-index: 9998;
     transition: width 0.35s ease;
     box-shadow: 2px 0 12px rgba(0,0,0,0.18);
-    background-color: #f5f7fa;
+    background-color: green;
     }}
     
     /* Mantém o botão para expandir visível */
