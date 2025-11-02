@@ -263,15 +263,15 @@ st.markdown("""
     
     
     
-    .nav-title {
+    .nav-title {{
         margin-left: 1rem;
         color: white;
         font-weight: 600;
         transition: transform 0.35s ease;
-    }
+    }}
 
     /* ===== BOTÃO DE EXPANDIR ===== */
-    .custom-collapsed-btn {
+    .custom-collapsed-btn {{
         display: flex !important;
         visibility: visible !important;
         position: fixed !important;
@@ -288,15 +288,15 @@ st.markdown("""
         box-shadow: 0 6px 18px rgba(0,0,0,0.25) !important;
         border: none !important;
         cursor: pointer !important;
-    }
+    }}
 
     /* ===== ESTADO EXPANDIDO ===== */
-    .sidebar-expanded .nav-logo {
+    .sidebar-expanded .nav-logo {{
         transform: translateX(240px); /* desloca a logo */
-    }
-    .sidebar-expanded .nav-title {
+    }}
+    .sidebar-expanded .nav-title {{
         transform: translateX(240px);
-    }
+    }}
         
     
     
