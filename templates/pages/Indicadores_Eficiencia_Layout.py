@@ -21,7 +21,7 @@ st.set_page_config(
 
     layout="wide",
     # initial_sidebar_state="expanded"  # collapsed expanded
-    initial_sidebar_state="expanded"  # 🔹 Oculto ao iniciar
+    initial_sidebar_state="collapsed"  # 🔹 Oculto ao iniciar
 
 )
 
@@ -64,6 +64,24 @@ st.markdown(
 
 st.markdown("""
     <style>
+    [data-testid="stSidebar"] {{
+    position: fixed !important;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    z-index: 9998;
+    transition: width 0.35s ease;
+    box-shadow: 2px 0 12px rgba(0,0,0,0.18);
+    background-color: #f5f7fa;
+    }}
+    
+    /* Mantém main sem margin-left para não ser empurrado */
+main.block-container {{
+    margin-left: 0 !important;
+    transition: margin-left 0.35s ease;
+    padding-top: 3.5rem; /* espaço para nav fixa */
+    }}
+
     /* Mantém o botão para expandir visível */
     [data-testid="collapsedControl"] {
         display: flex !important;
