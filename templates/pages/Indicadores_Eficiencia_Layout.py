@@ -41,10 +41,6 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 st.markdown(
     """
     <style>
-    section[data-testid="stSidebar"] {
-        background-color: blue; /* cor de fundo personalizada */
-    }
-
     /* Oculta links específicos */
     section[data-testid="stSidebar"] a[href*="Home_Profissional"],
     section[data-testid="stSidebar"] a[href*="Indicadores_Eficiencia"],
@@ -78,6 +74,8 @@ st.markdown("""
     /* Mantém o botão para expandir visível */
     [data-testid="collapsedControl"] {{
         display: fixed !important;
+        visibility: visible !important;
+        position: fixed;
         top: 1rem;
         left: 1rem;
         z-index: 9999; /* acima de tudo */
