@@ -31,6 +31,7 @@ hide_st_style = """
     #MainMenu {visibility: hidden;}
     footer {visibility: hidden;}
     header {visibility: hidden;}
+    [data-testid="stSidebar"] {display: none;}
     </style>
     """
 st.markdown(hide_st_style, unsafe_allow_html=True)
@@ -55,30 +56,164 @@ st.markdown(
     section[data-testid="stSidebar"] a[href*="Simulador_Eficiencia_Layout"] {
         display: none !important;
     }
-    
-    /* 🔹 Força a barra lateral a continuar colapsável */
-    [data-testid="collapsedControl"] {
-        visibility: visible !important;
-        opacity: 1 !important;
-    }
 
-    /* Personaliza o botão de expandir/recolher */
-    button[kind="header"] {
-        background-color: #152847 !important;
-        color: white !important;
-        border-radius: 50%;
-        padding: 0.3rem 0.4rem;
-    }
-    
-    /* 🔹 Força a barra lateral a continuar colapsável */
-    [data-testid="collapsedControl"] {
-        visibility: visible !important;
-        opacity: 1 !important;
-    }
-        </style>
     """,
     unsafe_allow_html=True
 )
+
+
+
+# 🔹 CSS: nav + sidebar customizado + efeito de empurrar página
+st.markdown("""
+<style>
+/* --- NAVBAR SUPERIOR --- */
+.nav-container {
+    background-color: #152847;
+    height: 2cm;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 2rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+.nav-logo {
+    width: 200px;
+    height: 60px;
+    background-image: url("data:image/png;base64,{}");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: left center;
+}
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+.nav-link {
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-decoration: none;
+}
+.nav-link:hover {
+    color: #FFA500;
+    transition: color 0.2s;
+}
+
+/* --- BOTÃO HAMBÚRGUER (ABRE O SIDEBAR) --- */
+.menu-btn {
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: white;
+    background: none;
+    border: none;
+    margin-right: 20px;
+}
+
+/* --- SIDEBAR CUSTOMIZADO --- */
+#customSidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #f5f7fa;
+    overflow-x: hidden;
+    transition: 0.4s;
+    z-index: 1000;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.3);
+    padding-top: 60px; /* Espaço para não cobrir a navbar */
+}
+#customSidebar.open {
+    width: 320px;
+}
+.sidebar-content {
+    padding: 1rem;
+}
+.sidebar-content h3 {
+    color: #152847;
+}
+
+/* --- CONTEÚDO PRINCIPAL EMPURRADO --- */
+#mainContent {
+    transition: margin-left 0.4s;
+    padding-top: 3.5rem;
+}
+.shifted {
+    margin-left: 320px;
+}
+</style>
+""".format(
+    base64.b64encode(open("templates/logo_branca_laranja.png", "rb").read()).decode("utf-8")
+), unsafe_allow_html=True)
+
+# 🔹 HTML + JS para abrir/fechar o sidebar
+st.markdown("""
+<script>
+function toggleSidebar() {
+    const sidebar = document.getElementById("customSidebar");
+    const main = document.getElementById("mainContent");
+    if (sidebar.classList.contains("open")) {
+        sidebar.classList.remove("open");
+        main.classList.remove("shifted");
+    } else {
+        sidebar.classList.add("open");
+        main.classList.add("shifted");
+    }
+}
+</script>
+
+<!-- NAV BAR -->
+<div class="nav-container">
+    <div class="nav-logo"></div>
+    <div class="nav-links">
+        <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+        <a class="nav-link" href="/">Início</a>
+        <a class="nav-link" href="/Simulador_Eficiencia_Layout">Simular</a>
+        <a class="nav-link" href="/Indicadores_Eficiencia_Layout">Indicadores</a>
+        <a class="nav-link" href="/Indicadores_Eficiencia_Layout_Gestor">Módulo Gestor</a>
+        <a class="nav-link" href="/Sobre">Sobre</a>
+    </div>
+</div>
+
+<!-- SIDEBAR CUSTOM -->
+<div id="customSidebar">
+    <div class="sidebar-content">
+        <h3>Filtros</h3>
+        <p><b>Demográficos</b></p>
+        <input type="checkbox"> Norte<br>
+        <input type="checkbox"> Nordeste<br>
+        <input type="checkbox"> Sudeste<br>
+        <hr>
+        <p><b>Gênero</b></p>
+        <input type="checkbox"> Masculino<br>
+        <input type="checkbox"> Feminino<br>
+    </div>
+</div>
+
+<!-- CONTEÚDO PRINCIPAL -->
+<div id="mainContent">
+""", unsafe_allow_html=True)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #########################################################################################################################################################
 
