@@ -133,44 +133,7 @@ st.markdown("""
     /* se quiser escurecer o conteúdo principal quando aberto, poderia adicionar uma overlay via JS/CSS */
     </style>
 
-    <script>
-    // Função que tenta localizar o botão nativo de recolher/expandir (testa vários seletores)
-    // e aplica a classe custom-collapsed-btn com estilo e posicionamento.
-    // Faz polling nos primeiros 10s para garantir que o elemento seja estilizado mesmo em carregamentos lentos.
 
-    function styleCollapsedButton() {{
-        const selectors = [
-            '[data-testid="collapsedControl"]',            // seletor usado em muitas versões
-            'button[aria-label="Open sidebar"]',           // possível aria-label em algumas builds
-            'button[title="Open sidebar"]',                // alternativa
-            'button[aria-label="Toggle sidebar"]',         // outra variação possível
-            'div[role="button"][data-testid="collapsedControl"]'
-        ];
-        for (const s of selectors) {{
-            const el = document.querySelector(s);
-            if (el) {{
-                el.classList.add('custom-collapsed-btn');
-                // remove estilos inline conflitantes (opcional)
-                el.style.removeProperty('position');
-                el.style.removeProperty('top');
-                el.style.removeProperty('left');
-                el.style.removeProperty('display');
-                el.style.removeProperty('visibility');
-                // garante que ao abrir o sidebar o foco funcione - não interferimos no evento nativo
-                return true;
-            }}
-        }}
-        return false;
-    }}
-
-    // tenta imediatamente e depois a cada 400ms por até 10s
-    styleCollapsedButton();
-    const intervalId = setInterval(() => {{
-        const ok = styleCollapsedButton();
-        if (ok) clearInterval(intervalId);
-    }}, 400);
-    setTimeout(() => clearInterval(intervalId), 10000);
-    </script>
 
     
 """, unsafe_allow_html=True)
