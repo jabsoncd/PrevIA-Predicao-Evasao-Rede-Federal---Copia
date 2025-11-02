@@ -62,89 +62,39 @@ st.markdown(
 
 
 
-# 🔹 CSS: nav + sidebar customizado + efeito de empurrar página
 st.markdown("""
-<style>
-
-/* --- BOTÃO HAMBÚRGUER (ABRE O SIDEBAR) --- */
-.menu-btn {
-    font-size: 1.8rem;
-    cursor: pointer;
-    color: white;
-    background: none;
-    border: none;
-    margin-right: 20px;
-}
-
-/* --- SIDEBAR CUSTOMIZADO --- */
-#customSidebar {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: #f5f7fa;
-    overflow-x: hidden;
-    transition: 3s;
-    z-index: 1000;
-    box-shadow: 2px 0 5px rgba(0,0,0,0.3);
-    padding-top: 60px; /* Espaço para não cobrir a navbar */
-}
-#customSidebar.open {
-    width: 320px;
-}
-.sidebar-content {
-    padding: 1rem;
-}
-.sidebar-content h3 {
-    color: #152847;
-}
-
-/* --- CONTEÚDO PRINCIPAL EMPURRADO --- */
-#mainContent {
-    transition: margin-left 3s;
-    padding-top: 3.5rem;
-}
-.shifted {
-    margin-left: 320px;
-}
-</style>
-"""
-, unsafe_allow_html=True)
-
-# 🔹 HTML + JS para abrir/fechar o sidebar
-st.markdown("""
-<script>
-function toggleSidebar() {
-    const sidebar = document.getElementById("customSidebar");
-    const main = document.getElementById("mainContent");
-    if (sidebar.classList.contains("open")) {
-        sidebar.classList.remove("open");
-        main.classList.remove("shifted");
-    } else {
-        sidebar.classList.add("open");
-        main.classList.add("shifted");
+    <style>
+    /* Mantém o botão para expandir visível */
+    [data-testid="collapsedControl"] {
+        display: flex !important;
+        visibility: visible !important;
+        position: fixed;
+        top: 1rem;
+        left: 1rem;
+        z-index: 9999; /* acima de tudo */
+        background-color: #f0f2f6;
+        border-radius: 50%;
+        box-shadow: 0 0 8px rgba(0,0,0,0.2);
     }
-}
-</script>
 
+    /* Faz o sidebar sobrepor o conteúdo */
+    [data-testid="stSidebar"] {
+        position: fixed !important;
+        left: 0;
+        top: 0;
+        height: 100vh;
+        z-index: 9998; /* logo abaixo do botão */
+        transition: all 0.4s ease;
+        box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+    }
 
-<!-- SIDEBAR CUSTOM -->
-<div id="customSidebar">
-    <div class="sidebar-content">
-        <h3>Filtros</h3>
-        <p><b>Demográficos</b></p>
-        <input type="checkbox"> Norte<br>
-        <input type="checkbox"> Nordeste<br>
-        <input type="checkbox"> Sudeste<br>
-        <hr>
-        <p><b>Gênero</b></p>
-        <input type="checkbox"> Masculino<br>
-        <input type="checkbox"> Feminino<br>
-    </div>
-</div>
-
+    /* Evita empurrar o conteúdo quando o sidebar expande */
+    .main {
+        margin-left: 0 !important;
+    }
+    </style>
 """, unsafe_allow_html=True)
+
 
 
 
