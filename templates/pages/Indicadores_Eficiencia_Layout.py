@@ -120,11 +120,11 @@ logo_path = Path("templates/logo_branca_laranja.png")
 
 
 # 🔹 Ocultar sidebar
-st.markdown("""
-    <style>
-    [data-testid="stSidebar"] {display: none;}
-    </style>
-""", unsafe_allow_html=True)
+# st.markdown("""
+#     <style>
+#     [data-testid="stSidebar"] {display: none;}
+#     </style>
+# """, unsafe_allow_html=True)
 
 
 # Estado inicial
