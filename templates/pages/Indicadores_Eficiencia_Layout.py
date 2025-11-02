@@ -43,7 +43,7 @@ st.markdown(
     <style>
     section[data-testid="stSidebar"] {
         background-color: blue; /* cor de fundo personalizada */
-        position: fixed !important;
+        position: flex !important;
     }
 
     /* Oculta links específicos */
