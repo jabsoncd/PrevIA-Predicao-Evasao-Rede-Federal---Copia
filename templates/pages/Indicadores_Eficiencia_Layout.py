@@ -148,9 +148,8 @@ st.markdown("""
     margin-left: 320px;
 }
 </style>
-""".format(
-    base64.b64encode(open("templates/logo_branca_laranja.png", "rb").read()).decode("utf-8")
-), unsafe_allow_html=True)
+"""
+, unsafe_allow_html=True)
 
 # 🔹 HTML + JS para abrir/fechar o sidebar
 st.markdown("""
