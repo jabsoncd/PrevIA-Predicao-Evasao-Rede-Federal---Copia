@@ -154,10 +154,80 @@ const intervalId = setInterval(() => {{
     if (ok) clearInterval(intervalId);
 }}, 400);
 setTimeout(() => clearInterval(intervalId), 10000);
+
+<script>
+// Função que tenta localizar o botão nativo de recolher/expandir (testa vários seletores)
+// e aplica a classe custom-collapsed-btn com estilo e posicionamento.
+// Faz polling nos primeiros 10s para garantir que o elemento seja estilizado mesmo em carregamentos lentos.
+
+function styleCollapsedButton() {{
+    const selectors = [
+        '[data-testid="collapsedControl"]',            // seletor usado em muitas versões
+        'button[aria-label="Open sidebar"]',           // possível aria-label em algumas builds
+        'button[title="Open sidebar"]',                // alternativa
+        'button[aria-label="Toggle sidebar"]',         // outra variação possível
+        'div[role="button"][data-testid="collapsedControl"]'
+    ];
+    for (const s of selectors) {{
+        const el = document.querySelector(s);
+        if (el) {{
+            el.classList.add('custom-collapsed-btn');
+            // remove estilos inline conflitantes (opcional)
+            el.style.removeProperty('position');
+            el.style.removeProperty('top');
+            el.style.removeProperty('left');
+            el.style.removeProperty('display');
+            el.style.removeProperty('visibility');
+            // garante que ao abrir o sidebar o foco funcione - não interferimos no evento nativo
+            return true;
+        }}
+    }}
+    return false;
+}}
+
+// tenta imediatamente e depois a cada 400ms por até 10s
+styleCollapsedButton();
+const intervalId = setInterval(() => {{
+    const ok = styleCollapsedButton();
+    if (ok) clearInterval(intervalId);
+}}, 400);
+setTimeout(() => clearInterval(intervalId), 10000);
 </script>
     """,
     unsafe_allow_html=True,
 )
+
+# ===========================
+# NAV BAR (exemplo)
+# ===========================
+st.markdown(
+    f"""
+<div class="navbar">
+    <div style="display:flex; align-items:center; height:100%; padding:0 1rem;">
+        <div style="width:180px; height:36px; background-image:url('data:image/png;base64,{logo_b64}'); background-size:contain; background-repeat:no-repeat;"></div>
+        <div style="margin-left:1rem; color:white; font-weight:600;">Plataforma PrevIA</div>
+    </div>
+</div>
+
+
+</script>
+    """,
+    unsafe_allow_html=True,
+)
+
+# ===========================
+# CSS + JS para forçar o ícone e o comportamento overlay
+# ===========================
+logo_path = Path("templates/logo_branca_laranja.png")
+logo_b64 = ""
+try:
+    logo_b64 = base64.b64encode(open(logo_path, "rb").read()).decode("utf-8")
+except Exception:
+    logo_b64 = ""
+
+
+
+
 
 
 
