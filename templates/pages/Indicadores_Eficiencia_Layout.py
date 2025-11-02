@@ -38,14 +38,48 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 
 
 # 🔹 Mantém sidebar visível e apenas oculta links indesejados
-st.markdown(
-    """
-    <style>
-    section[data-testid="stSidebar"] {
-        background-color: #f5f7fa; /* cor de fundo personalizada */
-    }
+# st.markdown(
+#     """
+#     <style>
+#     section[data-testid="stSidebar"] {
+#         background-color: #f5f7fa; /* cor de fundo personalizada */
+#     }
 
-    /* Oculta links específicos */
+#     /* Oculta links específicos */
+#     section[data-testid="stSidebar"] a[href*="Home_Profissional"],
+#     section[data-testid="stSidebar"] a[href*="Indicadores_Eficiencia"],
+#     section[data-testid="stSidebar"] a[href*="Simulador_Eficiencia"],
+#     section[data-testid="stSidebar"] a[href*="Sobre"],
+#     section[data-testid="stSidebar"] a[href*="Home_Profissional"],
+#     section[data-testid="stSidebar"] a[href*="Indicadores_Eficiencia_Layout"],
+#     section[data-testid="stSidebar"] a[href*="Simulador_Eficiencia_Layout"] {
+#         display: none !important;
+#     }
+#     </style>
+    
+#     /* 🔹 Força a barra lateral a continuar colapsável */
+#     [data-testid="collapsedControl"] {
+#         visibility: visible !important;
+#         opacity: 1 !important;
+#     }
+
+#     /* Personaliza o botão de expandir/recolher */
+#     button[kind="header"] {
+#         background-color: #152847 !important;
+#         color: white !important;
+#         border-radius: 50%;
+#         padding: 0.3rem 0.4rem;
+#     }
+#     </style>
+#     """,
+#     unsafe_allow_html=True
+# )
+
+
+# 🔹 CSS para estilizar o sidebar e manter o botão de expandir visível
+st.markdown("""
+<style>            
+/* Oculta links específicos */
     section[data-testid="stSidebar"] a[href*="Home_Profissional"],
     section[data-testid="stSidebar"] a[href*="Indicadores_Eficiencia"],
     section[data-testid="stSidebar"] a[href*="Simulador_Eficiencia"],
@@ -54,27 +88,29 @@ st.markdown(
     section[data-testid="stSidebar"] a[href*="Indicadores_Eficiencia_Layout"],
     section[data-testid="stSidebar"] a[href*="Simulador_Eficiencia_Layout"] {
         display: none !important;
-    }
-    </style>
+
     
-    /* 🔹 Força a barra lateral a continuar colapsável */
-    [data-testid="collapsedControl"] {
-        visibility: visible !important;
-        opacity: 1 !important;
-    }
 
-    /* Personaliza o botão de expandir/recolher */
-    button[kind="header"] {
-        background-color: #152847 !important;
-        color: white !important;
-        border-radius: 50%;
-        padding: 0.3rem 0.4rem;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
+/* Fundo do sidebar */
+section[data-testid="stSidebar"] {
+    background-color: #f5f7fa;
+}
 
+/* 🔹 Força a barra lateral a continuar colapsável */
+[data-testid="collapsedControl"] {
+    visibility: visible !important;
+    opacity: 10 !important;
+}
+
+/* Personaliza o botão de expandir/recolher */
+button[kind="header"] {
+    background-color: #152847 !important;
+    color: blue !important;
+    border-radius: 50%;
+    padding: 0.3rem 0.4rem;
+}
+</style>
+""", unsafe_allow_html=True)
 
 #########################################################################################################################################################
 
