@@ -33,23 +33,17 @@ hide_st_style = """
     """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
-# 🔹 Ocultar apenas os links Home, Indicadores e Simulador do sidebar
-# st.markdown(
-#     """
-#     <style>
-#     section[data-testid="stSidebar"] a[href*="templates/Home_Eficiencia"],
-#     section[data-testid="stSidebar"] a[href*="pages/Indicadores_Eficiencia"],
-#     section[data-testid="stSidebar"] a[href*="pages/Simulador_Eficiencia"] {
-#         display: none !important;
-#     }
-#     </style>
-#     """,
-#     unsafe_allow_html=True
-# )
-# CSS para ocultar links com nomes específicos no sidebar
+
+
+# 🔹 Mantém sidebar visível e apenas oculta links indesejados
 st.markdown(
     """
     <style>
+    section[data-testid="stSidebar"] {
+        background-color: #f5f7fa; /* cor de fundo personalizada */
+    }
+
+    /* Oculta links específicos */
     section[data-testid="stSidebar"] a[href*="Home_Profissional"],
     section[data-testid="stSidebar"] a[href*="Indicadores_Eficiencia_Layout"],
     section[data-testid="stSidebar"] a[href*="Simulador_Eficiencia_Layout"] {
@@ -60,17 +54,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# Estilo CSS para customizar o fundo da barra lateral
-st.markdown(
-    """
-    <style>
-        [data-testid="stSidebar"] {
-            background-color: #f5f7fa;
-        }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
+
 #########################################################################################################################################################
 
 
@@ -141,9 +125,13 @@ st.markdown("""
     [data-testid="stSidebar"] {display: none;}
     </style>
 """, unsafe_allow_html=True)
+
+
 # Estado inicial
 if "current_page" not in st.session_state:
     st.session_state.current_page = "home"
+    
+    
 
 def get_base64_image(path: Path):
     if not path.exists():
