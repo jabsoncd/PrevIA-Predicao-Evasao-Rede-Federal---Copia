@@ -42,7 +42,7 @@ st.markdown(
     """
     <style>
     section[data-testid="stSidebar"] {
-        background-color: #f5f7fa; /* cor de fundo personalizada */
+        background-color: blue; /* cor de fundo personalizada */
     }
 
     /* Oculta links específicos */
