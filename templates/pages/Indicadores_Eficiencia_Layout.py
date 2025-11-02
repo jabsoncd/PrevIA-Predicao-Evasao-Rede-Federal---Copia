@@ -93,18 +93,18 @@ st.markdown("""
 
 /* Fundo do sidebar */
 section[data-testid="stSidebar"] {
-    background-color: #f5f7fa;
+    background-color: blue;
 }
 
 /* 🔹 Força a barra lateral a continuar colapsável */
 [data-testid="collapsedControl"] {
-    opacity: 10 !important;
+    opacity: 1 !important;
 }
 
 /* Personaliza o botão de expandir/recolher */
 button[kind="header"] {
-    background-color: #152847 !important;
-    color: blue !important;
+    background-color: #152847 ;
+    color: blue ;
     border-radius: 50%;
     padding: 0.3rem 0.4rem;
 }
