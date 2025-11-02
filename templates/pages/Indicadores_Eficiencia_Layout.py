@@ -98,7 +98,6 @@ section[data-testid="stSidebar"] {
 
 /* 🔹 Força a barra lateral a continuar colapsável */
 [data-testid="collapsedControl"] {
-    visibility: visible !important;
     opacity: 10 !important;
 }
 
