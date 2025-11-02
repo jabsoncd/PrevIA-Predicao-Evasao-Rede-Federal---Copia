@@ -20,7 +20,9 @@ st.set_page_config(
     page_icon="images/previa_azulmenor.png",
 
     layout="wide",
-    initial_sidebar_state="expanded"  # collapsed expanded
+    # initial_sidebar_state="expanded"  # collapsed expanded
+    initial_sidebar_state="collapsed"  # 🔹 Oculto ao iniciar
+
 )
 
 # Ocultar barra streamlit
@@ -52,6 +54,21 @@ st.markdown(
     section[data-testid="stSidebar"] a[href*="Indicadores_Eficiencia_Layout"],
     section[data-testid="stSidebar"] a[href*="Simulador_Eficiencia_Layout"] {
         display: none !important;
+    }
+    </style>
+    
+    /* 🔹 Força a barra lateral a continuar colapsável */
+    [data-testid="collapsedControl"] {
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+
+    /* Personaliza o botão de expandir/recolher */
+    button[kind="header"] {
+        background-color: #152847 !important;
+        color: white !important;
+        border-radius: 50%;
+        padding: 0.3rem 0.4rem;
     }
     </style>
     """,
