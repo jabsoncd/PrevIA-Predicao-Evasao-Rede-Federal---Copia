@@ -21,7 +21,7 @@ st.set_page_config(
 
     layout="wide",
     # initial_sidebar_state="expanded"  # collapsed expanded
-    initial_sidebar_state="expanded"  # 🔹 Oculto ao iniciar
+    initial_sidebar_state="collapsed"  # 🔹 Oculto ao iniciar
 
 )
 
