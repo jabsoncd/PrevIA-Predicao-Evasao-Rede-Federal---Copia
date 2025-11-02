@@ -75,13 +75,6 @@ st.markdown("""
     background-color: #f5f7fa;
     }}
     
-    /* Mantém main sem margin-left para não ser empurrado */
-main.block-container {{
-    margin-left: 0 !important;
-    transition: margin-left 0.35s ease;
-    padding-top: 3.5rem; /* espaço para nav fixa */
-    }}
-
     /* Mantém o botão para expandir visível */
     [data-testid="collapsedControl"] {
         display: flex !important;
