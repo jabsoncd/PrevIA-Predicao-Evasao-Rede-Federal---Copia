@@ -106,7 +106,7 @@ st.markdown("""
     }}
 
     /* Estilo visual do botão re-estilizado (aplicado via JS) */
-    .custom-collapsed-btn {
+    .custom-collapsed-btn {{
         display: fixed !important;
         visibility: visible !important;
         position: fixed !important;
@@ -118,12 +118,12 @@ st.markdown("""
         border-radius: 22px !important;
         align-items: center !important;
         justify-content: center !important;
-        background: #152847 !important;
-        color: #ffffff !important;
+        background: #eddc21 !important;
+        color: #e30b0b !important;
         box-shadow: 0 6px 18px rgba(0,0,0,0.25) !important;
         border: none !important;
         cursor: pointer !important;
-    }
+    }}
 
     </style>
 
