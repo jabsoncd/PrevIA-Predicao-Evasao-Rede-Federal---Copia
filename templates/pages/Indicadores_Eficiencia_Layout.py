@@ -53,21 +53,43 @@ st.markdown(
     }
 
     [data-testid="stSidebar"] {
-    position: fixed !important;
-    left: 0;
-    top: 0;
-    height: 100vh;
-    z-index: 9998;
-    width: 17rem !important;
-    transition: transform 0.35s ease, width 0.35s ease;
-    box-shadow: 2px 0 12px rgba(0,0,0,0.18);
-    background-color: #f5f2c4;
+        position: fixed !important;
+        left: 0;
+        top: 0;
+        height: 100vh;
+        z-index: 9998;
+        width: 17rem !important;
+        transition: transform 0.35s ease;
+        box-shadow: 2px 0 12px rgba(0,0,0,0.18);
+        background-color: #f5f2c4;
     }
 
     /* 🔹 Quando o sidebar estiver recolhido */
     [data-testid="stSidebar"][aria-expanded="false"] {
         transform: translateX(-100%);
     }
+
+
+    /* 🔹 Container principal se ajusta conforme o estado do sidebar */
+    [data-testid="stAppViewContainer"] > div:first-child {
+        transition: margin-left 0.35s ease;
+        margin-left: 17rem; /* Sidebar aberto */
+    }
+
+    /* 🔹 Quando sidebar recolhido, o conteúdo volta à esquerda */
+    [data-testid="stSidebar"][aria-expanded="false"] ~ div [data-testid="stAppViewContainer"] > div:first-child {
+        margin-left: 0 !important;
+    }
+
+    /* 🔹 Ajuste de padding geral do conteúdo */
+    .block-container {
+        padding-top: 1rem !important;
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+
+
+
 
 
     </style>
