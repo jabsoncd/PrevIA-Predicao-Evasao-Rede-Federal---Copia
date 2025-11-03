@@ -566,17 +566,8 @@ with st.expander("Filtros"):
     # HTML + CSS para o botão customizado
     botao_html = """
     <div style="text-align: left; margin-top: 10px;">
-        <button onclick="document.querySelector('iframe').contentWindow.streamlitPythonCode()"
-            style="
-                background-color: #FF0000; 
-                color: white; 
-                height: 2cm; 
-                width: 120px; 
-                border-radius: 8px; 
-                font-size: 16px; 
-                font-weight: bold;
-                cursor: pointer;">
-            Filtrar
+        <button onclick="document.querySelector('iframe').contentWindow.streamlitPythonCode()">
+    
         </button>
     </div>
     """
