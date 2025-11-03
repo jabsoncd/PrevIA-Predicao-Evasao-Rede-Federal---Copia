@@ -51,7 +51,7 @@ st.markdown("""
     }
 
     [data-testid="stSidebar"] {
-        left: 0;
+        left: 1;
         top: 2cm;
         height: 100vh;
         width: 17rem !important; 
@@ -73,7 +73,7 @@ st.markdown("""
             
     [data-testid="stSidebar2"] {{
         position: fixed !important;
-        left: 0;
+        left: 1;
         top: 2cm;
         height: 100vh;
         width: 17rem !important; 
@@ -91,16 +91,6 @@ st.markdown("""
 
 
 
-# CSS para personalizar o sidebar
-st.markdown("""
-    <style>
-
-    /* Ajusta o conteúdo da página para não ficar sobre o sidebar */
-    [data-testid="stAppViewContainer"] {
-        margin-left: 17rem; /* largura do sidebar + 5 cm */
-    }
-    </style>
-""", unsafe_allow_html=True)
 
 
 
