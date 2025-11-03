@@ -55,7 +55,7 @@ st.markdown("""
         top: 2cm;
         height: 100vh;
         width: 17rem !important; 
-        min-width: 10rem !important; /* largura mínima quando recolhido */
+        min-width: 15rem !important; /* largura mínima quando recolhido */
         z-index: 9998;
         box-shadow: 2px 0 12px rgba(0,0,0,0.18);
         background-color: #f5f2c4;
