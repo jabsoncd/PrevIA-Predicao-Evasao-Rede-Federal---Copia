@@ -64,31 +64,33 @@ st.markdown(
         background-color: #f5f2c4;
     }
 
-    /* 🔹 Quando o sidebar estiver recolhido */
-    [data-testid="stSidebar"][aria-expanded="false"] {
-        transform: translateX(-100%);
+    /* 🔹 Mantém o botão de expandir/recolher sempre visível */
+    [data-testid="collapsedControl"] {
+        display: flex !important;
+        visibility: visible !important;
+        position: fixed !important;
+        top: 1rem;
+        left: 0.5rem;
+        z-index: 10000 !important;
     }
 
-
-    /* 🔹 Container principal se ajusta conforme o estado do sidebar */
+    /* 🔹 Ajuste do container principal — flutua conforme o sidebar */
     [data-testid="stAppViewContainer"] > div:first-child {
         transition: margin-left 0.35s ease;
-        margin-left: 17rem; /* Sidebar aberto */
+        margin-left: 17rem; /* Quando o sidebar está expandido */
     }
 
-    /* 🔹 Quando sidebar recolhido, o conteúdo volta à esquerda */
+    /* 🔹 Quando o sidebar está recolhido, reduz o espaço */
     [data-testid="stSidebar"][aria-expanded="false"] ~ div [data-testid="stAppViewContainer"] > div:first-child {
-        margin-left: 0 !important;
+        margin-left: 3.5rem !important; /* suficiente para deixar o botão visível */
     }
 
-    /* 🔹 Ajuste de padding geral do conteúdo */
+    /* 🔹 Ajuste de espaçamento geral */
     .block-container {
         padding-top: 1rem !important;
         padding-left: 1rem !important;
         padding-right: 1rem !important;
     }
-
-
 
 
 
