@@ -58,6 +58,7 @@ st.markdown("""
         z-index: 9998;
         box-shadow: 2px 0 12px rgba(0,0,0,0.18);
         background-color: #f5f2c4;
+        overflow: auto;
     }
             
     /* Seleciona o botão de expandir/recolher */
@@ -93,14 +94,9 @@ st.markdown("""
 st.markdown("""
     <style>
 
-    /* Esconde o botão de expandir/recolher */
-    button[title="Expandir/Recolher"] {
-        display: none !important;
-    }
-
     /* Ajusta o conteúdo da página para não ficar sobre o sidebar */
     [data-testid="stAppViewContainer"] {
-        margin-left: 17rem; /* mesmo tamanho do sidebar */
+        margin-left: calc(17rem + 189px); /* largura do sidebar + 5 cm */
     }
     </style>
 """, unsafe_allow_html=True)
