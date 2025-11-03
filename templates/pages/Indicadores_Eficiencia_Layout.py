@@ -84,13 +84,6 @@ st.markdown("""
         box-shadow: 0 0 8px rgba(0,0,0,0.2);
     }}
 
-    /* Mantém main sem margin-left para não ser empurrado */
-    main.block-container {{
-        margin-left: 0 !important;
-        transition: margin-left 0.35s ease;
-        padding-top: 3.5rem; /* espaço para nav fixa */
-    }}
-
     </style>
 
     
