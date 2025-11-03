@@ -51,7 +51,7 @@ st.markdown("""
     }
 
     [data-testid="stSidebar"] {
-        left: 189px;
+        left: 0;
         top: 2cm;
         height: 100vh;
         width: 17rem !important; 
@@ -73,7 +73,7 @@ st.markdown("""
             
     [data-testid="stSidebar2"] {{
         position: fixed !important;
-        left: 189px;
+        left: 0;
         top: 2cm;
         height: 100vh;
         width: 17rem !important; 
