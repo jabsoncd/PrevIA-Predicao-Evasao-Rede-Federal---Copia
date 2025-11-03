@@ -59,32 +59,46 @@ st.markdown("""
         z-index: 9998;
         box-shadow: 2px 0 12px rgba(0,0,0,0.18);
         background-color: #f5f2c4;
-        transition: width 40.3s ease; /* animação suave */
+        transition: width 4s ease; /* animação suave */
     }
- 
+    /* Ajusta botão expandir para aparecer corretamente */
+    button[title="Expandir/Recolher"] {
+        position: fixed !important;
+        top: 2.5cm;   /* ajuste vertical para alinhar com sidebar */
+        left: 20px;    /* fica próximo da borda do sidebar */
+        z-index: 9999;
+    }
+             
+    [data-testid="stSidebar2"] {{
+        position: fixed !important;
+        left: 0cm;
+        top: 2cm;
+        height: 100vh;
+        width: 17rem !important; 
+        z-index: 9998;
+        transition: width 0.35s ease;
+        box-shadow: 2px 0 12px rgba(0,0,0,0.18);
+        background-color: #f5f2c4;
+        transition: width 4s ease; /* animação suave */
+        min-width: 5rem !important; /* largura mínima quando recolhido */
+    }}
     </style>
     
 """, unsafe_allow_html=True)
 
 
+
+# CSS para personalizar o sidebar
 st.markdown("""
     <style>
-    
-    /* Garante que o botão sempre fique visível */
-    [data-testid="stSidebar"] button {
-        visibility: visible !important;
-        opacity: 1 !important;
+    /* Ajusta o conteúdo da página para não ficar sobre o sidebar */
+    [data-testid="stAppViewContainer"] {
+        margin-top: 0;                 /* desloca conteúdo para ficar abaixo da navbar */
     }
-
-    /* Sidebar sempre acessível */
-    [data-testid="stSidebar"] {
-        min-width: 50px !important;
-    }
-
- 
+            
     </style>
-    
 """, unsafe_allow_html=True)
+
 
 
 
