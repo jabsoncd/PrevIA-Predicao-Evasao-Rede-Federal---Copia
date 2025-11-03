@@ -72,34 +72,6 @@ st.markdown("""
 # 🔹 Mantém sidebar visível e apenas oculta links indesejados
 st.markdown("""
     <style>         
-           
-    /* 🔸 Sidebar recolhido */
-    [data-testid="stSidebar"].collapsed {
-        width: 3.5rem !important;
-    }
-            
-
-    /* 🔸 Botão para alternar sidebar */
-    #toggle-sidebar {
-        position: fixed;
-        top: 3rem; /* abaixo da navbar */
-        left: 1rem;
-        z-index: 10000;
-        background-color: #152847;
-        color: white;
-        border: none;
-        border-radius: 8px;
-        padding: 8px 14px;
-        cursor: pointer;
-        font-size: 0.9rem;
-        font-weight: 500;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-        transition: all 0.25s ease;
-    }
-    #toggle-sidebar:hover {
-        background-color: #1e3c6e;
-    }
-    </style>
 
     <!-- 🔹 Botão HTML -->
     <button id="toggle-sidebar">☰ Menu</button>
