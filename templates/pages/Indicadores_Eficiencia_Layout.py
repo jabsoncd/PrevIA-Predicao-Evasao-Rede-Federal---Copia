@@ -57,6 +57,7 @@ st.markdown(
     left: 0;
     top: 0;
     height: 100vh;
+    width: 17rem; 
     z-index: 9998;
     transition: width 0.35s ease;
     box-shadow: 2px 0 12px rgba(0,0,0,0.18);
