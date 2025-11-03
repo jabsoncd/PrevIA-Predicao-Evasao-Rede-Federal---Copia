@@ -585,14 +585,11 @@ with st.expander("Filtros", expanded=st.session_state.expander_open):
 
     # Botão Limpar Filtros (fora do expander)
     if st.button("Limpar Filtros"):
-        # Recolhe o expander
-        st.session_state.expander_open = False
         # Limpa apenas os filtros que existem no session_state
         for chave in filtro_chaves:
             if chave in st.session_state:
                 st.session_state[chave] = []
-
-        
+                        
         # Recolhe o expander
         st.session_state.expander_open = False
 
