@@ -86,7 +86,7 @@ st.markdown("""
     }
 
     /* --- LOGO FLUTUANTE --- */
-    .nav-logo {{
+    .nav-logo {
         width: 180px;
         height: 55px;
         background-image: url("data:image/jpg;base64,{logo_b64}");
@@ -96,7 +96,7 @@ st.markdown("""
         margin: 10px auto;
         display: block;
         transition: all 0.3s ease;
-    }}
+    }
         
     
     </style>
