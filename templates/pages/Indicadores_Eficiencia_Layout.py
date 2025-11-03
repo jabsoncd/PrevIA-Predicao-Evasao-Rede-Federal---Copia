@@ -466,7 +466,15 @@ st.write(" ")
 
 ##################################################################### MODAL
 
-with st.expander("Filtros", expanded=False):
+# Inicializa o estado do expander, se não existir
+if "expander_open" not in st.session_state:
+    st.session_state.expander_open = False  # expander fechado por padrão
+
+def recolher_expander():
+    st.session_state.expander_open = False  # função para fechar o expander ao filtrar
+
+# Expander controlado pelo session_state
+with st.expander("Filtros", expanded=st.session_state.expander_open):
     with st.form ("Filtro_form"):
         st.markdown("### Situação das Matrículas")
         CATEGORIA_SITUACAO = st.multiselect(
