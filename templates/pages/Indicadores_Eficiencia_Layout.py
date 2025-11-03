@@ -50,7 +50,7 @@ st.markdown("""
         display: none !important;
     }
 
-    [data-testid="stSidebar"] {{
+    [data-testid="stSidebar"] {
         left: 0;
         top: 2cm;
         height: 100vh;
@@ -60,7 +60,7 @@ st.markdown("""
         box-shadow: 2px 0 12px rgba(0,0,0,0.18);
         background-color: #f5f2c4;
         transition: width 0.35s ease; /* animação suave */
-    }}
+    }
     
     /* --- CONTEÚDO PRINCIPAL AJUSTADO --- */
     .main {{
