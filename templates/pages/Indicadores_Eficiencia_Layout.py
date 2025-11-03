@@ -680,7 +680,7 @@ with st.expander("Filtros", expanded=st.session_state.expander_open):
     "regiao_metropolitana_ue", "cor_raca", "sexo", "renda_familiar",
     "eixo_tecnologico", "nome_de_curso", "modalidade_de_ensino",
     "tipo_de_oferta", "turno"
-]
+    ]
 
     for coluna in colunas_filtro:
         session_chave = coluna.lower().replace(" ", "_").replace("ã", "a").replace("ç", "c")
