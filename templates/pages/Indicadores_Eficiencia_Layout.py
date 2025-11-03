@@ -76,6 +76,17 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
+st.markdown("""
+    <style>
+    /* Seleciona o botão de expandir/recolher */
+    button[data-testid="collapsedControl"] {
+        top: 4cm !important;  /* Ajusta a posição vertical */
+        left: 0px !important; /* Ajusta horizontalmente, se desejar */
+    }
+    </style>
+""", unsafe_allow_html=True)
+
+
 
 
 
