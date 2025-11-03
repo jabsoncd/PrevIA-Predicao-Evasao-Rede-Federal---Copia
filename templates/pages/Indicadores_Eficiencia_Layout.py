@@ -97,7 +97,7 @@ st.markdown("""
 
     /* Ajusta o conteúdo da página para não ficar sobre o sidebar */
     [data-testid="stAppViewContainer"] {
-        margin-left: calc(17rem + 189px); /* largura do sidebar + 5 cm */
+        margin-left: 17rem; /* largura do sidebar + 5 cm */
     }
     </style>
 """, unsafe_allow_html=True)
