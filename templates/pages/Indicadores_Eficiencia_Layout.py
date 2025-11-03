@@ -95,7 +95,7 @@ st.markdown("""
     }}
 
     /* Nav fixa no topo (exemplo) */
-    .navbar {
+    .navbar {{
         position: flex;
         top: 0;
         left: 0;
@@ -103,7 +103,7 @@ st.markdown("""
         height: 3.2rem;
         background: #152847;
         z-index: 9000;
-    }
+    }}
 
     /* Estilo visual do botão re-estilizado (aplicado via JS) */
     .custom-collapsed-btn {
