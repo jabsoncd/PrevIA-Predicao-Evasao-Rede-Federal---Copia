@@ -466,16 +466,20 @@ st.write(" ")
 
 ##################################################################### MODAL
 
-
+# Inicializa session_state
+if "expander_open" not in st.session_state:
+    st.session_state.expander_open = False  # expander aberto inicialmente
 # Lista de todas as chaves dos filtros
 filtro_chaves = [
-    "cat_situacao", "regiao", "uf", "instituicao", "unidade_ensino", 
+
+    "regiao", "uf", "instituicao", "unidade_ensino", 
     "regiao_metropolitana", "cor_raca", "sexo", "renda_familiar",
     "eixo_tecnologico", "nome_curso", "modalidade_ensino",
     "tipo_oferta", "turno"
 ]
 
-with st.expander("Filtros"):
+# Expander para filtros
+with st.expander("Filtros", expanded=st.session_state.expander_open):
     st.markdown("### Situação das Matrículas")
     CATEGORIA_SITUACAO = st.multiselect(
         key="cat_situacao",
@@ -573,42 +577,21 @@ with st.expander("Filtros"):
     )
 
 
-
-    # Botão de filtrar, fora do expander
-    if st.button("Limpar Filtrar"):
-        st.session_state.expander_open = False  # recolhe o expander
-        # st.session_state.filtrar = True
-        # Limpa todos os filtros
-        for chave in filtro_chaves:
-            st.session_state[chave] = []
-
-    # Mostra DataFrame filtrado (ou completo se nada selecionado)
-    filtered_df = df.copy()
+# Botão Limpar Filtros (fora do expander)
+if st.button("Limpar Filtros"):
+    # Recolhe o expander
+    st.session_state.expander_open = False
+    # Limpa todos os filtros
     for chave in filtro_chaves:
-        valores = st.session_state.get(chave, [])
-        if valores:
-            filtered_df = filtered_df[filtered_df[df.columns[[i for i,c in enumerate(df.columns) if c.lower().replace(" ","_") == chave]][0]].isin(valores)]
+        st.session_state[chave] = []
 
-    filtros = {
-        "CATEGORIA_SITUACAO": CATEGORIA_SITUACAO,
-        "REGIAO": REGIAO,
-        "UF": UF,
-        "INSTITUICAO": INSTITUICAO,
-        "UNIDADE_DE_ENSINO": UNIDADE_DE_ENSINO,
-        "REGIÃO_METROPOLINA_UE": REGIAO_METROPOLINA_UE,
-        "COR_RACA": COR_RACA,
-        "SEXO": SEXO,
-        "RENDA_FAMILIAR": RENDA_FAMILIAR,
-        "EIXO_TECNOLOGICO": EIXO_TECNOLOGICO,
-        "NOME_DE_CURSO": NOME_DE_CURSO,
-        "MODALIDADE_DE_ENSINO": MODALIDADE_DE_ENSINO,
-        "TIPO_DE_OFERTA": TIPO_DE_OFERTA,
-        "TURNO": TURNO
-    }
-
-    for coluna, valores in filtros.items():
-        if valores:  # aplica filtro apenas se a lista não estiver vazia
-            filtered_df = filtered_df[filtered_df[coluna].isin(valores)]
+# Aplica filtros dinamicamente
+filtered_df = df.copy()
+for coluna, chave in zip(df.columns, [c for c in df.columns]):
+    session_chave = chave.lower().replace(" ", "_")
+    valores = st.session_state.get(session_chave, [])
+    if valores:
+        filtered_df = filtered_df[filtered_df[coluna].isin(valores)]
 
 
 
