@@ -37,24 +37,7 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 
 
 
-# 🔹 Mantém sidebar visível e apenas oculta links indesejados
-st.markdown(
-    """
-    <style>
-    /* Oculta links específicos */
-    section[data-testid="stSidebar"] a[href*="Home_Profissional"],
-    section[data-testid="stSidebar"] a[href*="Indicadores_Eficiencia"],
-    section[data-testid="stSidebar"] a[href*="Simulador_Eficiencia"],
-    section[data-testid="stSidebar"] a[href*="Sobre"],
-    section[data-testid="stSidebar"] a[href*="Home_Profissional"],
-    section[data-testid="stSidebar"] a[href*="Indicadores_Eficiencia_Layout"],
-    section[data-testid="stSidebar"] a[href*="Simulador_Eficiencia_Layout"] {
-        display: none !important;
-    }
 
-    """,
-    unsafe_allow_html=True
-)
 
 
 
