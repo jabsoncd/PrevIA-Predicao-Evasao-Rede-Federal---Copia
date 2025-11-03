@@ -56,7 +56,6 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-################################################################### SIDEBAR ######################################################################################
 
 
 st.markdown("""
@@ -141,7 +140,15 @@ st.markdown("""
 
 
 
-################################################################### BARRRA AZUL ######################################################################################
+
+
+
+
+
+
+
+
+#########################################################################################################################################################
 
 
 # CSS personalizado (barra azul alta com ícones dentro)
@@ -303,7 +310,7 @@ a, a:visited, a:active {{
 
 
 
-###########################################################   ESTRUTURA   ##################################################################################
+#########################################################################################################################################################
 # Carregar os dados
 # @st.cache_data
 # microdados_eficiencia_academica_RedeFederal_2023_tecnico_RegiaoMetropolitana #base_redeFederal_2022_tecnico_regiaoMetropolitana
@@ -413,6 +420,10 @@ REGIÃO_METROPOLINA_UE = st.sidebar.multiselect(
     # default=df["INSTITUICAO"].unique()
 )
 
+
+
+
+
 st.sidebar.markdown("---")
 st.sidebar.markdown("Sociais")
 COR_RACA = st.sidebar.multiselect(
@@ -433,6 +444,9 @@ RENDA_FAMILIAR = st.sidebar.multiselect(
     placeholder="Selecione a Renda Familiar",
     options=sorted(df["RENDA_FAMILIAR"].unique())
 )
+
+
+
 
 st.sidebar.markdown("---")
 st.sidebar.markdown("Cursos")
@@ -538,7 +552,7 @@ st.write(" ")
 
 
 
- MODAL
+##################################################################### MODAL
 
 
 
