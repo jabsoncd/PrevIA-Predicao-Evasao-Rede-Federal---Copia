@@ -79,7 +79,7 @@ st.markdown("""
         top: 1rem;
         left: 1rem;
         z-index: 9999; /* acima de tudo */
-        background-color: #20303; Black
+        background-color: #ff55ff; Black
         border-radius: 50%;
         box-shadow: 0 0 8px rgba(0,0,0,0.2);
     }}
