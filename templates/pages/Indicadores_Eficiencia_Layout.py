@@ -469,6 +469,7 @@ st.write(" ")
 # Inicializa session_state
 if "expander_open" not in st.session_state:
     st.session_state.expander_open = False  # expander aberto inicialmente
+
 # Lista de todas as chaves dos filtros
 filtro_chaves = [
 
@@ -477,6 +478,11 @@ filtro_chaves = [
     "eixo_tecnologico", "nome_curso", "modalidade_ensino",
     "tipo_oferta", "turno"
 ]
+
+# Garantir que as chaves de filtro dinâmicas existam no session_state
+for chave in filtro_chaves:
+    if chave not in st.session_state:
+        st.session_state[chave] = []
 
 # Expander para filtros
 with st.expander("Filtros", expanded=st.session_state.expander_open):
