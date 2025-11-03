@@ -56,99 +56,13 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-
-
-st.markdown("""
-    <style>
-    [data-testid="stSidebar"] {{
-    position: fixed !important;
-    left: 0;
-    top: 0;
-    height: 100vh;
-    z-index: 9998;
-    transition: width 0.35s ease;
-    box-shadow: 2px 0 12px rgba(0,0,0,0.18);
-    background-color: green;
-    }}
-    
-    /* Mantém o botão para expandir visível */
-    [data-testid="collapsedControl"] {{
-        display: fixed !important;
-        visibility: visible !important;
-        position: fixed;
-        top: 1rem;
-        left: 1rem;
-        z-index: 9999; /* acima de tudo */
-        background-color: #f0f2f6;
-        border-radius: 50%;
-        box-shadow: 0 0 8px rgba(0,0,0,0.2);
-    }}
-
-    
-    
-
-    /* Mantém main sem margin-left para não ser empurrado */
-    main.block-container {
-        margin-left: 0 !important;
-        transition: margin-left 0.35s ease;
-        padding-top: 3.5rem; /* espaço para nav fixa */
-    }
-
-    /* Nav fixa no topo (exemplo) */
-    .navbar {
-        position: flex;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 3.2rem;
-        background: #152847;
-        z-index: 9000;
-    }
-
-    /* Estilo visual do botão re-estilizado (aplicado via JS) */
-    .custom-collapsed-btn {
-        display: fixed !important;
-        visibility: visible !important;
-        position: fixed !important;
-        top: 12px !important;
-        left: 12px !important;
-        z-index: 10001 !important;
-        width: 44px !important;
-        height: 44px !important;
-        border-radius: 22px !important;
-        align-items: center !important;
-        justify-content: center !important;
-        background: #152847 !important;
-        color: #ffffff !important;
-        box-shadow: 0 6px 18px rgba(0,0,0,0.25) !important;
-        border: none !important;
-        cursor: pointer !important;
-    }
-
-    </style>
-
-
-
-    
-""", unsafe_allow_html=True)
+################################################################### SIDEBAR ######################################################################################
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-#########################################################################################################################################################
+################################################################### BARRRA AZUL ######################################################################################
 
 
 # CSS personalizado (barra azul alta com ícones dentro)
@@ -310,7 +224,7 @@ a, a:visited, a:active {{
 
 
 
-#########################################################################################################################################################
+###########################################################   ESTRUTURA   ##################################################################################
 # Carregar os dados
 # @st.cache_data
 # microdados_eficiencia_academica_RedeFederal_2023_tecnico_RegiaoMetropolitana #base_redeFederal_2022_tecnico_regiaoMetropolitana
@@ -420,10 +334,6 @@ REGIÃO_METROPOLINA_UE = st.sidebar.multiselect(
     # default=df["INSTITUICAO"].unique()
 )
 
-
-
-
-
 st.sidebar.markdown("---")
 st.sidebar.markdown("Sociais")
 COR_RACA = st.sidebar.multiselect(
@@ -444,9 +354,6 @@ RENDA_FAMILIAR = st.sidebar.multiselect(
     placeholder="Selecione a Renda Familiar",
     options=sorted(df["RENDA_FAMILIAR"].unique())
 )
-
-
-
 
 st.sidebar.markdown("---")
 st.sidebar.markdown("Cursos")
@@ -552,7 +459,7 @@ st.write(" ")
 
 
 
-##################################################################### MODAL
+ MODAL
 
 
 
