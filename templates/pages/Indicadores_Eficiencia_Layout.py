@@ -85,7 +85,7 @@ st.markdown("""
         padding-left: 1rem !important;
         padding-right: 1rem !important;
     }
-    </style>
+</style>
 """, unsafe_allow_html=True)
 # # 🔹 Mantém sidebar visível e apenas oculta links indesejados
 # st.markdown(
