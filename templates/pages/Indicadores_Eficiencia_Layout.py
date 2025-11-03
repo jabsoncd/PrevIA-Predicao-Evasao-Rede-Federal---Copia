@@ -583,15 +583,15 @@ with st.expander("Filtros", expanded=st.session_state.expander_open):
     )
 
 
-    # Botão Limpar Filtros (fora do expander)
+    # Botão Limpar Filtros (Dentro do expander)
     if st.button("Limpar Filtros"):
         # Limpa apenas os filtros que existem no session_state
         for chave in filtro_chaves:
             if chave in st.session_state:
                 st.session_state[chave] = []
-                        
+
         # Recolhe o expander
-        st.session_state.expander_open = False
+        st.experimental_rerun()
 
 # Aplica filtros dinamicamente
 filtered_df = df.copy()
