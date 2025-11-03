@@ -570,7 +570,7 @@ with st.expander("Filtros", expanded=st.session_state.expander_open):
         options=sorted(df["MODALIDADE_DE_ENSINO"].unique()),
     )
     TIPO_DE_OFERTA = st.multiselect(
-        key="tipo_oferta",
+        key=13,
         label="Tipo de Oferta",
         placeholder="Selecione o Tipo de Oferta",
         options=sorted(df["TIPO_DE_OFERTA"].unique()),
