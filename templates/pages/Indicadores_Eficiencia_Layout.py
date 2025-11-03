@@ -73,7 +73,7 @@ st.markdown("""
             
     [data-testid="stSidebar2"] {{
         position: fixed !important;
-        left: 1189px;
+        left: 189px;
         top: 2cm;
         height: 100vh;
         width: 17rem !important; 
