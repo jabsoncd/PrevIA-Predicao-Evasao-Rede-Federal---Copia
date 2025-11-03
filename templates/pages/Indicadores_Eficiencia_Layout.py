@@ -92,28 +92,6 @@ st.markdown("""
 # CSS para personalizar o sidebar
 st.markdown("""
     <style>
-    /* Oculta links específicos do sidebar */
-    section[data-testid="stSidebar"] a[href*="Home_Profissional"],
-    section[data-testid="stSidebar"] a[href*="Indicadores_Eficiencia"],
-    section[data-testid="stSidebar"] a[href*="Simulador_Eficiencia"],
-    section[data-testid="stSidebar"] a[href*="Sobre"],
-    section[data-testid="stSidebar"] a[href*="Indicadores_Eficiencia_Layout"],
-    section[data-testid="stSidebar"] a[href*="Simulador_Eficiencia_Layout"] {
-        display: none !important;
-    }
-
-    /* Sidebar sempre visível e fixo */
-    [data-testid="stSidebar"] {
-        position: fixed !important;
-        top: 0;
-        left: 0;
-        height: 100vh;
-        width: 17rem !important;
-        z-index: 9998;
-        box-shadow: 2px 0 12px rgba(0,0,0,0.18);
-        background-color: #f5f2c4;
-        overflow: auto; /* caso haja muitos itens */
-    }
 
     /* Esconde o botão de expandir/recolher */
     button[title="Expandir/Recolher"] {
