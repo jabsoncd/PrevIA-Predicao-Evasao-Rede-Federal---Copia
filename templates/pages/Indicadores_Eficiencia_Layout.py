@@ -60,7 +60,7 @@ st.markdown(
 
 st.markdown("""
     <style>
-    [data-testid="stSidebar"] {{
+    [data-testid="stSidebar"] {
     position: fixed !important;
     left: 0;
     top: 0;
@@ -69,10 +69,10 @@ st.markdown("""
     transition: width 0.35s ease;
     box-shadow: 2px 0 12px rgba(0,0,0,0.18);
     background-color: blue;
-    }}
+    }
     
     /* Mantém o botão para expandir visível */
-    [data-testid="collapsedControl"] {{
+    [data-testid="collapsedControl"] {
         display: fixed !important;
         visibility: visible !important;
         position: fixed;
@@ -82,7 +82,7 @@ st.markdown("""
         background-color: #20303; Black
         border-radius: 50%;
         box-shadow: 0 0 8px rgba(0,0,0,0.2);
-    }}
+    }
 
     
     
