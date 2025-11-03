@@ -69,39 +69,18 @@ st.markdown("""
 
 st.markdown("""
     <style>
-
-            
-        /* Sidebar quando recolhido */
-    [data-testid="stSidebar"][aria-expanded="false"] {
-        width: 5rem !important;
-        min-width: 5rem !important;
+    
+    /* Garante que o botão sempre fique visível */
+    [data-testid="stSidebar"] button {
+        visibility: visible !important;
+        opacity: 1 !important;
     }
 
-    /* Botão expandir/recolher - posicionamento correto */
-    button[data-testid="baseButton-header"] {
-        position: fixed;
-        top: 1.5rem;
-        left: 1rem;
-        z-index: 9999;
-        background-color: #f5f2c4 !important;
-        border: 1px solid #ccc !important;
+    /* Sidebar sempre acessível */
+    [data-testid="stSidebar"] {
+        min-width: 50px !important;
     }
 
-    /* Ajusta o botão quando sidebar está recolhido */
-    [data-testid="stSidebar"][aria-expanded="false"] button[data-testid="baseButton-header"] {
-        left: 0.5rem;
-    }
-
-    /* Garante que o conteúdo principal não sobreponha o sidebar */
-    .main .block-container {
-        padding-left: 18rem;
-        transition: padding-left 0.3s ease;
-    }
-
-    /* Ajusta o padding quando sidebar está recolhido */
-    [data-testid="stSidebar"][aria-expanded="false"] ~ .main .block-container {
-        padding-left: 6rem;
-    }
  
     </style>
     
