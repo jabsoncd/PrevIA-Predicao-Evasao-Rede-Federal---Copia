@@ -69,32 +69,6 @@ st.markdown("""
 
 
 
-# 🔹 Mantém sidebar visível e apenas oculta links indesejados
-st.markdown("""
-    <style>         
-
-    <!-- 🔹 Botão HTML -->
-    <button id="toggle-sidebar">☰ Menu</button>
-
-    <!-- 🔹 Script para alternar o sidebar -->
-    <script>
-    const btn = document.getElementById('toggle-sidebar');
-    btn.addEventListener('click', () => {
-        const sidebar = parent.document.querySelector('[data-testid="stSidebar"]');
-        if (sidebar) {
-            sidebar.classList.toggle('collapsed');
-        }
-    });
-
-    </style>
-
-    
-""", unsafe_allow_html=True)
-
-
-
-
-
 
 
 
