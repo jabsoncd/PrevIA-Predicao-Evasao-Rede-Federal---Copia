@@ -601,9 +601,6 @@ if 'submit_button' in locals() and submit_button:
         if valores:  # aplica filtro apenas se a lista não estiver vazia
             filtered_df = filtered_df[filtered_df[coluna].isin(valores)]
 
-    st.write("Resultados filtrados:")
-    st.dataframe(filtered_df)
-
 
 
 
@@ -1562,6 +1559,13 @@ elif st.session_state.selected_tab == "🌎 Mapa da Evasão":
     # Supondo que m seja um mapa folium.Map
     st_folium(mapa, width=1400, height=800) #800 e 500
     # # folium_static(mapa, width=None, height=900)  # Largura automática, altura grande para tela cheia
+
+
+
+
+
+    st.write("Resultados filtrados:")
+    st.dataframe(filtered_df)
 
 
 
