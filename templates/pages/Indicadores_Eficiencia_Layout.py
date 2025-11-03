@@ -52,14 +52,14 @@ st.markdown("""
 
     [data-testid="stSidebar"] {
         left: 0;
-        top: 3.5rem;
+        top: 2cm;
         height: 100vh;
         width: 17rem !important; 
         min-width: 15rem !important; /* largura mínima quando recolhido */
         z-index: 9998;
         box-shadow: 2px 0 12px rgba(0,0,0,0.18);
         background-color: #f5f2c4;
-        transition: width 4s ease; /* animação suave */
+        transition: width 0.35s ease; /* animação suave */
     }
     /* Ajusta botão expandir para aparecer corretamente */
     button[title="Expandir/Recolher"] {
