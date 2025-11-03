@@ -94,19 +94,6 @@ st.markdown("""
 # CSS para personalizar o sidebar
 st.markdown("""
     <style>
-
-    /* Ajusta o conteúdo da página para não ficar sobre o sidebar */
-    [data-testid="stAppViewContainer"] {
-        margin-left: 17rem; /* largura do sidebar + 5 cm */
-    }
-    </style>
-""", unsafe_allow_html=True)
-
-
-# CSS para personalizar o sidebar
-st.markdown("""
-    <style>
-
     /* Oculta o botão de expandir/recolher */
     button[title="Expandir/Recolher"] {
         display: none !important;
