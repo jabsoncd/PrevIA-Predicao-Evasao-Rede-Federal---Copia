@@ -50,24 +50,55 @@ st.markdown("""
         display: none !important;
     }
 
-    [data-testid="stSidebar"] {
+    [data-testid="stSidebar"] {{
         left: 0;
         top: 2cm;
         height: 100vh;
-        width: 17rem !important; 
+        width: 18rem !important; 
         min-width: 15rem !important; /* largura mínima quando recolhido */
-        z-index: 9998;
+        z-index: 1000;
         box-shadow: 2px 0 12px rgba(0,0,0,0.18);
         background-color: #f5f2c4;
         transition: width 0.35s ease; /* animação suave */
-    }
-    /* Ajusta botão expandir para aparecer corretamente */
-    button[title="Expandir/Recolher"] {
+    }}
+    
+    /* --- CONTEÚDO PRINCIPAL AJUSTADO --- */
+    .main {{
+        margin-left: 18rem !important; /* empurra o conteúdo para direita */
+        transition: margin-left 0.3s ease;
+    }}
+
+    /* --- ÍCONE DE RECOLHER / EXPANDIR --- */
+    [data-testid="collapsedControl"] {{
         position: fixed !important;
-        top: 2.5cm;   /* ajuste vertical para alinhar com sidebar */
-        left: 20px;    /* fica próximo da borda do sidebar */
-        z-index: 9999;
-    }
+        top: 1rem;
+        left: 1rem;
+        z-index: 1100 !important;
+        background-color: #152847 !important;
+        border-radius: 50%;
+        padding: 6px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }}
+    [data-testid="collapsedControl"] svg {{
+        fill: white !important;
+        width: 1.1rem;
+        height: 1.1rem;
+    }}
+
+    /* --- LOGO FLUTUANTE --- */
+    .nav-logo {{
+        width: 180px;
+        height: 55px;
+        background-image: url("data:image/jpg;base64,{logo_b64}");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: left center;
+        margin: 10px auto;
+        display: block;
+        transition: all 0.3s ease;
+    }}
+        
+    
     </style>
     
 """, unsafe_allow_html=True)
