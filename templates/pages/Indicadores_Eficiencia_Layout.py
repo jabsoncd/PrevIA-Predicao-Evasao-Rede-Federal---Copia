@@ -61,6 +61,15 @@ st.markdown("""
         background-color: #f5f2c4;
         transition: width 40.3s ease; /* animação suave */
     }
+ 
+    </style>
+    
+""", unsafe_allow_html=True)
+
+
+st.markdown("""
+    <style>
+
             
         /* Sidebar quando recolhido */
     [data-testid="stSidebar"][aria-expanded="false"] {
@@ -97,20 +106,6 @@ st.markdown("""
     </style>
     
 """, unsafe_allow_html=True)
-
-
-
-# CSS para personalizar o sidebar
-st.markdown("""
-    <style>
-    /* Ajusta o conteúdo da página para não ficar sobre o sidebar */
-    [data-testid="stAppViewContainer"] {
-        margin-top: 0;                 /* desloca conteúdo para ficar abaixo da navbar */
-    }
-            
-    </style>
-""", unsafe_allow_html=True)
-
 
 
 
