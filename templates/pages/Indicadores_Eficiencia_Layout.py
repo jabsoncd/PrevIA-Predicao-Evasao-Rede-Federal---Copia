@@ -466,14 +466,11 @@ st.write(" ")
 
 ##################################################################### MODAL
 
-# Inicializa o estado do expander, se não existir
+# Inicializa session_state
 if "expander_open" not in st.session_state:
     st.session_state.expander_open = False  # expander fechado por padrão
-
-def aplicar_filtros():
-    st.session_state.expander_open = False  # fecha o expander
-    st.session_state.filtrar = True          # marca para aplicar filtros
-    st.experimental_rerun()                  # força atualização da página
+if "filtrar" not in st.session_state:
+    st.session_state.filtrar = False
 
 # Expander controlado pelo session_state
 with st.expander("Filtros", expanded=st.session_state.expander_open):
@@ -575,11 +572,13 @@ with st.expander("Filtros", expanded=st.session_state.expander_open):
         )
 
         # Botão "Filtrar" dentro do expander
-        st.form_submit_button("Filtrar", on_click=aplicar_filtros)
-
+        if st.form_submit_button("Filtrar"):
+            # Fecha o expander e marca que filtros devem ser aplicados
+            st.session_state.expander_open = False
+            st.session_state.filtrar = True
         
 # Botão para aplicar filtros
-if "filtrar" in st.session_state and st.session_state.filtrar:
+if st.session_state.filtrar:
     filtered_df = df.copy()
 
     filtros = {
