@@ -67,7 +67,7 @@ st.markdown("""
             
     /* 🔹 Quando o sidebar estiver recolhido */
     [data-testid="stSidebar"][aria-expanded="false"] {
-        transform: translateX(-100%);
+        transform: translateX(-50%);
     /* 🔹 Ajusta o conteúdo principal conforme o estado do sidebar */
     [data-testid="stAppViewContainer"] > main {
         transition: margin-left 0.35s ease;
