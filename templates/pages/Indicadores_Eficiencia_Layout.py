@@ -51,17 +51,17 @@ st.markdown("""
         display: none !important;
     }
 
-    [data-testid="stSidebar"] {{
-    position: fixed !important;
-    left: 0;
-    top: 0;
-    height: 100vh;
-    width: 17rem !important; 
-    z-index: 9998;
-    transition: width 0.35s ease;
-    box-shadow: 2px 0 12px rgba(0,0,0,0.18);
-    background-color: #f5f2c4;
-    }}
+    [data-testid="stSidebar"] {
+        position: fixed !important;
+        left: 0;
+        top: 0;
+        height: 100vh;
+        width: 17rem !important; 
+        z-index: 9998;
+        transition: width 0.35s ease;
+        box-shadow: 2px 0 12px rgba(0,0,0,0.18);
+        background-color: #f5f2c4;
+    }
     </style>
     
 """, unsafe_allow_html=True)
@@ -262,35 +262,7 @@ if st.session_state.current_page == "home":
     st.markdown('<h1 class="main-header">PrevIA - Predição de Evasão na Rede Federal com Inteligência Artificial</h1>', unsafe_allow_html=True)
     st.markdown('<p class="sub-header">Conheça os indicadores relacionados a evasão em cursos técnicos na Rede Federal EPCT</p>', unsafe_allow_html=True)
 # Linha divisória
-# st.write("---")
-                                        # # Botão para voltar à página Home.py
-                                        # st.markdown(
-                                        #     """
-                                        #     <style>
-                                        #         .botao-voltar {
-                                        #             position: absolute;
-                                        #             top: 10px;
-                                        #             left: 10px;
-                                        #             background-color: #004A99; /* Azul escuro */
-                                        #             color: white !important;
-                                        #             padding: 10px 20px;
-                                        #             text-decoration: none;
-                                        #             font-size: 16px;
-                                        #             font-weight: bold;
-                                        #             border: none;
-                                        #             display: inline-block;
-                                        #             text-align: center;
-                                        #             cursor: pointer;
-                                        #             margin-top: -20px;
-                                        #         }
-                                        #         .botao-voltar:hover {
-                                        #             background-color: #003366; /* Azul mais escuro no hover */
-                                        #         }
-                                        #     </style>
-                                        #     <a class="botao-voltar" href="https://previa-beta.streamlit.app/~/+/" target="_self">Voltar para Home</a>  
-                                        #     """,
-                                        #     unsafe_allow_html=True
-                                        # )
+
 st.markdown("<p style='text-align: center; color: #3f3f4f; margin-top: 0px;'> </p>",
             unsafe_allow_html=True)
 st.write("---")
