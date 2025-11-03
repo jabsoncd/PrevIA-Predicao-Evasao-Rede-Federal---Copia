@@ -38,54 +38,35 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 
 
 # 🔹 Mantém sidebar visível e apenas oculta links indesejados
-st.markdown("""
-<style>
-/* 🔹 Sidebar fixo, com transição suave e cor personalizada */
-[data-testid="stSidebar"] {
+st.markdown(
+    """
+    <style>
+    /* Oculta links específicos */
+    section[data-testid="stSidebar"] a[href*="Home_Profissional"],
+    section[data-testid="stSidebar"] a[href*="Indicadores_Eficiencia"],
+    section[data-testid="stSidebar"] a[href*="Simulador_Eficiencia"],
+    section[data-testid="stSidebar"] a[href*="Sobre"],
+    section[data-testid="stSidebar"] a[href*="Home_Profissional"],
+    section[data-testid="stSidebar"] a[href*="Indicadores_Eficiencia_Layout"],
+    section[data-testid="stSidebar"] a[href*="Simulador_Eficiencia_Layout"] {
+        display: none !important;
+    }
+
+    [data-testid="stSidebar"] {{
     position: fixed !important;
     left: 0;
     top: 0;
     height: 100vh;
+    width: 17rem !important; 
     z-index: 9998;
-    width: 17rem !important;
     transition: width 0.35s ease;
     box-shadow: 2px 0 12px rgba(0,0,0,0.18);
     background-color: #f5f2c4;
-}
+    }}
 
-/* 🔹 Quando o sidebar está recolhido — Streamlit define aria-expanded="false" */
-[data-testid="stSidebar"][aria-expanded="false"] {
-    width: 3.5rem !important; /* Mantém o botão visível */
-}
+    </style>
 
-/* 🔹 Conteúdo principal — move conforme o sidebar */
-[data-testid="stAppViewContainer"] > div:first-child {
-    transition: margin-left 0.35s ease;
-    margin-left: 17rem; /* Sidebar aberto */
-}
-
-/* 🔹 Quando o sidebar está recolhido, conteúdo avança */
-[data-testid="stSidebar"][aria-expanded="false"] ~ div [data-testid="stAppViewContainer"] > div:first-child {
-    margin-left: 3.5rem !important; /* Sidebar recolhido */
-}
-
-/* 🔹 Mantém o botão de expandir sempre visível */
-[data-testid="collapsedControl"] {
-    display: flex !important;
-    visibility: visible !important;
-    position: fixed !important;
-    top: 1rem !important;
-    left: 0.5rem !important;
-    z-index: 10000 !important;
-}
-
-/* Ajuste interno do conteúdo */
-.block-container {
-    padding-top: 1rem !important;
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
-}
-</style>
+    
 """, unsafe_allow_html=True)
 
 
