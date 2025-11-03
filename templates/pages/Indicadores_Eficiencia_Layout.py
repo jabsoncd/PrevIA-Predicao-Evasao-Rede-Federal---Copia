@@ -11,7 +11,7 @@ import openai
 import requests
 import os
 from dotenv import load_dotenv
-from streamlit_modal import Modal
+
 
 from pathlib import Path
 
@@ -466,18 +466,17 @@ st.write(" ")
 
 ##################################################################### MODAL
 
-modal = Modal("modal_filtro")
-
-if st.button("Abrir Filtros"):
-    modal.open()
-
-with modal.container():
-    st.write("Filtros:")
-    produto = st.selectbox("Produto", options=df['Produto'].unique())
+with st.expander("Filtros"):
+    produto_selecionado = st.selectbox("Produto", options=df['Produto'].unique())
+    preco_min = st.number_input("Preço mínimo", min_value=0, value=0)
+    preco_max = st.number_input("Preço máximo", min_value=0, value=100)
     if st.button("Filtrar"):
-        df_filtrado = df[df['Produto'] == produto]
+        df_filtrado = df[
+            (df['Produto'] == produto_selecionado) &
+            (df['Preço'] >= preco_min) &
+            (df['Preço'] <= preco_max)
+        ]
         st.dataframe(df_filtrado)
-        modal.close()
 
 
 
