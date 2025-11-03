@@ -88,11 +88,11 @@ st.markdown("""
     
 
     /* Mantém main sem margin-left para não ser empurrado */
-    main.block-container {
+    main.block-container {{
         margin-left: 0 !important;
         transition: margin-left 0.35s ease;
         padding-top: 3.5rem; /* espaço para nav fixa */
-    }
+    }}
 
     /* Nav fixa no topo (exemplo) */
     .navbar {
