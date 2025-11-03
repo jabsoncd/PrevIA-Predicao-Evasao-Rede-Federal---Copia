@@ -1455,6 +1455,8 @@ elif st.session_state.selected_tab == "📚 Cursos":
         # Exibir os insights
         st.markdown(response['choices'][0]['message']['content'])
 
+    st.write("Resultados filtrados:")
+    st.dataframe(filtered_df)
 
 elif st.session_state.selected_tab == "🌎 Mapa da Evasão":
     st.header("Mapa da Evasão - Proporção de evadidos")
