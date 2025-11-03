@@ -1549,8 +1549,8 @@ elif st.session_state.selected_tab == "🌎 Mapa da Evasão":
     st_folium(mapa, width=1400, height=800) #800 e 500
     # # folium_static(mapa, width=None, height=900)  # Largura automática, altura grande para tela cheia
 
-    st.write("Resultados filtrados:")
-    st.dataframe(filtered_df)
+st.write("Resultados filtrados:")
+st.dataframe(filtered_df)
 
 
 
