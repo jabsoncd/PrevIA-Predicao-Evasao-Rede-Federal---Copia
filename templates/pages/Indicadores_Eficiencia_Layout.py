@@ -27,12 +27,12 @@ st.set_page_config(
 
 # Ocultar barra streamlit
 hide_st_style = """
-    <style>:
+    <style>
     #MainMenu {visibility: hidden;}
     footer {visibility: hidden;}
     header {visibility: hidden;}
     </style>
-    """
+"""
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
 
@@ -597,19 +597,6 @@ for coluna in df.columns:
 
 
 ##################################################################### MODAL
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 # CSS para alinhar os botões corretamente e manter a letra branca no botão selecionado
