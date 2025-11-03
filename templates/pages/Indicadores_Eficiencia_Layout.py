@@ -213,7 +213,7 @@ st.markdown("""
     }
 
     [data-testid="stSidebar"] {
-        left: 0;
+        left: 2cm;
         top: 2cm;
         height: 100vh;
         width: 18rem !important; 
@@ -231,7 +231,7 @@ st.markdown("""
     }
 
     /* --- ÍCONE DE RECOLHER / EXPANDIR --- */
-    [data-testid="collapsedControl"] {{
+    [data-testid="collapsedControl"] {
         position: fixed !important;
         top: 2cm;
         left: 1rem;
@@ -240,7 +240,7 @@ st.markdown("""
         border-radius: 50%;
         padding: 6px;
         box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-    }}
+    }
     [data-testid="collapsedControl"] svg {
         fill: blue !important;
         width: 1.1rem;
