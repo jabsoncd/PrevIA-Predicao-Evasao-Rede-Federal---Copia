@@ -21,7 +21,7 @@ st.set_page_config(
 
     layout="wide",
     # initial_sidebar_state="expanded"  # collapsed expanded
-    initial_sidebar_state="expanded"  # 🔹 Oculto ao iniciar
+    initial_sidebar_state="collapsed"  # 🔹 Oculto ao iniciar
 
 )
 
@@ -52,7 +52,7 @@ st.markdown(
         display: none !important;
     }
 
-    [data-testid="stSidebar"] {
+    [data-testid="stSidebar"] {{
     position: fixed !important;
     left: 0;
     top: 0;
@@ -61,7 +61,7 @@ st.markdown(
     transition: width 0.35s ease;
     box-shadow: 2px 0 12px rgba(0,0,0,0.18);
     background-color: #f5f2c4;
-    }
+    }}
 
     </style>
 
