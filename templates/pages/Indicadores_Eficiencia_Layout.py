@@ -88,18 +88,6 @@ st.markdown("""
 
 
 
-# CSS para personalizar o sidebar
-st.markdown("""
-    <style>
-    /* Ajusta o conteúdo da página para não ficar sobre o sidebar */
-    [data-testid="stAppViewContainer"] {
-        margin-top: 10cm;                 /* desloca conteúdo para ficar abaixo da navbar */
-    }
-            
-    </style>
-""", unsafe_allow_html=True)
-
-
 
 
 
