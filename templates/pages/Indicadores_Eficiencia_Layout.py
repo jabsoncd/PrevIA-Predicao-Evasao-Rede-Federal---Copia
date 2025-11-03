@@ -37,86 +37,36 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 
 
 
-
-# 🔹 Sidebar fixo, limpo e sem retração do layout principal
-st.markdown("""
-<style>
-
-    /* Oculta links indesejados no sidebar */
+# 🔹 Mantém sidebar visível e apenas oculta links indesejados
+st.markdown(
+    """
+    <style>
+    /* Oculta links específicos */
     section[data-testid="stSidebar"] a[href*="Home_Profissional"],
     section[data-testid="stSidebar"] a[href*="Indicadores_Eficiencia"],
     section[data-testid="stSidebar"] a[href*="Simulador_Eficiencia"],
     section[data-testid="stSidebar"] a[href*="Sobre"],
+    section[data-testid="stSidebar"] a[href*="Home_Profissional"],
     section[data-testid="stSidebar"] a[href*="Indicadores_Eficiencia_Layout"],
     section[data-testid="stSidebar"] a[href*="Simulador_Eficiencia_Layout"] {
         display: none !important;
     }
 
-    /* 🔹 Sidebar fixo com cor de fundo */
     [data-testid="stSidebar"] {
-        position: fixed !important;
-        top: 0;
-        left: 0;
-        height: 100vh !important;
-        z-index: 9998 !important;
-        width: 17rem !important; /* largura fixa para não retrair o layout */
-        background-color: #f5f2c4 !important;
-        box-shadow: 2px 0 12px rgba(0, 0, 0, 0.18) !important;
-        transition: transform 0.35s ease, width 0.35s ease;
-    }
-            
-    /* 🔹 Quando o sidebar estiver recolhido */
-    [data-testid="stSidebar"][aria-expanded="false"] {
-        transform: translateX(100%);
-    /* 🔹 Ajusta o conteúdo principal conforme o estado do sidebar */
-    [data-testid="stAppViewContainer"] > main {
-        transition: margin-left 0.35s ease;
-        margin-left: 17rem; /* Quando o sidebar está visível */
+    position: fixed !important;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    z-index: 9998;
+    transition: width 0.35s ease;
+    box-shadow: 2px 0 12px rgba(0,0,0,0.18);
+    background-color: #f5f2c4;
     }
 
-    /* 🔹 Quando o sidebar estiver recolhido, reduz a margem */
-    [data-testid="stSidebar"][aria-expanded="false"] ~ div [data-testid="stAppViewContainer"] > main {
-        margin-left: 0 !important;
-    }
-
-    /* 🔹 Ajuste de espaçamento interno do conteúdo */
-    .block-container {
-        padding-top: 1rem !important;
-        padding-left: 1rem !important;
-        padding-right: 1rem !important;
-    }
-</style>
-""", unsafe_allow_html=True)
-# # 🔹 Mantém sidebar visível e apenas oculta links indesejados
-# st.markdown(
-#     """
-#     <style>
-#     /* Oculta links específicos */
-#     section[data-testid="stSidebar"] a[href*="Home_Profissional"],
-#     section[data-testid="stSidebar"] a[href*="Indicadores_Eficiencia"],
-#     section[data-testid="stSidebar"] a[href*="Simulador_Eficiencia"],
-#     section[data-testid="stSidebar"] a[href*="Sobre"],
-#     section[data-testid="stSidebar"] a[href*="Home_Profissional"],
-#     section[data-testid="stSidebar"] a[href*="Indicadores_Eficiencia_Layout"],
-#     section[data-testid="stSidebar"] a[href*="Simulador_Eficiencia_Layout"] {
-#         display: none !important;
-#     }
-
-#     [data-testid="stSidebar"] {{
-#     position: fixed !important;
-#     left: 0;
-#     top: 0;
-#     height: 100vh;
-#     z-index: 9998;
-#     transition: width 0.35s ease;
-#     box-shadow: 2px 0 12px rgba(0,0,0,0.18);
-#     background-color: #f5f2c4;
-#     }}
-
-#     </style>
+    </style>
 
     
-# """, unsafe_allow_html=True)
+""", unsafe_allow_html=True)
 
 
 
