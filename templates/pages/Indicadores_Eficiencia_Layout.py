@@ -466,11 +466,12 @@ st.write(" ")
 
 ##################################################################### MODAL
 
-# Inicializa session_state
+# Inicializa o estado do expander, se não existir
 if "expander_open" not in st.session_state:
     st.session_state.expander_open = False  # expander fechado por padrão
-if "filtrar" not in st.session_state:
-    st.session_state.filtrar = False
+
+def recolher_expander():
+    st.session_state.expander_open = False  # função para fechar o expander ao filtrar
 
 # Expander controlado pelo session_state
 with st.expander("Filtros", expanded=st.session_state.expander_open):
@@ -572,13 +573,11 @@ with st.expander("Filtros", expanded=st.session_state.expander_open):
         )
 
         # Botão "Filtrar" dentro do expander
-    if st.form_submit_button("Filtrar"):
-            # Fecha o expander e marca que filtros devem ser aplicados
-        st.session_state.expander_open = False
-        st.session_state.filtrar = True
+        submit_button = st.form_submit_button("Filtrar", on_click=recolher_expander)
+
         
 # Botão para aplicar filtros
-if st.session_state.filtrar:
+if 'submit_button' in locals() and submit_button:
     filtered_df = df.copy()
 
     filtros = {
@@ -601,10 +600,7 @@ if st.session_state.filtrar:
     for coluna, valores in filtros.items():
         if valores:  # aplica filtro apenas se a lista não estiver vazia
             filtered_df = filtered_df[filtered_df[coluna].isin(valores)]
-        
-    
-    # Reseta a flag
-    st.session_state.filtrar = False
+
 
 
 
@@ -1458,6 +1454,7 @@ elif st.session_state.selected_tab == "📚 Cursos":
 
         # Exibir os insights
         st.markdown(response['choices'][0]['message']['content'])
+
 
 elif st.session_state.selected_tab == "🌎 Mapa da Evasão":
     st.header("Mapa da Evasão - Proporção de evadidos")
