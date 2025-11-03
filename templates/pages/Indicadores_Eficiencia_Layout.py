@@ -51,7 +51,7 @@ st.markdown("""
     }
 
     [data-testid="stSidebar"] {
-        left: 0;
+        left: 1cm;
         top: 2cm;
         height: 100vh;
         width: 34rem !important; 
