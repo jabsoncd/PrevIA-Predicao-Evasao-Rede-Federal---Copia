@@ -68,7 +68,7 @@ st.markdown("""
     z-index: 9998;
     transition: width 0.35s ease;
     box-shadow: 2px 0 12px rgba(0,0,0,0.18);
-    background-color: blue;
+    background-color: #e8e290;
     }
     
     /* Mantém o botão para expandir visível */
@@ -79,7 +79,7 @@ st.markdown("""
         top: 1rem;
         left: 1rem;
         z-index: 9999; /* acima de tudo */
-        background-color: #f0e21f; Yellw
+        background-color: #f0e21f; 
         border-radius: 50%;
         box-shadow: 0 0 8px rgba(0,0,0,0.2);
     }
