@@ -587,8 +587,8 @@ if st.button("Limpar Filtros"):
 
 # Aplica filtros dinamicamente
 filtered_df = df.copy()
-for coluna, chave in zip(df.columns, [c for c in df.columns]):
-    session_chave = chave.lower().replace(" ", "_")
+for coluna in df.columns:
+    session_chave = coluna.lower().replace(" ", "_")
     valores = st.session_state.get(session_chave, [])
     if valores:
         filtered_df = filtered_df[filtered_df[coluna].isin(valores)]
