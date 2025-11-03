@@ -84,9 +84,6 @@ st.markdown("""
         box-shadow: 0 0 8px rgba(0,0,0,0.2);
     }}
 
-    
-    
-
     /* Mantém main sem margin-left para não ser empurrado */
     main.block-container {{
         margin-left: 0 !important;
@@ -105,29 +102,7 @@ st.markdown("""
         z-index: 9000;
     }}
 
-    /* Estilo visual do botão re-estilizado (aplicado via JS) */
-    .custom-collapsed-btn {{
-        display: fixed !important;
-        visibility: visible !important;
-        position: fixed !important;
-        top: 12px !important;
-        left: 12px !important;
-        z-index: 10001 !important;
-        width: 44px !important;
-        height: 44px !important;
-        border-radius: 22px !important;
-        align-items: center !important;
-        justify-content: center !important;
-        background: #eddc21 !important;
-        color: #e30b0b !important;
-        box-shadow: 0 6px 18px rgba(0,0,0,0.25) !important;
-        border: none !important;
-        cursor: pointer !important;
-    }}
-
     </style>
-
-
 
     
 """, unsafe_allow_html=True)
