@@ -11,6 +11,7 @@ import openai
 import requests
 import os
 from dotenv import load_dotenv
+from streamlit_modal import Modal
 
 from pathlib import Path
 
@@ -81,16 +82,6 @@ st.markdown("""
     
 """, unsafe_allow_html=True)
 
-
-st.markdown("""
-    <style>
-    /* Seleciona o botão de expandir/recolher */
-    button[data-testid="collapsedControl"] {
-        top: 4cm !important;  /* Ajusta a posição vertical */
-        left: 0px !important; /* Ajusta horizontalmente, se desejar */
-    }
-    </style>
-""", unsafe_allow_html=True)
 
 
 
@@ -475,6 +466,18 @@ st.write(" ")
 
 ##################################################################### MODAL
 
+modal = Modal("modal_filtro")
+
+if st.button("Abrir Filtros"):
+    modal.open()
+
+with modal.container():
+    st.write("Filtros:")
+    produto = st.selectbox("Produto", options=df['Produto'].unique())
+    if st.button("Filtrar"):
+        df_filtrado = df[df['Produto'] == produto]
+        st.dataframe(df_filtrado)
+        modal.close()
 
 
 
