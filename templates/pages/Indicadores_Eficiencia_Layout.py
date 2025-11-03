@@ -575,7 +575,7 @@ with st.expander("Filtros", expanded=st.session_state.expander_open):
     if st.form_submit_button("Filtrar"):
             # Fecha o expander e marca que filtros devem ser aplicados
         st.session_state.expander_open = False
-    st.session_state.filtrar = True
+        st.session_state.filtrar = True
         
 # Botão para aplicar filtros
 if st.session_state.filtrar:
