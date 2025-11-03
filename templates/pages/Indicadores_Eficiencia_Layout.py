@@ -466,7 +466,7 @@ st.write(" ")
 
 ##################################################################### MODAL
 
-with st.expander("Filtros", expanded=True):
+with st.expander("Filtros", expanded=False):
     st.markdown("### Situação das Matrículas")
     CATEGORIA_SITUACAO = st.multiselect(
         key="cat_situacao",
