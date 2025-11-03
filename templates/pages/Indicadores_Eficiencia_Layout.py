@@ -58,10 +58,17 @@ st.markdown(
     top: 0;
     height: 100vh;
     z-index: 9998;
-    transition: width 0.35s ease;
+    width: 17rem !important;
+    transition: transform 0.35s ease, width 0.35s ease;
     box-shadow: 2px 0 12px rgba(0,0,0,0.18);
     background-color: #f5f2c4;
     }
+
+    /* 🔹 Quando o sidebar estiver recolhido */
+    [data-testid="stSidebar"][aria-expanded="false"] {
+        transform: translateX(-100%);
+    }
+
 
     </style>
 
