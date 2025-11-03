@@ -470,223 +470,164 @@ st.write(" ")
 if "expander_open" not in st.session_state:
     st.session_state.expander_open = False  # expander aberto inicialmente
 
-# Inicializa session_state para limpar filtros
-if "limpar_filtros" not in st.session_state:
-    st.session_state.limpar_filtros = False
+# Lista de todas as chaves dos filtros
+filtro_chaves = [
 
-# Função para limpar filtros
+    "regiao", "uf", "instituicao", "unidade_ensino", 
+    "regiao_metropolitana", "cor_raca", "sexo", "renda_familiar",
+    "eixo_tecnologico", "nome_curso", "modalidade_ensino",
+    "tipo_oferta", "turno"
+]
+
+# Garantir que as chaves de filtro dinâmicas existam no session_state
+for chave in filtro_chaves:
+    if chave not in st.session_state:
+        st.session_state[chave] = []
+
+# Função para limpar todos os filtros
 def limpar_filtros():
-    st.session_state.limpar_filtros = True
+    for chave in filtro_chaves:
+        st.session_state[chave] = []
     st.session_state.expander_open = False
+    st.rerun()
 
 # Expander para filtros
 with st.expander("Filtros", expanded=st.session_state.expander_open):
     st.markdown("### Situação das Matrículas")
-     # Se precisamos limpar os filtros, usamos valores padrão
-    if st.session_state.limpar_filtros:
-        CATEGORIA_SITUACAO = st.multiselect(
-            key="cat_situacao",
-            label="Categoria da Situação",
-            placeholder="Evadidos",
-            options=df["CATEGORIA_SITUACAO"].unique(),
-            disabled=True,
-        )
-    else:
-                CATEGORIA_SITUACAO = st.multiselect(
-            key="cat_situacao",
-            label="Categoria da Situação",
-            placeholder="Evadidos",
-            options=df["CATEGORIA_SITUACAO"].unique(),
-            disabled=True,
-        )
+    CATEGORIA_SITUACAO = st.multiselect(
+        key="cat_situacao",
+        label="Categoria da Situação",
+        placeholder="Evadidos",
+        options=df["CATEGORIA_SITUACAO"].unique(),
+        disabled=True,
+    )
+
     st.markdown("---")
     st.markdown("### Demográficos")
-    if st.session_state.limpar_filtros:
-        REGIAO = st.multiselect(
-            key="regiao",
-            label="Região",
-            placeholder="Selecione a Região",
-            options=sorted(df["REGIAO"].unique()),
-        )
-        UF = st.multiselect(
-            key="uf",
-            label="Unidade da Federação",
-            placeholder="Selecione a UF",
-            options=sorted(df["UF"].unique()),
-        )
-        INSTITUICAO = st.multiselect(
-            key="instituicao",
-            label="Instituição",
-            placeholder="Selecione a Instituição",
-            options=sorted(df["INSTITUICAO"].unique()),
-        )
-        UNIDADE_DE_ENSINO = st.multiselect(
-            key="unidade_ensino",
-            label="Unidade de Ensino",
-            placeholder="Selecione a Unidade de Ensino",
-            options=sorted(df["UNIDADE_DE_ENSINO"].unique()),
-        )
-        REGIAO_METROPOLINA_UE = st.multiselect(
-            key="regiao_metropolitana",
-            label="Região Metropolitana",
-            placeholder="Selecione se é Região Metropolitana",
-            options=sorted(df["REGIÃO_METROPOLINA_UE"].unique()),
-        )
-    else:
-        REGIAO = st.multiselect(
-            key="regiao",
-            label="Região",
-            placeholder="Selecione a Região",
-            options=sorted(df["REGIAO"].unique()),
-        )
-        UF = st.multiselect(
-            key="uf",
-            label="Unidade da Federação",
-            placeholder="Selecione a UF",
-            options=sorted(df["UF"].unique()),
-        )
-        INSTITUICAO = st.multiselect(
-            key="instituicao",
-            label="Instituição",
-            placeholder="Selecione a Instituição",
-            options=sorted(df["INSTITUICAO"].unique()),
-        )
-        UNIDADE_DE_ENSINO = st.multiselect(
-            key="unidade_ensino",
-            label="Unidade de Ensino",
-            placeholder="Selecione a Unidade de Ensino",
-            options=sorted(df["UNIDADE_DE_ENSINO"].unique()),
-        )
-        REGIAO_METROPOLINA_UE = st.multiselect(
-            key="regiao_metropolitana",
-            label="Região Metropolitana",
-            placeholder="Selecione se é Região Metropolitana",
-            options=sorted(df["REGIÃO_METROPOLINA_UE"].unique()),
-        )
+    REGIAO = st.multiselect(
+        key="regiao",
+        label="Região",
+        placeholder="Selecione a Região",
+        options=sorted(df["REGIAO"].unique()),
+    )
+    UF = st.multiselect(
+        key="uf",
+        label="Unidade da Federação",
+        placeholder="Selecione a UF",
+        options=sorted(df["UF"].unique()),
+    )
+    INSTITUICAO = st.multiselect(
+        key="instituicao",
+        label="Instituição",
+        placeholder="Selecione a Instituição",
+        options=sorted(df["INSTITUICAO"].unique()),
+    )
+    UNIDADE_DE_ENSINO = st.multiselect(
+        key="unidade_ensino",
+        label="Unidade de Ensino",
+        placeholder="Selecione a Unidade de Ensino",
+        options=sorted(df["UNIDADE_DE_ENSINO"].unique()),
+    )
+    REGIAO_METROPOLINA_UE = st.multiselect(
+        key="regiao_metropolitana",
+        label="Região Metropolitana",
+        placeholder="Selecione se é Região Metropolitana",
+        options=sorted(df["REGIÃO_METROPOLINA_UE"].unique()),
+    )
+
     st.markdown("---")
     st.markdown("### Sociais")
-    if st.session_state.limpar_filtros:
-        COR_RACA = st.multiselect(
-            key="cor_raca",
-            label="Cor/Raça",
-            placeholder="Selecione a Cor/Raça",
-            options=sorted(df["COR_RACA"].unique()),
-        )
-        SEXO = st.multiselect(
-            key="sexo",
-            label="Gênero",
-            placeholder="Selecione o Gênero",
-            options=sorted(df["SEXO"].unique()),
-        )
-        RENDA_FAMILIAR = st.multiselect(
-            key="renda_familiar",
-            label="Renda Familiar",
-            placeholder="Selecione a Renda Familiar",
-            options=sorted(df["RENDA_FAMILIAR"].unique()),
-        )
-    else:
-        COR_RACA = st.multiselect(
-            key="cor_raca",
-            label="Cor/Raça",
-            placeholder="Selecione a Cor/Raça",
-            options=sorted(df["COR_RACA"].unique()),
-        )
-        SEXO = st.multiselect(
-            key="sexo",
-            label="Gênero",
-            placeholder="Selecione o Gênero",
-            options=sorted(df["SEXO"].unique()),
-        )
-        RENDA_FAMILIAR = st.multiselect(
-            key="renda_familiar",
-            label="Renda Familiar",
-            placeholder="Selecione a Renda Familiar",
-            options=sorted(df["RENDA_FAMILIAR"].unique()),
-        )
+    COR_RACA = st.multiselect(
+        key="cor_raca",
+        label="Cor/Raça",
+        placeholder="Selecione a Cor/Raça",
+        options=sorted(df["COR_RACA"].unique()),
+    )
+    SEXO = st.multiselect(
+        key="sexo",
+        label="Gênero",
+        placeholder="Selecione o Gênero",
+        options=sorted(df["SEXO"].unique()),
+    )
+    RENDA_FAMILIAR = st.multiselect(
+        key="renda_familiar",
+        label="Renda Familiar",
+        placeholder="Selecione a Renda Familiar",
+        options=sorted(df["RENDA_FAMILIAR"].unique()),
+    )
+
     st.markdown("---")
     st.markdown("### Cursos")
-    if st.session_state.limpar_filtros:
-        EIXO_TECNOLOGICO = st.multiselect(
-            key="eixo_tecnologico",
-            label="Eixo Tecnológico",
-            placeholder="Selecione o Eixo Tecnológico",
-            options=sorted(df["EIXO_TECNOLOGICO"].unique()),
-        )
-        NOME_DE_CURSO = st.multiselect(
-            key="nome_curso",
-            label="Curso Técnico",
-            placeholder="Selecione o curso técnico",
-            options=sorted(df["NOME_DE_CURSO"].unique()),
-        )
-        MODALIDADE_DE_ENSINO = st.multiselect(
-            key="modalidade_ensino",
-            label="Modalidade de Ensino",
-            placeholder="Selecione a modalidade de ensino",
-            options=sorted(df["MODALIDADE_DE_ENSINO"].unique()),
-        )
-        TIPO_DE_OFERTA = st.multiselect(
-            key="tipo_oferta",
-            label="Tipo de Oferta",
-            placeholder="Selecione o Tipo de Oferta",
-            options=sorted(df["TIPO_DE_OFERTA"].unique()),
-        )
-        TURNO = st.multiselect(
-            key="turno",
-            label="Turno",
-            placeholder="Selecione o turno",
-            options=sorted(df["TURNO"].unique()),
-        )
-    else:
-        EIXO_TECNOLOGICO = st.multiselect(
-            key="eixo_tecnologico",
-            label="Eixo Tecnológico",
-            placeholder="Selecione o Eixo Tecnológico",
-            options=sorted(df["EIXO_TECNOLOGICO"].unique()),
-        )
-        NOME_DE_CURSO = st.multiselect(
-            key="nome_curso",
-            label="Curso Técnico",
-            placeholder="Selecione o curso técnico",
-            options=sorted(df["NOME_DE_CURSO"].unique()),
-        )
-        MODALIDADE_DE_ENSINO = st.multiselect(
-            key="modalidade_ensino",
-            label="Modalidade de Ensino",
-            placeholder="Selecione a modalidade de ensino",
-            options=sorted(df["MODALIDADE_DE_ENSINO"].unique()),
-        )
-        TIPO_DE_OFERTA = st.multiselect(
-            key="tipo_oferta",
-            label="Tipo de Oferta",
-            placeholder="Selecione o Tipo de Oferta",
-            options=sorted(df["TIPO_DE_OFERTA"].unique()),
-        )
-        TURNO = st.multiselect(
-            key="turno",
-            label="Turno",
-            placeholder="Selecione o turno",
-            options=sorted(df["TURNO"].unique()),
-        )
-    
+    EIXO_TECNOLOGICO = st.multiselect(
+        key="eixo_tecnologico",
+        label="Eixo Tecnológico",
+        placeholder="Selecione o Eixo Tecnológico",
+        options=sorted(df["EIXO_TECNOLOGICO"].unique()),
+    )
+    NOME_DE_CURSO = st.multiselect(
+        key="nome_curso",
+        label="Curso Técnico",
+        placeholder="Selecione o curso técnico",
+        options=sorted(df["NOME_DE_CURSO"].unique()),
+    )
+    MODALIDADE_DE_ENSINO = st.multiselect(
+        key="modalidade_ensino",
+        label="Modalidade de Ensino",
+        placeholder="Selecione a modalidade de ensino",
+        options=sorted(df["MODALIDADE_DE_ENSINO"].unique()),
+    )
+    TIPO_DE_OFERTA = st.multiselect(
+        key="tipo_oferta",
+        label="Tipo de Oferta",
+        placeholder="Selecione o Tipo de Oferta",
+        options=sorted(df["TIPO_DE_OFERTA"].unique()),
+    )
+    TURNO = st.multiselect(
+        key="turno",
+        label="Turno",
+        placeholder="Selecione o turno",
+        options=sorted(df["TURNO"].unique()),
+    )
+
         # Botão Limpar Filtros (dentro do expander)
-    if st.button("Limpar Filtros", on_click=limpar_filtros):
-        # A ação de limpar é tratada pela função de callback
-        pass
+    if st.button("Limpar Filtros"):
+        limpar_filtros()
 
-    # Aplica filtros dinamicamente
-    filtered_df = df.copy()
-    colunas_filtro = [
-        "REGIAO", "UF", "INSTITUICAO", "UNIDADE_DE_ENSINO", 
-        "REGIÃO_METROPOLINA_UE", "COR_RACA", "SEXO", "RENDA_FAMILIAR",
-        "EIXO_TECNOLOGICO", "NOME_DE_CURSO", "MODALIDADE_DE_ENSINO",
-        "TIPO_DE_OFERTA", "TURNO"
-    ]
 
-    for coluna in colunas_filtro:
-        session_chave = coluna.lower().replace(" ", "_").replace("ã", "a").replace("ç", "c")
-        valores = st.session_state.get(session_chave, [])
-        if valores:
-            filtered_df = filtered_df[filtered_df[coluna].isin(valores)]
+    # # Botão Limpar Filtros (Dentro do expander)
+    # if st.button("Limpar Filtros"):
+    #     # Limpa apenas os filtros que existem no session_state
+    #     for chave in filtro_chaves:
+    #         if chave in st.session_state:
+    #             st.session_state[chave] = []
+
+    #     # Recolhe o expander
+    #     st.session_state.expander_open = False
+
+# Aplica filtros dinamicamente
+filtered_df = df.copy()
+
+# Mapeamento entre chaves do session_state e colunas do DataFrame
+mapeamento_colunas = {
+    "regiao": "regiao",
+    "uf": "uf", 
+    "instituicao": "instituicao",
+    "unidade_ensino": "unidade_de_ensino",
+    "regiao_metropolitana": "regiao_metropolitana_ue",
+    "cor_raca": "cor_raca",
+    "sexo": "sexo",
+    "renda_familiar": "renda_familiar",
+    "eixo_tecnologico": "eixo_tecnologico",
+    "nome_curso": "nome_de_curso",
+    "modalidade_ensino": "modalidade_de_ensino",
+    "tipo_oferta": "tipo_de_oferta",
+    "turno": "turno"
+}
+
+for session_key, coluna_df in mapeamento_colunas.items():
+    valores = st.session_state.get(session_key, [])
+    if valores:
+        filtered_df = filtered_df[filtered_df[coluna_df].isin(valores)]
 
 
 
