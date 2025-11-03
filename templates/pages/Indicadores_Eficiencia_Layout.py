@@ -59,7 +59,7 @@ st.markdown("""
         z-index: 9998;
         box-shadow: 2px 0 12px rgba(0,0,0,0.18);
         background-color: #f5f2c4;
-        transition: width 0.3s ease; /* animação suave */
+        transition: width 4s ease; /* animação suave */
     }
     /* Ajusta botão expandir para aparecer corretamente */
     button[title="Expandir/Recolher"] {
@@ -79,7 +79,7 @@ st.markdown("""
         transition: width 0.35s ease;
         box-shadow: 2px 0 12px rgba(0,0,0,0.18);
         background-color: #f5f2c4;
-        transition: width 0.3s ease; /* animação suave */
+        transition: width 4s ease; /* animação suave */
         min-width: 5rem !important; /* largura mínima quando recolhido */
     }}
     </style>
