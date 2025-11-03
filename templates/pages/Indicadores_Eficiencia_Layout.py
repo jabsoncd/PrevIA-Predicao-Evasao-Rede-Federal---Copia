@@ -60,17 +60,7 @@ st.markdown("""
         background-color: #f5f2c4;
         overflow: auto;
     }
-            
-    /* Seleciona o botão de expandir/recolher */
-    button[data-testid="collapsedControl"] {
-        top: 4cm !important;  /* Ajusta a posição vertical */
-        left: 0px !important; /* Ajusta horizontalmente, se desejar */
-    }
-    /* Esconde o botão de recolher/expandir */
-    button[data-testid="collapsedControl"] {
-        display: none !important;
-    }
-            
+             
     [data-testid="stSidebar2"] {{
         position: fixed !important;
         left: 0;
@@ -86,8 +76,6 @@ st.markdown("""
     </style>
     
 """, unsafe_allow_html=True)
-
-
 
 
 
