@@ -45,7 +45,6 @@ st.markdown("""
     section[data-testid="stSidebar"] a[href*="Indicadores_Eficiencia"],
     section[data-testid="stSidebar"] a[href*="Simulador_Eficiencia"],
     section[data-testid="stSidebar"] a[href*="Sobre"],
-    section[data-testid="stSidebar"] a[href*="Home_Profissional"],
     section[data-testid="stSidebar"] a[href*="Indicadores_Eficiencia_Layout"],
     section[data-testid="stSidebar"] a[href*="Simulador_Eficiencia_Layout"] {
         display: none !important;
@@ -62,6 +61,18 @@ st.markdown("""
         box-shadow: 2px 0 12px rgba(0,0,0,0.18);
         background-color: #f5f2c4;
     }
+            
+    [data-testid="stSidebar"] {{
+        position: fixed !important;
+        left: 0;
+        top: 0;
+        height: 100vh;
+        width: 17rem !important; 
+        z-index: 9998;
+        transition: width 0.35s ease;
+        box-shadow: 2px 0 12px rgba(0,0,0,0.18);
+        background-color: #f5f2c4;
+    }}
     </style>
     
 """, unsafe_allow_html=True)
