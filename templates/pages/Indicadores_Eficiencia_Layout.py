@@ -563,20 +563,7 @@ with st.expander("Filtros"):
         options=sorted(df["TURNO"].unique()),
     )
 
-    # CSS para estilizar o botão
-    st.markdown("""
-        <style>
-        div.stButton > button:first-child {
-            background-color: #FF0000;
-            color: white;
-            height: 2cm;
-            width: 120px;
-            font-size: 16px;
-            font-weight: bold;
-            border-radius: 8px;
-        }
-        </style>
-    """, unsafe_allow_html=True)
+
 
     # Botão de filtrar, fora do expander
     if st.button("Filtrar"):
