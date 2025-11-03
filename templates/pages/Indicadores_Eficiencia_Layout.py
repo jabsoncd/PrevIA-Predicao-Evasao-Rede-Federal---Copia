@@ -63,13 +63,13 @@ st.markdown("""
     }
     
     /* --- CONTEÚDO PRINCIPAL AJUSTADO --- */
-    .main {{
+    .main {
         margin-left: 18rem !important; /* empurra o conteúdo para direita */
         transition: margin-left 0.3s ease;
-    }}
+    }
 
     /* --- ÍCONE DE RECOLHER / EXPANDIR --- */
-    [data-testid="collapsedControl"] {{
+    [data-testid="collapsedControl"] {
         position: fixed !important;
         top: 1rem;
         left: 1rem;
@@ -78,12 +78,12 @@ st.markdown("""
         border-radius: 50%;
         padding: 6px;
         box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-    }}
-    [data-testid="collapsedControl"] svg {{
+    }
+    [data-testid="collapsedControl"] svg {
         fill: white !important;
         width: 1.1rem;
         height: 1.1rem;
-    }}
+    }
 
     /* --- LOGO FLUTUANTE --- */
     .nav-logo {{
