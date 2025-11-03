@@ -51,7 +51,7 @@ st.markdown("""
     }
 
     [data-testid="stSidebar"] {
-        left: 2cm;
+        left: 0;
         top: 2cm;
         height: 100vh;
         width: 17rem !important; 
@@ -68,20 +68,6 @@ st.markdown("""
         left: 20px;    /* fica próximo da borda do sidebar */
         z-index: 9999;
     }
-             
-    [data-testid="stSidebar2"] {{
-        position: fixed !important;
-        left: 0cm;
-        top: 2cm;
-        height: 100vh;
-        width: 10rem !important; 
-        z-index: 9998;
-        transition: width 0.35s ease;
-        box-shadow: 2px 0 12px rgba(0,0,0,0.18);
-        background-color: #f5f2c4;
-        transition: width 4s ease; /* animação suave */
-        min-width: 5rem !important; /* largura mínima quando recolhido */
-    }}
     </style>
     
 """, unsafe_allow_html=True)
