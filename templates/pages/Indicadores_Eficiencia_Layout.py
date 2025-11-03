@@ -466,6 +466,15 @@ st.write(" ")
 
 ##################################################################### MODAL
 
+
+# Lista de todas as chaves dos filtros
+filtro_chaves = [
+    "cat_situacao", "regiao", "uf", "instituicao", "unidade_ensino", 
+    "regiao_metropolitana", "cor_raca", "sexo", "renda_familiar",
+    "eixo_tecnologico", "nome_curso", "modalidade_ensino",
+    "tipo_oferta", "turno"
+]
+
 with st.expander("Filtros"):
     st.markdown("### Situação das Matrículas")
     CATEGORIA_SITUACAO = st.multiselect(
@@ -566,11 +575,19 @@ with st.expander("Filtros"):
 
 
     # Botão de filtrar, fora do expander
-    if st.button("Filtrar"):
+    if st.button("Limpar Filtrar"):
         st.session_state.expander_open = False  # recolhe o expander
-        st.session_state.filtrar = True
+        # st.session_state.filtrar = True
+        # Limpa todos os filtros
+        for chave in filtro_chaves:
+            st.session_state[chave] = []
 
+    # Mostra DataFrame filtrado (ou completo se nada selecionado)
     filtered_df = df.copy()
+    for chave in filtro_chaves:
+        valores = st.session_state.get(chave, [])
+        if valores:
+            filtered_df = filtered_df[filtered_df[df.columns[[i for i,c in enumerate(df.columns) if c.lower().replace(" ","_") == chave]][0]].isin(valores)]
 
     filtros = {
         "CATEGORIA_SITUACAO": CATEGORIA_SITUACAO,
