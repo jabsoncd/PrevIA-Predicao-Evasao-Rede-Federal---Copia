@@ -62,25 +62,31 @@ st.markdown("""
         width: 17rem !important; /* largura fixa para não retrair o layout */
         background-color: #f5f2c4 !important;
         box-shadow: 2px 0 12px rgba(0, 0, 0, 0.18) !important;
-        transition: none !important; /* evita animações que causam retração */
+        transition: transform 0.35s ease, width 0.35s ease;
     }
-
-    /* 🔹 Mantém o conteúdo principal estável */
+            
+    /* 🔹 Quando o sidebar estiver recolhido */
+    [data-testid="stSidebar"][aria-expanded="false"] {
+        transform: translateX(-100%);
+    /* 🔹 Ajusta o conteúdo principal conforme o estado do sidebar */
     [data-testid="stAppViewContainer"] > main {
-        margin-left: 17rem !important; /* igual à largura do sidebar */
-        transition: none !important;
+        transition: margin-left 0.35s ease;
+        margin-left: 17rem; /* Quando o sidebar está visível */
     }
 
-    /* 🔹 Remove o espaço interno extra do Streamlit */
+    /* 🔹 Quando o sidebar estiver recolhido, reduz a margem */
+    [data-testid="stSidebar"][aria-expanded="false"] ~ div [data-testid="stAppViewContainer"] > main {
+        margin-left: 0 !important;
+    }
+
+    /* 🔹 Ajuste de espaçamento interno do conteúdo */
     .block-container {
         padding-top: 1rem !important;
         padding-left: 1rem !important;
         padding-right: 1rem !important;
     }
-
-</style>
+    </style>
 """, unsafe_allow_html=True)
-
 # # 🔹 Mantém sidebar visível e apenas oculta links indesejados
 # st.markdown(
 #     """
