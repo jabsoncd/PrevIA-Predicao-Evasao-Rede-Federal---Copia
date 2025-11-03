@@ -60,6 +60,12 @@ st.markdown("""
         background-color: #f5f2c4;
     }
             
+    /* Seleciona o botão de expandir/recolher */
+    button[data-testid="collapsedControl"] {
+        top: 4cm !important;  /* Ajusta a posição vertical */
+        left: 0px !important; /* Ajusta horizontalmente, se desejar */
+    }
+            
     [data-testid="stSidebar2"] {{
         position: fixed !important;
         left: 0;
