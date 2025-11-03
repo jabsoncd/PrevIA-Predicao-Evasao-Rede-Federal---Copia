@@ -37,153 +37,43 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 
 
 
+# 🔹 Mantém sidebar visível e apenas oculta links indesejados
 st.markdown(
     """
     <style>
-    /* ---------- ocultar links indesejados ---------- */
+    /* Oculta links específicos */
     section[data-testid="stSidebar"] a[href*="Home_Profissional"],
     section[data-testid="stSidebar"] a[href*="Indicadores_Eficiencia"],
     section[data-testid="stSidebar"] a[href*="Simulador_Eficiencia"],
     section[data-testid="stSidebar"] a[href*="Sobre"],
+    section[data-testid="stSidebar"] a[href*="Home_Profissional"],
     section[data-testid="stSidebar"] a[href*="Indicadores_Eficiencia_Layout"],
     section[data-testid="stSidebar"] a[href*="Simulador_Eficiencia_Layout"] {
         display: none !important;
     }
 
-    /* ---------- sidebar (sempre fixo) ---------- */
     [data-testid="stSidebar"] {
         position: fixed !important;
-        top: 0;
         left: 0;
+        top: 0;
         height: 100vh;
         z-index: 9998;
-        width: 17rem;                 /* largura quando aberto */
-        background-color: #f5f2c4;
+        width: 17rem !important;
+        transition: transform 0.35s ease;
         box-shadow: 2px 0 12px rgba(0,0,0,0.18);
-        transition: width 0.35s ease;
-        overflow: hidden;
+        background-color: #f5f2c4;
     }
 
-    /* quando Streamlit coloca aria-expanded="false", reduzimos a largura
-       para manter o ícone visível (não move totalmente para fora) */
+    /* 🔹 Quando o sidebar estiver recolhido */
     [data-testid="stSidebar"][aria-expanded="false"] {
-        width: 4.5rem;                /* largura quando "retraído" — ajustável */
+        transform: translateX(-100%);
     }
 
-    /* ---------- garante que o botão padrão de recolher/expandir fique visível ---------- */
-    [data-testid="collapsedControl"] {
-        display: flex !important;
-        visibility: visible !important;
-        position: fixed !important;
-        top: 1rem !important;
-        left: 0.5rem !important;
-        z-index: 10001 !important;
-        align-items: center;
-        justify-content: center;
-    }
 
-    /* ---------- conteúdo principal (main) — transição suave via classe que JS controla ---------- */
-    /* regra padrão (sidebar aberto) */
-    .sidebar-open div[data-testid="stAppViewContainer"] main {
-        margin-left: 17rem;           /* deve ser igual à largura do sidebar aberto */
-        transition: margin-left 0.35s ease;
-    }
-
-    /* quando a classe sidebar-collapsed estiver presente (sidebar retraído) */
-    .sidebar-collapsed div[data-testid="stAppViewContainer"] main {
-        margin-left: 4.5rem;         /* mesma largura que definimos para o sidebar retraído */
-        transition: margin-left 0.35s ease;
-    }
-
-    /* fallback para casos em que a árvore é diferente (usa div:first-child) */
-    .sidebar-open [data-testid="stAppViewContainer"] > div:first-child {
-        margin-left: 17rem;
-        transition: margin-left 0.35s ease;
-    }
-    .sidebar-collapsed [data-testid="stAppViewContainer"] > div:first-child {
-        margin-left: 4.5rem;
-        transition: margin-left 0.35s ease;
-    }
-
-    /* pequenos ajustes de padding do conteúdo */
-    .block-container {
-        padding-top: 1rem !important;
-        padding-left: 1rem !important;
-        padding-right: 1rem !important;
-    }
-
-    /* responsividade: em telas pequenas, evita margem exagerada */
-    @media (max-width: 900px) {
-        .sidebar-open div[data-testid="stAppViewContainer"] main,
-        .sidebar-collapsed div[data-testid="stAppViewContainer"] main,
-        .sidebar-open [data-testid="stAppViewContainer"] > div:first-child,
-        .sidebar-collapsed [data-testid="stAppViewContainer"] > div:first-child {
-            margin-left: 0 !important;
-        }
-        [data-testid="stSidebar"] {
-            position: relative !important;
-            width: 100% !important;
-            height: auto !important;
-        }
-        [data-testid="collapsedControl"] { display: none !important; }
-    }
     </style>
 
-    <script>
-    // ---------- Observador que fica de olho no atributo aria-expanded do sidebar ----------
-    (function() {
-        function applyInitialClass(sidebarEl) {
-            var isExpanded = sidebarEl.getAttribute('aria-expanded');
-            if (isExpanded === null) {
-                // se não existe, assumimos aberto (comportamento padrão)
-                document.documentElement.classList.add('sidebar-open');
-                document.documentElement.classList.remove('sidebar-collapsed');
-            } else if (isExpanded === "true") {
-                document.documentElement.classList.add('sidebar-open');
-                document.documentElement.classList.remove('sidebar-collapsed');
-            } else {
-                document.documentElement.classList.add('sidebar-collapsed');
-                document.documentElement.classList.remove('sidebar-open');
-            }
-        }
-
-        function observeSidebar() {
-            var sidebar = window.parent.document.querySelector('[data-testid="stSidebar"]');
-            if (!sidebar) {
-                // tenta novamente em 200ms até encontrar (Streamlit pode renderizar depois)
-                setTimeout(observeSidebar, 200);
-                return;
-            }
-
-            // aplica estado inicial
-            applyInitialClass(sidebar);
-
-            // observa mudanças no atributo aria-expanded
-            var mo = new MutationObserver(function(mutations) {
-                mutations.forEach(function(m) {
-                    if (m.type === 'attributes' && m.attributeName === 'aria-expanded') {
-                        var val = sidebar.getAttribute('aria-expanded');
-                        if (val === "false") {
-                            document.documentElement.classList.add('sidebar-collapsed');
-                            document.documentElement.classList.remove('sidebar-open');
-                        } else {
-                            document.documentElement.classList.add('sidebar-open');
-                            document.documentElement.classList.remove('sidebar-collapsed');
-                        }
-                    }
-                });
-            });
-
-            mo.observe(sidebar, { attributes: true, attributeFilter: ['aria-expanded'] });
-        }
-
-        // inicia
-        observeSidebar();
-    })();
-    </script>
-    """,
-    unsafe_allow_html=True,
-)
+    
+""", unsafe_allow_html=True)
 
 
 
