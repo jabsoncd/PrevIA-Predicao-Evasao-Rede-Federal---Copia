@@ -63,7 +63,7 @@ st.markdown("""
              
     [data-testid="stSidebar2"] {{
         position: fixed !important;
-        left: 2cm;
+        left: 0cm;
         top: 2cm;
         height: 100vh;
         width: 17rem !important; 
@@ -85,7 +85,7 @@ st.markdown("""
     /* Ajusta o conteúdo da página para não ficar sobre o sidebar */
     [data-testid="stAppViewContainer"] {
         margin-left: 0; /* largura do sidebar + 5cm */
-        margin-top: 0cm;                 /* desloca conteúdo para ficar abaixo da navbar */
+        margin-top: 0;                 /* desloca conteúdo para ficar abaixo da navbar */
     }
             
     </style>
