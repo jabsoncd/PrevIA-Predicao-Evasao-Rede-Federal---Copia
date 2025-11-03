@@ -57,149 +57,79 @@ st.markdown(
 )
 
 
-# CSS + JS customizado
+
 st.markdown("""
     <style>
-
-    /* Sidebar estilizado */
     [data-testid="stSidebar"] {
-        position: fixed !important;
-        left: 0;
-        top: 0;
-        height: 100vh;
-        z-index: 9998;
-        transition: transform 0.35s ease;
-        box-shadow: 2px 0 12px rgba(0,0,0,0.18);
-        background-color: #e8e290;
+    position: fixed !important;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    z-index: 9998;
+    transition: width 0.35s ease;
+    box-shadow: 2px 0 12px rgba(0,0,0,0.18);
+    background-color: #e8e290;
+    }
     
-    }
-
-    /* Quando visível */
-    .show-sidebar [data-testid="stSidebar"] {
-        transform: translateX(0);
-    }
-
-    /* Botão flutuante “Filtros” */
-    #toggle-btn {
+    /* Mantém o botão para expandir visível */
+    [data-testid="collapsedControl"] {
+        display: fixed !important;
+        visibility: visible !important;
         position: fixed;
-        top: 20px;
-        left: 20px;
-        z-index: 10000;
-        background-color: #152847;
-        color: white;
-        border: none;
-        border-radius: 25px;
-        padding: 10px 22px;
-        font-weight: 600;
-        cursor: pointer;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-        transition: all 0.3s ease;
+        top: 1rem;
+        left: 1rem;
+        background-color: #030302; 
+        border-radius: 50%;
+        box-shadow: 0 0 8px rgba(0,0,0,0.2);
     }
-    #toggle-btn:hover {
-        background-color: #1d3b6b;
+
+    
+    
+
+    /* Mantém main sem margin-left para não ser empurrado */
+    main.block-container {
+        margin-left: 0 !important;
+        transition: margin-left 0.35s ease;
+        padding-top: 3.5rem; /* espaço para nav fixa */
     }
+
+    /* Nav fixa no topo (exemplo) */
+    .navbar {
+        position: flex;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3.2rem;
+        background: #152847;
+        z-index: 9000;
+    }
+
+    /* Estilo visual do botão re-estilizado (aplicado via JS) */
+    .custom-collapsed-btn {
+        display: fixed !important;
+        visibility: visible !important;
+        position: fixed !important;
+        top: 12px !important;
+        left: 12px !important;
+        z-index: 10001 !important;
+        width: 44px !important;
+        height: 44px !important;
+        border-radius: 22px !important;
+        align-items: center !important;
+        justify-content: center !important;
+        background: #152847 !important;
+        color: #ffffff !important;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.25) !important;
+        border: none !important;
+        cursor: pointer !important;
+    }
+
     </style>
 
-    <script>
-    function toggleSidebar() {
-        const body = window.parent.document.querySelector('body');
-        body.classList.toggle('show-sidebar');
-    }
-    </script>
+
+
+    
 """, unsafe_allow_html=True)
-
-# Botão HTML flutuante
-st.markdown('<button id="toggle-btn" onclick="toggleSidebar()">Filtros</button>', unsafe_allow_html=True)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# st.markdown("""
-#     <style>
-#     [data-testid="stSidebar"] {
-#     position: fixed !important;
-#     left: 0;
-#     top: 0;
-#     height: 100vh;
-#     z-index: 9998;
-#     transition: width 0.35s ease;
-#     box-shadow: 2px 0 12px rgba(0,0,0,0.18);
-#     background-color: #e8e290;
-#     }
-    
-#     /* Mantém o botão para expandir visível */
-#     [data-testid="collapsedControl"] {
-#         display: fixed !important;
-#         visibility: visible !important;
-#         position: fixed;
-#         top: 1rem;
-#         left: 1rem;
-#         z-index: 9999; /* acima de tudo */
-#         background-color: #f0e21f; 
-#         border-radius: 50%;
-#         box-shadow: 0 0 8px rgba(0,0,0,0.2);
-#     }
-
-    
-    
-
-#     /* Mantém main sem margin-left para não ser empurrado */
-#     main.block-container {
-#         margin-left: 0 !important;
-#         transition: margin-left 0.35s ease;
-#         padding-top: 3.5rem; /* espaço para nav fixa */
-#     }
-
-#     /* Nav fixa no topo (exemplo) */
-#     .navbar {
-#         position: flex;
-#         top: 0;
-#         left: 0;
-#         right: 0;
-#         height: 3.2rem;
-#         background: #152847;
-#         z-index: 9000;
-#     }
-
-#     /* Estilo visual do botão re-estilizado (aplicado via JS) */
-#     .custom-collapsed-btn {
-#         display: fixed !important;
-#         visibility: visible !important;
-#         position: fixed !important;
-#         top: 12px !important;
-#         left: 12px !important;
-#         z-index: 10001 !important;
-#         width: 44px !important;
-#         height: 44px !important;
-#         border-radius: 22px !important;
-#         align-items: center !important;
-#         justify-content: center !important;
-#         background: #152847 !important;
-#         color: #ffffff !important;
-#         box-shadow: 0 6px 18px rgba(0,0,0,0.25) !important;
-#         border: none !important;
-#         cursor: pointer !important;
-#     }
-
-#     </style>
-
-
-
-    
-# """, unsafe_allow_html=True)
 
 
 
