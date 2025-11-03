@@ -563,8 +563,30 @@ with st.expander("Filtros"):
         options=sorted(df["TURNO"].unique()),
     )
 
-# Botão para aplicar filtros
-if st.button("Filtrar"):
+    # HTML + CSS para o botão customizado
+    botao_html = """
+    <div style="text-align: left; margin-top: 10px;">
+        <button onclick="document.querySelector('iframe').contentWindow.streamlitPythonCode()"
+            style="
+                background-color: #FF0000; 
+                color: white; 
+                height: 2cm; 
+                width: 120px; 
+                border-radius: 8px; 
+                font-size: 16px; 
+                font-weight: bold;
+                cursor: pointer;">
+            Filtrar
+        </button>
+    </div>
+    """
+
+    # Como o Streamlit não permite onclick direto para Python, usamos st.button "invisível"
+    if st.button("Filtrar Invisível", key="filtro_invisivel"):
+        filtrar()
+
+    # Exibe o botão customizado com CSS
+    st.markdown(botao_html, unsafe_allow_html=True)
     filtered_df = df.copy()
 
     filtros = {
