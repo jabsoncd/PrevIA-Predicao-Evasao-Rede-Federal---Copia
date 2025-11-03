@@ -609,21 +609,20 @@ filtered_df = df.copy()
 
 # Mapeamento entre chaves do session_state e colunas do DataFrame
 mapeamento_colunas = {
-    "regiao": "regiao",
-    "uf": "uf", 
-    "instituicao": "instituicao",
-    "unidade_ensino": "unidade_de_ensino",
-    "regiao_metropolitana": "regiao_metropolitana_ue",
-    "cor_raca": "cor_raca",
-    "sexo": "sexo",
-    "renda_familiar": "renda_familiar",
-    "eixo_tecnologico": "eixo_tecnologico",
-    "nome_curso": "nome_de_curso",
-    "modalidade_ensino": "modalidade_de_ensino",
-    "tipo_oferta": "tipo_de_oferta",
-    "turno": "turno"
+    "regiao": "REGIAO",
+    "uf": "UF", 
+    "instituicao": "INSTITUICAO",
+    "unidade_ensino": "UNIDADE_DE_ENSINO",
+    "regiao_metropolitana": "REGIAO_METROPOLITANA_UE",
+    "cor_raca": "COR_RACA",
+    "sexo": "SEXO",
+    "renda_familiar": "RENDA_FAMILIAR",
+    "eixo_tecnologico": "EIXO_TECNOLOGICO",
+    "nome_curso": "NOME_DE_CURSO",
+    "modalidade_ensino": "MODALIDADE_DE_ENSINO",
+    "tipo_oferta": "TIPO_DE_OFERTA",
+    "turno": "TURNO"
 }
-
 for session_key, coluna_df in mapeamento_colunas.items():
     valores = st.session_state.get(session_key, [])
     if valores:
