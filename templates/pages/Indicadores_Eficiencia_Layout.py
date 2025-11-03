@@ -71,16 +71,16 @@ st.markdown("""
     /* --- ÍCONE DE RECOLHER / EXPANDIR --- */
     [data-testid="collapsedControl"] {
         position: fixed !important;
-        top: 1rem;
+        top: 2cm;
         left: 1rem;
         z-index: 1100 !important;
-        background-color: #152847 !important;
+        background-color: blue !important;
         border-radius: 50%;
         padding: 6px;
         box-shadow: 0 2px 6px rgba(0,0,0,0.2);
     }
     [data-testid="collapsedControl"] svg {
-        fill: white !important;
+        fill: blue !important;
         width: 1.1rem;
         height: 1.1rem;
     }
