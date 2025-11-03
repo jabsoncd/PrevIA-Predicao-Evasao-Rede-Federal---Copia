@@ -68,7 +68,7 @@ st.markdown("""
     z-index: 9998;
     transition: width 0.35s ease;
     box-shadow: 2px 0 12px rgba(0,0,0,0.18);
-    background-color: green;
+    background-color: blue;
     }}
     
     /* Mantém o botão para expandir visível */
@@ -148,7 +148,7 @@ st.markdown("""
 
 
 
-#########################################################################################################################################################
+######################################################################## BARRA AZUL #################################################################################
 
 
 # CSS personalizado (barra azul alta com ícones dentro)
@@ -310,7 +310,7 @@ a, a:visited, a:active {{
 
 
 
-#########################################################################################################################################################
+######################################################### CODIGO ################################################################################################
 # Carregar os dados
 # @st.cache_data
 # microdados_eficiencia_academica_RedeFederal_2023_tecnico_RegiaoMetropolitana #base_redeFederal_2022_tecnico_regiaoMetropolitana
