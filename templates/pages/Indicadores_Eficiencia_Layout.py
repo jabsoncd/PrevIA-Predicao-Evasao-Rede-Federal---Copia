@@ -91,17 +91,6 @@ st.markdown("""
         padding-top: 3.5rem; /* espaço para nav fixa */
     }}
 
-    /* Nav fixa no topo (exemplo) */
-    .navbar {{
-        position: flex;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 3.2rem;
-        background: #152847;
-        z-index: 9000;
-    }}
-
     </style>
 
     
