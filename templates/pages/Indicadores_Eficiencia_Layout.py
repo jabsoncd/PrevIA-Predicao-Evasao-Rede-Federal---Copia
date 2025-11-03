@@ -52,7 +52,7 @@ st.markdown("""
 
     [data-testid="stSidebar"] {
         left: 0;
-        top: 0;
+        top: 3cm;
         height: 100vh;
         width: 17rem !important; 
         z-index: 9998;
@@ -74,13 +74,14 @@ st.markdown("""
     [data-testid="stSidebar2"] {{
         position: fixed !important;
         left: 0;
-        top: 0;
+        top: 3cm;
         height: 100vh;
         width: 17rem !important; 
         z-index: 9998;
         transition: width 0.35s ease;
         box-shadow: 2px 0 12px rgba(0,0,0,0.18);
         background-color: #f5f2c4;
+        overflow: auto;
     }}
     </style>
     
