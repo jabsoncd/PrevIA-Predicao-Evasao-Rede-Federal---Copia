@@ -60,6 +60,7 @@ st.markdown(
 # CSS + JS customizado
 st.markdown("""
     <style>
+
     /* Sidebar estilizado */
     [data-testid="stSidebar"] {
         position: fixed !important;
@@ -70,7 +71,7 @@ st.markdown("""
         transition: transform 0.35s ease;
         box-shadow: 2px 0 12px rgba(0,0,0,0.18);
         background-color: #e8e290;
-        transform: translateX(-100%); /* Começa oculto */
+    
     }
 
     /* Quando visível */
