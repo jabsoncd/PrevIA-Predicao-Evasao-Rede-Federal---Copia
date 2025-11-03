@@ -70,19 +70,6 @@ st.markdown("""
     box-shadow: 2px 0 12px rgba(0,0,0,0.18);
     background-color: #f5f2c4;
     }}
-    
-    /* Mantém o botão para expandir visível */
-    [data-testid="collapsedControl"] {{
-        display: fixed !important;
-        visibility: visible !important;
-        position: fixed;
-        top: 1rem;
-        left: 1rem;
-        z-index: 9999; /* acima de tudo */
-        background-color: #ff55ff; Black
-        border-radius: 50%;
-        box-shadow: 0 0 8px rgba(0,0,0,0.2);
-    }}
 
     </style>
 
