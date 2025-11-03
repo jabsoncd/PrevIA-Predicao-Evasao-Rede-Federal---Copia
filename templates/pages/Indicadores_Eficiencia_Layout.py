@@ -21,7 +21,7 @@ st.set_page_config(
 
     layout="wide",
     # initial_sidebar_state="expanded"  # collapsed expanded
-    initial_sidebar_state="collapsed"  # 🔹 Oculto ao iniciar
+    initial_sidebar_state="expanded"  # 🔹 Oculto ao iniciar
 
 )
 
@@ -37,36 +37,80 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 
 
 
-# 🔹 Mantém sidebar visível e apenas oculta links indesejados
-st.markdown(
-    """
-    <style>
-    /* Oculta links específicos */
+
+# 🔹 Sidebar fixo, limpo e sem retração do layout principal
+st.markdown("""
+<style>
+
+    /* Oculta links indesejados no sidebar */
     section[data-testid="stSidebar"] a[href*="Home_Profissional"],
     section[data-testid="stSidebar"] a[href*="Indicadores_Eficiencia"],
     section[data-testid="stSidebar"] a[href*="Simulador_Eficiencia"],
     section[data-testid="stSidebar"] a[href*="Sobre"],
-    section[data-testid="stSidebar"] a[href*="Home_Profissional"],
     section[data-testid="stSidebar"] a[href*="Indicadores_Eficiencia_Layout"],
     section[data-testid="stSidebar"] a[href*="Simulador_Eficiencia_Layout"] {
         display: none !important;
     }
 
-    [data-testid="stSidebar"] {{
-    position: fixed !important;
-    left: 0;
-    top: 0;
-    height: 100vh;
-    z-index: 9998;
-    transition: width 0.35s ease;
-    box-shadow: 2px 0 12px rgba(0,0,0,0.18);
-    background-color: #f5f2c4;
-    }}
+    /* 🔹 Sidebar fixo com cor de fundo */
+    [data-testid="stSidebar"] {
+        position: fixed !important;
+        top: 0;
+        left: 0;
+        height: 100vh !important;
+        z-index: 9998 !important;
+        width: 17rem !important; /* largura fixa para não retrair o layout */
+        background-color: #f5f2c4 !important;
+        box-shadow: 2px 0 12px rgba(0, 0, 0, 0.18) !important;
+        transition: none !important; /* evita animações que causam retração */
+    }
 
-    </style>
+    /* 🔹 Mantém o conteúdo principal estável */
+    [data-testid="stAppViewContainer"] > main {
+        margin-left: 17rem !important; /* igual à largura do sidebar */
+        transition: none !important;
+    }
+
+    /* 🔹 Remove o espaço interno extra do Streamlit */
+    .block-container {
+        padding-top: 1rem !important;
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+
+</style>
+""", unsafe_allow_html=True)
+
+# # 🔹 Mantém sidebar visível e apenas oculta links indesejados
+# st.markdown(
+#     """
+#     <style>
+#     /* Oculta links específicos */
+#     section[data-testid="stSidebar"] a[href*="Home_Profissional"],
+#     section[data-testid="stSidebar"] a[href*="Indicadores_Eficiencia"],
+#     section[data-testid="stSidebar"] a[href*="Simulador_Eficiencia"],
+#     section[data-testid="stSidebar"] a[href*="Sobre"],
+#     section[data-testid="stSidebar"] a[href*="Home_Profissional"],
+#     section[data-testid="stSidebar"] a[href*="Indicadores_Eficiencia_Layout"],
+#     section[data-testid="stSidebar"] a[href*="Simulador_Eficiencia_Layout"] {
+#         display: none !important;
+#     }
+
+#     [data-testid="stSidebar"] {{
+#     position: fixed !important;
+#     left: 0;
+#     top: 0;
+#     height: 100vh;
+#     z-index: 9998;
+#     transition: width 0.35s ease;
+#     box-shadow: 2px 0 12px rgba(0,0,0,0.18);
+#     background-color: #f5f2c4;
+#     }}
+
+#     </style>
 
     
-""", unsafe_allow_html=True)
+# """, unsafe_allow_html=True)
 
 
 
