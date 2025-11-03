@@ -93,7 +93,7 @@ st.markdown("""
     <style>
     /* Ajusta o conteúdo da página para não ficar sobre o sidebar */
     [data-testid="stAppViewContainer"] {
-        margin-top: 0;                 /* desloca conteúdo para ficar abaixo da navbar */
+        margin-top: 10cm;                 /* desloca conteúdo para ficar abaixo da navbar */
     }
             
     </style>
