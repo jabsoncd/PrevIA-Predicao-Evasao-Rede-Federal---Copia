@@ -63,63 +63,6 @@ st.markdown("""
     background-color: #f5f2c4;
     }}
     </style>
-
-    <style>         
-    [data-testid="stSidebar"] {
-        position: fixed !important;
-        left: 0;
-        top: 0;
-        height: 100vh;
-        width: 17rem !important; 
-        z-index: 9998;
-        transition: width 0.35s ease;
-        box-shadow: 2px 0 12px rgba(0,0,0,0.18);
-        background-color: #f5f2c4;
-    }
-            
-    /* 🔸 Sidebar recolhido */
-    [data-testid="stSidebar"].collapsed {
-        width: 3.5rem !important;
-    }
-            
-
-    /* 🔸 Botão para alternar sidebar */
-    #toggle-sidebar {
-        position: fixed;
-        top: 3rem; /* abaixo da navbar */
-        left: 1rem;
-        z-index: 10000;
-        background-color: #152847;
-        color: white;
-        border: none;
-        border-radius: 8px;
-        padding: 8px 14px;
-        cursor: pointer;
-        font-size: 0.9rem;
-        font-weight: 500;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-        transition: all 0.25s ease;
-    }
-    #toggle-sidebar:hover {
-        background-color: #1e3c6e;
-    }
-    </style>
-
-    <!-- 🔹 Botão HTML -->
-    <button id="toggle-sidebar">☰ Menu</button>
-
-    <!-- 🔹 Script para alternar o sidebar -->
-    <script>
-    const btn = document.getElementById('toggle-sidebar');
-    btn.addEventListener('click', () => {
-        const sidebar = parent.document.querySelector('[data-testid="stSidebar"]');
-        if (sidebar) {
-            sidebar.classList.toggle('collapsed');
-        }
-    });
-
-    </style>
-
     
 """, unsafe_allow_html=True)
 
@@ -129,18 +72,7 @@ st.markdown("""
 # 🔹 Mantém sidebar visível e apenas oculta links indesejados
 st.markdown("""
     <style>         
-    [data-testid="stSidebar"] {
-        position: fixed !important;
-        left: 0;
-        top: 0;
-        height: 100vh;
-        width: 17rem !important; 
-        z-index: 9998;
-        transition: width 0.35s ease;
-        box-shadow: 2px 0 12px rgba(0,0,0,0.18);
-        background-color: #f5f2c4;
-    }
-            
+           
     /* 🔸 Sidebar recolhido */
     [data-testid="stSidebar"].collapsed {
         width: 3.5rem !important;
