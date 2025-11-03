@@ -466,173 +466,130 @@ st.write(" ")
 
 ##################################################################### MODAL
 
-with st.expander("Filtros"):
-    st.sidebar.markdown("Situação das Matrículas")
-    # Label da categoria com cor
-    # st.sidebar.markdown("<p style='color: black;'>Categoria da Situação:</p>", unsafe_allow_html=True)
-    CATEGORIA_SITUACAO = st.sidebar.multiselect(
+with st.expander("Filtros", expanded=True):
+    st.markdown("### Situação das Matrículas")
+    CATEGORIA_SITUACAO = st.multiselect(
         key=1,
         label="Categoria da Situação",
         placeholder="Evadidos",
         options=df["CATEGORIA_SITUACAO"].unique(),
-        # default="Evadidos",
-        disabled=True,
+        disabled=True,  # caso queira habilitar, colocar False
     )
 
-    st.sidebar.markdown("---")
-    st.sidebar.markdown("Demográficos")
-    REGIAO = st.sidebar.multiselect(
+    st.markdown("---")
+    st.markdown("### Demográficos")
+    REGIAO = st.multiselect(
         key=2,
         label="Região",
         placeholder="Selecione a Região",
         options=sorted(df["REGIAO"].unique()),
     )
-    UF = st.sidebar.multiselect(
+    UF = st.multiselect(
         key=3,
         label="Unidade da Federação",
         placeholder="Selecione a UF",
         options=sorted(df["UF"].unique()),
     )
-    INSTITUICAO = st.sidebar.multiselect(
+    INSTITUICAO = st.multiselect(
         key=4,
         label="Instituição",
         placeholder="Selecione a Instituição",
-        # format_func=lambda x: "Todos" if x == -1 else f"INSTITUICAO {x}",
         options=sorted(df["INSTITUICAO"].unique()),
-        # default=df["INSTITUICAO"].unique()
     )
-    UNIDADE_DE_ENSINO = st.sidebar.multiselect(
+    UNIDADE_DE_ENSINO = st.multiselect(
         key=5,
         label="Unidade de Ensino",
         placeholder="Selecione a Unidade de Ensino",
-        # format_func=lambda x: "Todos" if x == -1 else f"INSTITUICAO {x}",
         options=sorted(df["UNIDADE_DE_ENSINO"].unique()),
-        # default=df["INSTITUICAO"].unique()
     )
-    REGIÃO_METROPOLINA_UE = st.sidebar.multiselect(
+    REGIAO_METROPOLINA_UE = st.multiselect(
         key=6,
         label="Região Metropolitana",
         placeholder="Selecione se é Região Metropolitana",
-        # format_func=lambda x: "Todos" if x == -1 else f"INSTITUICAO {x}",
         options=sorted(df["REGIÃO_METROPOLINA_UE"].unique()),
-        # default=df["INSTITUICAO"].unique()
     )
 
-
-
-
-
-    st.sidebar.markdown("---")
-    st.sidebar.markdown("Sociais")
-    COR_RACA = st.sidebar.multiselect(
+    st.markdown("---")
+    st.markdown("### Sociais")
+    COR_RACA = st.multiselect(
         key=7,
         label="Cor/Raça",
         placeholder="Selecione a Cor/Raça",
-        options=sorted(df["COR_RACA"].unique())
+        options=sorted(df["COR_RACA"].unique()),
     )
-    SEXO = st.sidebar.multiselect(
+    SEXO = st.multiselect(
         key=8,
         label="Gênero",
         placeholder="Selecione o Gênero",
-        options=sorted(df["SEXO"].unique())
+        options=sorted(df["SEXO"].unique()),
     )
-    RENDA_FAMILIAR = st.sidebar.multiselect(
+    RENDA_FAMILIAR = st.multiselect(
         key=9,
         label="Renda Familiar",
         placeholder="Selecione a Renda Familiar",
-        options=sorted(df["RENDA_FAMILIAR"].unique())
+        options=sorted(df["RENDA_FAMILIAR"].unique()),
     )
 
-
-
-
-    st.sidebar.markdown("---")
-    st.sidebar.markdown("Cursos")
-    EIXO_TECNOLOGICO = st.sidebar.multiselect(
+    st.markdown("---")
+    st.markdown("### Cursos")
+    EIXO_TECNOLOGICO = st.multiselect(
         key=10,
-        label="Eixo tecnológico",
-        placeholder="Selecione o Eixo tecnológico",
-        options=sorted(df["EIXO_TECNOLOGICO"].unique())
+        label="Eixo Tecnológico",
+        placeholder="Selecione o Eixo Tecnológico",
+        options=sorted(df["EIXO_TECNOLOGICO"].unique()),
     )
-    NOME_DE_CURSO = st.sidebar.multiselect(
+    NOME_DE_CURSO = st.multiselect(
         key=11,
-        label="Curso técnico",
+        label="Curso Técnico",
         placeholder="Selecione o curso técnico",
-        options=sorted(df["NOME_DE_CURSO"].unique())
+        options=sorted(df["NOME_DE_CURSO"].unique()),
     )
-    MODALIDADE_DE_ENSINO = st.sidebar.multiselect(
+    MODALIDADE_DE_ENSINO = st.multiselect(
         key=12,
-        label="Modalidade de ensino",
+        label="Modalidade de Ensino",
         placeholder="Selecione a modalidade de ensino",
-        options=sorted(df["MODALIDADE_DE_ENSINO"].unique())
+        options=sorted(df["MODALIDADE_DE_ENSINO"].unique()),
     )
-    TIPO_DE_OFERTA = st.sidebar.multiselect(
+    TIPO_DE_OFERTA = st.multiselect(
         key=13,
         label="Tipo de Oferta",
         placeholder="Selecione o Tipo de Oferta",
-        options=sorted(df["TIPO_DE_OFERTA"].unique())
+        options=sorted(df["TIPO_DE_OFERTA"].unique()),
     )
-    TURNO = st.sidebar.multiselect(
+    TURNO = st.multiselect(
         key=14,
         label="Turno",
         placeholder="Selecione o turno",
-        options=sorted(df["TURNO"].unique())
+        options=sorted(df["TURNO"].unique()),
     )
 
-
-    # Filtrando o DataFrame de acordo com as seleções da sidebar
+# Botão para aplicar filtros
+if st.button("Filtrar"):
     filtered_df = df.copy()
 
-    # Aplicando os filtros, verificando se o filtro não está vazio
-    if CATEGORIA_SITUACAO:
-        filtered_df = filtered_df[filtered_df['CATEGORIA_SITUACAO'].isin(
-            CATEGORIA_SITUACAO)]
+    filtros = {
+        "CATEGORIA_SITUACAO": CATEGORIA_SITUACAO,
+        "REGIAO": REGIAO,
+        "UF": UF,
+        "INSTITUICAO": INSTITUICAO,
+        "UNIDADE_DE_ENSINO": UNIDADE_DE_ENSINO,
+        "REGIÃO_METROPOLINA_UE": REGIAO_METROPOLINA_UE,
+        "COR_RACA": COR_RACA,
+        "SEXO": SEXO,
+        "RENDA_FAMILIAR": RENDA_FAMILIAR,
+        "EIXO_TECNOLOGICO": EIXO_TECNOLOGICO,
+        "NOME_DE_CURSO": NOME_DE_CURSO,
+        "MODALIDADE_DE_ENSINO": MODALIDADE_DE_ENSINO,
+        "TIPO_DE_OFERTA": TIPO_DE_OFERTA,
+        "TURNO": TURNO
+    }
 
-    if REGIAO:
-        filtered_df = filtered_df[filtered_df['REGIAO'].isin(REGIAO)]
+    for coluna, valores in filtros.items():
+        if valores:  # aplica filtro apenas se a lista não estiver vazia
+            filtered_df = filtered_df[filtered_df[coluna].isin(valores)]
 
-    if UF:
-        filtered_df = filtered_df[filtered_df['UF'].isin(UF)]
-
-    if INSTITUICAO:
-        filtered_df = filtered_df[filtered_df['INSTITUICAO'].isin(INSTITUICAO)]
-
-    if UNIDADE_DE_ENSINO:
-        filtered_df = filtered_df[filtered_df['UNIDADE_DE_ENSINO'].isin(
-            UNIDADE_DE_ENSINO)]
-
-    if REGIÃO_METROPOLINA_UE:
-        filtered_df = filtered_df[filtered_df['REGIÃO_METROPOLINA_UE'].isin(
-            REGIÃO_METROPOLINA_UE)]
-
-    if COR_RACA:
-        filtered_df = filtered_df[filtered_df['COR_RACA'].isin(COR_RACA)]
-
-    if SEXO:
-        filtered_df = filtered_df[filtered_df['SEXO'].isin(SEXO)]
-
-    if RENDA_FAMILIAR:
-        filtered_df = filtered_df[filtered_df['RENDA_FAMILIAR'].isin(
-            RENDA_FAMILIAR)]
-
-    if EIXO_TECNOLOGICO:
-        filtered_df = filtered_df[filtered_df['EIXO_TECNOLOGICO'].isin(
-            EIXO_TECNOLOGICO)]
-
-    if NOME_DE_CURSO:
-        filtered_df = filtered_df[filtered_df['NOME_DE_CURSO'].isin(NOME_DE_CURSO)]
-
-    if MODALIDADE_DE_ENSINO:
-        filtered_df = filtered_df[filtered_df['MODALIDADE_DE_ENSINO'].isin(
-            MODALIDADE_DE_ENSINO)]
-
-    if TIPO_DE_OFERTA:
-        filtered_df = filtered_df[filtered_df['TIPO_DE_OFERTA'].isin(
-            TIPO_DE_OFERTA)]
-
-    if TURNO:
-        filtered_df = filtered_df[filtered_df['TURNO'].isin(TURNO)]
-
+    st.write("Resultados filtrados:")
+    st.dataframe(filtered_df)
 
 
 
