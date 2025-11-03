@@ -52,7 +52,7 @@ st.markdown("""
 
     [data-testid="stSidebar"] {
         left: 0;
-        top: 3cm;
+        top: 2cm;
         height: 100vh;
         width: 17rem !important; 
         z-index: 9998;
