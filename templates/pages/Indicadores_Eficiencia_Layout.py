@@ -470,20 +470,6 @@ st.write(" ")
 if "expander_open" not in st.session_state:
     st.session_state.expander_open = False  # expander aberto inicialmente
 
-# Lista de todas as chaves dos filtros
-filtro_chaves = [
-
-    "regiao", "uf", "instituicao", "unidade_ensino", 
-    "regiao_metropolitana", "cor_raca", "sexo", "renda_familiar",
-    "eixo_tecnologico", "nome_curso", "modalidade_ensino",
-    "tipo_oferta", "turno"
-]
-
-# Garantir que as chaves de filtro dinâmicas existam no session_state
-for chave in filtro_chaves:
-    if chave not in st.session_state:
-        st.session_state[chave] = []
-
 # Expander para filtros
 with st.expander("Filtros", expanded=st.session_state.expander_open):
     st.markdown("### Situação das Matrículas")
@@ -570,7 +556,7 @@ with st.expander("Filtros", expanded=st.session_state.expander_open):
         options=sorted(df["MODALIDADE_DE_ENSINO"].unique()),
     )
     TIPO_DE_OFERTA = st.multiselect(
-        key=13,
+        key="tipo_oferta",
         label="Tipo de Oferta",
         placeholder="Selecione o Tipo de Oferta",
         options=sorted(df["TIPO_DE_OFERTA"].unique()),
