@@ -66,6 +66,10 @@ st.markdown("""
         top: 4cm !important;  /* Ajusta a posição vertical */
         left: 0px !important; /* Ajusta horizontalmente, se desejar */
     }
+    /* Esconde o botão de recolher/expandir */
+    button[data-testid="collapsedControl"] {
+        display: none !important;
+    }
             
     [data-testid="stSidebar2"] {{
         position: fixed !important;
