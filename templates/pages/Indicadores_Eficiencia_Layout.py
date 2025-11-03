@@ -62,7 +62,7 @@ st.markdown("""
         background-color: #f5f2c4;
     }
             
-    [data-testid="stSidebar"] {{
+    [data-testid="stSidebar2"] {{
         position: fixed !important;
         left: 0;
         top: 0;
