@@ -569,7 +569,7 @@ with st.expander("Filtros", expanded=False):
 
         
 # Botão para aplicar filtros
-if st.button("Filtrar"):
+if 'submit_button' in locals() and submit_button:
     filtered_df = df.copy()
 
     filtros = {
