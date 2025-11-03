@@ -51,7 +51,7 @@ st.markdown("""
     }
 
     [data-testid="stSidebar"] {
-        left: 1;
+        left: 189px;
         top: 2cm;
         height: 100vh;
         width: 17rem !important; 
@@ -73,7 +73,7 @@ st.markdown("""
             
     [data-testid="stSidebar2"] {{
         position: fixed !important;
-        left: 1;
+        left: 1189px;
         top: 2cm;
         height: 100vh;
         width: 17rem !important; 
@@ -91,7 +91,29 @@ st.markdown("""
 
 
 
+# CSS para personalizar o sidebar
+st.markdown("""
+    <style>
 
+    /* Ajusta o conteúdo da página para não ficar sobre o sidebar */
+    [data-testid="stAppViewContainer"] {
+        margin-left: 17rem; /* largura do sidebar + 5 cm */
+    }
+    </style>
+""", unsafe_allow_html=True)
+
+
+# CSS para personalizar o sidebar
+st.markdown("""
+    <style>
+
+    /* Oculta o botão de expandir/recolher */
+    button[title="Expandir/Recolher"] {
+        display: none !important;
+    }
+            
+    </style>
+""", unsafe_allow_html=True)
 
 
 
