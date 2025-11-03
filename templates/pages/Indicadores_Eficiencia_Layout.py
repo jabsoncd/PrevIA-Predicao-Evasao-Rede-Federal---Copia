@@ -573,7 +573,7 @@ with st.expander("Filtros", expanded=st.session_state.expander_open):
         )
 
         # Botão "Filtrar" dentro do expander
-        submit_button = st.form_submit_button("Filtrar")
+        submit_button = st.form_submit_button("Filtrar", on_click=recolher_expander)
 
         
 # Botão para aplicar filtros
