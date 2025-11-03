@@ -65,7 +65,7 @@ st.markdown("""
     button[title="Expandir/Recolher"] {
         position: fixed !important;
         top: 2.5cm;   /* ajuste vertical para alinhar com sidebar */
-        left: 2px;    /* fica próximo da borda do sidebar */
+        left: 20px;    /* fica próximo da borda do sidebar */
         z-index: 9999;
     }
              
@@ -79,7 +79,8 @@ st.markdown("""
         transition: width 0.35s ease;
         box-shadow: 2px 0 12px rgba(0,0,0,0.18);
         background-color: #f5f2c4;
-        overflow: auto;
+        transition: width 0.3s ease; /* animação suave */
+        min-width: 5rem !important; /* largura mínima quando recolhido */
     }}
     </style>
     
@@ -92,7 +93,7 @@ st.markdown("""
     <style>
     /* Ajusta o conteúdo da página para não ficar sobre o sidebar */
     [data-testid="stAppViewContainer"] {
-        margin-left: 0; /* largura do sidebar + 5cm */
+        margin-left: calc(17rem + 2cm); 
         margin-top: 0;                 /* desloca conteúdo para ficar abaixo da navbar */
     }
             
