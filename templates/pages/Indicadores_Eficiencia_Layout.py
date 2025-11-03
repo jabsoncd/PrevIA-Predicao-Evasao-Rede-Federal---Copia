@@ -676,11 +676,11 @@ with st.expander("Filtros", expanded=st.session_state.expander_open):
     # Aplica filtros dinamicamente
     filtered_df = df.copy()
     colunas_filtro = [
-        "REGIAO", "UF", "INSTITUICAO", "UNIDADE_DE_ENSINO", 
-        "REGIÃO_METROPOLINA_UE", "COR_RACA", "SEXO", "RENDA_FAMILIAR",
-        "EIXO_TECNOLOGICO", "NOME_DE_CURSO", "MODALIDADE_DE_ENSINO",
-        "TIPO_DE_OFERTA", "TURNO"
-    ]
+    "regiao", "uf", "instituicao", "unidade_de_ensino", 
+    "regiao_metropolitana_ue", "cor_raca", "sexo", "renda_familiar",
+    "eixo_tecnologico", "nome_de_curso", "modalidade_de_ensino",
+    "tipo_de_oferta", "turno"
+]
 
     for coluna in colunas_filtro:
         session_chave = coluna.lower().replace(" ", "_").replace("ã", "a").replace("ç", "c")
