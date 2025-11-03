@@ -484,13 +484,6 @@ for chave in filtro_chaves:
     if chave not in st.session_state:
         st.session_state[chave] = []
 
-# Função para limpar todos os filtros
-def limpar_filtros():
-    for chave in filtro_chaves:
-        st.session_state[chave] = []
-    st.session_state.expander_open = False
-    st.rerun()
-
 # Expander para filtros
 with st.expander("Filtros", expanded=st.session_state.expander_open):
     st.markdown("### Situação das Matrículas")
@@ -589,44 +582,23 @@ with st.expander("Filtros", expanded=st.session_state.expander_open):
         options=sorted(df["TURNO"].unique()),
     )
 
-        # Botão Limpar Filtros (dentro do expander)
-    if st.button("Limpar Filtros"):
-        limpar_filtros()
 
-
-    # # Botão Limpar Filtros (Dentro do expander)
+    # # Botão Limpar Filtros (fora do expander)
     # if st.button("Limpar Filtros"):
+    #     # Recolhe o expander
+    #     st.session_state.expander_open = False
     #     # Limpa apenas os filtros que existem no session_state
     #     for chave in filtro_chaves:
     #         if chave in st.session_state:
     #             st.session_state[chave] = []
 
-    #     # Recolhe o expander
-    #     st.session_state.expander_open = False
-
 # Aplica filtros dinamicamente
 filtered_df = df.copy()
-
-# Mapeamento entre chaves do session_state e colunas do DataFrame
-mapeamento_colunas = {
-    "regiao": "REGIAO",
-    "uf": "UF", 
-    "instituicao": "INSTITUICAO",
-    "unidade_ensino": "UNIDADE_DE_ENSINO",
-    "regiao_metropolitana": "REGIAO_METROPOLITANA_UE",
-    "cor_raca": "COR_RACA",
-    "sexo": "SEXO",
-    "renda_familiar": "RENDA_FAMILIAR",
-    "eixo_tecnologico": "EIXO_TECNOLOGICO",
-    "nome_curso": "NOME_DE_CURSO",
-    "modalidade_ensino": "MODALIDADE_DE_ENSINO",
-    "tipo_oferta": "TIPO_DE_OFERTA",
-    "turno": "TURNO"
-}
-for session_key, coluna_df in mapeamento_colunas.items():
-    valores = st.session_state.get(session_key, [])
+for coluna in df.columns:
+    session_chave = coluna.lower().replace(" ", "_")
+    valores = st.session_state.get(session_chave, [])
     if valores:
-        filtered_df = filtered_df[filtered_df[coluna_df].isin(valores)]
+        filtered_df = filtered_df[filtered_df[coluna].isin(valores)]
 
 
 
