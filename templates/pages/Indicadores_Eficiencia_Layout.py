@@ -55,33 +55,45 @@ st.markdown("""
         top: 2cm;
         height: 100vh;
         width: 17rem !important; 
-        min-width: 5rem !important; /* largura mínima quando recolhido */
+        min-width: 17rem !important; /* largura mínima quando recolhido */
         z-index: 9998;
         box-shadow: 2px 0 12px rgba(0,0,0,0.18);
         background-color: #f5f2c4;
-        transition: width 4s ease; /* animação suave */
+        transition: width 40.3s ease; /* animação suave */
     }
-    /* Ajusta botão expandir para aparecer corretamente */
-    button[title="Expandir/Recolher"] {
-        position: fixed !important;
-        top: 2.5cm;   /* ajuste vertical para alinhar com sidebar */
-        left: 20px;    /* fica próximo da borda do sidebar */
+            
+        /* Sidebar quando recolhido */
+    [data-testid="stSidebar"][aria-expanded="false"] {
+        width: 5rem !important;
+        min-width: 5rem !important;
+    }
+
+    /* Botão expandir/recolher - posicionamento correto */
+    button[data-testid="baseButton-header"] {
+        position: fixed;
+        top: 1.5rem;
+        left: 1rem;
         z-index: 9999;
+        background-color: #f5f2c4 !important;
+        border: 1px solid #ccc !important;
     }
-             
-    [data-testid="stSidebar2"] {{
-        position: fixed !important;
-        left: 0cm;
-        top: 2cm;
-        height: 100vh;
-        width: 17rem !important; 
-        z-index: 9998;
-        transition: width 0.35s ease;
-        box-shadow: 2px 0 12px rgba(0,0,0,0.18);
-        background-color: #f5f2c4;
-        transition: width 4s ease; /* animação suave */
-        min-width: 5rem !important; /* largura mínima quando recolhido */
-    }}
+
+    /* Ajusta o botão quando sidebar está recolhido */
+    [data-testid="stSidebar"][aria-expanded="false"] button[data-testid="baseButton-header"] {
+        left: 0.5rem;
+    }
+
+    /* Garante que o conteúdo principal não sobreponha o sidebar */
+    .main .block-container {
+        padding-left: 18rem;
+        transition: padding-left 0.3s ease;
+    }
+
+    /* Ajusta o padding quando sidebar está recolhido */
+    [data-testid="stSidebar"][aria-expanded="false"] ~ .main .block-container {
+        padding-left: 6rem;
+    }
+ 
     </style>
     
 """, unsafe_allow_html=True)
