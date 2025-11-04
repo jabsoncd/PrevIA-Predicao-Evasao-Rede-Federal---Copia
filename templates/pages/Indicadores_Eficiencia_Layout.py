@@ -213,26 +213,15 @@ st.markdown("""
     }
 
     [data-testid="stSidebar"] {
-        position: fixed;
-        left: 0;
-        top: 2cm;
-        height: calc(100vh - 2cm);
-        z-index: 1000;
-        box-shadow: 2px 0 12px rgba(0,0,0,0.18);
-        background-color: #f5f2c4;
+        margin-top: 2cm;
+
     }
 
 
     /* --- ÍCONE DE RECOLHER / EXPANDIR --- */
     [data-testid="collapsedControl"] {
-        position: fixed !important;
-        top: 2cm;
-        left: 1rem;
-        z-index: 1100 !important;
-        background-color: blue !important;
-        border-radius: 50%;
-        padding: 6px;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        top: 2.5cm !important;
+   
     }
 
     
