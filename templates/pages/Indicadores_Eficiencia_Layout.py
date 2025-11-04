@@ -482,7 +482,7 @@ with col2:
     st.markdown("""
     <style>
         button[kind="primary"] {
-            background-color: #FFFFFF !important;
+            background-color: #f2b16f !important;
             color: #000000 !important;
             border: 1px solid #8c8a88 !important;
             font-size: 14px;
@@ -490,13 +490,10 @@ with col2:
             border-radius: 8px !important;
         }
         button[kind="primary"]:hover {
-            background-color: #f2b16f !important;
+            background-color: #cc8843 !important;
             border: 1px solid #FFB300 !important;
         }
-        /* Força a cor do texto em todos os estados */
-        .stButton button[kind="primary"] span {
-            color: #000000 !important;
-        }
+
     </style>
     """, unsafe_allow_html=True)
     col1, col2, col3 = st.columns([2, 1, 2])
