@@ -199,57 +199,6 @@ a, a:visited, a:active {{
 
 
 
-# 🔹 Mantém sidebar visível e apenas oculta links indesejados
-st.markdown("""
-    <style>
-    /* Oculta links específicos */
-    section[data-testid="stSidebar"] a[href*="Home_Profissional"],
-    section[data-testid="stSidebar"] a[href*="Indicadores_Eficiencia"],
-    section[data-testid="stSidebar"] a[href*="Simulador_Eficiencia"],
-    section[data-testid="stSidebar"] a[href*="Sobre"],
-    section[data-testid="stSidebar"] a[href*="Indicadores_Eficiencia_Layout"],
-    section[data-testid="stSidebar"] a[href*="Simulador_Eficiencia_Layout"] {
-        display: none !important;
-    }
-
-    [data-testid="stSidebar"] {
-        position: fixed !important;
-        left: 2cm;
-        top: 2cm;
-        width: 17rem !important; 
-        min-width: 28rem !important; /* largura mínima quando recolhido */
-        z-index: 1000;
-        box-shadow: 2px 0 12px rgba(0,0,0,0.18);
-        background-color: #f5f2c4;
-        transition: width 0.35s ease; /* animação suave */
-    }
-
-    
-    </style>
-    
-""", unsafe_allow_html=True)
-
-
-
-# 🔹 Mantém sidebar visível e apenas oculta links indesejados
-st.markdown("""
-    <style>
-    /* --- ÍCONE DE RECOLHER / EXPANDIR --- */
-    [data-testid="collapsedControl"] {
-        display: none !important;
-    }
-    
-    </style>
-    
-""", unsafe_allow_html=True)
-
-
-
-
-
-
-
-
 ###################################################### CODIGO ################################################################################################
 # Carregar os dados
 # @st.cache_data
