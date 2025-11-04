@@ -678,6 +678,9 @@ if submit:
             import matplotlib.pyplot as plt
             import numpy as np
             
+            plt.title("Impacto das Variáveis na Predição de Evasão", fontsize=14, fontweight='bold', loc='center')
+            plt.tight_layout()
+            
             # Criar explainer SHAP
             explainer = shap.TreeExplainer(model)
             
@@ -712,15 +715,6 @@ if submit:
                 show=False
             )
             
-
-            
-            # Centralizar o Titulo
-            col1, col2, col3 = st.columns([2, 3, 2])
-            with col2:
-                plt.title("Impacto das Variáveis na Predição de Evasão", fontsize=14, fontweight='bold', loc='center')
-                plt.tight_layout()
-  
-
             # Centralizar o gráfico
             col1, col2, col3 = st.columns([2, 3, 2])
             with col2:
