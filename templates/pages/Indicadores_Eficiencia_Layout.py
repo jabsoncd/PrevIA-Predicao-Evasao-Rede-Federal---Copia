@@ -484,7 +484,7 @@ with col2:
         button[kind="primary"] {
             background-color: #e3e2e1 !important;
             color: #000000 !important;
-            border: 1px solid #171716 !important;
+            border: 1px solid #8c8a88 !important;
             font-size: 14px;
             padding: 0.25rem 1rem;
         }
@@ -497,7 +497,7 @@ with col2:
     col1, col2, col3 = st.columns([2, 1, 2])
     with col3:
         if st.button("Limpar filtros", 
-                    type="primary",  # Mudei para primary
+                    type="primary",  # primary
                     help="Clique para remover todos os filtros aplicados"):
             st.rerun()
 
