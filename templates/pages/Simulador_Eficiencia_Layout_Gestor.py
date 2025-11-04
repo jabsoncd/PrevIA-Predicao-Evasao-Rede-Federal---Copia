@@ -714,6 +714,13 @@ if submit:
             
 
             
+                # Centralizar o Titulo
+            col1, col2, col3 = st.columns([2, 3, 2])
+            with col2:
+                plt.title("Impacto das Variáveis na Predição de Evasão", fontsize=14, fontweight='bold')
+                plt.tight_layout()
+  
+
             # Centralizar o gráfico
             col1, col2, col3 = st.columns([2, 3, 2])
             with col2:
