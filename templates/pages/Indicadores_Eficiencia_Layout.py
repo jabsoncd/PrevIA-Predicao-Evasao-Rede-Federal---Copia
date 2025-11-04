@@ -225,7 +225,7 @@ st.markdown(f"""
 /* --- SIDEBAR PADRÃO --- */
 [data-testid="stSidebar"] {{
     position: fixed !important;
-    top: 0;
+    top: 2cm;
     left: 0;
     height: 100vh !important;
     width: 18rem !important;
