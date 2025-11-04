@@ -473,7 +473,13 @@ if st.session_state.filtros_limpos:
     st.session_state.filtros_limpos = False
     # Força o rerun para recriar os widgets com valores vazios
     st.rerun()
-
+    
+col1, col2 = st.columns([3, 1])
+with col1:
+    st.write("")  # Espaço vazio para alinhamento
+with col2:
+    if st.button("Limpar Filtros"):
+        st.rerun()
 
 
 # Expander para filtros
