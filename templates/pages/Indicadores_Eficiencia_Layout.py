@@ -226,11 +226,7 @@ st.markdown("""
         transform: none !important;
         transition: none !important;
     }
-    </style>   
-""", unsafe_allow_html=True)
 
-st.markdown("""
-    <style>
     /* Tentativa mais agressiva */
     .stApp [data-testid="collapsedControl"],
     body [data-testid="collapsedControl"],
