@@ -445,9 +445,12 @@ st.write(" ")
 
 ##################################################################### MODAL
 
-# Inicializa session_state
+# Inicializa session_state para controle dos filtros
+if "filtros_limpos" not in st.session_state:
+    st.session_state.filtros_limpos = False
 if "expander_open" not in st.session_state:
-    st.session_state.expander_open = False  # expander aberto inicialmente
+    st.session_state.expander_open = False
+
 
 
 # Lista de todas as chaves dos filtros
@@ -457,6 +460,20 @@ filtro_chaves = [
     "eixo_tecnologico", "nome_de_curso", "modalidade_de_ensino", 
     "tipo_de_oferta", "turno"
 ]
+
+
+# Função para limpar filtros
+def limpar_filtros():
+    st.session_state.filtros_limpos = True
+    st.session_state.expander_open = False
+
+# Verifica se precisa limpar os filtros e aplica o rerun
+if st.session_state.filtros_limpos:
+    # Reseta o flag
+    st.session_state.filtros_limpos = False
+    # Força o rerun para recriar os widgets com valores vazios
+    st.rerun()
+
 
 
 # Expander para filtros
@@ -559,34 +576,20 @@ with st.expander("Filtros", expanded=st.session_state.expander_open):
 
         # Botão Limpar Filtros DENTRO do expander
     if st.button("Limpar Filtros", key="limpar_filtros"):
-        # Limpa todos os filtros no session_state
-        for chave in filtro_chaves:
-            if chave in st.session_state:
-                st.session_state[chave] = []
-        
-        # Recolhe o expander
-        st.session_state.expander_open = False
-        st.rerun()
+        limpar_filtros()
+
+# Aplica filtros dinamicamente - usa o dataframe original quando não há filtros
+if any(st.session_state.get(chave, []) for chave in filtro_chaves):
+    filtered_df = df.copy()
+    for coluna in df.columns:
+        session_chave = coluna.lower().replace(" ", "_")
+        valores = st.session_state.get(session_chave, [])
+        if valores:
+            filtered_df = filtered_df[filtered_df[coluna].isin(valores)]
+else:
+    filtered_df = df  # Usa o dataframe completo quando não há filtros
 
 
-
-
-    # # Botão Limpar Filtros (fora do expander)
-    # if st.button("Limpar Filtros"):
-    #     # Recolhe o expander
-    #     st.session_state.expander_open = False
-    #     # Limpa apenas os filtros que existem no session_state
-    #     for chave in filtro_chaves:
-    #         if chave in st.session_state:
-    #             st.session_state[chave] = []
-
-# Aplica filtros dinamicamente
-filtered_df = df.copy()
-for coluna in df.columns:
-    session_chave = coluna.lower().replace(" ", "_")
-    valores = st.session_state.get(session_chave, [])
-    if valores:
-        filtered_df = filtered_df[filtered_df[coluna].isin(valores)]
 
 
 
