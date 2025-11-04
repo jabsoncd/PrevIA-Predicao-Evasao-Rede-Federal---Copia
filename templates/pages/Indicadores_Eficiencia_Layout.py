@@ -482,7 +482,7 @@ with col2:
     st.markdown("""
     <style>
         button[kind="primary"] {
-            background-color: #e3e2e1 !important;
+            background-color: #f0d5a1 !important;
             color: #000000 !important;
             border: 1px solid #8c8a88 !important;
             font-size: 14px;
