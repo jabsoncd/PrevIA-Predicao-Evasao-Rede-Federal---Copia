@@ -449,6 +449,16 @@ st.write(" ")
 if "expander_open" not in st.session_state:
     st.session_state.expander_open = False  # expander aberto inicialmente
 
+
+# Lista de todas as chaves dos filtros
+filtro_chaves = [
+    "cat_situacao", "regiao", "uf", "instituicao", "unidade_de_ensino", 
+    "regiao_metropolitana_ue", "cor_raca", "sexo", "renda_familiar",
+    "eixo_tecnologico", "nome_de_curso", "modalidade_de_ensino", 
+    "tipo_de_oferta", "turno"
+]
+
+
 # Expander para filtros
 with st.expander("Filtros", expanded=st.session_state.expander_open):
     st.markdown("### Situação das Matrículas")
@@ -570,8 +580,21 @@ for coluna in df.columns:
 
 
 
-##################################################################### MODAL
+####################################################################################################################################### MODAL
 
+    # Botão Limpar Filtros DENTRO do expander
+    if st.button("Limpar Filtros", key="limpar_filtros"):
+        # Limpa todos os filtros no session_state
+        for chave in filtro_chaves:
+            if chave in st.session_state:
+                st.session_state[chave] = []
+        
+        # Recolhe o expander
+        st.session_state.expander_open = False
+        st.rerun()
+
+
+#######################################################################################################################################
 
 # CSS para alinhar os botões corretamente e manter a letra branca no botão selecionado
 st.markdown("""
