@@ -478,10 +478,28 @@ col1, col2 = st.columns([3, 1])
 with col1:
     st.write("")  # Espaço vazio para alinhamento
 with col2:
+
+
+    st.markdown("""
+    <style>
+        div.stButton > button:first-child {
+            background-color: #FFD700;
+            color: #000000;
+            border: 1px solid #FFC400;
+            padding: 0.15rem 0.5rem;
+            font-size: 12px;
+            height: 32px;
+        }
+        div.stButton > button:first-child:hover {
+            background-color: #FFC400;
+            border: 1px solid #FFB300;
+        }
+    </style>
+    """, unsafe_allow_html=True)
+
     if st.button("🧹 LIMPAR FILTROS", 
-                 type="secondary", 
-                 use_container_width=True,
-                 help="Clique para remover todos os filtros aplicados"):
+                type="secondary",
+                help="Clique para remover todos os filtros aplicados"):
         st.rerun()
 
 
