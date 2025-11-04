@@ -481,22 +481,32 @@ with col2:
 
     st.markdown("""
     <style>
-        .small-yellow-btn {
-            font-size: 12px !important;
-            padding: 4px 8px !important;
+        .yellow-button button {
             background-color: #FFD700 !important;
             color: #000000 !important;
+            border: 1px solid #f5efdc !important;
+            padding: 0.25rem 1rem !important;
+            height: auto !important;
+            min-height: 30px !important;
+            font-size: 14px !important;
+        }
+        .yellow-button button:hover {
+            background-color: #f5efdc !important;
+            border: 1px solid #FFB300 !important;
         }
     </style>
     """, unsafe_allow_html=True)
 
     col1, col2, col3 = st.columns([2, 1, 2])
-    with col3:
-        if st.button("🧹 Limpar filtros", 
-                    type="secondary",
+    with col2:
+        st.markdown('<div class="yellow-button">', unsafe_allow_html=True)
+        if st.button("🧹 LIMPAR FILTROS", 
+                    type="secondary", 
                     use_container_width=True,
                     help="Clique para remover todos os filtros aplicados"):
             st.rerun()
+        st.markdown('</div>', unsafe_allow_html=True)
+
 
 # Expander para filtros
 with st.expander("Filtros", expanded=st.session_state.expander_open):
