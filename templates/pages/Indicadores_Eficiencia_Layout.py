@@ -452,7 +452,7 @@ if "expander_open" not in st.session_state:
 
 # Lista de todas as chaves dos filtros
 filtro_chaves = [
-    "cat_situacao", "regiao", "uf", "instituicao", "unidade_de_ensino", 
+    "regiao", "uf", "instituicao", "unidade_de_ensino", 
     "regiao_metropolitana_ue", "cor_raca", "sexo", "renda_familiar",
     "eixo_tecnologico", "nome_de_curso", "modalidade_de_ensino", 
     "tipo_de_oferta", "turno"
