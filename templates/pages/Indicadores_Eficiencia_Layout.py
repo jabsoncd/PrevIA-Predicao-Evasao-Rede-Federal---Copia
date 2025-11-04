@@ -221,8 +221,8 @@ st.markdown("""
         z-index: 1000;
         box-shadow: 2px 0 12px rgba(0,0,0,0.18);
         background-color: #f5f2c4;
-        transition: transform 0.3s ease;
-        transform: translateX(0) !important;
+        transform: none !important;
+        transition: none !important;
     }
 
     
