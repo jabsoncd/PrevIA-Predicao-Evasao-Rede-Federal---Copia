@@ -217,7 +217,7 @@ st.markdown("""
         top: 2cm;
         height: 100vh;
         width: 18rem !important; 
-        min-width: 18rem !important; /* largura mínima quando recolhido */
+        min-width: -18rem !important; /* largura mínima quando recolhido */
         z-index: 1000;
         box-shadow: 2px 0 12px rgba(0,0,0,0.18);
         background-color: #f5f2c4;
@@ -236,12 +236,6 @@ st.markdown("""
         padding: 6px;
         box-shadow: 0 2px 6px rgba(0,0,0,0.2);
     }
-    [data-testid="collapsedControl"] svg {
-        fill: blue !important;
-        width: 1.1rem;
-        height: 1.1rem;
-    }
-
 
     
     </style>
