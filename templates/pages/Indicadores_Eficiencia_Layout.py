@@ -467,163 +467,109 @@ st.write(" ")
 
 
 
-# Inicializa session_state
+
+
+
+# --- Inicializa o estado da modal ---
 if "show_modal" not in st.session_state:
     st.session_state.show_modal = False
 
-# Funções para abrir e fechar a modal
+# --- Funções para abrir/fechar modal ---
 def abrir_modal():
     st.session_state.show_modal = True
 
 def fechar_modal():
     st.session_state.show_modal = False
 
-# Botão principal para abrir filtros
+# --- Botão principal ---
 st.button("⚙️ Filtros", on_click=abrir_modal)
 
-# --- CSS para modal flutuante ---
-modal_style = """
-<style>
-.modal-overlay {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background-color: rgba(0,0,0,0.5);
-    z-index: 999;
-    display: flex; justify-content: center; align-items: center;
-}
-.modal-container {
-    background: white;
-    padding: 2rem;
-    border-radius: 10px;
-    width: 80%;
-    max-height: 90vh;
-    overflow-y: auto;
-    box-shadow: 0px 0px 25px rgba(0,0,0,0.2);
-}
-.modal-close-btn {
-    background-color: #f44336;
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    cursor: pointer;
-    float: right;
-}
-</style>
-"""
-st.markdown(modal_style, unsafe_allow_html=True)
+# --- CSS da modal ---
+st.markdown("""
+    <style>
+    .modal {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background-color: rgba(0,0,0,0.55);
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .modal-content {
+        background: white;
+        padding: 2rem;
+        border-radius: 10px;
+        width: 85%;
+        max-height: 85vh;
+        overflow-y: auto;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+        position: relative;
+    }
+    .close-btn {
+        position: absolute;
+        top: 10px; right: 10px;
+        background: #e74c3c;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 0.4rem 0.8rem;
+        cursor: pointer;
+    }
+    </style>
+""", unsafe_allow_html=True)
 
 # --- Modal ---
 if st.session_state.show_modal:
-    st.markdown('<div class="modal-overlay">', unsafe_allow_html=True)
+    # container para sobrepor
+    modal_code = """
+    <div class="modal" id="filter-modal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="window.parent.postMessage({type: 'close-modal'}, '*')">Fechar ✖</button>
+            <h3>🎯 Filtros Avançados</h3>
+            <hr>
+        </div>
+    </div>
+    """
+    st.markdown(modal_code, unsafe_allow_html=True)
+
+    # --- BLOCO DE FILTROS DENTRO DA MODAL ---
     with st.container():
-        st.markdown('<div class="modal-container">', unsafe_allow_html=True)
-        st.markdown("### 🎯 Filtros Avançados")
-        if st.button("Fechar", key="fechar_modal", on_click=fechar_modal):
-            pass
-        st.divider()
-
-        # ----------- FILTROS -----------
         with st.expander("Filtros de Matrículas", expanded=True):
-            st.markdown("#### Situação das Matrículas")
             CATEGORIA_SITUACAO = st.multiselect(
-                key="cat_situacao",
-                label="Categoria da Situação",
-                placeholder="Evadidos",
-                options=df["CATEGORIA_SITUACAO"].unique(),
-                disabled=False,
+                "Categoria da Situação",
+                options=df["CATEGORIA_SITUACAO"].unique()
             )
+            REGIAO = st.multiselect("Região", sorted(df["REGIAO"].unique()))
+            UF = st.multiselect("Unidade da Federação", sorted(df["UF"].unique()))
+            INSTITUICAO = st.multiselect("Instituição", sorted(df["INSTITUICAO"].unique()))
+            UNIDADE_DE_ENSINO = st.multiselect("Unidade de Ensino", sorted(df["UNIDADE_DE_ENSINO"].unique()))
+            REGIAO_METROPOLINA_UE = st.multiselect("Região Metropolitana", sorted(df["REGIÃO_METROPOLINA_UE"].unique()))
+            COR_RACA = st.multiselect("Cor/Raça", sorted(df["COR_RACA"].unique()))
+            SEXO = st.multiselect("Gênero", sorted(df["SEXO"].unique()))
+            RENDA_FAMILIAR = st.multiselect("Renda Familiar", sorted(df["RENDA_FAMILIAR"].unique()))
+            EIXO_TECNOLOGICO = st.multiselect("Eixo Tecnológico", sorted(df["EIXO_TECNOLOGICO"].unique()))
+            NOME_DE_CURSO = st.multiselect("Curso Técnico", sorted(df["NOME_DE_CURSO"].unique()))
+            MODALIDADE_DE_ENSINO = st.multiselect("Modalidade de Ensino", sorted(df["MODALIDADE_DE_ENSINO"].unique()))
+            TIPO_DE_OFERTA = st.multiselect("Tipo de Oferta", sorted(df["TIPO_DE_OFERTA"].unique()))
+            TURNO = st.multiselect("Turno", sorted(df["TURNO"].unique()))
 
-            st.markdown("---")
-            st.markdown("#### Demográficos")
-            REGIAO = st.multiselect(
-                key="regiao",
-                label="Região",
-                options=sorted(df["REGIAO"].unique()),
-            )
-            UF = st.multiselect(
-                key="uf",
-                label="Unidade da Federação",
-                options=sorted(df["UF"].unique()),
-            )
-            INSTITUICAO = st.multiselect(
-                key="instituicao",
-                label="Instituição",
-                options=sorted(df["INSTITUICAO"].unique()),
-            )
-            UNIDADE_DE_ENSINO = st.multiselect(
-                key="unidade_ensino",
-                label="Unidade de Ensino",
-                options=sorted(df["UNIDADE_DE_ENSINO"].unique()),
-            )
-            REGIAO_METROPOLINA_UE = st.multiselect(
-                key="regiao_metropolitana",
-                label="Região Metropolitana",
-                options=sorted(df["REGIÃO_METROPOLINA_UE"].unique()),
-            )
+    # --- Script JS para fechar a modal via botão ✖ ---
+    st.markdown("""
+        <script>
+        window.addEventListener('message', (event) => {
+            if (event.data.type === 'close-modal') {
+                const streamlitWindow = window.parent;
+                streamlitWindow.postMessage({isStreamlitMessage: true, type: 'streamlit:setComponentValue', value: false, key: 'show_modal'}, '*');
+                window.location.reload();
+            }
+        });
+        </script>
+    """, unsafe_allow_html=True)
 
-            st.markdown("---")
-            st.markdown("#### Sociais")
-            COR_RACA = st.multiselect(
-                key="cor_raca",
-                label="Cor/Raça",
-                options=sorted(df["COR_RACA"].unique()),
-            )
-            SEXO = st.multiselect(
-                key="sexo",
-                label="Gênero",
-                options=sorted(df["SEXO"].unique()),
-            )
-            RENDA_FAMILIAR = st.multiselect(
-                key="renda_familiar",
-                label="Renda Familiar",
-                options=sorted(df["RENDA_FAMILIAR"].unique()),
-            )
-
-            st.markdown("---")
-            st.markdown("#### Cursos")
-            EIXO_TECNOLOGICO = st.multiselect(
-                key="eixo_tecnologico",
-                label="Eixo Tecnológico",
-                options=sorted(df["EIXO_TECNOLOGICO"].unique()),
-            )
-            NOME_DE_CURSO = st.multiselect(
-                key="nome_curso",
-                label="Curso Técnico",
-                options=sorted(df["NOME_DE_CURSO"].unique()),
-            )
-            MODALIDADE_DE_ENSINO = st.multiselect(
-                key="modalidade_ensino",
-                label="Modalidade de Ensino",
-                options=sorted(df["MODALIDADE_DE_ENSINO"].unique()),
-            )
-            TIPO_DE_OFERTA = st.multiselect(
-                key="tipo_oferta",
-                label="Tipo de Oferta",
-                options=sorted(df["TIPO_DE_OFERTA"].unique()),
-            )
-            TURNO = st.multiselect(
-                key="turno",
-                label="Turno",
-                options=sorted(df["TURNO"].unique()),
-            )
-
-        st.markdown("</div>", unsafe_allow_html=True)
-    st.markdown("</div>", unsafe_allow_html=True)
-
-# --- Aplicação dos filtros ---
-filtered_df = df.copy()
-for coluna in df.columns:
-    session_chave = coluna.lower().replace(" ", "_")
-    valores = st.session_state.get(session_chave, [])
-    if valores:
-        filtered_df = filtered_df[filtered_df[coluna].isin(valores)]
-
-st.dataframe(filtered_df)
-
-
-
+# --- Exibe o dataframe filtrado ---
+st.dataframe(df)
 
 
 
