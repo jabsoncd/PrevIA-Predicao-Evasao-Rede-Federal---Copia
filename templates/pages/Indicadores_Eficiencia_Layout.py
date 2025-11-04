@@ -220,10 +220,10 @@ st.markdown("""
 
 
 # ==================== CSS E JS PARA BOTÃO PERSONALIZADO DE EXPANDIR/RECOLHER ====================
-st.markdown(f"""
+st.markdown("""
 <style>
 /* --- SIDEBAR PADRÃO --- */
-[data-testid="stSidebar"] {{
+[data-testid="stSidebar"] {
     position: fixed !important;
     top: 2cm;
     left: 0;
@@ -233,10 +233,10 @@ st.markdown(f"""
     box-shadow: 2px 0 12px rgba(0,0,0,0.2);
     z-index: 1000;
     transition: all 0.4s ease-in-out;
-}}
+}
 
 /* --- LOGO FLUTUANTE --- */
-.nav-logo {{
+.nav-logo {
     width: 180px;
     height: 55px;
     background-image: url("data:image/jpg;base64,{logo_b64}");
@@ -245,15 +245,15 @@ st.markdown(f"""
     background-position: left center;
     margin: 1px auto;
     display: flex;
-}}
+}
 
 /* --- REMOVE O ÍCONE PADRÃO DO STREAMLIT --- */
-[data-testid="collapsedControl"] {{
+[data-testid="collapsedControl"] {
     display: none !important;
-}}
+}
 
 /* --- BOTÃO FLUTUANTE PERSONALIZADO --- */
-.sidebar-toggle {{
+.sidebar-toggle {
     position: fixed;
     top: 20px;
     left: 20px;
@@ -267,29 +267,29 @@ st.markdown(f"""
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-}}
-.sidebar-toggle:hover {{
+}
+.sidebar-toggle:hover {
     background-color: #1e3a8a;
-}}
+}
 
 /* --- SIDEBAR RECOLHIDO --- */
-.sidebar-collapsed [data-testid="stSidebar"] {{
+.sidebar-collapsed [data-testid="stSidebar"] {
     margin-left: -18rem !important; /* esconde fora da tela */
-}}
+}
 </style>
 
 <!-- --- BOTÃO FLUTUANTE HTML --- -->
 <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
 
 <script>
-function toggleSidebar() {{
+function toggleSidebar() {
     const root = window.parent.document.querySelector('body');
-    if (root.classList.contains('sidebar-collapsed')) {{
+    if (root.classList.contains('sidebar-collapsed')) {
         root.classList.remove('sidebar-collapsed');
-    }} else {{
+    } else {
         root.classList.add('sidebar-collapsed');
-    }}
-}}
+    }
+}
 </script>
 """, unsafe_allow_html=True)
 
