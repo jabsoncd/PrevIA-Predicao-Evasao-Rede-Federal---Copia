@@ -557,6 +557,19 @@ with st.expander("Filtros", expanded=st.session_state.expander_open):
         options=sorted(df["TURNO"].unique()),
     )
 
+        # Botão Limpar Filtros DENTRO do expander
+    if st.button("Limpar Filtros", key="limpar_filtros"):
+        # Limpa todos os filtros no session_state
+        for chave in filtro_chaves:
+            if chave in st.session_state:
+                st.session_state[chave] = []
+        
+        # Recolhe o expander
+        st.session_state.expander_open = False
+        st.rerun()
+
+
+
 
     # # Botão Limpar Filtros (fora do expander)
     # if st.button("Limpar Filtros"):
@@ -581,17 +594,6 @@ for coluna in df.columns:
 
 
 ####################################################################################################################################### MODAL
-
-    # Botão Limpar Filtros DENTRO do expander
-    if st.button("Limpar Filtros", key="limpar_filtros"):
-        # Limpa todos os filtros no session_state
-        for chave in filtro_chaves:
-            if chave in st.session_state:
-                st.session_state[chave] = []
-        
-        # Recolhe o expander
-        st.session_state.expander_open = False
-        st.rerun()
 
 
 #######################################################################################################################################
