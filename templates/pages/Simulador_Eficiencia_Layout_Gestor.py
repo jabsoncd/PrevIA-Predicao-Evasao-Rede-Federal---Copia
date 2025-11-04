@@ -680,7 +680,7 @@ if submit:
             
             plt.title("Impacto das Variáveis na Predição de Evasão", fontsize=14, fontweight='bold', loc='center')
             plt.tight_layout()
-            
+
             # Criar explainer SHAP
             explainer = shap.TreeExplainer(model)
             
@@ -743,96 +743,5 @@ if submit:
             """)     
 
 
-
-
-
-
-
-
-
-
 ##########################################################################################################################################################
 
-
-
-
-elif st.session_state.current_page == "simular":
-    st.title("Simulador de Evasão")
-    st.write("Conteúdo do simulador será implementado aqui...")
-
-elif st.session_state.current_page == "indicadores":
-    st.title("Indicadores de Evasão")
-    st.write("Conteúdo dos indicadores será implementado aqui...")
-
-elif st.session_state.current_page == "gestor":
-    st.title("Módulo Gestor")
-    st.write("Conteúdo do módulo gestor será implementado aqui...")
-
-elif st.session_state.current_page == "sobre":
-    st.title("Sobre o PrevIA")
-    st.write("Informações sobre o projeto...")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# # Função para converter imagem local em Base64
-# def get_base64_of_image(image_path):
-#     with open(image_path, "rb") as image_file:
-#         return base64.b64encode(image_file.read()).decode()
-
-# # Converter a imagem local
-# img_base64 = get_base64_of_image("templates/simulador.jpg")
-# st.set_page_config(
-#     page_title="Plataforma PrevIA",
-#     page_icon="images/previa_azulmenor.png",
-#     initial_sidebar_state="collapsed"
-# )
-# # Ocultar barra streamlit
-# hide_st_style = """
-#     <style>:
-#     #MainMenu {visibility: hidden;}
-#     footer {visibility: hidden;}
-#     header {visibility: hidden;}
-#     </style>
-#     """  
-# st.markdown(hide_st_style, unsafe_allow_html=True)
-# # 🔹 CSS para definir a imagem de fundo
-# st.markdown(
-#     f"""
-#     <style>
-#     .stApp {{
-#         background-image: url("data:image/jpg;base64,{img_base64}");
-#         background-size: cover;  # Cobrir toda a tela sem repetição
-#         background-repeat: no-repeat;
-#         background-position: center center;
-#         background-attachment: fixed;
-#     }}
-#     </style>
-#     """,
-#     unsafe_allow_html=True
-# )
-
-
-
-# st.markdown("<hr style='border: 1px solid black;'>", unsafe_allow_html=True)
-# st.markdown("<p style='color: black;'>Versão 0.0.1 - Brasília - 2025. Universidade Federal do Tocantins - UFT.</p>", unsafe_allow_html=True)
