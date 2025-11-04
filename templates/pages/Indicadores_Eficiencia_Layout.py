@@ -235,16 +235,6 @@ st.markdown("""
     transition: all 0.4s ease-in-out;
 }
 
-/* --- REMOVE O ÍCONE PADRÃO DO STREAMLIT --- */
-[data-testid="collapsedControl"] {
-    display: none !important;
-}
-
-
-/* --- SIDEBAR RECOLHIDO --- */
-.sidebar-collapsed [data-testid="stSidebar"] {
-    margin-left: -18rem !important; /* esconde fora da tela */
-}
 </style>
 
 """, unsafe_allow_html=True)
