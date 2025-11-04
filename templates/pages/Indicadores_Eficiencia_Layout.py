@@ -481,31 +481,25 @@ with col2:
 
     st.markdown("""
     <style>
-        .yellow-button button {
-            background-color: #f5efdc !important;
+        /* Seletores mais específicos para forçar a cor amarela */
+        button[kind="secondary"] {
+            background-color: #f2c127 !important;
             color: #000000 !important;
-            border: 1px solid #f5efdc !important;
-            padding: 0.25rem 1rem !important;
-            height: auto !important;
-            min-height: 30px !important;
-            font-size: 14px !important;
+            border: 1px solid #f2c127 !important;
         }
-        .yellow-button button:hover {
-            background-color: white !important;
-            border: 1px solid #FFB300 !important;
+        button[kind="secondary"]:hover {
+            background-color: #f2c127 !important;
+            border: 1px solid ##f2c127 !important;
         }
     </style>
     """, unsafe_allow_html=True)
 
-    col1, col2, col3 = st.columns([2, 1, 2])
-    with col3:
-        st.markdown('<div class="yellow-button">', unsafe_allow_html=True)
-        if st.button("🧹 Limpar filtros", 
+    if st.button("🧹 Limpar filtros", 
                     type="secondary", 
                     use_container_width=True,
                     help="Clique para remover todos os filtros aplicados"):
-            st.rerun()
-        st.markdown('</div>', unsafe_allow_html=True)
+        st.rerun()
+
 
 
 # Expander para filtros
