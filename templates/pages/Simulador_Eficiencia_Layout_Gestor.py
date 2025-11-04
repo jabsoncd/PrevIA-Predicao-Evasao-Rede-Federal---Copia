@@ -641,36 +641,36 @@ if submit:
             legenda = "Estudante com grande risco de abandonar o curso"
 
         # Exibir os resultados
-        st.subheader("📊 Resultados da Predição")
-        st.write(f"🔵 Probabilidade de **NÃO EVADIR**: {prob_nao_evasao:.2%}")
+        st.subheader("💻 Resultados da Predição")
+        st.write(f"🟢 Probabilidade de **NÃO EVADIR**: {prob_nao_evasao:.2%}")
         st.write(f"🔴 Probabilidade de **EVADIR**: {prob_evasao:.2%}")
         
         
         # Exibir a imagem correspondente (centralizada e com largura 450px)
-        col1, col2, col3 = st.columns([1, 1, 1])  # colunas: esquerda, centro, direita
-        with col2:
-            st.image(imagem, caption=legenda, width=450)
+        # col1, col2, col3 = st.columns([1, 1, 1])  # colunas: esquerda, centro, direita
+        # with col2:
+        #     st.image(imagem, caption=legenda, width=450)
 
-        # Centralizar e redimensionar a imagem (400px)
-        st.markdown(
-            f"""
-            <div style='display: flex; justify-content: center;'>
-                <img src='{imagem}' alt='{legenda}'>
-            </div>
+        # # Centralizar e redimensionar a imagem (400px)
+        # st.markdown(
+        #     f"""
+        #     <div style='display: flex; justify-content: center;'>
+        #         <img src='{imagem}' alt='{legenda}'>
+        #     </div>
             
-            <p style='text-align:center; font-style: italic;'>{legenda}</p>
-            """,
-            unsafe_allow_html=True
-        )  
+        #     <p style='text-align:center; font-style: italic;'>{legenda}</p>
+        #     """,
+        #     unsafe_allow_html=True
+        # )  
 
 
 
     # =====================================================
         # EXPLAINABLE AI (XAI) - SHAP Waterfall Plot
-        # =====================================================
+    # =====================================================
         
         st.markdown("---")
-        st.subheader("🧠 Explainable Artificial Intelligence (XAI)")
+        st.subheader("📝 Explainable Artificial Intelligence (XAI)")
         st.write("Entenda quais fatores mais influenciaram na predição:")
         
         try:
@@ -698,7 +698,7 @@ if submit:
                 shap_values_evasao = shap_values
             
             # Criar waterfall plot
-            fig, ax = plt.subplots(figsize=(10, 6))
+            fig, ax = plt.subplots(figsize=(12, 8))
             
             # Gerar o waterfall plot
             shap.waterfall_plot(
@@ -712,7 +712,7 @@ if submit:
                 show=False
             )
             
-            plt.title("Impacto das Variáveis na Predição de Evasão", fontsize=14, fontweight='bold')
+            plt.title("Impacto das Variáveis na Predição de Evasão", fontsize=14, fontweight='bold', loc='center')
             plt.tight_layout()
             
             # Centralizar o gráfico
