@@ -491,7 +491,7 @@ with col2:
     """, unsafe_allow_html=True)
 
     col1, col2, col3 = st.columns([2, 1, 2])
-    with col2:
+    with col3:
         if st.button("🧹 LIMPAR", 
                     type="secondary",
                     use_container_width=True,
