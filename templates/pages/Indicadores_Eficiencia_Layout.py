@@ -498,7 +498,7 @@ with col2:
     """, unsafe_allow_html=True)
 
     col1, col2, col3 = st.columns([2, 1, 2])
-    with col2:
+    with col3:
         st.markdown('<div class="yellow-button">', unsafe_allow_html=True)
         if st.button("🧹 LIMPAR FILTROS", 
                     type="secondary", 
