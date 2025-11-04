@@ -231,32 +231,24 @@ st.markdown("""
 
 st.markdown("""
     <style>
-    /* CSS inicial para esconder */
-    [data-testid="collapsedControl"] {
+    /* Tentativa mais agressiva */
+    .stApp [data-testid="collapsedControl"],
+    body [data-testid="collapsedControl"],
+    html [data-testid="collapsedControl"],
+    * [data-testid="collapsedControl"] {
         display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        position: absolute !important;
+        left: -9999px !important;
+        top: -9999px !important;
+        width: 1px !important;
+        height: 1px !important;
+        overflow: hidden !important;
+        clip: rect(1px, 1px, 1px, 1px) !important;
     }
     </style>
-    
-    <script>
-    // JavaScript para garantir que o botão seja removido
-    function hideCollapseButton() {
-        const collapseButton = document.querySelector('[data-testid="collapsedControl"]');
-        if (collapseButton) {
-            collapseButton.style.display = 'none';
-            collapseButton.style.visibility = 'hidden';
-            collapseButton.style.opacity = '0';
-            collapseButton.style.pointerEvents = 'none';
-        }
-    }
-    
-    // Executa imediatamente e a cada 500ms para pegar elementos dinâmicos
-    hideCollapseButton();
-    setInterval(hideCollapseButton, 500);
-    
-    // Também observa mudanças no DOM
-    const observer = new MutationObserver(hideCollapseButton);
-    observer.observe(document.body, { childList: true, subtree: true });
-    </script>
 """, unsafe_allow_html=True)
 
 
