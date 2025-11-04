@@ -213,15 +213,13 @@ st.markdown("""
     }
 
     [data-testid="stSidebar"] {
+        position: fixed;
         left: 0;
         top: 2cm;
-        height: 100vh;
-        width: 18rem !important; 
-        min-width: -18rem !important; /* largura mínima quando recolhido */
+        height: calc(100vh - 2cm);
         z-index: 1000;
         box-shadow: 2px 0 12px rgba(0,0,0,0.18);
         background-color: #f5f2c4;
-        transition: width 0.35s ease; /* animação suave */
     }
 
 
