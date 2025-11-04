@@ -670,28 +670,107 @@ if submit:
             legenda = "Estudante com grande risco de abandonar o curso"
 
         # Exibir os resultados
-        st.subheader("📊 Resultados da Predição")
-        st.write(f"🔵 Probabilidade de **NÃO EVADIR**: {prob_nao_evasao:.2%}")
+        st.subheader("💻 Resultados da Predição")
+        st.write(f"🟢 Probabilidade de **NÃO EVADIR**: {prob_nao_evasao:.2%}")
         st.write(f"🔴 Probabilidade de **EVADIR**: {prob_evasao:.2%}")
         
         
-        # Exibir a imagem correspondente (centralizada e com largura 450px)
-        col1, col2, col3 = st.columns([1, 1, 1])  # colunas: esquerda, centro, direita
-        with col2:
-            st.image(imagem, caption=legenda, width=450)
+                        # # Exibir a imagem correspondente (centralizada e com largura 450px)
+                        # col1, col2, col3 = st.columns([1, 1, 1])  # colunas: esquerda, centro, direita
+                        # with col2:
+                        #     st.image(imagem, caption=legenda, width=450)
 
-        # Centralizar e redimensionar a imagem (400px)
-        st.markdown(
-            f"""
-            <div style='display: flex; justify-content: center;'>
-                <img src='{imagem}' alt='{legenda}'>
-            </div>
+                        # # Centralizar e redimensionar a imagem (400px)
+                        # st.markdown(
+                        #     f"""
+                        #     <div style='display: flex; justify-content: center;'>
+                        #         <img src='{imagem}' alt='{legenda}'>
+                        #     </div>
+                            
+                        #     <p style='text-align:center; font-style: italic;'>{legenda}</p>
+                        #     """,
+                        #     unsafe_allow_html=True
+                        # )       
+
+    
+
+    # =====================================================
+        # EXPLAINABLE AI (XAI) - SHAP Waterfall Plot
+    # =====================================================
+        
+        st.markdown("---")
+        st.subheader("📝 Explainable Artificial Intelligence (XAI)")
+        st.write("Impacto das Variáveis na Predição de Evasão:")
+        
+        try:
+            import shap
+            import matplotlib.pyplot as plt
+            import numpy as np
             
-            <p style='text-align:center; font-style: italic;'>{legenda}</p>
-            """,
-            unsafe_allow_html=True
-        )       
+            plt.title("", fontsize=14, fontweight='bold', loc='center')
+            plt.tight_layout()
 
+            # Criar explainer SHAP
+            explainer = shap.TreeExplainer(model)
+            
+            # Preparar dados para SHAP (usando one-hot encoding se necessário)
+            # Primeiro, vamos garantir que as colunas estejam na mesma ordem que o modelo espera
+            input_data_encoded = input_data.copy()
+            
+            # Aplicar o mesmo pré-processamento usado no treinamento
+            # (você precisará adaptar isso ao seu pré-processamento específico)
+            
+            # Calcular valores SHAP
+            shap_values = explainer.shap_values(input_data_encoded)
+            
+            # Se for um modelo multiclasse, pegar os valores para a classe de evasão
+            if isinstance(shap_values, list):
+                shap_values_evasao = shap_values[1]  # Índice 1 para evasão
+            else:
+                shap_values_evasao = shap_values
+            
+            # Criar waterfall plot
+            fig, ax = plt.subplots(figsize=(20, 12))
+            
+            # Gerar o waterfall plot
+            shap.waterfall_plot(
+                shap.Explanation(
+                    values=shap_values_evasao[0],
+                    base_values=explainer.expected_value[1] if isinstance(explainer.expected_value, list) else explainer.expected_value,
+                    data=input_data_encoded.iloc[0],
+                    feature_names=input_data_encoded.columns.tolist()
+                ),
+                max_display=15,  # Mostrar as 15 variáveis mais importantes
+                show=False
+            )
+            
+            # Centralizar o gráfico
+            col1, col2, col3 = st.columns([2, 3, 2])
+            with col2:
+                st.pyplot(fig)
+                plt.close()
+            
+            # Explicação adicional
+            st.markdown("""
+            **Interpretação do gráfico:**
+            - **Valores positivos (vermelho)**: Aumentam a probabilidade de evasão
+            - **Valores negativos (azul)**: Diminuem a probabilidade de evasão
+            - **E[f(X)]**: Valor base (probabilidade média)
+            - **f(x)**: Probabilidade final para este caso específico
+            """)
+            
+        except Exception as e:
+            st.warning(f"⚠️ Não foi possível gerar a análise de explicabilidade: {str(e)}")
+            st.info("""
+            **Interpretação Alternativa:**
+            Para entender os fatores que influenciam a evasão, considere:
+            - **Idade**: Estudantes mais jovens tendem a ter maior evasão
+            - **Renda Familiar**: Menor renda pode aumentar o risco
+            - **Modalidade**: Cursos EaD podem ter dinâmicas diferentes
+            - **Turno**: Noturno pode ter mais evasão por conciliar trabalho
+            - **Eixo Tecnológico**: Algumas áreas têm maior retenção
+            """)     
+##########################################################################################################################################################
 
 
 
@@ -702,87 +781,3 @@ if submit:
 
 
 ##########################################################################################################################################################
-
-
-
-
-elif st.session_state.current_page == "simular":
-    st.title("Simulador de Evasão")
-    st.write("Conteúdo do simulador será implementado aqui...")
-
-elif st.session_state.current_page == "indicadores":
-    st.title("Indicadores de Evasão")
-    st.write("Conteúdo dos indicadores será implementado aqui...")
-
-elif st.session_state.current_page == "gestor":
-    st.title("Módulo Gestor")
-    st.write("Conteúdo do módulo gestor será implementado aqui...")
-
-elif st.session_state.current_page == "sobre":
-    st.title("Sobre o PrevIA")
-    st.write("Informações sobre o projeto...")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# # Função para converter imagem local em Base64
-# def get_base64_of_image(image_path):
-#     with open(image_path, "rb") as image_file:
-#         return base64.b64encode(image_file.read()).decode()
-
-# # Converter a imagem local
-# img_base64 = get_base64_of_image("templates/simulador.jpg")
-# st.set_page_config(
-#     page_title="Plataforma PrevIA",
-#     page_icon="images/previa_azulmenor.png",
-#     initial_sidebar_state="collapsed"
-# )
-# # Ocultar barra streamlit
-# hide_st_style = """
-#     <style>:
-#     #MainMenu {visibility: hidden;}
-#     footer {visibility: hidden;}
-#     header {visibility: hidden;}
-#     </style>
-#     """  
-# st.markdown(hide_st_style, unsafe_allow_html=True)
-# # 🔹 CSS para definir a imagem de fundo
-# st.markdown(
-#     f"""
-#     <style>
-#     .stApp {{
-#         background-image: url("data:image/jpg;base64,{img_base64}");
-#         background-size: cover;  # Cobrir toda a tela sem repetição
-#         background-repeat: no-repeat;
-#         background-position: center center;
-#         background-attachment: fixed;
-#     }}
-#     </style>
-#     """,
-#     unsafe_allow_html=True
-# )
-
-
-
-# st.markdown("<hr style='border: 1px solid black;'>", unsafe_allow_html=True)
-# st.markdown("<p style='color: black;'>Versão 0.0.1 - Brasília - 2025. Universidade Federal do Tocantins - UFT.</p>", unsafe_allow_html=True)
