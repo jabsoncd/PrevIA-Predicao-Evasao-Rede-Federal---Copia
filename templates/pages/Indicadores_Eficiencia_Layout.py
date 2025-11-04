@@ -484,19 +484,19 @@ with col2:
         button[kind="primary"] {
             background-color: #e3e2e1 !important;
             color: #000000 !important;
-            border: 1px solid #e3e2e1 !important;
+            border: 1px solid #171716 !important;
             font-size: 14px;
             padding: 0.25rem 1rem;
         }
         button[kind="primary"]:hover {
-            background-color: #FFC400 !important;
+            background-color: #f2b16f !important;
             border: 1px solid #FFB300 !important;
         }
     </style>
     """, unsafe_allow_html=True)
     col1, col2, col3 = st.columns([2, 1, 2])
     with col3:
-        if st.button("🧹 LIMPAR FILTROS", 
+        if st.button("Limpar filtros", 
                     type="primary",  # Mudei para primary
                     help="Clique para remover todos os filtros aplicados"):
             st.rerun()
