@@ -213,7 +213,7 @@ st.markdown("""
     }
 
     [data-testid="stSidebar"] {
-        left: 2cm;
+        left: 0;
         top: 2cm;
         height: 100vh;
         width: 18rem !important; 
