@@ -226,23 +226,35 @@ st.markdown("""
         transform: none !important;
         transition: none !important;
     }
+""", unsafe_allow_html=True)
 
-    /* Tentativa mais agressiva */
-    .stApp [data-testid="collapsedControl"],
-    body [data-testid="collapsedControl"],
-    html [data-testid="collapsedControl"],
-    * [data-testid="collapsedControl"] {
+
+st.markdown("""
+    <style>
+    /* SOLUÇÃO QUE FUNCIONA - CSS muito específico e agressivo */
+    div[data-testid="collapsedControl"],
+    button[data-testid="collapsedControl"],
+    [data-testid="collapsedControl"] {
         display: none !important;
         visibility: hidden !important;
         opacity: 0 !important;
         pointer-events: none !important;
         position: absolute !important;
         left: -9999px !important;
-        top: -9999px !important;
-        width: 1px !important;
-        height: 1px !important;
+        width: 0 !important;
+        height: 0 !important;
+        min-width: 0 !important;
+        min-height: 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        border: none !important;
         overflow: hidden !important;
-        clip: rect(1px, 1px, 1px, 1px) !important;
+    }
+    
+    /* Garante que nenhum elemento filho seja visível */
+    [data-testid="collapsedControl"] * {
+        display: none !important;
+        visibility: hidden !important;
     }
     </style>
 """, unsafe_allow_html=True)
