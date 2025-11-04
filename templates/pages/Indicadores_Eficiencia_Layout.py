@@ -149,8 +149,6 @@ st.markdown(f"""
     background-size: contain;
     background-repeat: no-repeat;
     background-position: left center;
-    margin-left: 1rem;
-    transition: transform 0.35s ease;
 }}
 
 .nav-links {{
