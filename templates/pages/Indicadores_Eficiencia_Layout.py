@@ -229,25 +229,35 @@ st.markdown("""
     </style>   
 """, unsafe_allow_html=True)
 
-
 st.markdown("""
     <style>
-    /* Remove o botão de recolher com seletores mais específicos */
-    button[data-testid="collapsedControl"],
-    div[data-testid="collapsedControl"],
+    /* CSS inicial para esconder */
     [data-testid="collapsedControl"] {
         display: none !important;
-        visibility: hidden !important;
-        opacity: 0 !important;
-        pointer-events: none !important;
-        width: 0 !important;
-        height: 0 !important;
-        padding: 0 !important;
-        margin: 0 !important;
     }
     </style>
+    
+    <script>
+    // JavaScript para garantir que o botão seja removido
+    function hideCollapseButton() {
+        const collapseButton = document.querySelector('[data-testid="collapsedControl"]');
+        if (collapseButton) {
+            collapseButton.style.display = 'none';
+            collapseButton.style.visibility = 'hidden';
+            collapseButton.style.opacity = '0';
+            collapseButton.style.pointerEvents = 'none';
+        }
+    }
+    
+    // Executa imediatamente e a cada 500ms para pegar elementos dinâmicos
+    hideCollapseButton();
+    setInterval(hideCollapseButton, 500);
+    
+    // Também observa mudanças no DOM
+    const observer = new MutationObserver(hideCollapseButton);
+    observer.observe(document.body, { childList: true, subtree: true });
+    </script>
 """, unsafe_allow_html=True)
-
 
 
 
