@@ -244,7 +244,7 @@ st.markdown(f"""
     background-repeat: no-repeat;
     background-position: left center;
     margin: 1px auto;
-    display: block;
+    display: flex;
 }}
 
 /* --- REMOVE O ÍCONE PADRÃO DO STREAMLIT --- */
