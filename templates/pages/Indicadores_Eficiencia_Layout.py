@@ -212,60 +212,40 @@ st.markdown("""
         display: none !important;
     }
 
-        /* Sidebar principal */
+        /* Sidebar com transição suave */
     [data-testid="stSidebar"] {
-        position: fixed !important;
-        left: 0 !important;
-        top: 2cm !important;
-        height: calc(100vh - 2cm) !important;
-        z-index: 999 !important;
+        position: fixed;
+        left: 0;
+        top: 2cm;
+        height: calc(100vh - 2cm);
+        z-index: 1000;
+        box-shadow: 2px 0 12px rgba(0,0,0,0.18);
         background-color: #f5f2c4;
-        box-shadow: 2px 0 12px rgba(0,0,0,0.15);
-        transition: transform 0.3s ease !important;
+        transition: transform 0.3s ease;
     }
 
-    /* Botão de recolher/expandir - SEMPRE VISÍVEL */
+    /* Botão de recolher/expandir */
     [data-testid="collapsedControl"] {
         position: fixed !important;
-        top: 2.5cm !important;
-        left: 1rem !important;
-        z-index: 1000 !important;
+        top: 2.5cm;
+        left: 1rem;
+        z-index: 1100 !important;
         background-color: #152847 !important;
+        border-radius: 50%;
+        padding: 6px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.2);
         color: white !important;
-        border-radius: 50% !important;
-        padding: 8px !important;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.3) !important;
-        border: 2px solid white !important;
     }
 
-    /* Botão hover */
-    [data-testid="collapsedControl"]:hover {
-        background-color: #1e3a8a !important;
-        transform: scale(1.1);
-        transition: all 0.2s ease;
-    }
-
-    /* Ajusta conteúdo principal */
+    /* Ajusta conteúdo principal para sidebar expandida */
     .main .block-container {
-        padding-left: 20rem;
-        padding-top: 1rem;
-        transition: padding-left 0.3s ease;
+        margin-left: 19rem;
+        transition: margin-left 0.3s ease;
     }
 
-    /* Quando sidebar está recolhida */
-    [data-testid="stSidebar"][aria-expanded="false"] {
-        transform: translateX(-100%);
-    }
-
-    /* Ajusta conteúdo quando sidebar recolhida */
+    /* Quando sidebar recolhe, ajusta o conteúdo */
     [data-testid="stSidebar"][aria-expanded="false"] ~ .main .block-container {
-        padding-left: 3rem;
-    }
-
-    /* Move botão quando sidebar recolhe */
-    [data-testid="stSidebar"][aria-expanded="false"] ~ [data-testid="collapsedControl"] {
-        left: 1rem !important;
-        background-color: #1e3a8a !important;
+        margin-left: 3rem;
     }
     </style>
     
