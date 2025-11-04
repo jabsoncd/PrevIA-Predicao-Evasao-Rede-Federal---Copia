@@ -597,7 +597,14 @@ else:
 
 
 ####################################################################################################################################### MODAL
-
+# Botão estilizado
+col1, col2, col3 = st.columns([3, 1, 3])
+with col2:
+    if st.button("🧹 LIMPAR FILTROS", 
+                 type="secondary", 
+                 use_container_width=True,
+                 help="Clique para remover todos os filtros aplicados"):
+        st.rerun()
 
 #######################################################################################################################################
 
