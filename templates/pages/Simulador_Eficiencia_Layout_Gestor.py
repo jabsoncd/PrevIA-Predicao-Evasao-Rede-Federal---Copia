@@ -698,7 +698,7 @@ if submit:
                 shap_values_evasao = shap_values
             
             # Criar waterfall plot
-            fig, ax = plt.subplots(figsize=(12, 5))
+            fig, ax = plt.subplots(figsize=(14, 4))
             
             # Gerar o waterfall plot
             shap.waterfall_plot(
@@ -716,7 +716,7 @@ if submit:
             plt.tight_layout()
             
             # Centralizar o gráfico
-            col1, col2, col3 = st.columns([1, 3, 1])
+            col1, col2, col3 = st.columns([1, 2, 1])
             with col2:
                 st.pyplot(fig)
                 plt.close()
