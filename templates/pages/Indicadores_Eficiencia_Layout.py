@@ -213,36 +213,43 @@ st.markdown("""
     }
 
     [data-testid="stSidebar"] {
-        position: fixed !important;
         left: 2cm;
         top: 2cm;
         height: 100vh;
         width: 18rem !important; 
-        min-width: -18rem !important; /* largura mínima quando recolhido */
+        min-width: 18rem !important; /* largura mínima quando recolhido */
         z-index: 1000;
         box-shadow: 2px 0 12px rgba(0,0,0,0.18);
         background-color: #f5f2c4;
         transition: width 0.35s ease; /* animação suave */
     }
 
-    
-    </style>
-    
-""", unsafe_allow_html=True)
 
-
-
-# 🔹 Mantém sidebar visível e apenas oculta links indesejados
-st.markdown(f"""
-    <style>
     /* --- ÍCONE DE RECOLHER / EXPANDIR --- */
-    [data-testid="collapsedControl"] {{
-        display: none !important;
-    }}
+    [data-testid="collapsedControl"] {
+        position: fixed !important;
+        top: 2cm;
+        left: 1rem;
+        z-index: 1100 !important;
+        background-color: blue !important;
+        border-radius: 50%;
+        padding: 6px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+    [data-testid="collapsedControl"] svg {
+        fill: blue !important;
+        width: 1.1rem;
+        height: 1.1rem;
+    }
+
+
     
     </style>
     
 """, unsafe_allow_html=True)
+
+
+
 
 
 
