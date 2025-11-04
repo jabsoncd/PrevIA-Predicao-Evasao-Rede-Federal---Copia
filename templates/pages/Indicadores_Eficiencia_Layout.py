@@ -1007,7 +1007,7 @@ elif st.session_state.selected_tab == "📉 Sociais":
 
 
     # Gráfico de evadidos por renda familiar
-    fig4 = px.histogram(df[df['CATEGORIA_SITUACAO'] == 'Evadidos'],
+    fig4 = px.histogram(df[filtered_df['CATEGORIA_SITUACAO'] == 'Evadidos'],
                         x='RENDA_FAMILIAR',
                         title='Evadidos por Renda Familiar')
     st.plotly_chart(fig4)
