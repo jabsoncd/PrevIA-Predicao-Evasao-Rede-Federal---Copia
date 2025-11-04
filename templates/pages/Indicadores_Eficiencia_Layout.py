@@ -493,6 +493,10 @@ with col2:
             background-color: #f2b16f !important;
             border: 1px solid #FFB300 !important;
         }
+        /* Força a cor do texto em todos os estados */
+        .stButton button[kind="primary"] span {
+            color: #000000 !important;
+        }
     </style>
     """, unsafe_allow_html=True)
     col1, col2, col3 = st.columns([2, 1, 2])
