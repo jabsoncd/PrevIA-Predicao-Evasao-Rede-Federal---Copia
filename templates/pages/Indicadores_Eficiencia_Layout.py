@@ -482,7 +482,7 @@ with col2:
     st.markdown("""
     <style>
         .yellow-button button {
-            background-color: white !important;
+            background-color: #f5efdc !important;
             color: #000000 !important;
             border: 1px solid #f5efdc !important;
             padding: 0.25rem 1rem !important;
