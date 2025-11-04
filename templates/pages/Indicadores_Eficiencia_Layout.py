@@ -222,7 +222,7 @@ st.markdown("""
         max-width: 20rem !important;
         z-index: 1000;
         box-shadow: 2px 0 12px rgba(0,0,0,0.18);
-        background-color: #3c5382;
+        background-color: #bbbebf;
         transform: none !important;
         transition: none !important;
     }
