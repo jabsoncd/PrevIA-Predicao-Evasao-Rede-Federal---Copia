@@ -583,9 +583,9 @@ with st.expander("Filtros", expanded=st.session_state.expander_open):
         options=sorted(df["TURNO"].unique()),
     )
 
-        # Botão Limpar Filtros DENTRO do expander
-    if st.button("Limpar Filtros", key="limpar_filtros"):
-        limpar_filtros()
+                                                                    #     # Botão Limpar Filtros DENTRO do expander
+                                                                    # if st.button("Limpar Filtros", key="limpar_filtros"):
+                                                                    #     limpar_filtros()
 
 # Aplica filtros dinamicamente - usa o dataframe original quando não há filtros
 if any(st.session_state.get(chave, []) for chave in filtro_chaves):
