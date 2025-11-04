@@ -224,17 +224,11 @@ st.markdown("""
         transition: transform 0.3s ease;
     }
 
-    /* Botão de recolher/expandir */
+    
+        /* Remove completamente o botão de recolher */
     [data-testid="collapsedControl"] {
-        position: fixed !important;
-        top: 2.5cm;
-        left: 1rem;
-        z-index: 1100 !important;
-        background-color: #152847 !important;
-        border-radius: 50%;
-        padding: 6px;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-        color: white !important;
+        display: none !important;
+        visibility: hidden !important;
     }
 
     /* Ajusta conteúdo principal para sidebar expandida */
