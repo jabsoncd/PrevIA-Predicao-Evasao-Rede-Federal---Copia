@@ -482,7 +482,7 @@ with col2:
     st.markdown("""
     <style>
         .yellow-button button {
-            background-color: #FFD700 !important;
+            background-color: white !important;
             color: #000000 !important;
             border: 1px solid #f5efdc !important;
             padding: 0.25rem 1rem !important;
@@ -491,7 +491,7 @@ with col2:
             font-size: 14px !important;
         }
         .yellow-button button:hover {
-            background-color: #f5efdc !important;
+            background-color: white !important;
             border: 1px solid #FFB300 !important;
         }
     </style>
@@ -500,7 +500,7 @@ with col2:
     col1, col2, col3 = st.columns([2, 1, 2])
     with col3:
         st.markdown('<div class="yellow-button">', unsafe_allow_html=True)
-        if st.button("🧹 LIMPAR FILTROS", 
+        if st.button("🧹 Limpar filtros", 
                     type="secondary", 
                     use_container_width=True,
                     help="Clique para remover todos os filtros aplicados"):
