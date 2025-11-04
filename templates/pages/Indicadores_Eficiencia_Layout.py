@@ -494,11 +494,12 @@ with col2:
         }
     </style>
     """, unsafe_allow_html=True)
-
-    if st.button("🧹 LIMPAR FILTROS", 
-                type="primary",  # Mudei para primary
-                help="Clique para remover todos os filtros aplicados"):
-        st.rerun()
+    col1, col2, col3 = st.columns([2, 1, 2])
+    with col3:
+        if st.button("🧹 LIMPAR FILTROS", 
+                    type="primary",  # Mudei para primary
+                    help="Clique para remover todos os filtros aplicados"):
+            st.rerun()
 
 
 # Expander para filtros
