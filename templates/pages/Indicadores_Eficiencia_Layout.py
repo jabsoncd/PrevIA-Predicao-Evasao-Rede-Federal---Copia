@@ -226,7 +226,14 @@ st.markdown("""
         transform: none !important;
         transition: none !important;
     }
-    </script>   
+    
+        /* Garante que nenhum elemento filho seja visível */
+    [data-testid="collapsedControl"] * {
+        display: none !important;
+        visibility: hidden !important;
+    }
+    </script> 
+      
 """, unsafe_allow_html=True)
 
 
