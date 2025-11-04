@@ -454,7 +454,6 @@ st.write(" ")
 
 
 ##################################################################################################################################################################
-
 # Inicializa session_state
 if "dialog_open" not in st.session_state:
     st.session_state.dialog_open = False
@@ -463,9 +462,9 @@ if "dialog_open" not in st.session_state:
 if st.button("🔍 Abrir Filtros", type="secondary"):
     st.session_state.dialog_open = True
 
-# Dialog para filtros 
+# Dialog para filtros
 if st.session_state.dialog_open:
-    with st.dialog("Filtros Avançados"):
+    with st.dialog("🎛️ Filtros Avançados"):
         st.markdown("### Situação das Matrículas")
         CATEGORIA_SITUACAO = st.multiselect(
             key="cat_situacao",
@@ -599,9 +598,6 @@ for coluna in df.columns:
     valores = st.session_state.get(session_chave, [])
     if valores:
         filtered_df = filtered_df[filtered_df[coluna].isin(valores)]
-        
-        
-        
 
 ##################################################################### MODAL
 
