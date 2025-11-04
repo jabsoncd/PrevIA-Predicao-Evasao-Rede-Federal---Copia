@@ -234,16 +234,6 @@ st.markdown("""
         visibility: hidden !important;
     }
 
-    /* Ajusta conteúdo principal para sidebar expandida */
-    .main .block-container {
-        margin-left: 19rem;
-        transition: margin-left 0.3s ease;
-    }
-
-    /* Quando sidebar recolhe, ajusta o conteúdo */
-    [data-testid="stSidebar"][aria-expanded="false"] ~ .main .block-container {
-        margin-left: 3rem;
-    }
     </style>
     
 """, unsafe_allow_html=True)
