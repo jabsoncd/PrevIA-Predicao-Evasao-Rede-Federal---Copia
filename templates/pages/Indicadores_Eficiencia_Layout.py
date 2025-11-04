@@ -487,6 +487,7 @@ with col2:
             border: 1px solid #8c8a88 !important;
             font-size: 14px;
             padding: 0.25rem 1rem;
+            border-radius: 8px !important;
         }
         button[kind="primary"]:hover {
             background-color: #f2b16f !important;
