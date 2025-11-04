@@ -462,7 +462,7 @@ if "dialog_open" not in st.session_state:
 
 # Botão para abrir o dialog de filtros
 if st.button("🔍 Abrir Filtros", type="secondary"):
-    st.session_state.dialog_open = True
+    st.session_state.dialog_open = True 
 
 # Dialog para filtros
 if st.session_state.dialog_open:
