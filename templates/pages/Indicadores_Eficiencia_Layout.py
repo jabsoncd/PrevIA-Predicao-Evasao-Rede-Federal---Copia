@@ -224,8 +224,7 @@ st.markdown("""
         z-index: 1000;
         box-shadow: 2px 0 12px rgba(0,0,0,0.18);
         background-color: #f5f2c4;
-        transform: none !important;
-        transition: none !important;
+
     }
 
     
