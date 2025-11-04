@@ -492,7 +492,7 @@ with col2:
 
     col1, col2, col3 = st.columns([2, 1, 2])
     with col3:
-        if st.button("🧹 LIMPAR", 
+        if st.button("🧹 Limpar filtros", 
                     type="secondary",
                     use_container_width=True,
                     help="Clique para remover todos os filtros aplicados"):
