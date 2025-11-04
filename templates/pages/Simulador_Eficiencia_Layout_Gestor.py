@@ -671,14 +671,14 @@ if submit:
         
         st.markdown("---")
         st.subheader("📝 Explainable Artificial Intelligence (XAI)")
-        st.write("Entenda quais fatores mais influenciaram na predição:")
+        st.write("Impacto das Variáveis na Predição de Evasão:")
         
         try:
             import shap
             import matplotlib.pyplot as plt
             import numpy as np
             
-            plt.title("Impacto das Variáveis na Predição de Evasão", fontsize=14, fontweight='bold', loc='center')
+            plt.title("", fontsize=14, fontweight='bold', loc='center')
             plt.tight_layout()
 
             # Criar explainer SHAP
