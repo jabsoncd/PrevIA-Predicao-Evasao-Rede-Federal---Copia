@@ -483,13 +483,13 @@ with st.expander("Filtros", expanded=st.session_state.expander_open):
         options=sorted(df["INSTITUICAO"].unique()),
     )
     UNIDADE_DE_ENSINO = st.multiselect(
-        key="unidade_ensino",
+        key="unidade_de_ensino",
         label="Unidade de Ensino",
         placeholder="Selecione a Unidade de Ensino",
         options=sorted(df["UNIDADE_DE_ENSINO"].unique()),
     )
     REGIAO_METROPOLINA_UE = st.multiselect(
-        key="regiao_metropolitana",
+        key="regiao_metropolitana_ue",
         label="Região Metropolitana",
         placeholder="Selecione se é Região Metropolitana",
         options=sorted(df["REGIÃO_METROPOLINA_UE"].unique()),
@@ -525,19 +525,19 @@ with st.expander("Filtros", expanded=st.session_state.expander_open):
         options=sorted(df["EIXO_TECNOLOGICO"].unique()),
     )
     NOME_DE_CURSO = st.multiselect(
-        key="nome_curso",
+        key="nome_de_curso",
         label="Curso Técnico",
         placeholder="Selecione o curso técnico",
         options=sorted(df["NOME_DE_CURSO"].unique()),
     )
     MODALIDADE_DE_ENSINO = st.multiselect(
-        key="modalidade_ensino",
+        key="modalidade_de_ensino",
         label="Modalidade de Ensino",
         placeholder="Selecione a modalidade de ensino",
         options=sorted(df["MODALIDADE_DE_ENSINO"].unique()),
     )
     TIPO_DE_OFERTA = st.multiselect(
-        key="tipo_oferta",
+        key="tipo_de_oferta",
         label="Tipo de Oferta",
         placeholder="Selecione o Tipo de Oferta",
         options=sorted(df["TIPO_DE_OFERTA"].unique()),
