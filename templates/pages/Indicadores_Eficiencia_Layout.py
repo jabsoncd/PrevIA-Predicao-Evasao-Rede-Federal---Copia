@@ -218,7 +218,7 @@ st.markdown("""
         left: 0;
         top: 2cm;
         height: calc(100vh - 2cm);
-        min-width: 15rem !important;
+        min-width: 5rem !important;
         max-width: 30rem !important;
         z-index: 1000;
         box-shadow: 2px 0 12px rgba(0,0,0,0.18);
