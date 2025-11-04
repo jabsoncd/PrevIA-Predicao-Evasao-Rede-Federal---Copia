@@ -219,7 +219,7 @@ st.markdown("""
         top: 2cm;
         height: calc(100vh - 2cm);
         min-width: 2rem !important;
-        max-width: 18rem !important;
+        max-width: 20rem !important;
         z-index: 1000;
         box-shadow: 2px 0 12px rgba(0,0,0,0.18);
         background-color: #f5f2c4;
@@ -228,7 +228,7 @@ st.markdown("""
     }
     
         /* Garante que nenhum elemento filho seja visível */
-    [data-testid="collapsedControl"] * {
+    [data-testid="collapsedControl"] {
         display: none !important;
         visibility: hidden !important;
     }
