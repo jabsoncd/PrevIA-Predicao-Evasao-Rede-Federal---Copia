@@ -661,7 +661,86 @@ if submit:
             <p style='text-align:center; font-style: italic;'>{legenda}</p>
             """,
             unsafe_allow_html=True
-        )       
+        )  
+
+
+
+    # =====================================================
+        # EXPLAINABLE AI (XAI) - SHAP Waterfall Plot
+        # =====================================================
+        
+        st.markdown("---")
+        st.subheader("🧠 Explainable Artificial Intelligence (XAI)")
+        st.write("Entenda quais fatores mais influenciaram na predição:")
+        
+        try:
+            import shap
+            import matplotlib.pyplot as plt
+            import numpy as np
+            
+            # Criar explainer SHAP
+            explainer = shap.TreeExplainer(model)
+            
+            # Preparar dados para SHAP (usando one-hot encoding se necessário)
+            # Primeiro, vamos garantir que as colunas estejam na mesma ordem que o modelo espera
+            input_data_encoded = input_data.copy()
+            
+            # Aplicar o mesmo pré-processamento usado no treinamento
+            # (você precisará adaptar isso ao seu pré-processamento específico)
+            
+            # Calcular valores SHAP
+            shap_values = explainer.shap_values(input_data_encoded)
+            
+            # Se for um modelo multiclasse, pegar os valores para a classe de evasão
+            if isinstance(shap_values, list):
+                shap_values_evasao = shap_values[1]  # Índice 1 para evasão
+            else:
+                shap_values_evasao = shap_values
+            
+            # Criar waterfall plot
+            fig, ax = plt.subplots(figsize=(10, 6))
+            
+            # Gerar o waterfall plot
+            shap.waterfall_plot(
+                shap.Explanation(
+                    values=shap_values_evasao[0],
+                    base_values=explainer.expected_value[1] if isinstance(explainer.expected_value, list) else explainer.expected_value,
+                    data=input_data_encoded.iloc[0],
+                    feature_names=input_data_encoded.columns.tolist()
+                ),
+                max_display=15,  # Mostrar as 15 variáveis mais importantes
+                show=False
+            )
+            
+            plt.title("Impacto das Variáveis na Predição de Evasão", fontsize=14, fontweight='bold')
+            plt.tight_layout()
+            
+            # Centralizar o gráfico
+            col1, col2, col3 = st.columns([1, 3, 1])
+            with col2:
+                st.pyplot(fig)
+                plt.close()
+            
+            # Explicação adicional
+            st.markdown("""
+            **Interpretação do gráfico:**
+            - **Valores positivos (vermelho)**: Aumentam a probabilidade de evasão
+            - **Valores negativos (azul)**: Diminuem a probabilidade de evasão
+            - **E[f(X)]**: Valor base (probabilidade média)
+            - **f(x)**: Probabilidade final para este caso específico
+            """)
+            
+        except Exception as e:
+            st.warning(f"⚠️ Não foi possível gerar a análise de explicabilidade: {str(e)}")
+            st.info("""
+            **Interpretação Alternativa:**
+            Para entender os fatores que influenciam a evasão, considere:
+            - **Idade**: Estudantes mais jovens tendem a ter maior evasão
+            - **Renda Familiar**: Menor renda pode aumentar o risco
+            - **Modalidade**: Cursos EaD podem ter dinâmicas diferentes
+            - **Turno**: Noturno pode ter mais evasão por conciliar trabalho
+            - **Eixo Tecnológico**: Algumas áreas têm maior retenção
+            """)     
 
 
 
