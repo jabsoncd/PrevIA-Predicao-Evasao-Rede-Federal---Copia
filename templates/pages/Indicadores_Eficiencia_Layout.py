@@ -217,22 +217,32 @@ st.markdown("""
         left: 0;
         top: 2cm;
         height: calc(100vh - 2cm);
+        width: 18rem !important;
+        min-width: 18rem !important;
+        max-width: 18rem !important;
         z-index: 1000;
         box-shadow: 2px 0 12px rgba(0,0,0,0.18);
         background-color: #f5f2c4;
+        transform: none !important;
+        transition: none !important;
+    }
+    
+        /* OCULTA completamente o botão de recolher/expandir */
+    [data-testid="collapsedControl"] {
+        display: none !important;
     }
 
-
-    /* --- ÍCONE DE RECOLHER / EXPANDIR --- */
-    [data-testid="collapsedControl"] {
-        position: fixed !important;
-        top: 2cm;
-        left: 1rem;
-        z-index: 1100 !important;
-        background-color: blue !important;
-        border-radius: 50%;
-        padding: 6px;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    /* Ajusta o conteúdo principal para não ficar sob a sidebar */
+    .main .block-container {
+        padding-left: 20rem;
+        padding-top: 3rem;
+    }
+    
+        /* Garante que a sidebar não feche em telas menores */
+    @media (max-width: 768px) {
+        [data-testid="stSidebar"] {
+            transform: none !important;
+        }
     }
 
     
