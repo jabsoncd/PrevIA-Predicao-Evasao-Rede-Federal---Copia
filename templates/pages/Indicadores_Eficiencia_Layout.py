@@ -199,6 +199,121 @@ a, a:visited, a:active {{
 
 
 
+# 🔹 Mantém sidebar visível e apenas oculta links indesejados
+st.markdown("""
+    <style>
+    /* Oculta links específicos */
+    section[data-testid="stSidebar"] a[href*="Home_Profissional"],
+    section[data-testid="stSidebar"] a[href*="Indicadores_Eficiencia"],
+    section[data-testid="stSidebar"] a[href*="Simulador_Eficiencia"],
+    section[data-testid="stSidebar"] a[href*="Sobre"],
+    section[data-testid="stSidebar"] a[href*="Indicadores_Eficiencia_Layout"],
+    section[data-testid="stSidebar"] a[href*="Simulador_Eficiencia_Layout"] {
+        display: none !important;
+    }
+    </style>   
+""", unsafe_allow_html=True)
+
+
+
+
+
+
+# ==================== CSS E JS PARA BOTÃO PERSONALIZADO DE EXPANDIR/RECOLHER ====================
+st.markdown(f"""
+<style>
+/* --- SIDEBAR PADRÃO --- */
+[data-testid="stSidebar"] {{
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    height: 100vh !important;
+    width: 18rem !important;
+    background-color: #f5f2c4 !important;
+    box-shadow: 2px 0 12px rgba(0,0,0,0.2);
+    z-index: 1000;
+    transition: all 0.4s ease-in-out;
+}}
+
+/* --- LOGO FLUTUANTE --- */
+.nav-logo {{
+    width: 180px;
+    height: 55px;
+    background-image: url("data:image/jpg;base64,{logo_b64}");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: left center;
+    margin: 10px auto;
+    display: block;
+}}
+
+/* --- REMOVE O ÍCONE PADRÃO DO STREAMLIT --- */
+[data-testid="collapsedControl"] {{
+    display: none !important;
+}}
+
+/* --- BOTÃO FLUTUANTE PERSONALIZADO --- */
+.sidebar-toggle {{
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 2000;
+    background-color: #152847;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 22px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}}
+.sidebar-toggle:hover {{
+    background-color: #1e3a8a;
+}}
+
+/* --- SIDEBAR RECOLHIDO --- */
+.sidebar-collapsed [data-testid="stSidebar"] {{
+    margin-left: -18rem !important; /* esconde fora da tela */
+}}
+</style>
+
+<!-- --- BOTÃO FLUTUANTE HTML --- -->
+<button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+
+<script>
+function toggleSidebar() {{
+    const root = window.parent.document.querySelector('body');
+    if (root.classList.contains('sidebar-collapsed')) {{
+        root.classList.remove('sidebar-collapsed');
+    }} else {{
+        root.classList.add('sidebar-collapsed');
+    }}
+}}
+</script>
+""", unsafe_allow_html=True)
+
+
+
+# 🔹 Mantém sidebar visível e apenas oculta links indesejados
+st.markdown("""
+    <style>
+    /* --- ÍCONE DE RECOLHER / EXPANDIR --- */
+    [data-testid="collapsedControl"] {
+        display: none !important;
+    }
+    
+    </style>
+    
+""", unsafe_allow_html=True)
+
+
+
+
+
+
+
+
 ###################################################### CODIGO ################################################################################################
 # Carregar os dados
 # @st.cache_data
