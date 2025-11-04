@@ -698,7 +698,7 @@ if submit:
                 shap_values_evasao = shap_values
             
             # Criar waterfall plot
-            fig, ax = plt.subplots(figsize=(8, 2))
+            fig, ax = plt.subplots(figsize=(20, 12))
             
             # Gerar o waterfall plot
             shap.waterfall_plot(
@@ -712,11 +712,11 @@ if submit:
                 show=False
             )
             
-            plt.title("Impacto das Variáveis na Predição de Evasão", fontsize=14, fontweight='bold', loc='center', y=0.95)
+            plt.title("Impacto das Variáveis na Predição de Evasão", fontsize=14, fontweight='bold', loc='center')
             plt.tight_layout()
             
             # Centralizar o gráfico
-            col1, col2, col3 = st.columns([1, 5, 1])
+            col1, col2, col3 = st.columns([1, 2, 1])
             with col2:
                 st.pyplot(fig)
                 plt.close()
