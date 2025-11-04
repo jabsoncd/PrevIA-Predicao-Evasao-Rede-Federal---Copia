@@ -212,40 +212,61 @@ st.markdown("""
         display: none !important;
     }
 
+        /* Sidebar principal */
     [data-testid="stSidebar"] {
-        position: flex;
-        left: 0;
-        top: 2cm;
-        height: calc(100vh - 2cm);
-        width: 18rem !important;
-        min-width: 18rem !important;
-        max-width: 18rem !important;
-        z-index: 1000;
-        box-shadow: 2px 0 12px rgba(0,0,0,0.18);
+        position: fixed !important;
+        left: 0 !important;
+        top: 2cm !important;
+        height: calc(100vh - 2cm) !important;
+        z-index: 999 !important;
         background-color: #f5f2c4;
-        transform: none !important;
-        transition: none !important;
-    }
-    
-        /* OCULTA completamente o botão de recolher/expandir */
-    [data-testid="collapsedControl"] {
-        display: none !important;
+        box-shadow: 2px 0 12px rgba(0,0,0,0.15);
+        transition: transform 0.3s ease !important;
     }
 
-    /* Ajusta o conteúdo principal para não ficar sob a sidebar */
+    /* Botão de recolher/expandir - SEMPRE VISÍVEL */
+    [data-testid="collapsedControl"] {
+        position: fixed !important;
+        top: 2.5cm !important;
+        left: 1rem !important;
+        z-index: 1000 !important;
+        background-color: #152847 !important;
+        color: white !important;
+        border-radius: 50% !important;
+        padding: 8px !important;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.3) !important;
+        border: 2px solid white !important;
+    }
+
+    /* Botão hover */
+    [data-testid="collapsedControl"]:hover {
+        background-color: #1e3a8a !important;
+        transform: scale(1.1);
+        transition: all 0.2s ease;
+    }
+
+    /* Ajusta conteúdo principal */
     .main .block-container {
         padding-left: 20rem;
-        padding-top: 3rem;
-    }
-    
-        /* Garante que a sidebar não feche em telas menores */
-    @media (max-width: 768px) {
-        [data-testid="stSidebar"] {
-            transform: none !important;
-        }
+        padding-top: 1rem;
+        transition: padding-left 0.3s ease;
     }
 
-    
+    /* Quando sidebar está recolhida */
+    [data-testid="stSidebar"][aria-expanded="false"] {
+        transform: translateX(-100%);
+    }
+
+    /* Ajusta conteúdo quando sidebar recolhida */
+    [data-testid="stSidebar"][aria-expanded="false"] ~ .main .block-container {
+        padding-left: 3rem;
+    }
+
+    /* Move botão quando sidebar recolhe */
+    [data-testid="stSidebar"][aria-expanded="false"] ~ [data-testid="collapsedControl"] {
+        left: 1rem !important;
+        background-color: #1e3a8a !important;
+    }
     </style>
     
 """, unsafe_allow_html=True)
