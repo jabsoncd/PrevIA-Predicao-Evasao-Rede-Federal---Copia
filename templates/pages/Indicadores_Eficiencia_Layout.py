@@ -218,8 +218,8 @@ st.markdown("""
         left: 0;
         top: 2cm;
         height: calc(100vh - 2cm);
-        min-width: 5rem !important;
-        max-width: 30rem !important;
+        min-width: 4rem !important;
+        max-width: 18rem !important;
         z-index: 1000;
         box-shadow: 2px 0 12px rgba(0,0,0,0.18);
         background-color: #f5f2c4;
