@@ -219,12 +219,13 @@ st.markdown("""
         top: 2cm;
         height: calc(100vh - 2cm);
         width: 18rem !important;
-        min-width: 18rem !important;
+        min-width: 1rem !important;
         max-width: 18rem !important;
         z-index: 1000;
         box-shadow: 2px 0 12px rgba(0,0,0,0.18);
         background-color: #f5f2c4;
-
+        transform: none !important;
+        transition: none !important;
     }
 
     
