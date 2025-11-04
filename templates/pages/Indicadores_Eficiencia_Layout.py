@@ -226,16 +226,26 @@ st.markdown("""
         transform: none !important;
         transition: none !important;
     }
+    </style>   
+""", unsafe_allow_html=True)
 
-    
-        /* Remove completamente o botão de recolher */
+
+st.markdown("""
+    <style>
+    /* Remove o botão de recolher com seletores mais específicos */
+    button[data-testid="collapsedControl"],
+    div[data-testid="collapsedControl"],
     [data-testid="collapsedControl"] {
         display: none !important;
         visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        width: 0 !important;
+        height: 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
     }
-
     </style>
-    
 """, unsafe_allow_html=True)
 
 
