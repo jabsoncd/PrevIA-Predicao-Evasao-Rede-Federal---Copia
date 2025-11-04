@@ -481,25 +481,24 @@ with col2:
 
     st.markdown("""
     <style>
-        /* Seletores mais específicos para forçar a cor amarela */
-        button[kind="secondary"] {
-            background-color: #f2c127 !important;
+        button[kind="primary"] {
+            background-color: #e3e2e1 !important;
             color: #000000 !important;
-            border: 1px solid #f2c127 !important;
+            border: 1px solid #e3e2e1 !important;
+            font-size: 14px;
+            padding: 0.25rem 1rem;
         }
-        button[kind="secondary"]:hover {
-            background-color: #f2c127 !important;
-            border: 1px solid ##f2c127 !important;
+        button[kind="primary"]:hover {
+            background-color: #FFC400 !important;
+            border: 1px solid #FFB300 !important;
         }
     </style>
     """, unsafe_allow_html=True)
 
-    if st.button("🧹 Limpar filtros", 
-                    type="secondary", 
-                    use_container_width=True,
-                    help="Clique para remover todos os filtros aplicados"):
+    if st.button("🧹 LIMPAR FILTROS", 
+                type="primary",  # Mudei para primary
+                help="Clique para remover todos os filtros aplicados"):
         st.rerun()
-
 
 
 # Expander para filtros
