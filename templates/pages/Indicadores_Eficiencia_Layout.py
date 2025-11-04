@@ -226,37 +226,38 @@ st.markdown("""
         transform: none !important;
         transition: none !important;
     }
+    </script>   
 """, unsafe_allow_html=True)
 
 
 st.markdown("""
     <style>
-    /* SOLUÇÃO QUE FUNCIONA - CSS muito específico e agressivo */
-    div[data-testid="collapsedControl"],
-    button[data-testid="collapsedControl"],
+    /* CSS inicial para esconder */
     [data-testid="collapsedControl"] {
         display: none !important;
-        visibility: hidden !important;
-        opacity: 0 !important;
-        pointer-events: none !important;
-        position: absolute !important;
-        left: -9999px !important;
-        width: 0 !important;
-        height: 0 !important;
-        min-width: 0 !important;
-        min-height: 0 !important;
-        padding: 0 !important;
-        margin: 0 !important;
-        border: none !important;
-        overflow: hidden !important;
-    }
-    
-    /* Garante que nenhum elemento filho seja visível */
-    [data-testid="collapsedControl"] * {
-        display: none !important;
-        visibility: hidden !important;
     }
     </style>
+    
+    <script>
+    // JavaScript para garantir que o botão seja removido
+    function hideCollapseButton() {
+        const collapseButton = document.querySelector('[data-testid="collapsedControl"]');
+        if (collapseButton) {
+            collapseButton.style.display = 'none';
+            collapseButton.style.visibility = 'hidden';
+            collapseButton.style.opacity = '0';
+            collapseButton.style.pointerEvents = 'none';
+        }
+    }
+    
+    // Executa imediatamente e a cada 500ms para pegar elementos dinâmicos
+    hideCollapseButton();
+    setInterval(hideCollapseButton, 500);
+    
+    // Também observa mudanças no DOM
+    const observer = new MutationObserver(hideCollapseButton);
+    observer.observe(document.body, { childList: true, subtree: true });
+    </script>
 """, unsafe_allow_html=True)
 
 
