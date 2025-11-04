@@ -243,7 +243,7 @@ st.markdown(f"""
     background-size: contain;
     background-repeat: no-repeat;
     background-position: left center;
-    margin: 10px auto;
+    margin: 1px auto;
     display: block;
 }}
 
