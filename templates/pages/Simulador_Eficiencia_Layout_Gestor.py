@@ -263,9 +263,10 @@ regioes = {
 # =============================================
 
 with st.sidebar:
-    st.markdown("Preencha o formulário:")
+    st.markdown("<h3 style='text-align: center; font-weight: bold;'>Preencha o formulário:</h3>", unsafe_allow_html=True)
+    
     # Dados da Instituição
-    st.markdown("Dados da Instituição")
+    st.markdown("<h3 style='font-weight: bold;'>Dados da Instituição</h3>", unsafe_allow_html=True)
     
     regiao_escolhida = st.selectbox("Região", 
                                    ["Selecione uma região"] + list(regioes.keys()),
@@ -293,7 +294,7 @@ with st.sidebar:
 
     # Dados Pessoais
     st.markdown("---")
-    st.markdown("#Dados Pessoais")
+    st.markdown("<h3 style='font-weight: bold;'>Dados Pessoais</h3>", unsafe_allow_html=True)
     
     sexo = st.selectbox("Gênero:", ["Masculino", "Feminino"])
     idade = st.slider("Idade:", min_value=14, max_value=100, value=14, step=1)
@@ -306,7 +307,9 @@ with st.sidebar:
 
     # Dados do Curso
     st.markdown("---")
-    st.markdown("Dados do Curso")
+    st.markdown("<h3 style='font-weight: bold;'>Dados do Curso</h3>", unsafe_allow_html=True)
+
+
     
     eixos_mapeados = sorted(df["Eixo_Tecnologico_Mapeado"].dropna().unique())
     eixo_opcoes = ["Selecione um Eixo Tecnológico"] + eixos_mapeados
