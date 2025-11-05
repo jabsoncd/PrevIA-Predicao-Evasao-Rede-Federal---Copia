@@ -100,6 +100,7 @@ st.markdown("""
     /* Estilo para a sidebar */
     .sidebar-content {
         padding: 1rem;
+        top: 2cm;
     }
     
     /* Estilo para os resultados */
