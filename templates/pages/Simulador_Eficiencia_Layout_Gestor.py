@@ -150,7 +150,7 @@ st.markdown("""
         max-width: 26rem !important;
         z-index: 1000;
         box-shadow: 2px 0 12px rgba(0,0,0,0.18);
-        background-color: #015891; d4d4d4
+        background-color: #c2c180; d4d4d4
         transform: none !important;
         transition: none !important;
     }
