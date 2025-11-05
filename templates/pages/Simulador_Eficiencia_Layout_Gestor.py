@@ -111,6 +111,18 @@ st.markdown("""
         margin: 1rem 0;
         border-left: 4px solid #3b82f6;
     }
+            
+    /* 🔹 Cabeçalhos e cards */
+    .main-header {
+        font-size: 2.5rem;
+        color: #1E3A8A;
+        text-align: center
+    }
+    .sub-header {
+        font-size: 1.2rem;
+        color: #4B5563;
+        text-align: center
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -348,9 +360,8 @@ with st.sidebar:
 # 🔹 Conteúdo das páginas
 if st.session_state.current_page == "home":
     st.markdown('<h1 class="main-header">PrevIA - Predição de Evasão na Rede Federal com Inteligência Artificial</h1>', unsafe_allow_html=True)
-    st.markdown('<p class="sub-header">Conheça os indicadores relacionados a evasão em cursos técnicos na Rede Federal EPCT</p>', unsafe_allow_html=True)
+    st.markdown('<p class="sub-header">Sistema inteligente de análise e predição de evasão escolar na RFEPCT</p>', unsafe_allow_html=True)
 # Linha divisória
-
 st.markdown("<p style='text-align: center; color: #3f3f4f; margin-top: 0px;'> </p>",
             unsafe_allow_html=True)
 st.write("---")
