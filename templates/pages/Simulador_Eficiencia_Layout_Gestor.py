@@ -102,6 +102,7 @@ st.markdown("""
         padding: 1rem;
         top: 2cm;
     }
+            
     
     /* Estilo para os resultados */
     .result-section {
@@ -112,6 +113,27 @@ st.markdown("""
         border-left: 4px solid #3b82f6;
     }
 </style>
+""", unsafe_allow_html=True)
+
+
+# 🔹 Mantém sidebar visível e apenas oculta links indesejados
+st.markdown("""
+    <style>
+    /* Oculta links específicos */
+    section[data-testid="stSidebar"] a[href*="Home_Profissional"],
+    section[data-testid="stSidebar"] a[href*="Indicadores_Eficiencia"],
+    section[data-testid="stSidebar"] a[href*="Simulador_Eficiencia"],
+    section[data-testid="stSidebar"] a[href*="Sobre"],
+    section[data-testid="stSidebar"] a[href*="Indicadores_Eficiencia_Layout"],
+    section[data-testid="stSidebar"] a[href*="Simulador_Eficiencia_Layout"] {
+        display: none !important;
+    }
+
+    /* Sidebar com transição suave */
+    [data-testid="stSidebar"] {
+        top: 2cm;    
+    }
+    </style>
 """, unsafe_allow_html=True)
 
 # Barra de navegação
