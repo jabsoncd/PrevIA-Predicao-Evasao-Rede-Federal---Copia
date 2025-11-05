@@ -21,7 +21,7 @@ st.set_page_config(
     page_icon="images/previa_azulmenor.png",
     layout="wide",
     # initial_sidebar_state="expanded"  # collapsed expanded
-    initial_sidebar_state="expanded"  # 🔹 Oculto ao iniciar
+    initial_sidebar_state="collapsed"  # 🔹 Oculto ao iniciar
 
 )
 
@@ -197,27 +197,42 @@ a, a:visited, a:active {{
 
 
 
-# 🔹 Mantém sidebar visível e apenas oculta links indesejados
-st.markdown("""
-    <style>
-    /* Oculta links específicos */
-    section[data-testid="stSidebar"] a[href*="Home_Profissional"],
-    section[data-testid="stSidebar"] a[href*="Indicadores_Eficiencia"],
-    section[data-testid="stSidebar"] a[href*="Simulador_Eficiencia"],
-    section[data-testid="stSidebar"] a[href*="Sobre"],
-    section[data-testid="stSidebar"] a[href*="Indicadores_Eficiencia_Layout"],
-    section[data-testid="stSidebar"] a[href*="Simulador_Eficiencia_Layout"] {
-        display: none !important;
-    }
+                                            # # 🔹 Mantém sidebar visível e apenas oculta links indesejados
+                                            # st.markdown("""
+                                            #     <style>
+                                            #     /* Oculta links específicos */
+                                            #     section[data-testid="stSidebar"] a[href*="Home_Profissional"],
+                                            #     section[data-testid="stSidebar"] a[href*="Indicadores_Eficiencia"],
+                                            #     section[data-testid="stSidebar"] a[href*="Simulador_Eficiencia"],
+                                            #     section[data-testid="stSidebar"] a[href*="Sobre"],
+                                            #     section[data-testid="stSidebar"] a[href*="Indicadores_Eficiencia_Layout"],
+                                            #     section[data-testid="stSidebar"] a[href*="Simulador_Eficiencia_Layout"] {
+                                            #         display: none !important;
+                                            #     }
 
-        /* Sidebar com transição suave */
-    [data-testid="stSidebar"] {
-        top: 2cm;
-
-    }
-
-    
-""", unsafe_allow_html=True)
+                                            #         /* Sidebar com transição suave */
+                                            #     [data-testid="stSidebar"] {
+                                            #         position: fixed;
+                                            #         left: 0;
+                                            #         top: 2cm;
+                                            #         height: calc(100vh - 2cm);
+                                            #         min-width: 2rem !important;
+                                            #         max-width: 20rem !important;
+                                            #         z-index: 1000;
+                                            #         box-shadow: 2px 0 12px rgba(0,0,0,0.18);
+                                            #         background-color: #d4d4d4;
+                                            #         transform: none !important;
+                                            #         transition: none !important;
+                                            #     }
+                                                
+                                            #         /* Garante que nenhum elemento filho seja visível */
+                                            #     [data-testid="collapsedControl"] {
+                                            #         display: none !important;
+                                            #         visibility: hidden !important;
+                                            #     }
+                                            #     </script> 
+                                                
+                                            # """, unsafe_allow_html=True)
 
 
 
