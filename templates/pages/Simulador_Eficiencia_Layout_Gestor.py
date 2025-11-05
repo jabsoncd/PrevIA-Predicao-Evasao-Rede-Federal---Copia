@@ -345,12 +345,15 @@ with st.sidebar:
 # CONTEÚDO PRINCIPAL - CENTRALIZADO
 # =============================================
 
-# Cabeçalho
-st.markdown('<h1 class="main-header">PrevIA - Predição de Evasão na Rede Federal com Inteligência Artificial</h1>', unsafe_allow_html=True)
-st.markdown('<p class="sub-header">Sistema inteligente de análise e predição de evasão escolar na RFEPCT</p>', unsafe_allow_html=True)
+# 🔹 Conteúdo das páginas
+if st.session_state.current_page == "home":
+    st.markdown('<h1 class="main-header">PrevIA - Predição de Evasão na Rede Federal com Inteligência Artificial</h1>', unsafe_allow_html=True)
+    st.markdown('<p class="sub-header">Conheça os indicadores relacionados a evasão em cursos técnicos na Rede Federal EPCT</p>', unsafe_allow_html=True)
+# Linha divisória
 
-st.markdown("---")
-
+st.markdown("<p style='text-align: center; color: #3f3f4f; margin-top: 0px;'> </p>",
+            unsafe_allow_html=True)
+st.write("---")
 
 # Função para carregar o modelo
 @st.cache_resource
