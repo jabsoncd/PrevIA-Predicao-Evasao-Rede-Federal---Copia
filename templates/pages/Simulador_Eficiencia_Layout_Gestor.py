@@ -263,7 +263,7 @@ regioes = {
 # =============================================
 
 with st.sidebar:
-    st.markdown("### 🎯 Simulador de Evasão")
+    st.markdown("Preencha o formulário:")
     st.markdown("---")
     
     # Dados da Instituição
