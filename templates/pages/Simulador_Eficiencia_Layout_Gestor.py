@@ -100,7 +100,6 @@ st.markdown("""
     /* Estilo para a sidebar */
     .sidebar-content {
         padding: 1rem;
-        top: 2cm;
     }
             
     
@@ -131,11 +130,26 @@ st.markdown("""
 
     /* Sidebar com transição suave */
     [data-testid="stSidebar"] {
-        top: 2cm;    
+        position: fixed;
+        left: 12cm;
+        top: 2cm;
+        height: calc(100vh - 2cm);
+        min-width: 2rem !important;
+        max-width: 20rem !important;
+        z-index: 1000;
+        box-shadow: 2px 0 12px rgba(0,0,0,0.18);
+        background-color: #d4d4d4;
+        transform: none !important;
+        transition: none !important;
+    }
+    
+    /* Garante que nenhum elemento filho seja visível */
+    [data-testid="collapsedControl"] {
+        display: none !important;
+        visibility: hidden !important;
     }
     </style>
 """, unsafe_allow_html=True)
-
 # Barra de navegação
 st.markdown(f"""
 <div class="nav-container">
