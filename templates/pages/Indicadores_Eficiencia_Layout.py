@@ -443,11 +443,15 @@ st.write(" ")
 
 ##################################################################################################################################################################
 
+##################################################################### MODAL
+
 # Inicializa session_state para controle dos filtros
 if "filtros_limpos" not in st.session_state:
     st.session_state.filtros_limpos = False
 if "expander_open" not in st.session_state:
     st.session_state.expander_open = False
+
+
 
 # Lista de todas as chaves dos filtros
 filtro_chaves = [
@@ -456,6 +460,7 @@ filtro_chaves = [
     "eixo_tecnologico", "nome_de_curso", "modalidade_de_ensino", 
     "tipo_de_oferta", "turno"
 ]
+
 
 # Função para limpar filtros
 def limpar_filtros():
@@ -473,6 +478,7 @@ col1, col2 = st.columns([3, 1])
 with col1:
     st.write("")  # Espaço vazio para alinhamento
 with col2:
+
     st.markdown("""
     <style>
         button[kind="primary"] {
@@ -487,8 +493,16 @@ with col2:
             background-color: #cc8843 !important;
             border: 1px solid #FFB300 !important;
         }
+
     </style>
     """, unsafe_allow_html=True)
+    col1, col2, col3 = st.columns([2, 1, 2])
+    with col3:
+        if st.button("Limpar filtros", 
+                    type="primary",  # primary
+                    help="Clique para remover todos os filtros aplicados"):
+            st.rerun()
+
 
 # Expander para filtros
 with st.expander("Filtros", expanded=st.session_state.expander_open):
@@ -587,16 +601,10 @@ with st.expander("Filtros", expanded=st.session_state.expander_open):
         placeholder="Selecione o turno",
         options=sorted(df["TURNO"].unique()),
     )
-    
-    # Botão Limpar Filtros DENTRO do expander, abaixo de todos os filtros
-    st.markdown("---")
-    col1, col2, col3 = st.columns([1, 1, 1])
-    with col2:
-        if st.button("Limpar filtros", 
-                    type="primary",
-                    help="Clique para remover todos os filtros aplicados",
-                    use_container_width=True):
-            limpar_filtros()
+
+                                                                    #     # Botão Limpar Filtros DENTRO do expander
+                                                                    # if st.button("Limpar Filtros", key="limpar_filtros"):
+                                                                    #     limpar_filtros()
 
 # Aplica filtros dinamicamente - usa o dataframe original quando não há filtros
 if any(st.session_state.get(chave, []) for chave in filtro_chaves):
@@ -608,6 +616,7 @@ if any(st.session_state.get(chave, []) for chave in filtro_chaves):
             filtered_df = filtered_df[filtered_df[coluna].isin(valores)]
 else:
     filtered_df = df  # Usa o dataframe completo quando não há filtros
+
 
 
 
