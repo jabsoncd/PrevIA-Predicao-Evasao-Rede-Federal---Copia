@@ -509,39 +509,79 @@ if submit:
             with col2:
                 st.metric("🔴 Probabilidade de EVADIR", f"{prob_evasao:.2%}")
 
-        # XAI - SHAP (Exemplo simplificado)
-        col1, col2, col3 = st.columns([1, 3, 1])
-        with col2:
-            st.markdown("---")
-            st.subheader("📝 Explainable AI (XAI)")
-            st.write("Impacto das Variáveis na Predição:")
+    # =====================================================
+        # EXPLAINABLE AI (XAI) - SHAP Waterfall Plot
+    # =====================================================
+        
+        st.markdown("---")
+        st.subheader("📝 Explainable Artificial Intelligence (XAI)")
+        st.write("Impacto das Variáveis na Predição de Evasão:")
+        
+        try:
+            import shap
+            import matplotlib.pyplot as plt
+            import numpy as np
             
-            # Simulação de valores SHAP (substitua pela sua implementação real)
-            features = ['Idade', 'Renda Familiar', 'Modalidade', 'Turno', 'Eixo Tecnológico', 'Região']
-            shap_values = np.random.uniform(-0.2, 0.2, len(features))
+            plt.title("", fontsize=14, fontweight='bold', loc='center')
+            plt.tight_layout()
+
+            # Criar explainer SHAP
+            explainer = shap.TreeExplainer(model)
             
-            # Gráfico de barras simples para simular SHAP
-            fig, ax = plt.subplots(figsize=(10, 6))
-            colors = ['red' if x > 0 else 'blue' for x in shap_values]
-            y_pos = np.arange(len(features))
+            # Preparar dados para SHAP (usando one-hot encoding se necessário)
+            # Primeiro, vamos garantir que as colunas estejam na mesma ordem que o modelo espera
+            input_data_encoded = input_data.copy()
             
-            ax.barh(y_pos, shap_values, color=colors, alpha=0.7)
-            ax.set_yticks(y_pos)
-            ax.set_yticklabels(features)
-            ax.set_xlabel('Impacto na Evasão')
-            ax.set_title('Impacto das Variáveis na Predição de Evasão')
-            ax.axvline(x=0, color='black', linestyle='-', alpha=0.3)
+            # Aplicar o mesmo pré-processamento usado no treinamento
+            # (você precisará adaptar isso ao seu pré-processamento específico)
             
-            st.pyplot(fig)
+            # Calcular valores SHAP
+            shap_values = explainer.shap_values(input_data_encoded)
             
+            # Se for um modelo multiclasse, pegar os valores para a classe de evasão
+            if isinstance(shap_values, list):
+                shap_values_evasao = shap_values[1]  # Índice 1 para evasão
+            else:
+                shap_values_evasao = shap_values
+            
+            # Criar waterfall plot
+            fig, ax = plt.subplots(figsize=(20, 12))
+            
+            # Gerar o waterfall plot
+            shap.waterfall_plot(
+                shap.Explanation(
+                    values=shap_values_evasao[0],
+                    base_values=explainer.expected_value[1] if isinstance(explainer.expected_value, list) else explainer.expected_value,
+                    data=input_data_encoded.iloc[0],
+                    feature_names=input_data_encoded.columns.tolist()
+                ),
+                max_display=15,  # Mostrar as 15 variáveis mais importantes
+                show=False
+            )
+            
+            # Centralizar o gráfico
+            col1, col2, col3 = st.columns([2, 3, 2])
+            with col2:
+                st.pyplot(fig)
+                plt.close()
+            
+            # Explicação adicional
             st.markdown("""
-            **Interpretação:**
+            **Interpretação do gráfico:**
             - **Valores positivos (vermelho)**: Aumentam a probabilidade de evasão
             - **Valores negativos (azul)**: Diminuem a probabilidade de evasão
+            - **E[f(X)]**: Valor base (probabilidade média)
+            - **f(x)**: Probabilidade final para este caso específico
             """)
-
-# Mensagem quando não há submissão
-else:
-    col1, col2, col3 = st.columns([1, 2, 1])
-    with col2:
-        st.info("💡 **Instruções:** Preencha todos os campos na barra lateral e clique em 'Prever Evasão' para obter a análise.")
+            
+        except Exception as e:
+            st.warning(f"⚠️ Não foi possível gerar a análise de explicabilidade: {str(e)}")
+            st.info("""
+            **Interpretação Alternativa:**
+            Para entender os fatores que influenciam a evasão, considere:
+            - **Idade**: Estudantes mais jovens tendem a ter maior evasão
+            - **Renda Familiar**: Menor renda pode aumentar o risco
+            - **Modalidade**: Cursos EaD podem ter dinâmicas diferentes
+            - **Turno**: Noturno pode ter mais evasão por conciliar trabalho
+            - **Eixo Tecnológico**: Algumas áreas têm maior retenção
+            """)  
