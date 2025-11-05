@@ -630,7 +630,7 @@ if submit:
                 shap_values_evasao = shap_values
             
             # Criar waterfall plot
-            fig, ax = plt.subplots(figsize=(12, 10))
+            fig, ax = plt.subplots(figsize=(20, 12))
             
             # Gerar o waterfall plot
             shap.waterfall_plot(
