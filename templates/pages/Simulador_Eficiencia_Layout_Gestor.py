@@ -337,6 +337,20 @@ st.markdown('<p class="sub-header">Sistema inteligente de análise e predição 
 
 st.markdown("---")
 
+
+# Função para carregar o modelo
+@st.cache_resource
+def load_model():
+    # modelo_lightgbm_220325.pkl
+    # modelo_catboost_categorico_campeao.pkl ou modelo_lightgbm_220325.pkl
+    model_path = os.path.join(
+        "notebooks", "modelo_catboost_categorico_campeao.pkl")  # ../
+    with open(model_path, "rb") as file:
+        model = pickle.load(file)
+    return model
+# Carregar o modelo treinado
+model = load_model()
+
 # Texto introdutório
 st.markdown(
     """
@@ -406,108 +420,148 @@ if submit:
         else:
             st.session_state.input_data = input_data
 
-        # =============================================
-        # RESULTADOS - CENTRALIZADOS
-        # =============================================
 
-        # Simulações Realizadas
-        st.markdown("---")
-        col1, col2, col3 = st.columns([1, 2, 1])
-        with col2:
-            st.subheader("📋 Simulações Realizadas")
-            st.write(st.session_state.input_data)
+        # # Criando o DataFrame de entrada
 
-        # Botão para limpar simulações
-        col1, col2, col3 = st.columns([1, 1, 1])
-        with col2:
-            if st.button("🗑️ Limpar Simulações", use_container_width=True):
-                st.session_state.input_data = pd.DataFrame()
-                st.rerun()
+        st.subheader("📋 Simulações Realizadas")
+        if "input_data" in st.session_state:
+            st.session_state.input_data = pd.concat(
+                [st.session_state.input_data, input_data], ignore_index=True)
+        else:
+            st.session_state.input_data = input_data
 
-        # Mensagem de processamento
-        col1, col2, col3 = st.columns([1, 2, 1])
-        with col2:
-            placeholder_mensagem = st.empty()
-            placeholder_mensagem.success("🔄 Processando a previsão de evasão...")
+        st.write(st.session_state.input_data)
 
-        # Simulação da predição (substitua pelo seu modelo real)
-        import time
+        # Exibe as colunas do modelo e as colunas do input_data
+        print("Colunas do modelo:", model.feature_names_)
+        print("Colunas do input_data:", input_data.columns.tolist())
+
+        # Botão para limpar as simulações
+        if st.button("Limpar Simulações"):
+            # Limpa os dados de 'input_data' no session_state
+            st.session_state.input_data = pd.DataFrame()  # Reseta para um DataFrame vazio
+            st.write("Simulações limpas com sucesso!")
+
+        # Código para realizar a previsão aqui, se não houver erros
+        # st.success("Processando a previsão de evasão...")
+
+        # --- Mensagem temporária ---
+        placeholder_mensagem = st.empty()  # Cria um placeholder vazio
+        placeholder_mensagem.success("Processando a previsão de evasão...")  # Exibe a mensagem
+
+        # Predição
+        probabilidades = model.predict_proba(input_data)[0]
+        prob_nao_evasao = probabilidades[0]  # Probabilidade de NÃO EVADIR
+        prob_evasao = probabilidades[1]  # Probabilidade de EVADIR
+
         import plotly.graph_objects as go
-        import numpy as np
-        
-        # Simulação das probabilidades (substitua pela sua predição real)
-        np.random.seed(42)
-        prob_evasao = np.random.uniform(0.1, 0.9)
-        prob_nao_evasao = 1 - prob_evasao
+        import time
 
-        # Gráfico Gauge - Centralizado
-        col1, col2, col3 = st.columns([1, 2, 1])
-        with col2:
-            st.markdown("---")
-            st.subheader("📊 Resultado da Predição")
-            
-            valor_final = round(prob_evasao * 100, 2)
-            chart_placeholder = st.empty()
+        valor_final = round(prob_evasao * 100, 2)
+        # Criar espaço para o gráfico
+        chart_placeholder = st.empty()
 
-            # Animação do gauge
-            for valor in range(0, int(valor_final) + 1, 2):
-                fig = go.Figure(go.Indicator(
-                    mode="gauge+number",
-                    value=valor,
-                    number={'valueformat': '.f', 'suffix': "%", 'font': {'size': 45, 'color': '#2C3E50'}},
-                    title={'text': "Probabilidade de Evasão (%)", 'font': {'size': 20, 'color': '#2C3E50'}},
-                    gauge={
-                        'axis': {'range': [0, 100], 'tickwidth': 2, 'tickcolor': "#7f8c8d"},
-                        'bar': {'color': "#2C3E50"},
-                        'steps': [
-                            {'range': [0, 40], 'color': "#27AE60"},
-                            {'range': [40, 70], 'color': "#F1C40F"},
-                            {'range': [70, 100], 'color': "#E74C3C"}
-                        ],
-                        'threshold': {
-                            'line': {'color': "red", 'width': 4},
-                            'thickness': 0.85,
-                            'value': valor
-                        }
+        # Animação do ponteiro do velocímetro
+        for valor_final in range(0, int(round(valor_final * 1, 2,)) + 1, 1):  # Atualiza a cada 5%
+            # Convertendo para float com 2 casas decimais
+            valor_final_float = valor_final
+            fig = go.Figure(go.Indicator(
+                mode="gauge+number",
+                value=valor_final_float,
+                number={'valueformat': '.f', 'suffix': "%",
+                        'font': {'size': 45, 'color': '#2C3E50'}},
+                title={'text': "Probabilidade de Evasão (%)", 'font': {
+                    'size': 20, 'color': '#2C3E50'}},
+                gauge={
+                    'axis': {'range': [0, 100], 'tickwidth': 2, 'tickcolor': "#7f8c8d"},
+                    'bar': {'color': "#2C3E50"},  # Cor do ponteiro
+                    'steps': [
+                        # Verde moderno
+                        {'range': [0, 40], 'color': "#27AE60"},
+                        # Amarelo vibrante
+                        {'range': [40, 70], 'color': "#F1C40F"},
+                        # Vermelho marcante
+                        {'range': [70, 100], 'color': "#E74C3C"}
+                    ],
+                    'threshold': {
+                        'line': {'color': "red", 'width': 4},
+                        'thickness': 0.85,
+                        'value': valor_final_float
                     }
-                ))
+                }
+            ))
 
-                fig.update_layout(
-                    margin=dict(l=20, r=40, t=10, b=20),
-                    paper_bgcolor="#f2f4f5",
-                    font=dict(color="#2c3e50", family="Arial")
-                )
+            # Layout moderno
+            fig.update_layout(
+                margin=dict(l=20, r=40, t=10, b=20),
+                paper_bgcolor="#f2f4f5",
+                font=dict(color="#2c3e50", family="Arial")
+            )
 
-                chart_placeholder.plotly_chart(fig)
-                time.sleep(0.05)
+            # Atualiza o gráfico na tela
+            chart_placeholder.plotly_chart(fig)
 
-            placeholder_mensagem.empty()
+            # Pausa para criar o efeito de transição
+            time.sleep(0.1)  # Ajuste esse tempo para controlar a velocidade
 
-        # Categorias de Risco - Centralizado
-        col1, col2, col3 = st.columns([1, 2, 1])
-        with col2:
-            st.markdown("---")
-            st.subheader("🎯 Categoria de Risco")
-            
-            if prob_evasao < 0.50:
-                st.success(f"✅ **Baixa probabilidade de evasão** (Não evade: {prob_nao_evasao:.2%})")
-            elif 0.51 <= prob_evasao <= 0.60:
-                st.warning(f"⚠️ **Moderada chance de evasão** (Evade: {prob_evasao:.2%})")
-            elif 0.61 <= prob_evasao <= 0.70:
-                st.warning(f"⚠️ **Considerável probabilidade de evasão** (Evade: {prob_evasao:.2%})")
-            elif 0.71 <= prob_evasao <= 0.90:
-                st.error(f"⚠️ **Alta chance de evasão!** (Evade: {prob_evasao:.2%})")
-            else:
-                st.error(f"🚨 **Muito alta chance de evasão!** (Evade: {prob_evasao:.2%})")
+        # --- Remover a mensagem inicial após a animação ---
+        placeholder_mensagem.empty()  # Faz a mensagem desaparecer
 
-            # Resultados numéricos
-            st.markdown("---")
-            st.subheader("💻 Resultados Detalhados")
-            col1, col2 = st.columns(2)
-            with col1:
-                st.metric("🟢 Probabilidade de NÃO EVADIR", f"{prob_nao_evasao:.2%}")
-            with col2:
-                st.metric("🔴 Probabilidade de EVADIR", f"{prob_evasao:.2%}")
+        # Definir categorias de risco com base na probabilidade de evasão
+        if prob_evasao < 0.50:
+            st.success(
+                f"✅ Baixa probabilidade de evasão. (Não evade: {prob_nao_evasao:.2%})")
+            imagem = Image.open("templates/n_evade.jpg")
+            legenda = "Estudante aliviado por não evadir"
+
+        elif 0.51 <= prob_evasao <= 0.60:
+            st.warning(
+                f"⚠️ Moderada chance de evasão. (Evade: {prob_evasao:.2%})")
+            # Trocar por outra imagem
+            imagem = Image.open("templates/moderada1.jpg")
+            legenda = "Estudante com dúvidas sobre continuar o curso"
+
+        elif 0.61 <= prob_evasao <= 0.70:
+            st.warning(
+                f"⚠️ Considerável probabilidade de evasão. (Evade: {prob_evasao:.2%})")
+            imagem = Image.open("templates/evade1.jpg")
+            legenda = "Estudante em risco moderado de evasão"
+
+        elif 0.71 <= prob_evasao <= 0.90:
+            st.error(f"⚠️ Alta chance de evasão! (Evade: {prob_evasao:.2%})")
+            imagem = Image.open("templates/alta.jpg")
+            legenda = "Estudante preocupado com a evasão"
+
+        else:  # 0.91 a 1.00
+            st.error(
+                f"🚨 Muito alta chance de evasão! (Evade: {prob_evasao:.2%})")
+            imagem = Image.open("templates/evade.jpg")
+            legenda = "Estudante com grande risco de abandonar o curso"
+
+        # Exibir os resultados
+        st.subheader("💻 Resultados da Predição")
+        st.write(f"🟢 Probabilidade de **NÃO EVADIR**: {prob_nao_evasao:.2%}")
+        st.write(f"🔴 Probabilidade de **EVADIR**: {prob_evasao:.2%}")
+        
+        
+                        # # Exibir a imagem correspondente (centralizada e com largura 450px)
+                        # col1, col2, col3 = st.columns([1, 1, 1])  # colunas: esquerda, centro, direita
+                        # with col2:
+                        #     st.image(imagem, caption=legenda, width=450)
+
+                        # # Centralizar e redimensionar a imagem (400px)
+                        # st.markdown(
+                        #     f"""
+                        #     <div style='display: flex; justify-content: center;'>
+                        #         <img src='{imagem}' alt='{legenda}'>
+                        #     </div>
+                            
+                        #     <p style='text-align:center; font-style: italic;'>{legenda}</p>
+                        #     """,
+                        #     unsafe_allow_html=True
+                        # )       
+
+    
 
     # =====================================================
         # EXPLAINABLE AI (XAI) - SHAP Waterfall Plot
@@ -584,4 +638,7 @@ if submit:
             - **Modalidade**: Cursos EaD podem ter dinâmicas diferentes
             - **Turno**: Noturno pode ter mais evasão por conciliar trabalho
             - **Eixo Tecnológico**: Algumas áreas têm maior retenção
-            """)  
+            """)     
+##########################################################################################################################################################
+
+  
