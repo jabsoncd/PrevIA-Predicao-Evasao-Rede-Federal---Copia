@@ -474,34 +474,6 @@ if st.session_state.filtros_limpos:
     # Força o rerun para recriar os widgets com valores vazios
     st.rerun()
 
-col1, col2 = st.columns([3, 1])
-with col1:
-    st.write("")  # Espaço vazio para alinhamento
-with col2:
-
-    st.markdown("""
-    <style>
-        button[kind="primary"] {
-            background-color: #f2b16f !important;
-            color: #000000 !important;
-            border: 1px solid #8c8a88 !important;
-            font-size: 14px;
-            padding: 0.25rem 1rem;
-            border-radius: 8px !important;
-        }
-        button[kind="primary"]:hover {
-            background-color: #cc8843 !important;
-            border: 1px solid #FFB300 !important;
-        }
-
-    </style>
-    """, unsafe_allow_html=True)
-    col1, col2, col3 = st.columns([2, 1, 2])
-    with col3:
-        if st.button("Limpar filtros", 
-                    type="primary",  # primary
-                    help="Clique para remover todos os filtros aplicados"):
-            st.rerun()
 
 
 # Expander para filtros
@@ -619,6 +591,34 @@ else:
 
 
 
+col1, col2 = st.columns([3, 1])
+with col1:
+    st.write("")  # Espaço vazio para alinhamento
+with col2:
+
+    st.markdown("""
+    <style>
+        button[kind="primary"] {
+            background-color: #f2b16f !important;
+            color: #000000 !important;
+            border: 1px solid #8c8a88 !important;
+            font-size: 14px;
+            padding: 0.25rem 1rem;
+            border-radius: 8px !important;
+        }
+        button[kind="primary"]:hover {
+            background-color: #cc8843 !important;
+            border: 1px solid #FFB300 !important;
+        }
+
+    </style>
+    """, unsafe_allow_html=True)
+    col1, col2, col3 = st.columns([2, 1, 2])
+    with col3:
+        if st.button("Limpar filtros", 
+                    type="primary",  # primary
+                    help="Clique para remover todos os filtros aplicados"):
+            st.rerun()
 
 
 

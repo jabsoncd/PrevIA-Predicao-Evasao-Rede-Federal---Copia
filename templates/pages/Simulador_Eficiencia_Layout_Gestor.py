@@ -645,25 +645,6 @@ if submit:
         st.write(f"🟢 Probabilidade de **NÃO EVADIR**: {prob_nao_evasao:.2%}")
         st.write(f"🔴 Probabilidade de **EVADIR**: {prob_evasao:.2%}")
         
-        
-        # Exibir a imagem correspondente (centralizada e com largura 450px)
-        # col1, col2, col3 = st.columns([1, 1, 1])  # colunas: esquerda, centro, direita
-        # with col2:
-        #     st.image(imagem, caption=legenda, width=450)
-
-        # # Centralizar e redimensionar a imagem (400px)
-        # st.markdown(
-        #     f"""
-        #     <div style='display: flex; justify-content: center;'>
-        #         <img src='{imagem}' alt='{legenda}'>
-        #     </div>
-            
-        #     <p style='text-align:center; font-style: italic;'>{legenda}</p>
-        #     """,
-        #     unsafe_allow_html=True
-        # )  
-
-
 
     # =====================================================
         # EXPLAINABLE AI (XAI) - SHAP Waterfall Plot
