@@ -464,6 +464,8 @@ filtro_chaves = [
 def limpar_filtros():
     st.session_state.filtros_limpos = True
     st.session_state.expander_open = False
+    
+    st.rerun()
 
 # Verifica se precisa limpar os filtros e aplica o rerun
 if st.session_state.filtros_limpos:
