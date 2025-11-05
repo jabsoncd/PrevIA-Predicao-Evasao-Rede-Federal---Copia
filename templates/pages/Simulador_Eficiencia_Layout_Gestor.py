@@ -565,14 +565,14 @@ if submit:
             imagem = Image.open("templates/evade.jpg")
             legenda = "Estudante com grande risco de abandonar o curso"
 
-            # Resultados numéricos
-            st.markdown("---")
-            st.subheader("💻 Resultados Detalhados")
-            col1, col2 = st.columns(2)
-            with col1:
-                st.metric("🟢 Probabilidade de NÃO EVADIR", f"{prob_nao_evasao:.2%}")
-            with col2:
-                st.metric("🔴 Probabilidade de EVADIR", f"{prob_evasao:.2%}")
+        # Resultados numéricos
+        st.markdown("---")
+        st.subheader("💻 Resultados Detalhados")
+        col1, col2 = st.columns(2)
+        with col1:
+            st.metric("🟢 Probabilidade de NÃO EVADIR", f"{prob_nao_evasao:.2%}")
+        with col2:
+            st.metric("🔴 Probabilidade de EVADIR", f"{prob_evasao:.2%}")
         
         
                         # # Exibir a imagem correspondente (centralizada e com largura 450px)
