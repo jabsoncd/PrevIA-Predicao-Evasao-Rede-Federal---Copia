@@ -532,7 +532,7 @@ with st.expander("Filtros", expanded=st.session_state.expander_open):
     REGIAO_METROPOLINA_UE = st.multiselect(
         key="região_metropolitana_ue",
         label="Região Metropolitana",
-        placeholder="Selecione se é Região Metropolitana",
+        placeholder="Selecione se a Unidade de Ensino está localizada em Região Metropolitana",
         options=sorted(df["REGIÃO_METROPOLINA_UE"].unique()),
     )
 
