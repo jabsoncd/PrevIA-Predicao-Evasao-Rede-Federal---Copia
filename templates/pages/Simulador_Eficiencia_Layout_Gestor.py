@@ -131,7 +131,7 @@ st.markdown("""
     /* Sidebar com transição suave */
     [data-testid="stSidebar"] {
         position: fixed;
-        left: 12cm;
+        left: 15cm;
         top: 2cm;
         height: calc(100vh - 2cm);
         min-width: 2rem !important;
