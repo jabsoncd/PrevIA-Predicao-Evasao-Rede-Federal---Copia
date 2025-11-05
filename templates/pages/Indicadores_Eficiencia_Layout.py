@@ -579,17 +579,6 @@ with st.expander("Filtros", expanded=st.session_state.expander_open):
                                                                     # if st.button("Limpar Filtros", key="limpar_filtros"):
                                                                     #     limpar_filtros()
 
-# Aplica filtros dinamicamente - usa o dataframe original quando não há filtros
-if any(st.session_state.get(chave, []) for chave in filtro_chaves):
-    filtered_df = df.copy()
-    for coluna in df.columns:
-        session_chave = coluna.lower().replace(" ", "_")
-        valores = st.session_state.get(session_chave, [])
-        if valores:
-            filtered_df = filtered_df[filtered_df[coluna].isin(valores)]
-else:
-    filtered_df = df  # Usa o dataframe completo quando não há filtros
-
 col1, col2 = st.columns([3, 1])
 with col1:
     st.write("")  # Espaço vazio para alinhamento
@@ -618,6 +607,19 @@ with col2:
                     type="primary",  # primary
                     help="Clique para remover todos os filtros aplicados"):
             st.rerun()
+            
+# Aplica filtros dinamicamente - usa o dataframe original quando não há filtros
+if any(st.session_state.get(chave, []) for chave in filtro_chaves):
+    filtered_df = df.copy()
+    for coluna in df.columns:
+        session_chave = coluna.lower().replace(" ", "_")
+        valores = st.session_state.get(session_chave, [])
+        if valores:
+            filtered_df = filtered_df[filtered_df[coluna].isin(valores)]
+else:
+    filtered_df = df  # Usa o dataframe completo quando não há filtros
+
+
 
 
 
