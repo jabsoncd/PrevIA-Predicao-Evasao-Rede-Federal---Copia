@@ -489,8 +489,8 @@ with col2:
             border-radius: 8px !important;
         }
         button[kind="primary"]:hover {
-            background-color: #420505 !important;
-            border: 1px solid #240204 !important;
+            background-color: #b86368 !important;
+            border: 1px solid #b86368 !important;
         }
     </style>
     """, unsafe_allow_html=True)
