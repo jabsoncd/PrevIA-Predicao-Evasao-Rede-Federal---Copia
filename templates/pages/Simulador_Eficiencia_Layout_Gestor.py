@@ -262,9 +262,7 @@ regioes = {
 # SIDEBAR - FILTROS
 # =============================================
 
-with st.sidebar:
-    st.markdown("<h3 style='text-align: center; font-weight: bold;'>Preencha o formulário:</h3>", unsafe_allow_html=True)
-    
+with st.sidebar: 
     # Dados da Instituição
     st.markdown("<h3 style='font-weight: bold;'>Dados da Instituição</h3>", unsafe_allow_html=True)
     
