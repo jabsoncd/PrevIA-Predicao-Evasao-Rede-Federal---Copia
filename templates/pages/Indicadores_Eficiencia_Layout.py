@@ -21,7 +21,7 @@ st.set_page_config(
     page_icon="images/previa_azulmenor.png",
     layout="wide",
     # initial_sidebar_state="expanded"  # collapsed expanded
-    initial_sidebar_state="expanded"  # 🔹 Oculto ao iniciar
+    initial_sidebar_state="collapsed"  # 🔹 Oculto ao iniciar
 
 )
 
@@ -443,7 +443,7 @@ st.write(" ")
 
 ##################################################################################################################################################################
 
-##################################################################### MODAL
+##################################################################### MODAL/EXPANDER 
 
 # Inicializa session_state para controle dos filtros
 if "filtros_limpos" not in st.session_state:
