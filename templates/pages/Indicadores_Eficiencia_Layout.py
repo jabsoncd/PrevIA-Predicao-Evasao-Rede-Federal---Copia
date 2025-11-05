@@ -476,6 +476,7 @@ if st.session_state.filtros_limpos:
 
 
 
+
 # Expander para filtros
 with st.expander("Filtros", expanded=st.session_state.expander_open):
     st.markdown("### Situação das Matrículas")
@@ -589,8 +590,6 @@ if any(st.session_state.get(chave, []) for chave in filtro_chaves):
 else:
     filtered_df = df  # Usa o dataframe completo quando não há filtros
 
-
-
 col1, col2 = st.columns([3, 1])
 with col1:
     st.write("")  # Espaço vazio para alinhamento
@@ -619,6 +618,8 @@ with col2:
                     type="primary",  # primary
                     help="Clique para remover todos os filtros aplicados"):
             st.rerun()
+
+
 
 
 
