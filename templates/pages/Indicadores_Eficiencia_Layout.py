@@ -454,7 +454,7 @@ if "expander_open" not in st.session_state:
 # Lista de todas as chaves dos filtros
 filtro_chaves = [
     "regiao", "uf", "instituicao", "unidade_de_ensino", 
-    "regiao_metropolitana_ue", "cor_raca", "sexo", "renda_familiar",
+    "região_metropolitana_ue", "cor_raca", "sexo", "renda_familiar",
     "eixo_tecnologico", "nome_de_curso", "modalidade_de_ensino", 
     "tipo_de_oferta", "turno"
 ]
@@ -530,7 +530,7 @@ with st.expander("Filtros", expanded=st.session_state.expander_open):
         options=sorted(df["UNIDADE_DE_ENSINO"].unique()),
     )
     REGIAO_METROPOLINA_UE = st.multiselect(
-        key="regiao_metropolitana_ue",
+        key="região_metropolitana_ue",
         label="Região Metropolitana",
         placeholder="Selecione se é Região Metropolitana",
         options=sorted(df["REGIÃO_METROPOLINA_UE"].unique()),
