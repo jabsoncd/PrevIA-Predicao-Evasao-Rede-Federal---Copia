@@ -481,7 +481,7 @@ with col2:
     st.markdown("""
     <style>
         button[kind="primary"] {
-            background-color: #f2b16f !important;
+            background-color: #e33434 !important;
             color: #000000 !important;
             border: 1px solid #8c8a88 !important;
             font-size: 14px;
@@ -489,8 +489,8 @@ with col2:
             border-radius: 8px !important;
         }
         button[kind="primary"]:hover {
-            background-color: #cc8843 !important;
-            border: 1px solid #FFB300 !important;
+            background-color: #420505 !important;
+            border: 1px solid #240204 !important;
         }
     </style>
     """, unsafe_allow_html=True)
@@ -595,7 +595,7 @@ with st.expander("Filtros", expanded=st.session_state.expander_open):
     
     # Botão Limpar Filtros DENTRO do expander, abaixo de todos os filtros
     st.markdown("---")
-    col1, col2, col3 = st.columns([1, 1, 1])
+    col1, col2, col3 = st.columns([1, 5, 1])
     with col3:
         if st.button("Limpar filtros", 
                     type="primary",
