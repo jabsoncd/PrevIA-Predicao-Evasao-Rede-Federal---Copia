@@ -299,6 +299,17 @@ with st.sidebar:
         .stSelectbox div[data-baseweb="select"] {
             color: #F0F0F0 !important;
         }
+        * Tooltip de help */
+        .stTooltipIcon > div > div {
+            color: #E8E8E8 !important;
+        }
+        
+        /* Texto dentro do tooltip */
+        [data-testid="stTooltip"] {
+            color: #F0F0F0 !important;
+            background-color: #262730 !important;
+            border: 1px solid #555555 !important;
+        }
         </style>
     """, unsafe_allow_html=True)
 
