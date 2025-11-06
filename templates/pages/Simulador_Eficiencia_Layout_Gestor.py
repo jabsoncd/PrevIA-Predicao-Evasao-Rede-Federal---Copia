@@ -487,18 +487,16 @@ with st.sidebar:
             width: 0.75rem;
         }
                 
-        .st-gz {
-            background: linear-gradient(to right, rgb(255, 202, 75) 0%, rgb(255, 218, 75) 62.7907%, rgba(151, 166, 195, 0.25) 62.7907%, rgba(151, 166, 195, 0.25) 100%);
-        }
-                
+        .st-an st-ap st-aq st-ao st-ff st-dt st-am st-du st-dv {
+            background: linear-gradient(to right, rgb(255, 218, 75) 0%, rgb(238, 189, 42) 61.6279%, rgba(151, 166, 195, 0.25) 61.6279%, rgba(151, 166, 195, 0.25) 100%);
+        }      
         st-emotion-cache-b92z60 {
             font-family: "Source Code Pro", monospace;
             font-size: 0.875rem;
-            color: #F0F0F0;
+            color: #e1eeeee5;;
             top: -1.6em;
             position: absolute;
             white-space: nowrap;
-            background-color: #F0F0F0;
             line-height: 1.6;
             font-weight: 400;
             pointer-events: none;
