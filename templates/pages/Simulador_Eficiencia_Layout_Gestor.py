@@ -55,7 +55,7 @@ st.markdown("""
     .css-1d391kg, 
     [data-testid="stSidebarNav"],
     .css-1lcbmhc {
-        color: #0E1117 !important; /* Cor padrão do fundo do Streamlit */
+        color: #455f85 !important; /* Cor padrão do fundo do Streamlit */
         opacity: 0.7;
     }
     </style>
