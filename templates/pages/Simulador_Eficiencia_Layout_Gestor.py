@@ -396,8 +396,6 @@ with st.sidebar:
             stroke: rgba(50, 62, 55, 0.7);
         }
         </style>
-                
-      
 
     """, unsafe_allow_html=True)
     
@@ -473,7 +471,7 @@ with st.sidebar:
             color: #F0F0F0 !important;
         }
                 
-        .st-emotion-cache-1dj3ksd {
+        .st-emotion-cache-1dj3ksd e8lt0n70{
             -moz-box-align: center;
             align-items: center;
             background-color: #F0F0F0;
@@ -507,6 +505,28 @@ with st.sidebar:
             font-family: "Source Code Pro", monospace;
             color: #F0F0F0;
         }
+
+        [data-testid="stSliderThumbValue"{
+                color: rgb(231, 232, 228);        
+        }
+                
+        .st-emotion-cache-b92z60 e8lt0n71 {
+            font-family: "Source Code Pro", monospace;
+            font-size: 0.875rem;
+            color: rgb(231, 232, 228);
+            top: -1.6em;
+            position: absolute;
+            white-space: nowrap;
+            background-color: transparent;
+            line-height: 1.6;
+            font-weight: 400;
+            pointer-events: none;
+            }
+                     
+
+
+
+
         </style>
     """, unsafe_allow_html=True)
     idade = st.slider("Idade:", min_value=14, max_value=100, value=14, step=1)
