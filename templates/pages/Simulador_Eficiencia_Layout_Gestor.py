@@ -212,12 +212,19 @@ if "current_page" not in st.session_state:
 if "input_data" not in st.session_state:
     st.session_state.input_data = pd.DataFrame()
 
+##########################################################################################################################################################
 # Função para carregar o modelo
 @st.cache_resource
 def load_model():
-    # Substitua pelo seu código de carregamento do modelo
-    # return model
-    pass
+    # modelo_lightgbm_220325.pkl
+    # modelo_catboost_categorico_campeao.pkl ou modelo_lightgbm_220325.pkl
+    model_path = os.path.join(
+        "notebooks", "modelo_catboost_categorico_campeao.pkl")  # ../
+    with open(model_path, "rb") as file:
+        model = pickle.load(file)
+    return model
+# Carregar o modelo treinado
+model = load_model()
 
 # Carregar dados
 def carregar_dados():
