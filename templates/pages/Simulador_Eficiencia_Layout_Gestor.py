@@ -368,10 +368,7 @@ with st.sidebar:
         border: 2px solid #FFFFFF;
     }
     
-    /* Barra preenchida do slider */
-    .stSlider div[data-baseweb="slider"] > div > div > div > div {
-        background-color: #888888 !important;
-    }
+
     
     /* Selectbox (mantendo seu estilo original) */
     .stSelectbox div[data-baseweb="select"] {
