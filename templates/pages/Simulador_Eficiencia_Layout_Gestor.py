@@ -380,7 +380,6 @@ with st.sidebar:
         
         /* Hover no ícone */
         [data-testid="stTooltipHoverTarget"]:hover svg {
-            fill: #FFFFFF !important;
             stroke: rgb(24, 221, 110); 
         }
         
@@ -393,11 +392,7 @@ with st.sidebar:
         }
         
         /* Garantir para todos os tipos de componentes */
-        .stSelectbox [data-testid="stTooltipHoverTarget"] svg,
-        .stRadio [data-testid="stTooltipHoverTarget"] svg,
-        .stSlider [data-testid="stTooltipHoverTarget"] svg,
-        .stTextInput [data-testid="stTooltipHoverTarget"] svg {
-            fill: #F0F0F0 !important;
+        .st-emotion-cache-oj1fi .stTooltipHoverTarget > svg {
             stroke: rgb(24, 221, 110); 
         }
         </style>
