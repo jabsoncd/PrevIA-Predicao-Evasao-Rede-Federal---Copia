@@ -439,6 +439,13 @@ with st.sidebar:
         ..st-emotion-cache-1eres {
             color: #F0F0F0 !important;
         }
+                
+
+        .st-emotion-cache-1eresbn p {
+            word-break: break-word;
+            margin: 0px;
+            color: #ddd;
+        }
         </style>
     """, unsafe_allow_html=True)
 
