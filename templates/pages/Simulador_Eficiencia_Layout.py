@@ -152,14 +152,14 @@ st.markdown(f"""
 }}
 
 .nav-link {{
-    color: #FFFFFF;
+    color: #FFFFFF !important;
     font-weight: 600;
     font-size: 1.1rem;
     cursor: pointer;
     text-decoration: none !important;
 }}
 .nav-link:hover {{
-    color: #FFA500; /* laranja claro ao passar o mouse */
+    color: #FFA500 !important; /* laranja claro ao passar o mouse */
     transition: color 0.2s;
 }}
 
@@ -170,8 +170,8 @@ st.markdown(f"""
 
 /* Garante que os links não sejam estilizados por padrão do navegador */
 a, a:visited, a:active {{
-    color: white;
-    text-decoration: none;
+    color: #FFFFFF !important;
+    text-decoration: none !important;
 }}
 </style>
 

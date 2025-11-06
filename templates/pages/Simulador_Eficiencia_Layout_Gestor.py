@@ -87,91 +87,97 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 ######################################################################## BARRA AZUL #################################################################################
-st.markdown(f""" 
+st.markdown(""" 
 <style>
-    /* 🔹 Barra superior azul */
-    .nav-container {{
-        background-color: #152847;
-        height: 2cm;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        padding: 0 2rem;
-        margin: 0;
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 999;
-        border-radius: 0;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.2)
-    }}
+/* 🔹 Barra superior azul */
+.nav-container {
+    background-color: #152847;
+    height: 2cm;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 2rem;
+    margin: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    border-radius: 0;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2)
+}
 
-    .nav-logo {{
-        width: 200px;
-        height: 60px;
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: left center;
-    }}
+.nav-logo {
+    width: 200px;
+    height: 60px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: left center;
+}
 
-    .nav-links {{
-        display: flex;
-        gap: 2rem;
-    }}
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
 
-    .nav-link {{
-        color: #FFFFFF;
-        font-weight: 600;
-        font-size: 1.1rem;
-        cursor: pointer;
-        text-decoration: none !important;
-    }}
-    .nav-link:hover {{
-        color: #FFA500;
-        transition: color 0.2s;
-    }}
+.nav-link {
+    color: #FFFFFF !important;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    text-decoration: none !important;
+}
+.nav-link:hover {
+    color: #FFA500 !important
+    transition: color 0.2s;
+}
 
-    /* Espaço no topo para não sobrepor o conteúdo */
-    .app-content {{
-        padding-top: 3.5rem;
-    }}
+/* Espaço no topo para não sobrepor o conteúdo */
+.app-content {
+    padding-top: 3.5rem;
+}
 
-    /* Centralizar conteúdo */
-    .centered-content {{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        text-align: center;
-    }}
-    
-    /* Estilo para a sidebar */
-    .sidebar-content {{
-        padding: 1rem;
-    }}
+/* Centralizar conteúdo */
+.centered-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
             
-    
-    /* Estilo para os resultados */
-    .result-section {{
-        background-color: #f8f9fa;
-        border-radius: 10px;
-        padding: 1.5rem;
-        margin: 1rem 0;
-        border-left: 4px solid #3b82f6;
-    }}
-            
-    /* 🔹 Cabeçalhos e cards */
-    .main-header {{
-        font-size: 2.5rem;
-        color: #1E3A8A;
-        text-align: center
-    }}
-    .sub-header {{
-        font-size: 1.2rem;
-        color: #4B5563;
-        text-align: center
-    }}
+* Garante que os links não sejam estilizados por padrão do navegador */
+a, a:visited, a:active {
+    color: #FFFFFF !important;
+    text-decoration: none !important;
+}
+
+/* Estilo para a sidebar */
+.sidebar-content {
+    padding: 1rem;
+}
+        
+
+/* Estilo para os resultados */
+.result-section {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    border-left: 4px solid #3b82f6;
+}
+        
+/* 🔹 Cabeçalhos e cards */
+.main-header {
+    font-size: 2.5rem;
+    color: #1E3A8A;
+    text-align: center
+}
+.sub-header {
+    font-size: 1.2rem;
+    color: #4B5563;
+    text-align: center
+}
 </style>
 """, unsafe_allow_html=True)
 

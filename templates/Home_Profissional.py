@@ -112,7 +112,7 @@ logo_b64 = get_base64_image(logo_path)
 
 
 # Barra azul com logo à esquerda e links à direita
-st.markdown(f"""
+st.markdown(f""" 
 <style>
 .nav-container {{
     background-color: #152847;

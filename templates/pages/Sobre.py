@@ -191,14 +191,14 @@ st.markdown(f"""
 }}
 
 .nav-link {{
-    color: #FFFFFF;
+    color: #FFFFFF !important;
     font-weight: 600;
     font-size: 1.1rem;
     cursor: pointer;
     text-decoration: none !important;
 }}
 .nav-link:hover {{
-    color: #FFA500; /* laranja claro ao passar o mouse */
+    color: #FFA500 !important; /* laranja claro ao passar o mouse */
     transition: color 0.2s;
 }}
 
@@ -209,8 +209,8 @@ st.markdown(f"""
 
 /* Garante que os links não sejam estilizados por padrão do navegador */
 a, a:visited, a:active {{
-    color: #ffffff;
-    text-decoration: none;
+    color: #ffffff !important;
+    text-decoration: none !important;
 }}
 </style>
 
@@ -286,8 +286,9 @@ st.markdown("""
 
         /* Aba selecionada */
         button[data-baseweb="tab"][aria-selected="true"] {
-            background-color: #dcdee0 !important; /* Azul mais claro */
-            border-radius: 1px;
+            background-color: #d4e1f4 !important; /* Azul mais claro */
+            border-radius: 2px;
+            margin-left: 5px;margin-right: 5px;
         }
 
         h1, h2, h3, h4, h5 {
