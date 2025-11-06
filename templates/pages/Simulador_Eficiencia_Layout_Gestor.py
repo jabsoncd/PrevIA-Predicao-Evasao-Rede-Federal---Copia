@@ -382,7 +382,7 @@ with st.sidebar:
     st.markdown("""
         <style>
         /* Cor do texto do selectbox */
-        .stInput label {
+        .stText_input label {
             color: #F0F0F0 !important;
             font-weight: 500;
         }
