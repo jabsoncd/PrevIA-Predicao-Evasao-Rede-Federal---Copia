@@ -50,19 +50,23 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 st.markdown("""
+    <script>
+    // Remover o botão via JavaScript
+    setTimeout(function() {
+        const sidebarButton = document.querySelector('button[data-testid="baseButton-header"]');
+        if (sidebarButton) {
+            sidebarButton.remove();
+        }
+        
+        // Alternativa por classe
+        const sidebarControls = document.querySelectorAll('.css-1d391kg');
+        sidebarControls.forEach(control => control.remove());
+    }, 100);
+    </script>
+    
     <style>
-    /* Esconder o botão padrão de recolher/expandir sidebar */
+    /* Garantir que não reapareça */
     button[data-testid="baseButton-header"] {
-        display: none !important;
-    }
-    
-    /* Alternativa por seletor de classe */
-    .css-1d391kg {
-        display: none !important;
-    }
-    
-    /* Outro seletor possível */
-    [data-testid="stSidebarCollapsedControl"] {
         display: none !important;
     }
     </style>
