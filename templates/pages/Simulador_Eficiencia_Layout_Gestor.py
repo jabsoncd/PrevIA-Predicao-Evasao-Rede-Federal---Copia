@@ -264,7 +264,7 @@ regioes = {
 
 with st.sidebar: 
     # Dados da Instituição
-    st.markdown("<h3 style='font-weight: bold;'>Dados da Instituição</h3>", unsafe_allow_html=True)
+    st.markdown("<h3 style='font-weight: bold; color: #F0F0F0;'>Dados da Instituição</h3>", unsafe_allow_html=True)
     
     regiao_escolhida = st.selectbox("Região", 
                                    ["Selecione uma região"] + list(regioes.keys()),
@@ -292,7 +292,7 @@ with st.sidebar:
 
     # Dados Pessoais
     st.markdown("---")
-    st.markdown("<h3 style='font-weight: bold;'>Dados Pessoais</h3>", unsafe_allow_html=True)
+    st.markdown("<h3 style='font-weight: bold;' color: #F0F0F0;>Dados Pessoais</h3>", unsafe_allow_html=True)
     
     sexo = st.selectbox("Gênero:", ["Masculino", "Feminino"])
     idade = st.slider("Idade:", min_value=14, max_value=100, value=14, step=1)
@@ -305,7 +305,7 @@ with st.sidebar:
 
     # Dados do Curso
     st.markdown("---")
-    st.markdown("<h3 style='font-weight: bold;'>Dados do Curso</h3>", unsafe_allow_html=True)
+    st.markdown("<h3 style='font-weight: bold; color: #F0F0F0;'>Dados do Curso</h3>", unsafe_allow_html=True)
 
 
     
