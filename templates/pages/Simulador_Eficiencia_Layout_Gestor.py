@@ -134,7 +134,7 @@ st.markdown("""
 
 /* Espaço no topo para não sobrepor o conteúdo */
 .app-content {
-    padding-top: 3.5rem;
+    padding-top: 1.5rem;
 }
 
 /* Centralizar conteúdo */
