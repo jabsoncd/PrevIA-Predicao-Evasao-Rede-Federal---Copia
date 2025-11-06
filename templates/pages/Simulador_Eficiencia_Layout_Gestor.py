@@ -304,29 +304,40 @@ with st.sidebar:
 
     st.markdown("""
         <style>
-        /* Label da pergunta */
-        div[data-testid="stRadio"]:has(label:contains("região metropolitana")) > label {
+        /* Label da pergunta do radio */
+        .stRadio label {
             color: #F0F0F0 !important;
             font-weight: 500;
         }
         
-        /* Opções SIM/NÃO */
-        div[data-testid="stRadio"]:has(label:contains("região metropolitana")) div[role="radiogroup"] label {
+        /* Texto das opções do radio */
+        .stRadio div[role="radiogroup"] label {
             color: #E8E8E8 !important;
+            font-weight: 400;
         }
         
         /* Opção selecionada */
-        div[data-testid="stRadio"]:has(label:contains("região metropolitana")) div[role="radiogroup"] input:checked + label {
+        .stRadio div[role="radiogroup"] input:checked + label {
             color: #FFFFFF !important;
-            font-weight: bold;
+            font-weight: 500;
+        }
+        
+        /* Hover nas opções */
+        .stRadio div[role="radiogroup"] label:hover {
+            color: #FFFFFF !important;
+        }
+        
+        /* Selectbox (mantendo seu estilo original) */
+        .stSelectbox div[data-baseweb="select"] {
+            color: #F0F0F0 !important;
         }
         </style>
     """, unsafe_allow_html=True)
 
     regiao_metropolitana_ue = st.radio("A unidade de ensino está localizada em região metropolitana?", 
-                                      ["SIM", "NÃO"],
-                                      help="Informe se a Instituição fica em região metropolitana.")
-
+                                  ["SIM", "NÃO"],
+                                  help="Informe se a Instituição fica em região metropolitana.")
+  
     # Dados Pessoais
     st.markdown("---")
     st.markdown("<h3 style='font-weight: bold;color: #F0F0F0; '>Dados Pessoais</h3>", unsafe_allow_html=True)
