@@ -262,7 +262,7 @@ if st.session_state.current_page == "home":
                 <button style="padding: 4px 15px; border-radius: 7px; 
                               border: none; background-color: #dedede; 
                               color: #696b6e; font-size: 19px; cursor: pointer;">
-                    Acessar Módulos
+                    Acessar Módulo
                 </button>
             </a>
         </div>
@@ -289,19 +289,5 @@ if st.session_state.current_page == "home":
     </div>
     """, unsafe_allow_html=True)
 
-elif st.session_state.current_page == "simular":
-    st.title("Simulador de Evasão")
-    st.write("Conteúdo do simulador será implementado aqui...")
 
-elif st.session_state.current_page == "indicadores":
-    st.title("Indicadores de Evasão")
-    st.write("Conteúdo dos indicadores será implementado aqui...")
-
-elif st.session_state.current_page == "gestor":
-    st.title("Módulo Gestor")
-    st.write("Conteúdo do módulo gestor será implementado aqui...")
-
-elif st.session_state.current_page == "sobre":
-    st.title("Sobre o PrevIA")
-    st.write("Informações sobre o projeto...")
  
