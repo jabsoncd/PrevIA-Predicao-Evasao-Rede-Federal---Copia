@@ -48,6 +48,15 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
+
+st.markdown("""
+    <style>
+    [data-testid="stHelpIcon"] svg {
+        fill: white !important;  /* muda a cor do ícone */
+    }
+    </style>
+""", unsafe_allow_html=True)
+
 st.markdown("""
     <style>
     /* Manter visível mas desabilitar interação */
@@ -302,13 +311,7 @@ with st.sidebar:
         </style>
     """, unsafe_allow_html=True)
 
-    st.markdown("""
-    <style>
-    [data-testid="stHelpIcon"] svg {
-        fill: white !important;  /* muda a cor do ícone */
-    }
-    </style>
-    """, unsafe_allow_html=True)
+
 
     regiao_escolhida = st.selectbox("Região", 
                                    ["Selecione uma região"] + list(regioes.keys()),
