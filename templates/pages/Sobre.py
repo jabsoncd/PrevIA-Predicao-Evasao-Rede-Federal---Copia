@@ -282,13 +282,20 @@ st.markdown("""
             color: white !important;
             font-weight: 600 !important;
             background: transparent !important;
+            border-radius: 5px;
+            padding-left: 10px;
+            padding-right: 10px;
+
         }
 
         /* Aba selecionada */
         button[data-baseweb="tab"][aria-selected="true"] {
             background-color: #d4e1f4 !important; /* Azul mais claro */
-            border-radius: 2px;
-            margin-left: 5px;margin-right: 5px;
+            border-radius: 5px;
+            margin-left: 5px;
+            margin-right: 5px;
+            padding-left: 10px;
+            padding-right: 10px;
         }
 
         h1, h2, h3, h4, h5 {
