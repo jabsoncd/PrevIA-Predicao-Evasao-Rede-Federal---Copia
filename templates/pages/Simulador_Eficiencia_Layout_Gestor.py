@@ -38,6 +38,17 @@ hide_st_style = """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
 # CSS personalizado
+
+st.markdown("""
+    <style>
+    /* Esconder o termo "Home Profissional" */
+    .css-1d391kg, 
+    [data-testid="stSidebarNav"] {
+        display: none !important;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
 st.markdown("""
 <style>
     /* 🔹 Barra superior azul */
