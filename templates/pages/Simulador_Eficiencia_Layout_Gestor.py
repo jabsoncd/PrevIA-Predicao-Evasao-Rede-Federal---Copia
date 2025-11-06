@@ -303,35 +303,35 @@ with st.sidebar:
                                         help="Selecione a Instituição que estuda ou deseja estudar.")
 
     st.markdown("""
-    <style>
-    /* Label da pergunta do radio */
-    .stRadio label {
-        color: #F0F0F0 !important;
-        font-weight: 500;
-    }
-    
-    /* Texto das opções do radio */
-    .stRadio div[role="radiogroup"] label {
-        color: #E8E8E8 !important;
-        font-weight: 400;
-    }
-    
-    /* Opção selecionada */
-    .stRadio div[role="radiogroup"] input:checked + label {
-        color: #FFFFFF !important;
-        font-weight: 500;
-    }
-    
-    /* Hover nas opções */
-    .stRadio div[role="radiogroup"] label:hover {
-        color: #FFFFFF !important;
-    }
-    
-    /* Selectbox (mantendo seu estilo original) */
-    .stSelectbox div[data-baseweb="select"] {
-        color: #F0F0F0 !important;
-    }
-    </style>
+        <style>
+        /* Label da pergunta do radio */
+        .stRadio label {
+            color: #F0F0F0 !important;
+            font-weight: 500;
+        }
+        
+        /* Texto das opções do radio */
+        .stRadio div[role="radiogroup"] label {
+            color: #E8E8E8 !important;
+            font-weight: 400;
+        }
+        
+        /* Opção selecionada */
+        .stRadio div[role="radiogroup"] input:checked + label {
+            color: #FFFFFF !important;
+            font-weight: 500;
+        }
+        
+        /* Hover nas opções */
+        .stRadio div[role="radiogroup"] label:hover {
+            color: #FFFFFF !important;
+        }
+        
+        /* Selectbox (mantendo seu estilo original) */
+        .stSelectbox div[data-baseweb="select"] {
+            color: #F0F0F0 !important;
+        }
+        </style>
     """, unsafe_allow_html=True)
 
     regiao_metropolitana_ue = st.radio("A unidade de ensino está localizada em região metropolitana?", 
