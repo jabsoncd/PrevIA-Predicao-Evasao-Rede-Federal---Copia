@@ -476,7 +476,7 @@ with st.sidebar:
         .st-emotion-cache-1dj3ksd {
             -moz-box-align: center;
             align-items: center;
-            background-color: rgb(255, 242, 54);
+            background-color: #F0F0F0;
             border-radius: 100%;
             border-style: none;
             box-shadow: none;
@@ -494,11 +494,11 @@ with st.sidebar:
         st-emotion-cache-b92z60 {
             font-family: "Source Code Pro", monospace;
             font-size: 0.875rem;
-            color: rgb(240, 240, 240);
+            color: #F0F0F0;
             top: -1.6em;
             position: absolute;
             white-space: nowrap;
-            background-color: rgb(22, 185, 17);
+            background-color: #F0F0F0;
             line-height: 1.6;
             font-weight: 400;
             pointer-events: none;
