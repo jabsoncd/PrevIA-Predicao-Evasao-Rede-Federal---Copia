@@ -40,18 +40,14 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 # CSS personalizado
 st.markdown("""
     <style>
-    [data-testid="stHelpIcon"] svg {
-        fill: white !important;
-    }
-
-    div[data-testid="stTooltipContent"] {
-        background-color: #1E2A44 !important;  /* fundo */
-        color: white !important;               /* texto */
-        border: 1px solid #ffffff33 !important;
-        font-size: 0.9rem !important;
+    /* Esconder o termo "Home Profissional" */
+    .css-1d391kg, 
+    [data-testid="stSidebarNav"] {
+        display: none !important;
     }
     </style>
 """, unsafe_allow_html=True)
+
 
 st.markdown("""
     <style>
@@ -59,7 +55,7 @@ st.markdown("""
         fill: white !important;  /* muda a cor do ícone */
     }
     </style>
-""", unsafe_allow_html=True)
+    """, unsafe_allow_html=True)
 
 st.markdown("""
     <style>
