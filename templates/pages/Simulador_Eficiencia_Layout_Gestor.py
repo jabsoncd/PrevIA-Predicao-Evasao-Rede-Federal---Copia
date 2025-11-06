@@ -299,28 +299,15 @@ with st.sidebar:
         .stSelectbox div[data-baseweb="select"] {
             color: #F0F0F0 !important;
         }
-        
-        /* Ícone do help */
-        .stTooltipIcon > div > div {
-            color: #CCCCCC !important;
-        }
-        
-        /* Container do tooltip */
-        [data-testid="stTooltip"] {
-            color: #E8E8E8 !important;
-            background-color: #1E1E1E !important;
-            border: 1px solid #444444 !important;
-            border-radius: 6px !important;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
-            font-size: 14px !important;
-            padding: 12px !important;
-        }
-        
-        /* Hover no ícone de help */
-        .stTooltipIcon > div > div:hover {
-            color: #FFFFFF !important;
-        }
         </style>
+    """, unsafe_allow_html=True)
+
+    st.markdown("""
+    <style>
+    [data-testid="stHelpIcon"] svg {
+        fill: white !important;  /* muda a cor do ícone */
+    }
+    </style>
     """, unsafe_allow_html=True)
 
     regiao_escolhida = st.selectbox("Região", 
