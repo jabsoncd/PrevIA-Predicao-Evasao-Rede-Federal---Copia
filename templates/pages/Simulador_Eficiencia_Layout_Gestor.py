@@ -338,17 +338,34 @@ with st.sidebar:
         .stSelectbox div[data-baseweb="select"] {
             color: #F0F0F0 !important;
         }
+                
+        /* Ícone de help - abordagem direta */
+        [data-testid="stHelpIcon"] svg {
+            fill: #F0F0F0 !important;
+        }
+        
+        /* Hover no ícone */
+        [data-testid="stHelpIcon"]:hover svg {
+            fill: #FFFFFF !important;
+        }
+        
+        /* Tooltip content */
+        [data-testid="stTooltip"] {
+            color: #E8E8E8 !important;
+            background-color: #262730 !important;
+            border: 1px solid #666666 !important;
+        }
+        
+        /* Garantir para todos os tipos de componentes */
+        .stSelectbox [data-testid="stHelpIcon"] svg,
+        .stRadio [data-testid="stHelpIcon"] svg,
+        .stSlider [data-testid="stHelpIcon"] svg,
+        .stTextInput [data-testid="stHelpIcon"] svg {
+            fill: #F0F0F0 !important;
+        }
         </style>
                 
-        .stSelectbox div[stTooltipHoverTarget] svg {
-            color: #F0F0F0 !important;
-            stroke: rgb(154, 236, 54);
-        }
-                
-        .stSelectbox div[dstTooltipIcon st-emotion-cache-oj1fi e1pw9gww0] {
-            color: #F0F0F0 !important;
-        }
-                
+      
 
     """, unsafe_allow_html=True)
     
@@ -538,15 +555,13 @@ model = load_model()
 # Texto introdutório
 st.markdown(
     """
-    <div class="centered-content">
-    <p style='text-align: center; color: #3f3f4f; margin-top: 0px; margin-bottom: 0px; font-size: 16px;'>
+    <p style='text-align: center; color: #3f3f4f; font-size: 16px;'>
         Olá! Faça agora a sua simulação e descubra a probabilidade de evasão em um curso técnico da Rede Federal EPCT.
         Nossa plataforma utiliza um modelo avançado de aprendizado de máquina treinado com dados históricos de matrículas de estudantes
         para analisar padrões e prever a chance de permanência ou evasão no curso.
         Essa ferramenta pode ajudá-lo a tomar decisões mais informadas, seja para o seu próprio percurso acadêmico
         ou para apoiar alguém que está considerando ingressar em um curso técnico. Experimente e veja as possibilidades!
     </p>
-    </div>
     """,
     unsafe_allow_html=True
 )
