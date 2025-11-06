@@ -505,7 +505,8 @@ with st.sidebar:
 
         </style>
     """, unsafe_allow_html=True)
-    idade = st.slider("Idade:", min_value=14, max_value=100, value=14, step=1)
+    idade = st.slider("Idade:", 
+                    min_value=14, max_value=100, value=14, step=1)
     cor_raca = st.selectbox("Cor/Raça:", 
                                     ["Selecione uma Cor/Raça"] + ["Branca", "Preta", "Parda", "Amarela", "Indígena", "Não declarada"],
                                     help="Selecione a Cor/Raça")
@@ -583,6 +584,33 @@ with st.sidebar:
     st.markdown("---")
     
     # Botão para submeter na sidebar
+
+    st.markdown("""
+    <style>
+        .st-emotion-cache-1kwt99k {
+            display: inline-flex;
+            -moz-box-align: center;
+            align-items: center;
+            -moz-box-pack: center;
+            justify-content: center;
+            font-weight: 400;
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.5rem;
+            min-height: 2.5rem;
+            margin: 0px;
+            line-height: 1.6;
+            text-transform: none;
+            font-size: inherit;
+            font-family: inherit;
+            color: #1313d7;
+            width: 100%;
+            cursor: pointer;
+            user-select: none;
+            background-color: rgb(152, 158, 159);
+            border: 1px solid rgba(24, 30, 28, 0.92);
+        }
+    </style>
+    """, unsafe_allow_html=True)
     submit = st.button("🔎 Prever Evasão", use_container_width=True)
 
 
