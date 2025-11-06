@@ -393,7 +393,7 @@ with st.sidebar:
         
         /* Garantir para todos os tipos de componentes */
         .st-emotion-cache-oj1fi .stTooltipHoverTarget > svg {
-            stroke: rgb(24, 221, 110); 
+            stroke: rgba(50, 62, 55, 0.7);
         }
         </style>
                 
