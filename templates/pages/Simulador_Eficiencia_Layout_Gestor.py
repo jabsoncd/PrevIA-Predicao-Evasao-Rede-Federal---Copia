@@ -484,10 +484,7 @@ with st.sidebar:
             height: 0.75rem;
             width: 0.75rem;
         }
-                
-        .st-an st-ap st-aq st-ao st-ff st-dt st-am st-du st-dv {
-            background: linear-gradient(to right, rgb(255, 218, 75) 0%, rgb(238, 189, 42) 61.6279%, rgba(151, 166, 195, 0.25) 61.6279%, rgba(151, 166, 195, 0.25) 100%);
-        }      
+                     
         st-emotion-cache-b92z60 {
             font-family: "Source Code Pro", monospace;
             font-size: 0.875rem;
@@ -505,27 +502,6 @@ with st.sidebar:
             font-family: "Source Code Pro", monospace;
             color: #F0F0F0;
         }
-
-        [data-testid="stSliderThumbValue"{
-                color: rgb(231, 232, 228);        
-        }
-                
-        .st-emotion-cache-b92z60 e8lt0n71 {
-            font-family: "Source Code Pro", monospace;
-            font-size: 0.875rem;
-            color: rgb(231, 232, 228);
-            top: -1.6em;
-            position: absolute;
-            white-space: nowrap;
-            background-color: transparent;
-            line-height: 1.6;
-            font-weight: 400;
-            pointer-events: none;
-            }
-                     
-
-
-
 
         </style>
     """, unsafe_allow_html=True)
