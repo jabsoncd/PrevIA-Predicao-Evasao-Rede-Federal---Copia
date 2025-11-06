@@ -379,7 +379,20 @@ with st.sidebar:
 
     if nome_de_curso != "Selecione um Curso Técnico":
         carga_horaria_minima = df_filtrado[df_filtrado["nome_de_curso"] == nome_de_curso]["carga_horaria_minima"].values[0]
-
+    st.markdown("""
+        <style>
+        /* Cor do texto do selectbox */
+        .stInput label {
+            color: #F0F0F0 !important;
+            font-weight: 500;
+        }
+        
+        /* Cor do texto das opções no dropdown */
+        .stSelectbox div[data-baseweb="select"] {
+            color: #F0F0F0 !important;
+        }
+        </style>
+    """, unsafe_allow_html=True)
     st.text_input("Carga Horária", carga_horaria_minima, disabled=True,
                  help="Carga horária mínima do curso técnico baseada no CNCT.")
 
