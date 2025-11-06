@@ -293,38 +293,6 @@ regioes = {
 
 with st.sidebar: 
 
-    # === ESTILO DOS TOOLTIP (ajuda) ===
-    st.markdown("""
-    <style>
-
-    /* Ícone de ajuda (?) em branco */
-    [data-testid="stHelpIcon"] svg {
-        fill: white !important;
-        opacity: 0.9 !important;
-        transition: 0.2s ease-in-out;
-    }
-
-    /* Ícone de ajuda quando passa o mouse */
-    [data-testid="stHelpIcon"] svg:hover {
-        fill: #4da3ff !important;
-        opacity: 1 !important;
-        transform: scale(1.1);
-    }
-
-    /* Fundo e texto do tooltip */
-    div[data-testid="stTooltipContent"] {
-        background-color: #1E2A44 !important;  /* azul escuro, combinando com o tema */
-        color: white !important;
-        border: 1px solid #4da3ff33 !important;
-        border-radius: 10px !important;
-        padding: 8px 12px !important;
-        font-size: 0.88rem !important;
-        font-weight: 400 !important;
-        box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.3) !important;
-    }
-
-    </style>
-    """, unsafe_allow_html=True)
     # Dados da Instituição
     st.markdown("<h3 style='font-weight: bold; color: #F0F0F0;'>Dados da Instituição</h3>", unsafe_allow_html=True)
     
@@ -344,9 +312,6 @@ with st.sidebar:
         </style>
     """, unsafe_allow_html=True)
     
-
-
-
     regiao_escolhida = st.selectbox("Região", 
                                    ["Selecione uma região"] + list(regioes.keys()),
                                    help="Selecione a Região que estuda ou deseja estudar.")
@@ -407,7 +372,10 @@ with st.sidebar:
     st.markdown("---")
     st.markdown("<h3 style='font-weight: bold;color: #F0F0F0; '>Dados Pessoais</h3>", unsafe_allow_html=True)
     
-    sexo = st.selectbox("Gênero:", ["Masculino", "Feminino"])
+
+    sexo = st.selectbox("Gênero:", 
+                                    ["Selecione um gênero"] + ["Masculino", "Feminino"],
+                                    help="Selecione  o gênero do estudante")
     
     st.markdown("""
         <style>
@@ -725,23 +693,6 @@ if submit:
         with col2:
             st.metric("🔴 Probabilidade de EVADIR", f"{prob_evasao:.2%}")
         
-        
-                        # # Exibir a imagem correspondente (centralizada e com largura 450px)
-                        # col1, col2, col3 = st.columns([1, 1, 1])  # colunas: esquerda, centro, direita
-                        # with col2:
-                        #     st.image(imagem, caption=legenda, width=450)
-
-                        # # Centralizar e redimensionar a imagem (400px)
-                        # st.markdown(
-                        #     f"""
-                        #     <div style='display: flex; justify-content: center;'>
-                        #         <img src='{imagem}' alt='{legenda}'>
-                        #     </div>
-                            
-                        #     <p style='text-align:center; font-style: italic;'>{legenda}</p>
-                        #     """,
-                        #     unsafe_allow_html=True
-                        # )       
 
     
 
@@ -812,15 +763,7 @@ if submit:
             
         except Exception as e:
             st.warning(f"⚠️ Não foi possível gerar a análise de explicabilidade: {str(e)}")
-            st.info("""
-            **Interpretação Alternativa:**
-            Para entender os fatores que influenciam a evasão, considere:
-            - **Idade**: Estudantes mais jovens tendem a ter maior evasão
-            - **Renda Familiar**: Menor renda pode aumentar o risco
-            - **Modalidade**: Cursos EaD podem ter dinâmicas diferentes
-            - **Turno**: Noturno pode ter mais evasão por conciliar trabalho
-            - **Eixo Tecnológico**: Algumas áreas têm maior retenção
-            """)     
+  
 ##########################################################################################################################################################
 
   
