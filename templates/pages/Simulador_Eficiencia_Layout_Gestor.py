@@ -375,11 +375,13 @@ with st.sidebar:
         /* Ícone de help - abordagem direta */
         [data-testid="stTooltipHoverTarget"] svg {
             fill: #F0F0F0 !important;
+            stroke: rgb(24, 221, 110); 
         }
         
         /* Hover no ícone */
         [data-testid="stTooltipHoverTarget"]:hover svg {
             fill: #FFFFFF !important;
+            stroke: rgb(24, 221, 110); 
         }
         
         /* Tooltip content */
@@ -387,6 +389,7 @@ with st.sidebar:
             color: #E8E8E8 !important;
             background-color: #262730 !important;
             border: 1px solid #666666 !important;
+            stroke: rgb(24, 221, 110); 
         }
         
         /* Garantir para todos os tipos de componentes */
@@ -395,6 +398,7 @@ with st.sidebar:
         .stSlider [data-testid="stTooltipHoverTarget"] svg,
         .stTextInput [data-testid="stTooltipHoverTarget"] svg {
             fill: #F0F0F0 !important;
+            stroke: rgb(24, 221, 110); 
         }
         </style>
                 
