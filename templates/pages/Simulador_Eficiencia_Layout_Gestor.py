@@ -356,11 +356,7 @@ with st.sidebar:
     .stSlider div[data-testid="stSlider"] div div div {
         color: #E8E8E8 !important;
     }
-    
-    /* Track do slider */
-    .stSlider div[data-baseweb="slider"] > div > div {
-        background-color: #555555 !important;
-    }
+
     
     /* Thumb (bolinha) do slider */
     .stSlider div[data-baseweb="slider"] > div > div > div {
@@ -369,7 +365,6 @@ with st.sidebar:
     }
     
 
-    
     /* Selectbox (mantendo seu estilo original) */
     .stSelectbox div[data-baseweb="select"] {
         color: #F0F0F0 !important;
