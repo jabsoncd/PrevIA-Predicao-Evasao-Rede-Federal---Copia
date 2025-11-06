@@ -584,7 +584,6 @@ with st.sidebar:
     st.markdown("---")
     
     # Botão para submeter na sidebar
-
     st.markdown("""
     <style>
         .st-emotion-cache-1kwt99k {
@@ -664,13 +663,6 @@ if submit:
             "instituicao": instituicao_escolhida,
             "região_metropolina_ue": regiao_metropolitana_ue
         })
-
-        # Adicionar à sessão
-        if "input_data" in st.session_state:
-            st.session_state.input_data = pd.concat([st.session_state.input_data, input_data], ignore_index=True)
-        else:
-            st.session_state.input_data = input_data
-
 
         # # Criando o DataFrame de entrada
 
