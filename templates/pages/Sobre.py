@@ -53,8 +53,8 @@ st.markdown(
     section[data-testid="stSidebar"] a[href*="Home_Profissional"],
     section[data-testid="stSidebar"] a[href*="Simulador_Eficiencia_Layout"],
     section[data-testid="stSidebar"] a[href*="Indicadores_Eficiencia_Layout"],
-    ection[data-testid="stSidebar"] a[href*="Simulador_Eficiencia_Layout_Gestor"],
-    ection[data-testid="stSidebar"] a[href*="Gestor"] {
+    section[data-testid="stSidebar"] a[href*="Simulador_Eficiencia_Layout_Gestor"],
+    section[data-testid="stSidebar"] a[href*="Gestor"] {
         display: none !important;
     }
     </style>
@@ -221,7 +221,7 @@ a, a:visited, a:active {{
         <a class="nav-link" href="/Simulador_Eficiencia_Layout" target="_self">Simular</a>
         <a class="nav-link" href="/Indicadores_Eficiencia_Layout" target="_self">Indicadores</a>
         <a class="nav-link" href="/Simulador_Eficiencia_Layout_Gestor" target="_self">Módulo Gestor</a>
-        <a class="nav-link" href="/Simulador_Eficiencia_Layout_Carga" target="_self">Módulo Carga</a>
+        <a class="nav-link" href="/Simulador_Eficiencia_Layout_Gestor_Carga" target="_self">Módulo Carga</a>
         <a class="nav-link" href="/Sobre" target="_self">Sobre</a>
     </div>
 </div>
