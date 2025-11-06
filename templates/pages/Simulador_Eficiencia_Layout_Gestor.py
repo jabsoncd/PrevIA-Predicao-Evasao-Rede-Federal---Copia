@@ -304,32 +304,21 @@ with st.sidebar:
 
     st.markdown("""
         <style>
-        /* Label da pergunta do radio */
-        .stRadio label {
+        /* Label da pergunta */
+        div[data-testid="stRadio"]:has(label:contains("região metropolitana")) > label {
             color: #F0F0F0 !important;
             font-weight: 500;
         }
         
-        /* Texto das opções do radio */
-        .stRadio div[role="radiogroup"] label {
+        /* Opções SIM/NÃO */
+        div[data-testid="stRadio"]:has(label:contains("região metropolitana")) div[role="radiogroup"] label {
             color: #E8E8E8 !important;
-            font-weight: 400;
         }
         
         /* Opção selecionada */
-        .stRadio div[role="radiogroup"] input:checked + label {
+        div[data-testid="stRadio"]:has(label:contains("região metropolitana")) div[role="radiogroup"] input:checked + label {
             color: #FFFFFF !important;
-            font-weight: 500;
-        }
-        
-        /* Hover nas opções */
-        .stRadio div[role="radiogroup"] label:hover {
-            color: #FFFFFF !important;
-        }
-        
-        /* Selectbox (mantendo seu estilo original) */
-        .stSelectbox div[data-baseweb="select"] {
-            color: #F0F0F0 !important;
+            font-weight: bold;
         }
         </style>
     """, unsafe_allow_html=True)
