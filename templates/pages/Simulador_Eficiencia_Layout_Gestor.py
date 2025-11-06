@@ -38,36 +38,54 @@ hide_st_style = """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
 # CSS personalizado
+# CSS para garantir que o botão sempre fique visível
 st.markdown("""
-        <style>
-        /* Forçar o botão padrão da sidebar a ficar sempre visível */
-        button[title="View fullscreen"] {
-            display: block !important;
-            visibility: visible !important;
-            opacity: 1 !important;
-            z-index: 999999 !important;
-            position: fixed !important;
-            top: 10px !important;
-            left: 10px !important;
-            background-color: #262730 !important;
-            color: white !important;
-            border: 1px solid #555 !important;
-            border-radius: 50% !important;
-            width: 40px !important;
-            height: 40px !important;
-        }
-        
-        /* Quando a sidebar estiver recolhida */
-        section[data-testid="stSidebar"][aria-expanded="false"] button[title="View fullscreen"] {
-            left: 10px !important;
-        }
-        
-        /* Quando a sidebar estiver expandida */
-        section[data-testid="stSidebar"][aria-expanded="true"] button[title="View fullscreen"] {
-            left: 300px !important;
-        }
-        </style>
+    <style>
+    /* Garantir que o botão da sidebar sempre fique visível */
+    .css-1d391kg {
+        display: block !important;
+        visibility: visible !important;
+    }
+    
+    /* Botão personalizado para expandir/recolher */
+    .sidebar-toggle {
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        z-index: 9999;
+        background-color: #262730;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    </style>
 """, unsafe_allow_html=True)
+
+# Botão personalizado para controlar a sidebar
+if 'sidebar_expanded' not in st.session_state:
+    st.session_state.sidebar_expanded = True
+
+# Botão para toggle da sidebar
+col1, col2 = st.columns([1, 5])
+with col1:
+    if st.button('☰' if st.session_state.sidebar_expanded else '→'):
+        st.session_state.sidebar_expanded = not st.session_state.sidebar_expanded
+        st.rerun()
+
+# Configurar a sidebar baseado no estado
+if st.session_state.sidebar_expanded:
+    with st.sidebar:
+        st.title("Menu")
+        # Seu conteúdo da sidebar aqui
+else:
+    st.sidebar.empty()
 
 st.markdown("""
     <style>
