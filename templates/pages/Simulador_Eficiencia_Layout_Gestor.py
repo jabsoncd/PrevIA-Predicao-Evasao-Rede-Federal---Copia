@@ -38,7 +38,36 @@ hide_st_style = """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
 # CSS personalizado
-
+    st.markdown("""
+        <style>
+        /* Forçar o botão padrão da sidebar a ficar sempre visível */
+        button[title="View fullscreen"] {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            z-index: 999999 !important;
+            position: fixed !important;
+            top: 10px !important;
+            left: 10px !important;
+            background-color: #262730 !important;
+            color: white !important;
+            border: 1px solid #555 !important;
+            border-radius: 50% !important;
+            width: 40px !important;
+            height: 40px !important;
+        }
+        
+        /* Quando a sidebar estiver recolhida */
+        section[data-testid="stSidebar"][aria-expanded="false"] button[title="View fullscreen"] {
+            left: 10px !important;
+        }
+        
+        /* Quando a sidebar estiver expandida */
+        section[data-testid="stSidebar"][aria-expanded="true"] button[title="View fullscreen"] {
+            left: 300px !important;
+        }
+        </style>
+    """, unsafe_allow_html=True)
 st.markdown("""
     <style>
     /* Esconder o termo "Home Profissional" */
