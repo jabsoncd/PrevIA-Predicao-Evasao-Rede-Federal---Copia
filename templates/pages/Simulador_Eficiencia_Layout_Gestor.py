@@ -292,6 +292,39 @@ regioes = {
 # =============================================
 
 with st.sidebar: 
+
+    # === ESTILO DOS TOOLTIP (ajuda) ===
+    st.markdown("""
+    <style>
+
+    /* Ícone de ajuda (?) em branco */
+    [data-testid="stHelpIcon"] svg {
+        fill: white !important;
+        opacity: 0.9 !important;
+        transition: 0.2s ease-in-out;
+    }
+
+    /* Ícone de ajuda quando passa o mouse */
+    [data-testid="stHelpIcon"] svg:hover {
+        fill: #4da3ff !important;
+        opacity: 1 !important;
+        transform: scale(1.1);
+    }
+
+    /* Fundo e texto do tooltip */
+    div[data-testid="stTooltipContent"] {
+        background-color: #1E2A44 !important;  /* azul escuro, combinando com o tema */
+        color: white !important;
+        border: 1px solid #4da3ff33 !important;
+        border-radius: 10px !important;
+        padding: 8px 12px !important;
+        font-size: 0.88rem !important;
+        font-weight: 400 !important;
+        box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.3) !important;
+    }
+
+    </style>
+    """, unsafe_allow_html=True)
     # Dados da Instituição
     st.markdown("<h3 style='font-weight: bold; color: #F0F0F0;'>Dados da Instituição</h3>", unsafe_allow_html=True)
     
