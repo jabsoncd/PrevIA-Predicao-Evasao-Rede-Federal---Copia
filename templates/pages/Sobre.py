@@ -155,7 +155,7 @@ def get_base64_image(path: Path):
 
 logo_b64 = get_base64_image(logo_path)
 
-
+######################################################################## BARRA AZUL #################################################################################
 # Barra azul com logo à esquerda e links à direita
 st.markdown(f"""
 <style>
@@ -220,7 +220,7 @@ a, a:visited, a:active {{
         <a class="nav-link" href="/", target="_self">Início</a>
         <a class="nav-link" href="/Simulador_Eficiencia_Layout", target="_self">Simular</a>
         <a class="nav-link" href="/Indicadores_Eficiencia_Layout", target="_self">Indicadores</a>
-        <a class="nav-link" href="/Indicadores_Eficiencia_Layout_Gestor", target="_self">Módulo Gestor</a>
+        <a class="nav-link" href="/Simulador_Eficiencia_Layout_Gestor", target="_self">Módulo Gestor</a>
         <a class="nav-link" href="/Sobre", target="_self">Sobre</a>
     </div>
 </div>
