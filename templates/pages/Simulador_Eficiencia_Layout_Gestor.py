@@ -38,7 +38,6 @@ hide_st_style = """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
 # CSS personalizado
-
 st.markdown("""
     <style>
     /* Esconder o termo "Home Profissional" */
@@ -50,28 +49,14 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 st.markdown("""
-    <script>
-    // Remover o botão via JavaScript
-    setTimeout(function() {
-        const sidebarButton = document.querySelector('button[data-testid="baseButton-header"]');
-        if (sidebarButton) {
-            sidebarButton.remove();
-        }
-        
-        // Alternativa por classe
-        const sidebarControls = document.querySelectorAll('.css-1d391kg');
-        sidebarControls.forEach(control => control.remove());
-    }, 100);
-    </script>
-    
     <style>
-    /* Garantir que não reapareça */
+    /* Manter visível mas desabilitar interação */
     button[data-testid="baseButton-header"] {
-        display: none !important;
+        pointer-events: none !important;
+        cursor: not-allowed !important;
     }
     </style>
 """, unsafe_allow_html=True)
-
 
 st.markdown("""
 <style>
