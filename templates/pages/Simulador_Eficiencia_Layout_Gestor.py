@@ -134,7 +134,7 @@ st.markdown("""
 
 /* Espaço no topo para não sobrepor o conteúdo */
 .app-content {
-    padding-top: 1.5rem;
+    padding-top: 3.5rem;
 }
 
 /* Centralizar conteúdo */
@@ -373,12 +373,12 @@ with st.sidebar:
         }
                 
         /* Ícone de help - abordagem direta */
-        [data-testid="stHelpIcon"] svg {
+        [data-testid="stTooltipHoverTarget"] svg {
             fill: #F0F0F0 !important;
         }
         
         /* Hover no ícone */
-        [data-testid="stHelpIcon"]:hover svg {
+        [data-testid="stTooltipHoverTarget"]:hover svg {
             fill: #FFFFFF !important;
         }
         
@@ -390,10 +390,10 @@ with st.sidebar:
         }
         
         /* Garantir para todos os tipos de componentes */
-        .stSelectbox [data-testid="stHelpIcon"] svg,
-        .stRadio [data-testid="stHelpIcon"] svg,
-        .stSlider [data-testid="stHelpIcon"] svg,
-        .stTextInput [data-testid="stHelpIcon"] svg {
+        .stSelectbox [data-testid="stTooltipHoverTarget"] svg,
+        .stRadio [data-testid="stTooltipHoverTarget"] svg,
+        .stSlider [data-testid="stTooltipHoverTarget"] svg,
+        .stTextInput [data-testid="stTooltipHoverTarget"] svg {
             fill: #F0F0F0 !important;
         }
         </style>
