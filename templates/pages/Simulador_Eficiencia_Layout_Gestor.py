@@ -38,54 +38,6 @@ hide_st_style = """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
 # CSS personalizado
-# CSS para garantir que o botão sempre fique visível
-st.markdown("""
-    <style>
-    /* Garantir que o botão da sidebar sempre fique visível */
-    .css-1d391kg {
-        display: block !important;
-        visibility: visible !important;
-    }
-    
-    /* Botão personalizado para expandir/recolher */
-    .sidebar-toggle {
-        position: fixed;
-        top: 10px;
-        left: 10px;
-        z-index: 9999;
-        background-color: #262730;
-        color: white;
-        border: none;
-        border-radius: 50%;
-        width: 40px;
-        height: 40px;
-        font-size: 20px;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    </style>
-""", unsafe_allow_html=True)
-
-# Botão personalizado para controlar a sidebar
-if 'sidebar_expanded' not in st.session_state:
-    st.session_state.sidebar_expanded = True
-
-# Botão para toggle da sidebar
-col1, col2 = st.columns([1, 5])
-with col1:
-    if st.button('☰' if st.session_state.sidebar_expanded else '→'):
-        st.session_state.sidebar_expanded = not st.session_state.sidebar_expanded
-        st.rerun()
-
-# Configurar a sidebar baseado no estado
-if st.session_state.sidebar_expanded:
-    with st.sidebar:
-        st.title("Menu")
-        # Seu conteúdo da sidebar aqui
-else:
-    st.sidebar.empty()
 
 st.markdown("""
     <style>
@@ -197,6 +149,27 @@ st.markdown("""
     section[data-testid="stSidebar"] a[href*="Indicadores_Eficiencia_Layout"],
     section[data-testid="stSidebar"] a[href*="Simulador_Eficiencia_Layout"] {
         display: none !important;
+    }
+
+    /* Sidebar com transição suave */
+    [data-testid="stSidebar"] {
+        position: fixed;
+        left: 0;
+        top: 2cm;
+        height: calc(100vh - 2cm);
+        min-width: 2rem !important;
+        max-width: 26rem !important;
+        z-index: 1000;
+        box-shadow: 2px 0 12px rgba(0,0,0,0.18);
+        background-color: #455f85; d4d4d4 - #455f85
+        transform: none !important;
+        transition: none !important;
+    }
+    
+    /* Garante que nenhum elemento filho seja visível */
+    [data-testid="collapsedControl"] {
+        display: none !important;
+        visibility: hidden !important;
     }
     </style>
 """, unsafe_allow_html=True)
