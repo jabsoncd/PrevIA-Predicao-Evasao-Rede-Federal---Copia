@@ -49,6 +49,25 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
+st.markdown("""
+    <style>
+    /* Esconder o botão padrão de recolher/expandir sidebar */
+    button[data-testid="baseButton-header"] {
+        display: none !important;
+    }
+    
+    /* Alternativa por seletor de classe */
+    .css-1d391kg {
+        display: none !important;
+    }
+    
+    /* Outro seletor possível */
+    [data-testid="stSidebarCollapsedControl"] {
+        display: none !important;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
 
 st.markdown("""
 <style>
