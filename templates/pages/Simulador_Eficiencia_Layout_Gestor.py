@@ -48,6 +48,26 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
+# CSS personalizado - ADICIONE ESTE BLOCO PARA REMOVER O ÍCONE DA SIDEBAR
+st.markdown("""
+    <style>
+    /* REMOVER COMPLETAMENTE o ícone de recolher/expandir sidebar */
+    button[data-testid="baseButton-header"],
+    [data-testid="collapsedControl"],
+    [data-testid="stSidebarCollapsedControl"],
+    .css-1d391kg {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        width: 0 !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
 
 st.markdown("""
     <style>
@@ -55,7 +75,7 @@ st.markdown("""
         fill: white !important;  /* muda a cor do ícone */
     }
     </style>
-    """, unsafe_allow_html=True)
+""", unsafe_allow_html=True)
 
 st.markdown("""
     <style>
@@ -184,11 +204,6 @@ st.markdown("""
         transition: none !important;
     }
     
-    /* Garante que nenhum elemento filho seja visível */
-    [data-testid="collapsedControl"] {
-        display: none !important;
-        visibility: hidden !important;
-    }
     </style>
 """, unsafe_allow_html=True)
 # Barra de navegação
