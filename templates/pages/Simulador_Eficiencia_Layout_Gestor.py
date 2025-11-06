@@ -289,26 +289,19 @@ with st.sidebar:
     
     st.markdown("""
         <style>
-        /* Cor do texto do selectbox */
         .stSelectbox label {
             color: #F0F0F0 !important;
             font-weight: 500;
         }
         
-        /* Cor do texto das opções no dropdown */
         .stSelectbox div[data-baseweb="select"] {
             color: #F0F0F0 !important;
         }
-        * Tooltip de help */
-        .stTooltipIcon > div > div {
-            color: #E8E8E8 !important;
-        }
         
-        /* Texto dentro do tooltip */
+        /* Tooltip simples */
         [data-testid="stTooltip"] {
-            color: #F0F0F0 !important;
-            background-color: #262730 !important;
-            border: 1px solid #555555 !important;
+            color: #E8E8E8 !important;
+            background-color: #2D2D2D !important;
         }
         </style>
     """, unsafe_allow_html=True)
