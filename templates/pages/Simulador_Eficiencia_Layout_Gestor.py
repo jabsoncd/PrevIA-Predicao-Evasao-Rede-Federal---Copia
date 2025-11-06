@@ -38,7 +38,7 @@ hide_st_style = """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
 # CSS personalizado
-    st.markdown("""
+st.markdown("""
         <style>
         /* Forçar o botão padrão da sidebar a ficar sempre visível */
         button[title="View fullscreen"] {
@@ -67,7 +67,8 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
             left: 300px !important;
         }
         </style>
-    """, unsafe_allow_html=True)
+""", unsafe_allow_html=True)
+
 st.markdown("""
     <style>
     /* Esconder o termo "Home Profissional" */
