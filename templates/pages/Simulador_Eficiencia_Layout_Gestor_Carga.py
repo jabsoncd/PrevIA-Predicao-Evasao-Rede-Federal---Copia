@@ -221,7 +221,7 @@ st.markdown(f"""
         <a class="nav-link" href="/Simulador_Eficiencia_Layout" target="_self">Simular</a>
         <a class="nav-link" href="/Indicadores_Eficiencia_Layout" target="_self">Indicadores</a>
         <a class="nav-link" href="/Simulador_Eficiencia_Layout_Gestor" target="_self">Módulo Gestor</a>
-        <a class="nav-link" href="/Simulador_Eficiencia_Layout_Gestor" target="_self">Módulo Carga</a>
+        <a class="nav-link" href="/Simulador_Eficiencia_Layout_Carga" target="_self">Módulo Carga</a>
         <a class="nav-link" href="/Sobre" target="_self">Sobre</a>
     </div>
 </div>
@@ -265,6 +265,7 @@ df = carregar_dados()
 if st.session_state.current_page == "home":
     st.markdown('<h1 class="main-header">PrevIA - Predição de Evasão na Rede Federal com Inteligência Artificial</h1>', unsafe_allow_html=True)
     st.markdown('<p class="sub-header">Sistema inteligente de análise e predição de evasão escolar na RFEPCT</p>', unsafe_allow_html=True)
+    st.markdown('<p class="sub-header">Simulação em lote</p>', unsafe_allow_html=True)
 # Linha divisória
 st.markdown("<p style='text-align: center; color: #3f3f4f;'> </p>",
             unsafe_allow_html=True)
