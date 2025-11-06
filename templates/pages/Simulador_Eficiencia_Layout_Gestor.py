@@ -52,9 +52,9 @@ st.markdown("""
 st.markdown("""
     <style>
     /* REMOVER COMPLETAMENTE o ícone de recolher/expandir sidebar */
-    button[data-testid="baseButton-header"],
-    [data-testid="collapsedControl"],
-    [data-testid="stSidebarCollapsedControl"],
+    button[data-testid="stBaseButton-headerNoPadding"],
+    [data-testid="stIconMaterial"],
+    [data-testid="stSidebarCollapseButton"],
     .css-1d391kg {
         display: none !important;
         visibility: hidden !important;
