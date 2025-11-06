@@ -209,6 +209,8 @@ st.markdown("""
         background-color: #455f85; d4d4d4 - #455f85
         transform: none !important;
         transition: none !important;
+        resize: horizontal !important; /* Permite redimensionamento */
+        overflow: auto !important;
     }
 
     </style>
