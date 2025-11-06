@@ -379,17 +379,27 @@ with st.sidebar:
 
     if nome_de_curso != "Selecione um Curso Técnico":
         carga_horaria_minima = df_filtrado[df_filtrado["nome_de_curso"] == nome_de_curso]["carga_horaria_minima"].values[0]
+
+
     st.markdown("""
         <style>
-        /* Cor do texto do selectbox */
-        .stText_input label {
-            color: #F0F0F0 !important;
-            font-weight: 500;
+        /* Label do text_input */
+        .stTextInput label {
+            color: #F5F5F5 !important;
+            font-weight: bold;
         }
         
-        /* Cor do texto das opções no dropdown */
-        .stSelectbox div[data-baseweb="select"] {
-            color: #F0F0F0 !important;
+        /* Campo de texto desabilitado */
+        .stTextInput input:disabled {
+            color: #E8E8E8 !important;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid #666666;
+            opacity: 0.8;
+        }
+        
+        /* Placeholder se houver */
+        .stTextInput input::placeholder {
+            color: #BBBBBB !important;
         }
         </style>
     """, unsafe_allow_html=True)
