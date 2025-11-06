@@ -311,6 +311,42 @@ with st.sidebar:
         </style>
     """, unsafe_allow_html=True)
 
+    st.markdown("""
+        <div class="tooltip">Região
+        <span class="tooltiptext">Selecione a Região que estuda ou deseja estudar.</span>
+        </div>
+
+        <style>
+        .tooltip {
+        position: relative;
+        display: inline-block;
+        color: white;
+        font-weight: 500;
+        }
+
+        .tooltip .tooltiptext {
+        visibility: hidden;
+        width: 220px;
+        background-color: #1E2A44;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 6px;
+        position: absolute;
+        z-index: 1;
+        bottom: 125%;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 0;
+        transition: opacity 0.3s;
+        }
+
+        .tooltip:hover .tooltiptext {
+        visibility: visible;
+        opacity: 1;
+        }
+        </style>
+    """, unsafe_allow_html=True)
 
 
     regiao_escolhida = st.selectbox("Região", 
