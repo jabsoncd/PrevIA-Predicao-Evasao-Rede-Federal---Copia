@@ -444,7 +444,7 @@ with st.sidebar:
         .st-emotion-cache-1eresbn p {
             word-break: break-word;
             margin: 0px;
-            color: #ddd;
+            color: #f0f0f0;
         }
         </style>
     """, unsafe_allow_html=True)
@@ -471,6 +471,43 @@ with st.sidebar:
         /* Cor do texto das opções no dropdown */
         .stSelectbox div[data-baseweb="select"] {
             color: #F0F0F0 !important;
+        }
+                
+        .st-emotion-cache-1dj3ksd {
+            -moz-box-align: center;
+            align-items: center;
+            background-color: rgb(255, 242, 54);
+            border-radius: 100%;
+            border-style: none;
+            box-shadow: none;
+            display: flex;
+            -moz-box-pack: center;
+            justify-content: center;
+            height: 0.75rem;
+            width: 0.75rem;
+        }
+                
+        .st-gz {
+            background: linear-gradient(to right, rgb(255, 202, 75) 0%, rgb(255, 218, 75) 62.7907%, rgba(151, 166, 195, 0.25) 62.7907%, rgba(151, 166, 195, 0.25) 100%);
+        }
+                
+        st-emotion-cache-b92z60 {
+            font-family: "Source Code Pro", monospace;
+            font-size: 0.875rem;
+            color: rgb(240, 240, 240);
+            top: -1.6em;
+            position: absolute;
+            white-space: nowrap;
+            background-color: rgb(22, 185, 17);
+            line-height: 1.6;
+            font-weight: 400;
+            pointer-events: none;
+        }
+        .st-emotion-cache-hpex6h {
+            line-height: 1.6;
+            font-weight: 400;
+            font-family: "Source Code Pro", monospace;
+            color: #F0F0F0;
         }
         </style>
     """, unsafe_allow_html=True)
