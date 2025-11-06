@@ -371,11 +371,9 @@ with st.sidebar:
     # Dados Pessoais
     st.markdown("---")
     st.markdown("<h3 style='font-weight: bold;color: #F0F0F0; '>Dados Pessoais</h3>", unsafe_allow_html=True)
-    
-
     sexo = st.selectbox("Gênero:", 
-                                    ["Selecione um gênero"] + ["Masculino", "Feminino"],
-                                    help="Selecione  o gênero do estudante")
+                                    ["Selecione um Gênero"] + ["Masculino", "Feminino"],
+                                    help="Selecione o gênero do estudante")
     
     st.markdown("""
         <style>
