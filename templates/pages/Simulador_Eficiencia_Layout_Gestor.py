@@ -302,6 +302,21 @@ with st.sidebar:
     instituicao_escolhida = st.selectbox("Instituição:", instituicao_opcoes,
                                         help="Selecione a Instituição que estuda ou deseja estudar.")
 
+    st.markdown("""
+        <style>
+        /* Cor do texto do selectbox */
+        .stRadio label {
+            color: #F0F0F0 !important;
+            font-weight: 500;
+        }
+        
+        /* Cor do texto das opções no dropdown */
+        .stSelectbox div[data-baseweb="select"] {
+            color: #F0F0F0 !important;
+        }
+        </style>
+    """, unsafe_allow_html=True)
+
     regiao_metropolitana_ue = st.radio("A unidade de ensino está localizada em região metropolitana?", 
                                       ["SIM", "NÃO"],
                                       help="Informe se a Instituição fica em região metropolitana.")
