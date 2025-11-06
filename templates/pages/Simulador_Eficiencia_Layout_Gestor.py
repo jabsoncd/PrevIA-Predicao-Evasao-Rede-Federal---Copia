@@ -24,7 +24,7 @@ st.set_page_config(
     page_title="PrevIA - Predição de Evasão",
     page_icon="images/previa_azulmenor.png",
     layout="wide",
-    initial_sidebar_state="expanded"  # Sidebar expandida por padrão
+    initial_sidebar_state="expanded"  # Sidebar expandido
 )
 
 # Ocultar barra streamlit
@@ -37,9 +37,24 @@ hide_st_style = """
 """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
-# CSS personalizado
+# CSS personalizado - ADICIONE ESTE BLOCO PARA REMOVER O ÍCONE DA SIDEBAR
 st.markdown("""
     <style>
+    /* REMOVER COMPLETAMENTE o ícone de recolher/expandir sidebar */
+    button[data-testid="baseButton-header"],
+    [data-testid="collapsedControl"],
+    [data-testid="stSidebarCollapsedControl"],
+    .css-1d391kg {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        width: 0 !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    
     /* Esconder o termo "Home Profissional" */
     .css-1d391kg, 
     [data-testid="stSidebarNav"] {
@@ -57,15 +72,7 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-st.markdown("""
-    <style>
-    /* Manter visível mas desabilitar interação */
-    button[data-testid="baseButton-header"] {
-        pointer-events: none !important;
-        cursor: not-allowed !important;
-    }
-    </style>
-""", unsafe_allow_html=True)
+
 
 st.markdown("""
 <style>
@@ -183,14 +190,22 @@ st.markdown("""
         transform: none !important;
         transition: none !important;
     }
-    
-    /* Garante que nenhum elemento filho seja visível */
+            
+    /* GARANTIR que o botão de controle NÃO apareça */
     [data-testid="collapsedControl"] {
         display: none !important;
         visibility: hidden !important;
+        width: 0 !important;
+        height: 0 !important;
+    }
+    
+    /* Remover qualquer espaço reservado para o botão */
+    .stApp > header ~ div {
+        margin-left: 0 !important;
     }
     </style>
 """, unsafe_allow_html=True)
+
 # Barra de navegação
 st.markdown(f"""
 <div class="nav-container">
@@ -208,7 +223,7 @@ st.markdown(f"""
 
 # Estado inicial
 if "current_page" not in st.session_state:
-    st.session_state.current_page = "home"
+    st.session_state.current_page = "Início"
 if "input_data" not in st.session_state:
     st.session_state.input_data = pd.DataFrame()
 
