@@ -525,6 +525,8 @@ if submit:
         erros.append("⚠️ Por favor, selecione um **Estado**.")
     if instituicao_escolhida == "Selecione uma Instituição":
         erros.append("⚠️ Por favor, selecione uma **Instituição**.")
+    if sexo == "Selecione um Gênero":
+        erros.append("⚠️ Por favor, selecione um **Gênero*.")   
     if eixo_tecnologico_escolhido == "Selecione um Eixo Tecnológico":
         erros.append("⚠️ Por favor, selecione um **Eixo Tecnológico**.")
     if nome_de_curso == "Selecione um Curso Técnico":
