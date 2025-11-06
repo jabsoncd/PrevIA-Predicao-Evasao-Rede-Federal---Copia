@@ -256,6 +256,39 @@ def carregar_dados():
 
 df = carregar_dados()
 
+# =============================================
+# CONTEÚDO PRINCIPAL - CENTRALIZADO
+# =============================================
+
+# 🔹 Conteúdo das páginas
+if st.session_state.current_page == "home":
+    st.markdown('<h1 class="main-header">PrevIA - Predição de Evasão na Rede Federal com Inteligência Artificial</h1>', unsafe_allow_html=True)
+    st.markdown('<p class="sub-header">Sistema inteligente de análise e predição de evasão escolar na RFEPCT</p>', unsafe_allow_html=True)
+# Linha divisória
+st.markdown("<p style='text-align: center; color: #3f3f4f;'> </p>",
+            unsafe_allow_html=True)
+st.write("---")
+
+# Texto introdutório
+st.markdown(
+    """
+    <p style='text-align: center; color: #3f3f4f; font-size: 16px;'>
+        Olá! Faça agora a sua simulação e descubra a probabilidade de evasão em um curso técnico da Rede Federal EPCT.
+        Nossa plataforma utiliza um modelo avançado de aprendizado de máquina treinado com dados históricos de matrículas de estudantes
+        para analisar padrões e prever a chance de permanência ou evasão no curso.
+        Essa ferramenta pode ajudá-lo a tomar decisões mais informadas, seja para o seu próprio percurso acadêmico
+        ou para apoiar alguém que está considerando ingressar em um curso técnico. Experimente e veja as possibilidades!
+    </p>
+    """,
+    unsafe_allow_html=True
+)
+
+st.markdown("<hr style='margin-top: 10px; margin-bottom: 10px;'>", unsafe_allow_html=True)
+
+
+
+
+
 # Mapeamento de eixos tecnológicos
 mapeamento_eixos = {
     "Ambiente e Saúde": "Ambiente e Saúde",
@@ -526,47 +559,6 @@ with st.sidebar:
     # Botão para submeter na sidebar
     submit = st.button("🔎 Prever Evasão", use_container_width=True)
 
-# =============================================
-# CONTEÚDO PRINCIPAL - CENTRALIZADO
-# =============================================
-
-# 🔹 Conteúdo das páginas
-if st.session_state.current_page == "home":
-    st.markdown('<h1 class="main-header">PrevIA - Predição de Evasão na Rede Federal com Inteligência Artificial</h1>', unsafe_allow_html=True)
-    st.markdown('<p class="sub-header">Sistema inteligente de análise e predição de evasão escolar na RFEPCT</p>', unsafe_allow_html=True)
-# Linha divisória
-st.markdown("<p style='text-align: center; color: #3f3f4f;'> </p>",
-            unsafe_allow_html=True)
-st.write("---")
-
-# Função para carregar o modelo
-@st.cache_resource
-def load_model():
-    # modelo_lightgbm_220325.pkl
-    # modelo_catboost_categorico_campeao.pkl ou modelo_lightgbm_220325.pkl
-    model_path = os.path.join(
-        "notebooks", "modelo_catboost_categorico_campeao.pkl")  # ../
-    with open(model_path, "rb") as file:
-        model = pickle.load(file)
-    return model
-# Carregar o modelo treinado
-model = load_model()
-
-# Texto introdutório
-st.markdown(
-    """
-    <p style='text-align: center; color: #3f3f4f; font-size: 16px;'>
-        Olá! Faça agora a sua simulação e descubra a probabilidade de evasão em um curso técnico da Rede Federal EPCT.
-        Nossa plataforma utiliza um modelo avançado de aprendizado de máquina treinado com dados históricos de matrículas de estudantes
-        para analisar padrões e prever a chance de permanência ou evasão no curso.
-        Essa ferramenta pode ajudá-lo a tomar decisões mais informadas, seja para o seu próprio percurso acadêmico
-        ou para apoiar alguém que está considerando ingressar em um curso técnico. Experimente e veja as possibilidades!
-    </p>
-    """,
-    unsafe_allow_html=True
-)
-
-st.markdown("<hr style='margin-top: 10px; margin-bottom: 10px;'>", unsafe_allow_html=True)
 
 # Processamento quando o botão é clicado
 if submit:
