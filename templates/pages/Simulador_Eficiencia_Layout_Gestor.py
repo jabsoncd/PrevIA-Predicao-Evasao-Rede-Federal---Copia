@@ -201,7 +201,7 @@ st.markdown("""
         left: 0;
         top: 2cm;
         height: calc(100vh - 2cm);
-        min-width: 27rem !important;
+        min-width: 1.5rem !important;
         max-width: 27rem !important;
         width: 27rem !important;
         z-index: 1000;
