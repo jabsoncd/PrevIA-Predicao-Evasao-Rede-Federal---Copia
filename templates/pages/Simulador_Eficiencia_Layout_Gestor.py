@@ -471,7 +471,7 @@ with st.sidebar:
             color: #F0F0F0 !important;
         }
                 
-        .st-emotion-cache-1dj3ksd e8lt0n70{
+        .st-emotion-cache-1dj3ksd {
             -moz-box-align: center;
             align-items: center;
             background-color: #F0F0F0;
@@ -488,7 +488,7 @@ with st.sidebar:
         st-emotion-cache-b92z60 {
             font-family: "Source Code Pro", monospace;
             font-size: 0.875rem;
-            color: #e1eeeee5;;
+            color: #F0F0F0;;
             top: -1.6em;
             position: absolute;
             white-space: nowrap;
