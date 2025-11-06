@@ -346,31 +346,28 @@ with st.sidebar:
     
     st.markdown("""
     <style>
-    /* Label do slider */
-    .stSlider label {
+    /* Label do slider de idade */
+    div[data-testid="stSlider"]:has(label:contains("Idade:")) label {
         color: #F0F0F0 !important;
         font-weight: 500;
     }
     
-    /* Texto do valor atual do slider */
-    .stSlider div[data-testid="stSlider"] div div div {
+    /* Valor numérico */
+    div[data-testid="stSlider"]:has(label:contains("Idade:")) > div > div {
         color: #E8E8E8 !important;
     }
-
     
-    /* Thumb (bolinha) do slider */
-    .stSlider div[data-baseweb="slider"] > div > div > div {
-        background-color: #F0F0F0 !important;
-        border: 2px solid #FFFFFF;
+    /* Track e thumb */
+    div[data-testid="stSlider"]:has(label:contains("Idade:")) div[data-baseweb="slider"] > div > div {
+        background-color: #555555 !important;
     }
     
-
-    /* Selectbox (mantendo seu estilo original) */
-    .stSelectbox div[data-baseweb="select"] {
-        color: #F0F0F0 !important;
+    div[data-testid="stSlider"]:has(label:contains("Idade:")) div[data-baseweb="slider"] > div > div > div > div {
+        background-color: #888888 !important;
     }
     </style>
     """, unsafe_allow_html=True)
+
     idade = st.slider("Idade:", min_value=14, max_value=100, value=14, step=1)
     cor_raca = st.selectbox("Cor/Raça:", 
                            ["Branca", "Preta", "Parda", "Amarela", "Indígena", "Não declarada"],
