@@ -339,6 +339,17 @@ with st.sidebar:
             color: #F0F0F0 !important;
         }
         </style>
+                
+        .stSelectbox div[stTooltipHoverTarget] svg {
+            color: #F0F0F0 !important;
+            stroke: rgb(154, 236, 54);
+        }
+                
+        .stSelectbox div[dstTooltipIcon st-emotion-cache-oj1fi e1pw9gww0] {
+            color: #F0F0F0 !important;
+        }
+                
+
     """, unsafe_allow_html=True)
     
     regiao_escolhida = st.selectbox("Região", 

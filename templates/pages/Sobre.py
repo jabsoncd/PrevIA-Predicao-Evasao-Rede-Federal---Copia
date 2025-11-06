@@ -290,7 +290,7 @@ st.markdown("""
 
         /* Aba selecionada */
         button[data-baseweb="tab"][aria-selected="true"] {
-            background-color: #d4e1f4 !important; /* Azul mais claro */
+            background-color: #c1f7d6 !important; /* Azul mais claro */
             border-radius: 5px;
             margin-left: 5px;
             margin-right: 5px;
