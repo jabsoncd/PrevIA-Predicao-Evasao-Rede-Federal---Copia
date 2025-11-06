@@ -210,11 +210,7 @@ st.markdown("""
         transform: none !important;
         transition: none !important;
     }
-    /* Garantir que o conteúdo interno use toda a largura */
-    [data-testid="stSidebar"] > div:first-child {
-        width: 27rem !important;
-    }
-    
+
     </style>
 """, unsafe_allow_html=True)
 # Barra de navegação
