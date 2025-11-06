@@ -391,13 +391,13 @@ with st.sidebar:
     """, unsafe_allow_html=True)
     idade = st.slider("Idade:", min_value=14, max_value=100, value=14, step=1)
     cor_raca = st.selectbox("Cor/Raça:", 
-                           ["Branca", "Preta", "Parda", "Amarela", "Indígena", "Não declarada"],
-                           help="Informe sua cor/raça")
-    renda_familiar = st.selectbox("Renda Familiar Per capita:", 
-                                 ["0<RFP<=0,5", "0,5<RFP<=1", "1<RFP<=1,5", "1,5<RFP<=2,5", "2,5<RFP<=3,5", "RFP>3,5", "Não declarada"],
-                                 help="Informe a renda familiar por pessoa.")
+                                    ["Selecione uma Cor/Raça"] + ["Branca", "Preta", "Parda", "Amarela", "Indígena", "Não declarada"],
+                                    help="Selecione a Cor/Raça")
 
-    # Dados do Curso
+    renda_familiar = st.selectbox("Renda Familiar Per capita:", 
+                                    ["Selecione uma Renda Familiar"] + ["0<RFP<=0,5", "0,5<RFP<=1", "1<RFP<=1,5", "1,5<RFP<=2,5", "2,5<RFP<=3,5", "RFP>3,5", "Não declarada"],
+                                    help="Selecione a Renda Familiar")
+     # Dados do Curso
     st.markdown("---")
     st.markdown("<h3 style='font-weight: bold; color: #F0F0F0;'>Dados do Curso</h3>", unsafe_allow_html=True)
 
@@ -524,7 +524,11 @@ if submit:
     if instituicao_escolhida == "Selecione uma Instituição":
         erros.append("⚠️ Por favor, selecione uma **Instituição**.")
     if sexo == "Selecione um Gênero":
-        erros.append("⚠️ Por favor, selecione um **Gênero*.")   
+        erros.append("⚠️ Por favor, selecione um **Gênero**.")   
+    if cor_raca == "Selecione uma Cor/Raça":
+        erros.append("⚠️ Por favor, selecione uma **Cor/Raça**.")   
+    if renda_familiar == "Selecione uma Renda Familiar":
+        erros.append("⚠️ Por favor, selecione uma **Renda Familiar**.")   
     if eixo_tecnologico_escolhido == "Selecione um Eixo Tecnológico":
         erros.append("⚠️ Por favor, selecione um **Eixo Tecnológico**.")
     if nome_de_curso == "Selecione um Curso Técnico":
