@@ -435,19 +435,8 @@ with st.sidebar:
             font-weight: 400;
         }
         
-        /* Opção selecionada */
-        .stRadio div[role="radiogroup"] input:checked + label {
-            color: #FFFFFF !important;
-            font-weight: 500;
-        }
-        
-        /* Hover nas opções */
-        .stRadio div[role="radiogroup"] label:hover {
-            color: #FFFFFF !important;
-        }
-        
         /* Selectbox (mantendo seu estilo original) */
-        .stSelectbox div[data-baseweb="select"] {
+        ..st-emotion-cache-1eres {
             color: #F0F0F0 !important;
         }
         </style>
