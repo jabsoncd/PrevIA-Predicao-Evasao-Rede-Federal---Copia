@@ -345,18 +345,39 @@ with st.sidebar:
     sexo = st.selectbox("Gênero:", ["Masculino", "Feminino"])
     
     st.markdown("""
-        <style>
-        /* Cor do texto do selectbox */
-        .stSlider label {
-            color: #F0F0F0 !important;
-            font-weight: 500;
-        }
-        
-        /* Cor do texto das opções no dropdown */
-        .stSelectbox div[data-baseweb="select"] {
-            color: #F0F0F0 !important;
-        }
-        </style>
+    <style>
+    /* Label do slider */
+    .stSlider label {
+        color: #F0F0F0 !important;
+        font-weight: 500;
+    }
+    
+    /* Texto do valor atual do slider */
+    .stSlider div[data-testid="stSlider"] div div div {
+        color: #E8E8E8 !important;
+    }
+    
+    /* Track do slider */
+    .stSlider div[data-baseweb="slider"] > div > div {
+        background-color: #555555 !important;
+    }
+    
+    /* Thumb (bolinha) do slider */
+    .stSlider div[data-baseweb="slider"] > div > div > div {
+        background-color: #F0F0F0 !important;
+        border: 2px solid #FFFFFF;
+    }
+    
+    /* Barra preenchida do slider */
+    .stSlider div[data-baseweb="slider"] > div > div > div > div {
+        background-color: #888888 !important;
+    }
+    
+    /* Selectbox (mantendo seu estilo original) */
+    .stSelectbox div[data-baseweb="select"] {
+        color: #F0F0F0 !important;
+    }
+    </style>
     """, unsafe_allow_html=True)
     idade = st.slider("Idade:", min_value=14, max_value=100, value=14, step=1)
     cor_raca = st.selectbox("Cor/Raça:", 
