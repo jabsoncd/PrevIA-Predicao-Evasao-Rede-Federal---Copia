@@ -201,13 +201,18 @@ st.markdown("""
         left: 0;
         top: 2cm;
         height: calc(100vh - 2cm);
-        min-width: 2rem !important;
-        max-width: 26rem !important;
+        min-width: 27rem !important;
+        max-width: 27rem !important;
+        width: 27rem !important;
         z-index: 1000;
         box-shadow: 2px 0 12px rgba(0,0,0,0.18);
         background-color: #455f85; d4d4d4 - #455f85
         transform: none !important;
         transition: none !important;
+    }
+    /* Garantir que o conteúdo interno use toda a largura */
+    [data-testid="stSidebar"] > div:first-child {
+        width: 27rem !important;
     }
     
     </style>
