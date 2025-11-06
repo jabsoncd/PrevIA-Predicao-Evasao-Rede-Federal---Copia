@@ -87,10 +87,10 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 ######################################################################## BARRA AZUL #################################################################################
-st.markdown(""" 
+st.markdown(f""" 
 <style>
     /* 🔹 Barra superior azul */
-    .nav-container {
+    .nav-container {{
         background-color: #152847;
         height: 2cm;
         display: flex;
@@ -105,73 +105,73 @@ st.markdown("""
         z-index: 999;
         border-radius: 0;
         box-shadow: 0 2px 6px rgba(0,0,0,0.2)
-    }
+    }}
 
-    .nav-logo {
+    .nav-logo {{
         width: 200px;
         height: 60px;
         background-size: contain;
         background-repeat: no-repeat;
         background-position: left center;
-    }
+    }}
 
-    .nav-links {
+    .nav-links {{
         display: flex;
         gap: 2rem;
-    }
+    }}
 
-    .nav-link {
+    .nav-link {{
         color: #FFFFFF;
         font-weight: 600;
         font-size: 1.1rem;
         cursor: pointer;
         text-decoration: none !important;
-    }
-    .nav-link:hover {
+    }}
+    .nav-link:hover {{
         color: #FFA500;
         transition: color 0.2s;
-    }
+    }}
 
     /* Espaço no topo para não sobrepor o conteúdo */
-    .app-content {
+    .app-content {{
         padding-top: 3.5rem;
-    }
+    }}
 
     /* Centralizar conteúdo */
-    .centered-content {
+    .centered-content {{
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
         text-align: center;
-    }
+    }}
     
     /* Estilo para a sidebar */
-    .sidebar-content {
+    .sidebar-content {{
         padding: 1rem;
-    }
+    }}
             
     
     /* Estilo para os resultados */
-    .result-section {
+    .result-section {{
         background-color: #f8f9fa;
         border-radius: 10px;
         padding: 1.5rem;
         margin: 1rem 0;
         border-left: 4px solid #3b82f6;
-    }
+    }}
             
     /* 🔹 Cabeçalhos e cards */
-    .main-header {
+    .main-header {{
         font-size: 2.5rem;
         color: #1E3A8A;
         text-align: center
-    }
-    .sub-header {
+    }}
+    .sub-header {{
         font-size: 1.2rem;
         color: #4B5563;
         text-align: center
-    }
+    }}
 </style>
 """, unsafe_allow_html=True)
 
