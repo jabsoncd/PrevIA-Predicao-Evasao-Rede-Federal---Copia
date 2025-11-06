@@ -39,27 +39,17 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 
 # CSS personalizado
 
-                                                                                                # st.markdown("""
-                                                                                                #     <style>
-                                                                                                #     /* Esconder o termo "Home Profissional" */
-                                                                                                #     .css-1d391kg, 
-                                                                                                #     [data-testid="stSidebarNav"] {
-                                                                                                #         display: none !important;
-                                                                                                #     }
-                                                                                                #     </style>
-                                                                                                # """, unsafe_allow_html=True)
-
 st.markdown("""
     <style>
-    /* Mudar a cor do "Home Profissional" para combinar com o fundo */
+    /* Esconder o termo "Home Profissional" */
     .css-1d391kg, 
-    [data-testid="stSidebarNav"],
-    .css-1lcbmhc {
-        color: #455f85 !important; /* Cor padrão do fundo do Streamlit */
-        opacity: 0.7;
+    [data-testid="stSidebarNav"] {
+        display: none !important;
     }
     </style>
 """, unsafe_allow_html=True)
+
+
 st.markdown("""
 <style>
     /* 🔹 Barra superior azul */
