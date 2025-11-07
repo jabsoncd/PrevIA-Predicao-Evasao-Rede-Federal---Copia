@@ -604,9 +604,9 @@ with st.container():
                         mode="gauge+number",
                         value=valor_final_float,
                         number={'valueformat': '.f', 'suffix': "%",
-                                'font': {'size': 45, 'color': '#2C3E50'}},
-                        title={'text': "Probabilidade de Evasão (%)", 'font': {
-                            'size': 20, 'color': '#2C3E50'}},
+                                'font': {'size': 45, 'color': "#0E34DD"}},
+                        # title={'text': "Probabilidade de Evasão (%)", 'font': {
+                            # 'size': 20, 'color': '#2C3E50'}}
                         gauge={
                             'axis': {'range': [0, 100], 'tickwidth': 2, 'tickcolor': "#7f8c8d"},
                             'bar': {'color': "#2C3E50"},  # Cor do ponteiro
