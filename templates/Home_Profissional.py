@@ -207,7 +207,7 @@ if st.session_state.current_page == "home":
         st.markdown("""
         <div class="feature-card">
             <h3>Simulador de Evasão</h3>
-            <p>Calcule a probabilidade de evasão de estudantes com base em indicadores acadêmicos e demográficos.</p>
+            <p>Simule a probabilidade de evasão de estudantes na Rede Federal EPCT.</p>
         </div>
         """, unsafe_allow_html=True)
 
@@ -230,7 +230,7 @@ if st.session_state.current_page == "home":
         st.markdown("""
         <div class="feature-card">
             <h3>Indicadores de Evasão</h3>
-            <p>Visualize análises, estatísticas e tendências sobre evasão escolar em tempo real.</p>
+            <p>Visualize dados e tendências sobre evasão escolar na Rede Federal EPCT.</p>
         </div>
         """, unsafe_allow_html=True)
         st.markdown(
@@ -252,7 +252,7 @@ if st.session_state.current_page == "home":
         st.markdown("""
         <div class="feature-card">
             <h3>Módulo Gestor</h3>
-            <p>Ferramentas avançadas para gestores educacionais com relatórios detalhados e análises preditivas.</p>
+            <p>Ferramenta avançada para os gestores possam simular a probabilidade de evasão de estudantes na Rede Federal EPCT.</p>
         </div>
         """, unsafe_allow_html=True)
 
