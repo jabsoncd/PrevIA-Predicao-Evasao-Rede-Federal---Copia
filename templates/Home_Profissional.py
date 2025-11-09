@@ -252,7 +252,7 @@ if st.session_state.current_page == "home":
         st.markdown("""
         <div class="feature-card">
             <h3>Módulo Gestor</h3>
-            <p>Ferramenta avançada para os gestores possam simular a probabilidade de evasão de estudantes na Rede Federal EPCT.</p>
+            <p>Ferramenta avançada para que gestores possam simular a probabilidade de evasão de estudantes na Rede Federal EPCT.</p>
         </div>
         """, unsafe_allow_html=True)
 
