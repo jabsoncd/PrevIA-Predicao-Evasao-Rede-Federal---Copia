@@ -1469,8 +1469,7 @@ elif st.session_state.selected_tab == "🌎 Mapa da Evasão":
     # Configuração da página no Streamlit
     # st.set_page_config(page_title="Mapa de Evadidos", layout="wide")
      # Usando colunas para exibir os cards lado a lado
-    col1, col2, col3 = st.columns(3)
-
+    col1, col2, col3 = st.columns([1, 5, 1])
 
     # Cards com cores sólidas vibrantes
     with col2:
