@@ -248,28 +248,28 @@ if st.session_state.current_page == "home":
         unsafe_allow_html=True
         )   
 
-    with col3: 
-        st.markdown("""
-        <div class="feature-card">
-            <h3>Módulo Gestor</h3>
-            <p>Ferramenta avançada para que gestores possam simular a probabilidade de evasão de estudantes na Rede Federal EPCT.</p>
-        </div>
-        """, unsafe_allow_html=True)
+    # with col3: 
+    #     st.markdown("""
+    #     <div class="feature-card">
+    #         <h3>Módulo Gestor</h3>
+    #         <p>Ferramenta avançada para que gestores possam simular a probabilidade de evasão de estudantes na Rede Federal EPCT.</p>
+    #     </div>
+    #     """, unsafe_allow_html=True)
 
-        st.markdown(
-        """
-        <div>        
-            <a href="Simulador_Eficiencia_Layout_Gestor" target="_self">
-                <button style="padding: 4px 15px; border-radius: 7px; 
-                              border: none; background-color: #dedede; 
-                              color: #696b6e; font-size: 19px; cursor: pointer;">
-                    Acessar Módulo
-                </button>
-            </a>
-        </div>
-        """,
-        unsafe_allow_html=True
-        ) 
+    #     st.markdown(
+    #     """
+    #     <div>        
+    #         <a href="Simulador_Eficiencia_Layout_Gestor" target="_self">
+    #             <button style="padding: 4px 15px; border-radius: 7px; 
+    #                           border: none; background-color: #dedede; 
+    #                           color: #696b6e; font-size: 19px; cursor: pointer;">
+    #                 Acessar Módulo
+    #             </button>
+    #         </a>
+    #     </div>
+    #     """,
+    #     unsafe_allow_html=True
+    #     ) 
 
 
     st.markdown("""
