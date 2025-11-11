@@ -5,12 +5,10 @@ import lightgbm as lgb
 import pickle
 import os
 import base64
-
 from pathlib import Path
 
 # Caminho da logo (ajuste se necessário)
 logo_path = Path("templates/logo_branca_laranja.png")
-
 
 # Função para converter imagem em base64
 def get_base64_image(path: Path):
@@ -38,8 +36,6 @@ hide_st_style = """
     </style>
 """
 st.markdown(hide_st_style, unsafe_allow_html=True)
-
-
 
 # CSS personalizado (barra azul alta com ícones dentro)
 st.markdown("""
@@ -97,13 +93,13 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-
 # 🔹 Ocultar sidebar
 st.markdown("""
     <style>
     [data-testid="stSidebar"] {display: none;}
     </style>
 """, unsafe_allow_html=True)
+
 # Estado inicial
 if "current_page" not in st.session_state:
     st.session_state.current_page = "home"
@@ -115,7 +111,6 @@ def get_base64_image(path: Path):
         return base64.b64encode(f.read()).decode("utf-8")
 
 logo_b64 = get_base64_image(logo_path)
-
 
 # Barra azul com logo à esquerda e links à direita
 st.markdown(f"""
@@ -190,7 +185,6 @@ a, a:visited, a:active {{
 <div class="app-content"></div>
 """, unsafe_allow_html=True)
 
-
 # 🔹 Conteúdo das páginas
 if st.session_state.current_page == "home":
     st.markdown('<h1 class="main-header">PrevIA - Predição de Evasão na Rede Federal com Inteligência Artificial</h1>', unsafe_allow_html=True)
@@ -198,11 +192,6 @@ if st.session_state.current_page == "home":
 
     st.markdown("---")
 
-
-
-
-
-##########################################################################################################################################################
 # Função para carregar o modelo
 @st.cache_resource
 def load_model():
@@ -215,39 +204,7 @@ def load_model():
     return model
 # Carregar o modelo treinado
 model = load_model()
-# Título do painel
-# st.image("images/previa_gemini.png", width=200)
-# Título do painel com imagem centralizada
-# https://raw.githubusercontent.com/jabsoncd/PrevIA-Predicao-Evasao-Rede-Federal---Copia/main/images/previa_gemini.png
-# st.markdown(
-#     """
-#     <div style='text-align: center;'>
-#         <img src='https://github.com/jabsoncd/PrevIA-Predicao-Evasao-Rede-Federal---Copia/blob/main/images/previa_gemini.png' width='280'/>
-#     </div>
-#     """,
-#     unsafe_allow_html=True
-# )
-# st.markdown("<h2 style='text-align: center; color: #12125c; margin-bottom: 5px;'>Inteligência Artificial para Predição da Evasão na Rede Federal EPCT</h2>", unsafe_allow_html=True)
-# st.markdown("<p style='text-align: center; color: #1e1e8f;'>Plataforma para análise do comportamento da evasão na RFEPCT.</p>", unsafe_allow_html=True)
-# <hr style='margin-top: 10px; margin-bottom: 10px;' />
-# st.markdown("---")
-# # 🔹 Texto introdutório centralizado
-# st.markdown("<p style='text-align: center; color: #3f3f4f; margin-top: 0px;'>Olá! Faça agora a sua simulação e descubra a probabilidade de evasão em um curso técnico da Rede Federal EPCT. Nossa plataforma utiliza um modelo avançado de aprendizado de máquina treinado com dados históricos de matrículas de estudantes para analisar padrões e prever a chance de permanência ou evasão no curso. Essa ferramenta pode ajudá-lo a tomar decisões mais informadas, seja para o seu próprio percurso acadêmico ou para apoiar alguém que está considerando ingressar em um curso técnico. Experimente e veja as possibilidades! </p>", unsafe_allow_html=True)
-# # Linha divisória
-# st.write("---")
-# Título e subtítulo com margens ajustadas
-# st.markdown(
-#     """
-#     <h2 style='text-align: center; color: #12125c; margin-bottom: 5px;'>
-#         Inteligência Artificial para Predição da Evasão na Rede Federal EPCT
-#     </h2>
-#     <p style='text-align: center; color: #1e1e8f; margin-top: 0px; margin-bottom: 10px;'>
-#         Plataforma para análise do comportamento da evasão na RFEPCT.
-#     </p>
-#     <hr style='margin-top: 10px; margin-bottom: 10px;' />
-#     """,
-#     unsafe_allow_html=True
-# )
+
 # Texto introdutório centralizado e compacto
 st.markdown(
     """
@@ -265,48 +222,123 @@ st.markdown(
 # Linha divisória final (com espaçamento menor)
 st.markdown("<hr style='margin-top: 10px; margin-bottom: 10px;'>", unsafe_allow_html=True)
 
-                        # # Botão para voltar à página Home.py
-                        # st.markdown(
-                        #     """
-                        #     <style>
-                        #         .botao-voltar {
-                        #             position: absolute;
-                        #             top: 10px;
-                        #             left: 10px;
-                        #             background-color: #004A99; /* Azul escuro */
-                        #             color: white !important;
-                        #             padding: 10px 20px;
-                        #             border-radius: 5px;
-                        #             text-decoration: none;
-                        #             font-size: 16px;
-                        #             font-weight: bold;
-                        #             border: none;
-                        #             display: inline-block;
-                        #             text-align: center;
-                        #             cursor: pointer;
-                        #         }
-                        #         .botao-voltar:hover {
-                        #             background-color: #003366; /* Azul mais escuro no hover */
-                        #         }
-                        #     </style>
-                        #     <a class="botao-voltar" href="https://previa-beta.streamlit.app/~/+/" target="_self">Voltar para Home</a> 
-                        #     """,
-                        #     unsafe_allow_html=True
-                        # )
-
- 
 st.write(" ")
 st.write(" ")
 st.write(" ")
 
+# Função para categorizar o risco
+def categorizar_risco(prob_evasao):
+    if prob_evasao < 0.50:
+        return "Baixa probabilidade de evasão"
+    elif 0.51 <= prob_evasao <= 0.60:
+        return "Moderada chance de evasão"
+    elif 0.61 <= prob_evasao <= 0.70:
+        return "Considerável probabilidade de evasão"
+    elif 0.71 <= prob_evasao <= 0.90:
+        return "Alta chance de evasão"
+    else:
+        return "Muito alta chance de evasão"
 
-# st.header("Simulador de Evasão em Cursos Técnicos")
-# Container centralizado
+# Seção de Upload de Arquivo CSV em Lote
+st.markdown("---")
+st.subheader("📊 Carga de Dados em Lote")
+
+st.markdown(
+    """
+    <p style='color: #3f3f4f; margin-bottom: 15px;'>
+        Faça a carga de dados em lote utilizando o dicionário de dados disponível no 
+        <a href='https://exemplo.com/dicionario-dados' target='_blank'>link para download do template CSV</a>.
+        O arquivo deve conter os campos que fazem parte do formulário desta página.
+    </p>
+    """,
+    unsafe_allow_html=True
+)
+
+# Upload do arquivo CSV
+uploaded_file = st.file_uploader(
+    "Faça upload do arquivo CSV:",
+    type=['csv'],
+    help="Selecione um arquivo CSV com os dados para predição em lote."
+)
+
+# Processar o arquivo carregado
+if uploaded_file is not None:
+    try:
+        # Ler o arquivo CSV
+        df_lote = pd.read_csv(uploaded_file)
+        
+        # Exibir o dataframe carregado
+        st.subheader("📋 Dados Carregados do Arquivo CSV")
+        st.write(f"Total de registros: {len(df_lote)}")
+        st.dataframe(df_lote)
+        
+        # Botão para processar a predição em lote
+        if st.button("🚀 Prever Evasão em Lote", type="primary"):
+            # Mensagem de processamento
+            placeholder_mensagem = st.empty()
+            placeholder_mensagem.success("🔄 Processando previsão em lote...")
+            
+            try:
+                # Realizar as predições para todos os registros
+                probabilidades = model.predict_proba(df_lote)
+                
+                # Adicionar colunas de resultados
+                df_resultado = df_lote.copy()
+                df_resultado['Chance de Não Evadir'] = [f"{prob[0]:.2%}" for prob in probabilidades]
+                df_resultado['Chance de Evadir'] = [f"{prob[1]:.2%}" for prob in probabilidades]
+                df_resultado['Categoria de Risco'] = [categorizar_risco(prob[1]) for prob in probabilidades]
+                
+                # Remover mensagem de processamento
+                placeholder_mensagem.empty()
+                
+                # Exibir resultados
+                st.subheader("📈 Resultados da Predição em Lote")
+                st.dataframe(df_resultado)
+                
+                # Botão para download dos resultados
+                csv_resultado = df_resultado.to_csv(index=False)
+                st.download_button(
+                    label="📥 Download dos Resultados em CSV",
+                    data=csv_resultado,
+                    file_name="resultados_predicao_evasao.csv",
+                    mime="text/csv"
+                )
+                
+                # Estatísticas resumidas
+                st.subheader("📊 Estatísticas das Predições")
+                col1, col2, col3 = st.columns(3)
+                
+                with col1:
+                    alta_evasao = len([prob for prob in probabilidades if prob[1] > 0.7])
+                    st.metric("Alto Risco de Evasão", alta_evasao)
+                
+                with col2:
+                    moderada_evasao = len([prob for prob in probabilidades if 0.5 <= prob[1] <= 0.7])
+                    st.metric("Risco Moderado", moderada_evasao)
+                
+                with col3:
+                    baixa_evasao = len([prob for prob in probabilidades if prob[1] < 0.5])
+                    st.metric("Baixo Risco", baixa_evasao)
+                    
+            except Exception as e:
+                placeholder_mensagem.empty()
+                st.error(f"❌ Erro ao processar as predições: {str(e)}")
+                
+    except Exception as e:
+        st.error(f"❌ Erro ao ler o arquivo CSV: {str(e)}")
+        st.info("💡 Verifique se o arquivo está no formato correto e contém todas as colunas necessárias.")
+
+# Linha divisória antes do formulário individual
+st.markdown("---")
+
+# Container centralizado para o formulário individual
 with st.container():
     col1, col2, col3 = st.columns([1, 3, 1])
 
     with col2:
-        st.subheader("Dados da Instituição")
+        st.subheader("🎯 Simulação Individual")
+        st.write("Preencha os dados abaixo para uma simulação individual:")
+
         # Dicionário com regiões, UFs e instituições federais
         regioes = {
             "Norte": {
@@ -367,7 +399,6 @@ with st.container():
                 unsafe_allow_html=True
             )
 
-
         # Se uma região for escolhida, listar os estados (UFs) dessa região
         if regiao_escolhida != "Selecione uma região":
             estado_opcoes = ["Selecione um Estado"] + \
@@ -407,8 +438,7 @@ with st.container():
         # Dados do Curso
         st.subheader("Dados do Curso")
 
-
-        # # Definição de eixos tecnologicos
+        # Definição de eixos tecnologicos
         mapeamento_eixos = {
             "Ambiente e Saúde": "Ambiente e Saúde",
             "Controle e Processos Industriais": "Controle e Processos Industriais",
@@ -426,17 +456,12 @@ with st.container():
         }
 
         # Carregar os dados
-
-
         def carregar_dados():
-            # '../artifacts/cnct2025.xlsx' ou cnct2025_base_eficiencia.xlsx
             file_path = 'artifacts/cnct2025v1.xlsx'
             df = pd.read_excel(file_path, sheet_name="Plan1", engine="openpyxl")
             return df
 
-
         df = carregar_dados()
-
 
         # Aplicar o mapeamento no DataFrame
         df["Eixo_Tecnologico_Mapeado"] = df["eixo_tecnologico"].map(mapeamento_eixos)
@@ -449,10 +474,9 @@ with st.container():
         eixo_tecnologico_escolhido = st.selectbox(
             "Informe o Eixo Tecnológico:",
             eixo_opcoes,
-            index=0,  # Mantém "Selecione um Eixo Tecnológico" como padrão
+            index=0,
             help="Selecione o Eixo Tecnológico do Curso Técnico que estuda ou deseja cursar."
         )
-
 
         # Se o usuário não escolher um eixo válido, exibir mensagem de erro
         if eixo_tecnologico_escolhido == "Selecione um Eixo Tecnológico":
@@ -483,7 +507,7 @@ with st.container():
         nome_de_curso = st.selectbox(
             "Nome do curso técnico:",
             cursos,
-            index=0,  # Mantém "Selecione um Curso Técnico" como padrão
+            index=0,
             help="Selecione o Curso Técnico que estuda ou deseja cursar."
         )
 
@@ -506,9 +530,8 @@ with st.container():
         turno = st.selectbox("Turno do curso:", ["Integral", "Matutino", "Vespertino", "Noturno", "Não se aplica"], placeholder="Escolha uma opção.",
                             help="Informe se o curso técnico de que estuda ou deseja cursar é/será realizado no turno Matutino, Vespertino, Noturno ou Integrado.")
 
-
         # Botão para submeter
-        submit = st.button("🔎 Prever Evasão")
+        submit = st.button("🔎 Prever Evasão - Simulação Individual")
 
         # **Validação Completa Antes de Processar**
         if submit:
@@ -538,7 +561,6 @@ with st.container():
                 for erro in erros:
                     st.error(erro)
             else:
-                # # Se não houver erros, realiza o processamento dos dados
                 # Criando o DataFrame de entrada
                 input_data = pd.DataFrame({
                     "cor_raca": ["AmarelaBranca" if cor_raca in ["Amarela", "Branca"] else cor_raca],
@@ -556,7 +578,6 @@ with st.container():
                     "instituicao": (instituicao_escolhida),
                     "região_metropolina_ue": (região_metropolina_ue)
                 })
-                # # Criando o DataFrame de entrada
 
                 st.subheader("📋 Simulações Realizadas")
                 if "input_data" in st.session_state:
@@ -567,221 +588,77 @@ with st.container():
 
                 st.write(st.session_state.input_data)
 
-                # Exibe as colunas do modelo e as colunas do input_data
-                print("Colunas do modelo:", model.feature_names_)
-                print("Colunas do input_data:", input_data.columns.tolist())
-
                 # Botão para limpar as simulações
                 if st.button("Limpar Simulações"):
-                    # Limpa os dados de 'input_data' no session_state
-                    st.session_state.input_data = pd.DataFrame()  # Reseta para um DataFrame vazio
+                    st.session_state.input_data = pd.DataFrame()
                     st.write("Simulações limpas com sucesso!")
 
-                # Código para realizar a previsão aqui, se não houver erros
-                # st.success("Processando a previsão de evasão...")
-
-                # --- Mensagem temporária ---
-                placeholder_mensagem = st.empty()  # Cria um placeholder vazio
-                placeholder_mensagem.success("Processando a previsão de evasão...")  # Exibe a mensagem
+                # Mensagem temporária
+                placeholder_mensagem = st.empty()
+                placeholder_mensagem.success("Processando a previsão de evasão...")
 
                 # Predição
                 probabilidades = model.predict_proba(input_data)[0]
-                prob_nao_evasao = probabilidades[0]  # Probabilidade de NÃO EVADIR
-                prob_evasao = probabilidades[1]  # Probabilidade de EVADIR
+                prob_nao_evasao = probabilidades[0]
+                prob_evasao = probabilidades[1]
 
                 import plotly.graph_objects as go
                 import time
 
                 valor_final = round(prob_evasao * 100, 2)
-                # Criar espaço para o gráfico
                 chart_placeholder = st.empty()
 
                 # Animação do ponteiro do velocímetro
-                for valor_final in range(0, int(round(valor_final * 1, 2,)) + 1, 1):  # Atualiza a cada 5%
-                    # Convertendo para float com 2 casas decimais
-                    valor_final_float = valor_final
+                for valor_atual in range(0, int(valor_final) + 1, 1):
                     fig = go.Figure(go.Indicator(
                         mode="gauge+number",
-                        value=valor_final_float,
+                        value=valor_atual,
                         number={'valueformat': '.f', 'suffix': "%",
                                 'font': {'size': 45, 'color': "#656770"}},
-                        # title={'text': "Probabilidade de Evasão (%)", 'font': {
-                            # 'size': 20, 'color': '#2C3E50'}}
                         gauge={
                             'axis': {'range': [0, 100], 'tickwidth': 2, 'tickcolor': "#7f8c8d"},
-                            'bar': {'color': "#2C3E50"},  # Cor do ponteiro
+                            'bar': {'color': "#2C3E50"},
                             'steps': [
-                                # Verde moderno
                                 {'range': [0, 40], 'color': "#27AE60"},
-                                # Amarelo vibrante
                                 {'range': [40, 70], 'color': "#F1C40F"},
-                                # Vermelho marcante
                                 {'range': [70, 100], 'color': "#E74C3C"}
                             ],
                             'threshold': {
                                 'line': {'color': "red", 'width': 4},
                                 'thickness': 0.85,
-                                'value': valor_final_float
+                                'value': valor_atual
                             }
                         }
                     ))
 
-                    # Layout moderno
                     fig.update_layout(
                         margin=dict(l=20, r=40, t=10, b=20),
                         paper_bgcolor="#f2f4f5",
                         font=dict(color="#2c3e50", family="Arial")
                     )
 
-                    # Atualiza o gráfico na tela
                     chart_placeholder.plotly_chart(fig)
+                    time.sleep(0.1)
 
-                    # Pausa para criar o efeito de transição
-                    time.sleep(0.1)  # Ajuste esse tempo para controlar a velocidade
+                placeholder_mensagem.empty()
 
-                # --- Remover a mensagem inicial após a animação ---
-                placeholder_mensagem.empty()  # Faz a mensagem desaparecer
-
-                # Definir categorias de risco com base na probabilidade de evasão
+                # Definir categorias de risco
                 if prob_evasao < 0.50:
                     st.success(
                         f"✅ Baixa probabilidade de evasão. (Não evade: {prob_nao_evasao:.2%})")
-                    imagem = Image.open("templates/n_evade.jpg")
-                    legenda = "Estudante aliviado por não evadir"
-
                 elif 0.51 <= prob_evasao <= 0.60:
                     st.warning(
                         f"⚠️ Moderada chance de evasão. (Evade: {prob_evasao:.2%})")
-                    # Trocar por outra imagem
-                    imagem = Image.open("templates/moderada1.jpg")
-                    legenda = "Estudante com dúvidas sobre continuar o curso"
-
                 elif 0.61 <= prob_evasao <= 0.70:
                     st.warning(
                         f"⚠️ Considerável probabilidade de evasão. (Evade: {prob_evasao:.2%})")
-                    imagem = Image.open("templates/evade1.jpg")
-                    legenda = "Estudante em risco moderado de evasão"
-
                 elif 0.71 <= prob_evasao <= 0.90:
                     st.error(f"⚠️ Alta chance de evasão! (Evade: {prob_evasao:.2%})")
-                    imagem = Image.open("templates/alta.jpg")
-                    legenda = "Estudante preocupado com a evasão"
-
-                else:  # 0.91 a 1.00
+                else:
                     st.error(
                         f"🚨 Muito alta chance de evasão! (Evade: {prob_evasao:.2%})")
-                    imagem = Image.open("templates/evade.jpg")
-                    legenda = "Estudante com grande risco de abandonar o curso"
 
                 # Exibir os resultados
                 st.subheader("💻 Resultados da Predição")
                 st.write(f"🟢 Probabilidade de **NÃO EVADIR**: {prob_nao_evasao:.2%}")
                 st.write(f"🔴 Probabilidade de **EVADIR**: {prob_evasao:.2%}")
-                
-                
-                                # # Exibir a imagem correspondente (centralizada e com largura 450px)
-                                # col1, col2, col3 = st.columns([1, 1, 1])  # colunas: esquerda, centro, direita
-                                # with col2:
-                                #     st.image(imagem, caption=legenda, width=450)
-
-                                # # Centralizar e redimensionar a imagem (400px)
-                                # st.markdown(
-                                #     f"""
-                                #     <div style='display: flex; justify-content: center;'>
-                                #         <img src='{imagem}' alt='{legenda}'>
-                                #     </div>
-                                    
-                                #     <p style='text-align:center; font-style: italic;'>{legenda}</p>
-                                #     """,
-                                #     unsafe_allow_html=True
-                                # )       
-
-            
-
-            # =====================================================
-                # EXPLAINABLE AI (XAI) - SHAP Waterfall Plot
-            # =====================================================
-                
-                st.markdown("---")
-                st.subheader("📝 Explainable Artificial Intelligence (XAI)")
-                st.write("Impacto das Variáveis na Predição de Evasão:")
-                
-                try:
-                    import shap
-                    import matplotlib.pyplot as plt
-                    import numpy as np
-                    
-                    plt.title("", fontsize=14, fontweight='bold', loc='center')
-                    plt.tight_layout()
-
-                    # Criar explainer SHAP
-                    explainer = shap.TreeExplainer(model)
-                    
-                    # Preparar dados para SHAP (usando one-hot encoding se necessário)
-                    # Primeiro, vamos garantir que as colunas estejam na mesma ordem que o modelo espera
-                    input_data_encoded = input_data.copy()
-                    
-                    # Aplicar o mesmo pré-processamento usado no treinamento
-                    # (você precisará adaptar isso ao seu pré-processamento específico)
-                    
-                    # Calcular valores SHAP
-                    shap_values = explainer.shap_values(input_data_encoded)
-                    
-                    # Se for um modelo multiclasse, pegar os valores para a classe de evasão
-                    if isinstance(shap_values, list):
-                        shap_values_evasao = shap_values[1]  # Índice 1 para evasão
-                    else:
-                        shap_values_evasao = shap_values
-                    
-                    # Criar waterfall plot
-                    fig, ax = plt.subplots(figsize=(24, 16))
-                    
-                    # Gerar o waterfall plot
-                    shap.waterfall_plot(
-                        shap.Explanation(
-                            values=shap_values_evasao[0],
-                            base_values=explainer.expected_value[1] if isinstance(explainer.expected_value, list) else explainer.expected_value,
-                            data=input_data_encoded.iloc[0],
-                            feature_names=input_data_encoded.columns.tolist()
-                        ),
-                        max_display=15,  # Mostrar as 15 variáveis mais importantes
-                        show=False
-                    )
-                    
-                    # Centralizar o gráfico
-                    col1, col2, col3 = st.columns([1, 6, 1])
-                    with col2:
-                        st.pyplot(fig)
-                        plt.close()
-                    
-                    # Explicação adicional
-                    st.markdown("""
-                    **Interpretação do gráfico:**
-                    - **Valores positivos (vermelho)**: Aumentam a probabilidade de evasão
-                    - **Valores negativos (azul)**: Diminuem a probabilidade de evasão
-                    - **E[f(X)]**: Valor base (probabilidade média)
-                    - **f(x)**: Probabilidade final para este caso específico
-                    """)
-                    
-                except Exception as e:
-                    st.warning(f"⚠️ Não foi possível gerar a análise de explicabilidade: {str(e)}")
-                    st.info("""
-                    **Interpretação Alternativa:**
-                    Para entender os fatores que influenciam a evasão, considere:
-                    - **Idade**: Estudantes mais jovens tendem a ter maior evasão
-                    - **Renda Familiar**: Menor renda pode aumentar o risco
-                    - **Modalidade**: Cursos EaD podem ter dinâmicas diferentes
-                    - **Turno**: Noturno pode ter mais evasão por conciliar trabalho
-                    - **Eixo Tecnológico**: Algumas áreas têm maior retenção
-                    """)     
-##########################################################################################################################################################
-
-
-
-
-
-
-
-
-
-##########################################################################################################################################################
