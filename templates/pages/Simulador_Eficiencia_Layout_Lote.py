@@ -246,7 +246,7 @@ st.subheader("📊 Carga de Dados em Lote")
 st.markdown(
     """
     <p style='color: #3f3f4f; margin-bottom: 15px;'>
-        Faça a carga de dados em lote utilizando o dicionário de dados disponível no 
+        Faça a carga de dados em lote utilizando o dicionário de dados disponível aqui  
         <a href='https://exemplo.com/dicionario-dados' target='_blank'>link para download do template CSV</a>.
         O arquivo deve conter os campos que fazem parte do formulário desta página.
     </p>
