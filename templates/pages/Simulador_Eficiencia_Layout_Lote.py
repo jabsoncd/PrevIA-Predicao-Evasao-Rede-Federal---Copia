@@ -222,10 +222,6 @@ st.markdown(
 # Linha divisória final (com espaçamento menor)
 st.markdown("<hr style='margin-top: 10px; margin-bottom: 10px;'>", unsafe_allow_html=True)
 
-st.write(" ")
-st.write(" ")
-st.write(" ")
-
 # Função para categorizar o risco
 def categorizar_risco(prob_evasao):
     if prob_evasao < 0.50:
