@@ -208,13 +208,6 @@ model = load_model()
 # Texto introdutório centralizado e compacto
 st.markdown(
     """
-    <style>
-    a, a:visited, a:active {
-        color: #1510BF87 !important;
-        text-decoration: none !important;
-    }
-    </style>
-
     
     <p style='text-align: center; color: #3f3f4f; margin-top: 0px; margin-bottom: 0px; font-size: 16px;'>
         Olá! Faça agora a sua simulação e descubra a probabilidade de evasão em um curso técnico da Rede Federal EPCT.
@@ -254,9 +247,16 @@ st.subheader("📊 Carga de Dados em Lote")
 
 st.markdown(
     """
+        <style>
+    a, a:visited, a:active {
+        color: #1510BF87 !important;
+        text-decoration: none !important;
+    }
+    </style>
+
     <p style='color: #3f3f4f; margin-bottom: 15px;'>
-    Faça a carga de dados em lote utilizando o dicionário de dados disponível no  
-    <a href='https://docs.google.com/spreadsheets/d/1QEPE-PTpxYdXNGnLsZYAHFw-Pgif8g4r/edit?usp=sharing&ouid=115253446966752190584&rtpof=true&sd=true' 
+    Faça a carga de dados em lote utilizando o dicionário de dados disponível neste 
+    <a href='https://drive.google.com/file/d/1DSUj_d4tyYKtVsS76-L_HkfalCEWRnvI/view?usp=sharing' 
        target='_blank' 
        style='color: blue !important; text-decoration: none;'>
        link para download do template CSV
