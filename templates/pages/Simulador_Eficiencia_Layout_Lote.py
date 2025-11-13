@@ -208,6 +208,14 @@ model = load_model()
 # Texto introdutório centralizado e compacto
 st.markdown(
     """
+    <style>
+    a, a:visited, a:active {
+        color: #1510BF87 !important;
+        text-decoration: none !important;
+    }
+    </style>
+
+    
     <p style='text-align: center; color: #3f3f4f; margin-top: 0px; margin-bottom: 0px; font-size: 16px;'>
         Olá! Faça agora a sua simulação e descubra a probabilidade de evasão em um curso técnico da Rede Federal EPCT.
         Nossa plataforma utiliza um modelo avançado de aprendizado de máquina treinado com dados históricos de matrículas de estudantes
@@ -238,13 +246,19 @@ def categorizar_risco(prob_evasao):
 # Seção de Upload de Arquivo CSV em Lote
 st.subheader("📊 Carga de Dados em Lote")
 
+
+
+
+
+
+
 st.markdown(
     """
     <p style='color: #3f3f4f; margin-bottom: 15px;'>
     Faça a carga de dados em lote utilizando o dicionário de dados disponível no  
     <a href='https://docs.google.com/spreadsheets/d/1QEPE-PTpxYdXNGnLsZYAHFw-Pgif8g4r/edit?usp=sharing&ouid=115253446966752190584&rtpof=true&sd=true' 
        target='_blank' 
-       style='color: #0066cc !important; text-decoration: none;'>
+       style='color: blue !important; text-decoration: none;'>
        link para download do template CSV
     </a>.
     O arquivo deve conter os campos que fazem parte do formulário desta página.
