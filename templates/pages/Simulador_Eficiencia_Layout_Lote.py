@@ -321,27 +321,15 @@ def processar_csv_para_modelo(uploaded_file):
     
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 st.markdown(
     """
     <style>
-    .download-link-custom {
+    p a.download-link-custom {
         color: #007bff !important;
         text-decoration: none !important;
-        font-weight: 500;
+        font-weight: 500 !important;
     }
-    .download-link-custom:hover {
+    p a.download-link-custom:hover {
         color: #0056b3 !important;
         text-decoration: underline !important;
     }
@@ -356,10 +344,12 @@ st.markdown(
         </a>.
         O arquivo deve conter os campos que fazem parte do formulário desta página.
     </p>
-    
     """,
     unsafe_allow_html=True
 )
+
+
+
 
 # Upload do arquivo CSV
 uploaded_file = st.file_uploader(
