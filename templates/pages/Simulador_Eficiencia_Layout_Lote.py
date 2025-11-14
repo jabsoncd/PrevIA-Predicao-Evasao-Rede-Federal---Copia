@@ -335,8 +335,6 @@ def processar_csv_para_modelo(uploaded_file):
 
 st.markdown(
     """
-        <style>
-
     <p style='color: #3f3f4f; margin-bottom: 15px;'>
     Faça a carga de dados em lote utilizando o dicionário de dados disponível neste 
     <a href='https://drive.google.com/file/d/1hqpTKiU_bG-UJRjiLel-A0PWWFrDLCeo/view?usp=sharing' 
