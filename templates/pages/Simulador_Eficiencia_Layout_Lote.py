@@ -192,6 +192,7 @@ if st.session_state.current_page == "home":
 
     st.markdown("---")
 
+
 # Função para carregar o modelo
 @st.cache_resource
 def load_model():
@@ -204,6 +205,9 @@ def load_model():
     return model
 # Carregar o modelo treinado
 model = load_model()
+
+
+
 
 # Texto introdutório centralizado e compacto
 st.markdown(
@@ -245,6 +249,90 @@ st.subheader("📊 Carga de Dados em Lote")
 
 
 
+
+
+def transformar_dados_para_array(df):
+    """
+    Transforma o DataFrame do CSV para o formato array com estrutura específica
+    usando os nomes das colunas do modelo
+    """
+    dados_transformados = []
+    
+    for _, row in df.iterrows():
+        # Criar array no formato desejado com os nomes das colunas do modelo
+        array_transformado = [
+            row['cor_raca'],                    # 'Parda' - cat_features[0]
+            int(row['idade']),                  # 41 - variável numérica
+            row['sexo'],                        # 'Feminino' - cat_features[1]
+            row['renda_familiar'],              # '0<RFP<=0,5' - cat_features[2]
+            row['modalidade_de_ensino'],        # 'Educação Presencial' - cat_features[3]
+            row['tipo_de_oferta'],              # 'Integrado' - cat_features[4]
+            row['turno'],                       # 'Vespertino' - cat_features[5]
+            row['nome_de_curso'],               # 'Técnico em Informática' - cat_features[6]
+            row['eixo_tecnologico_escolhido'],  # 'Informação e Comunicação' - cat_features[7]
+            int(row['carga_horaria_minima']),   # 1000 - variável numérica
+            row['estado_escolhido'],            # 'PI' - cat_features[8] (uf)
+            row['regiao_escolhida'],            # 'Nordeste' - cat_features[9] (regiao)
+            row['instituicao_escolhida'],       # 'Colégio Técnico...' - cat_features[10] (instituicao)
+            row['regiao_metropolitana_ue']      # 'NÃO' - cat_features[11] (região_metropolina_ue)
+        ]
+        
+        dados_transformados.append(array_transformado)
+    
+    return np.array(dados_transformados, dtype=object)
+
+def processar_csv_para_modelo(uploaded_file):
+    """
+    Processa o CSV carregado e transforma para o formato do modelo
+    com os nomes de colunas corretos
+    """
+    try:
+        # Ler CSV
+        df = pd.read_csv(uploaded_file)
+        
+        # Transformar para array no formato correto
+        array_dados = transformar_dados_para_array(df)
+        
+        # Criar DataFrame com os nomes de colunas EXATOS do modelo
+        colunas_modelo = [
+            'cor_raca',      # cat_features[0]
+            'idade',         # variável numérica
+            'sexo',          # cat_features[1]
+            'renda_familiar', # cat_features[2]
+            'modalidade_de_ensino', # cat_features[3]
+            'tipo_de_oferta', # cat_features[4]
+            'turno',         # cat_features[5]
+            'nome_de_curso', # cat_features[6]
+            'eixo_tecnologico', # cat_features[7] (nome ajustado)
+            'carga_horaria_minima', # variável numérica
+            'uf',            # cat_features[8] (nome ajustado)
+            'regiao',        # cat_features[9] (nome ajustado)
+            'instituicao',   # cat_features[10] (nome ajustado)
+            'região_metropolina_ue' # cat_features[11] (nome ajustado)
+        ]
+        
+        df_para_modelo = pd.DataFrame(array_dados, columns=colunas_modelo)
+        
+        return df_para_modelo, array_dados
+        
+    except Exception as e:
+        st.error(f"Erro ao processar CSV: {e}")
+        return None, None
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 st.markdown(
     """
         <style>
@@ -279,12 +367,24 @@ uploaded_file = st.file_uploader(
 if uploaded_file is not None:
     try:
         # Ler o arquivo CSV
-        df_lote = pd.read_csv(uploaded_file)
+        # Processar CSV com a nova função
+        df_para_modelo, array_dados = processar_csv_para_modelo(uploaded_file)
         
-        # Exibir o dataframe carregado
-        st.subheader("📋 Dados Carregados do Arquivo CSV")
-        st.write(f"Total de registros: {len(df_lote)}")
-        st.dataframe(df_lote)
+        if df_para_modelo is not None:
+            st.subheader("📋 Dados Transformados para o Modelo")
+            st.write(f"Total de registros: {len(df_para_modelo)}")
+            st.write("**Colunas do modelo:**")
+            st.write(list(df_para_modelo.columns))
+            st.dataframe(df_para_modelo)
+            
+            # Mostrar exemplo do array
+            with st.expander("🔍 Ver formato array"):
+                st.code(f"array([{list(array_dados[0])}])")
+            
+            # Verificação dos tipos de dados
+            st.subheader("🔍 Verificação dos Tipos de Dados")
+            st.write(df_para_modelo.dtypes)
+       
         
         # Botão para processar a predição em lote
         if st.button("🚀 Prever Evasão em Lote", type="primary"):
@@ -294,7 +394,7 @@ if uploaded_file is not None:
             
             try:
                 # Realizar as predições para todos os registros
-                probabilidades = model.predict_proba(df_lote)
+                probabilidades = model.predict_proba(df_lote)[0]
                 
                 # Adicionar colunas de resultados
                 df_resultado = df_lote.copy()
