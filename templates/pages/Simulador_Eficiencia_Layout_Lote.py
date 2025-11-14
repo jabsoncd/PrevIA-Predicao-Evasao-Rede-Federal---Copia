@@ -224,7 +224,7 @@ st.markdown(
         que precisam avaliar grupos de alunos em cursos técnicos da Rede Federal EPCT. 
         Faça o upload de uma planilha CSV e obtenha previsões individuais para cada estudante 
         de forma rápida e eficiente.
-        <br>
+        <br></br>
     </p>
     """,
     unsafe_allow_html=True
