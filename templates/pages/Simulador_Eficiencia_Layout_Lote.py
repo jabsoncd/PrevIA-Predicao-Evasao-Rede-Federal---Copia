@@ -398,10 +398,10 @@ if uploaded_file is not None:
             
             try:
                 # Realizar as predições para todos os registros
-                probabilidades = model.predict_proba(df_lote)[0]
+                probabilidades = model.predict_proba(df_para_modelo)[0]
                 
                 # Adicionar colunas de resultados
-                df_resultado = df_lote.copy()
+                df_resultado = df_para_modelo.copy()
                 df_resultado['Chance de Não Evadir'] = [f"{prob[0]:.2%}" for prob in probabilidades]
                 df_resultado['Chance de Evadir'] = [f"{prob[1]:.2%}" for prob in probabilidades]
                 df_resultado['Categoria de Risco'] = [categorizar_risco(prob[1]) for prob in probabilidades]
