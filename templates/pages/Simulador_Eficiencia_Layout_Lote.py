@@ -344,11 +344,11 @@ st.markdown(
     </style>
     <p style='color: #3f3f4f; margin-bottom: 15px;'>
     Faça a carga de dados em lote utilizando o dicionário de dados disponível neste 
-    <a href='https://drive.google.com/file/d/1hqpTKiU_bG-UJRjiLel-A0PWWFrDLCeo/view?usp=sharing' 
-   target='_blank' 
-   class='download-link'>
-   link para download do template CSV
-    </a>
+        <a href='https://drive.google.com/file/d/1hqpTKiU_bG-UJRjiLel-A0PWWFrDLCeo/view?usp=sharing' 
+        target='_blank' 
+        class='download-link'>
+        link para download do template CSV
+        </a>
     O arquivo deve conter os campos que fazem parte do formulário desta página.
     </p>
     
