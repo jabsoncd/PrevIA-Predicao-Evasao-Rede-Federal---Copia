@@ -223,6 +223,13 @@ st.markdown(
         para analisar padrões e prever a chance de permanência ou evasão no curso.
         Essa ferramenta pode ajudá-lo a tomar decisões mais informadas, seja para o seu próprio percurso acadêmico
         ou para apoiar alguém que está considerando ingressar em um curso técnico. Experimente e veja as possibilidades!
+        <br>
+        <strong>Simulação em Lote para Múltiplos Estudantes</strong><br>
+        Utilize nossa plataforma de inteligência artificial para analisar a probabilidade de evasão 
+        de vários estudantes simultaneamente. Ideal para instituições, coordenadores e gestores 
+        que precisam avaliar grupos de alunos em cursos técnicos da Rede Federal EPCT. 
+        Faça o upload de uma planilha CSV e obtenha previsões individuais para cada estudante 
+        de forma rápida e eficiente.
     </p>
     """,
     unsafe_allow_html=True
