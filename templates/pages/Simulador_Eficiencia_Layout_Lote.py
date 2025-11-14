@@ -336,23 +336,27 @@ def processar_csv_para_modelo(uploaded_file):
 st.markdown(
     """
     <style>
-    .download-link {
+    .download-link-custom {
         color: #007bff !important;
         text-decoration: none !important;
-        font-weight: bold;
+        font-weight: 500;
+    }
+    .download-link-custom:hover {
+        color: #0056b3 !important;
+        text-decoration: underline !important;
     }
     </style>
+
     <p style='color: #3f3f4f; margin-bottom: 15px;'>
-    Faça a carga de dados em lote utilizando o dicionário de dados disponível neste 
+        Faça a carga de dados em lote utilizando o dicionário de dados disponível neste 
         <a href='https://drive.google.com/file/d/1hqpTKiU_bG-UJRjiLel-A0PWWFrDLCeo/view?usp=sharing' 
         target='_blank' 
-        class='download-link'>
+        class='download-link-custom'>
         link para download do template CSV
-        </a>
-    O arquivo deve conter os campos que fazem parte do formulário desta página.
+        </a>.
+        O arquivo deve conter os campos que fazem parte do formulário desta página.
     </p>
     
-
     """,
     unsafe_allow_html=True
 )
