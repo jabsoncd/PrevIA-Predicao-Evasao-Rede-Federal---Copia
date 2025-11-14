@@ -325,7 +325,7 @@ with st.container():
     ])
 
     with abas[0]:
-        st.subheader("Apresentação")
+        # st.subheader("Apresentação")
         st.markdown(
             """
             O **PrevIA** (Predição de Evasão na Rede Federal com Inteligência Artificial) é uma ferramenta web 
@@ -339,7 +339,7 @@ with st.container():
         )
 
     with abas[1]:
-        st.subheader("Objetivo")
+        # st.subheader("Objetivo")
         st.markdown(
             """
             O principal objetivo do **PrevIA** é **apoiar estratégias de mitigação da evasão escolar** por meio da aplicação de 
@@ -353,7 +353,7 @@ with st.container():
         )
 
     with abas[2]:
-        st.subheader("Metodologia")
+        # st.subheader("Metodologia")
         st.markdown(
             """
             O desenvolvimento do PrevIA foi estruturado conforme o modelo **CRISP-DM (Cross Industry Standard Process for Data Mining)**,
@@ -364,19 +364,19 @@ with st.container():
         )
 
     with abas[3]:
-        st.subheader("Software")
+        # st.subheader("Software")
         st.markdown(
             """
-            - **Período:** 2024–2025  
-            - **Ambiente de desenvolvimento:** Python 3.11 
+            - **Ambiente de desenvolvimento:** Python 3.11 - Visual Studio Code
             - **Principais bibliotecas:** Streamlit, Pandas, Scikit-learn, CatBoost, SHAP  
-            - **Hospedagem:** Plataforma web interativa  
+            - **Hospedagem:** Streamlit Cloud 
             - **Base de dados:** Dados de dados de eficência acadêmica da Rede Federal EPCT 2023
+            - **Período de desenvolvimento:** 2024–2025 
             """
         )
 
     with abas[4]:
-        st.subheader("Publicações e Referências")
+        # st.subheader("Publicações e Referências")
         st.markdown(
             """
             - DIAS, J. C.; SILVA, T. L. da; JULIATTO, M. A.; PAIXÃO, A. N. da; PRATA, D. N. *School dropout in the Federal Network Education of Brazil: is it an inherent individual attribute or it lies on setting conditions?*.
