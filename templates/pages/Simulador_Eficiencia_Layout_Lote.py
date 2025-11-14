@@ -218,14 +218,8 @@ st.markdown(
     """
     
     <p style='text-align: center; color: #3f3f4f; margin-top: 0px; margin-bottom: 0px; font-size: 16px;'>
-        Olá! Faça agora a sua simulação e descubra a probabilidade de evasão em um curso técnico da Rede Federal EPCT.
-        Nossa plataforma utiliza um modelo avançado de aprendizado de máquina treinado com dados históricos de matrículas de estudantes
-        para analisar padrões e prever a chance de permanência ou evasão no curso.
-        Essa ferramenta pode ajudá-lo a tomar decisões mais informadas, seja para o seu próprio percurso acadêmico
-        ou para apoiar alguém que está considerando ingressar em um curso técnico. Experimente e veja as possibilidades!
-        <br>
-        <strong>Simulação em Lote para Múltiplos Estudantes</strong><br>
-        Utilize nossa plataforma de inteligência artificial para analisar a probabilidade de evasão 
+        <strong>Funcionalidade de Simulação em Lote</strong><br>
+        Utilize a plataforma de inteligência artificial para analisar a probabilidade de evasão 
         de vários estudantes simultaneamente. Ideal para instituições, coordenadores e gestores 
         que precisam avaliar grupos de alunos em cursos técnicos da Rede Federal EPCT. 
         Faça o upload de uma planilha CSV e obtenha previsões individuais para cada estudante 
@@ -252,7 +246,7 @@ def categorizar_risco(prob_evasao):
         return "Muito alta chance de evasão"
 
 # Seção de Upload de Arquivo CSV em Lote
-st.subheader("📁 Carga de Dados em Lote")
+st.subheader("⚙️ Carga de Dados em Lote")
 
 
 
