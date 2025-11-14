@@ -44,7 +44,7 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 # CSS personalizado (barra azul alta com ícones dentro)
 st.markdown("""
 <style>
-    /* 🔹 Barra superior azul */
+    /* 🔹 Barra superior azul */ 
     .nav-container {
         background-color: #152847;
         height: 2cm; /* Altura da faixa azul */
@@ -336,11 +336,6 @@ def processar_csv_para_modelo(uploaded_file):
 st.markdown(
     """
         <style>
-    a, a:visited, a:active {
-        color: #1510BF87 !important;
-        text-decoration: none !important;
-    }
-    </style>
 
     <p style='color: #3f3f4f; margin-bottom: 15px;'>
     Faça a carga de dados em lote utilizando o dicionário de dados disponível neste 
