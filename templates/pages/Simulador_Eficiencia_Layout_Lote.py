@@ -364,11 +364,11 @@ uploaded_file = st.file_uploader(
 )
 
 # Processar o arquivo carregado
+# No seu código Streamlit, CORRIJA esta parte:
 if uploaded_file is not None:
     try:
-        # Ler o arquivo CSV
-        # Processar CSV com a nova função
-        df_para_modelo, array_dados = processar_csv_para_modelo(uploaded_file)
+        # 🔹 CORREÇÃO: Agora a função retorna apenas um valor
+        df_para_modelo = processar_csv_para_modelo(uploaded_file)
         
         if df_para_modelo is not None:
             st.subheader("📋 Dados Transformados para o Modelo")
@@ -377,103 +377,77 @@ if uploaded_file is not None:
             st.write(list(df_para_modelo.columns))
             st.dataframe(df_para_modelo)
             
-            # Mostrar exemplo do array
-            with st.expander("🔍 Ver formato array"):
-                st.code(f"array([{list(array_dados[0])}])")
-            
             # Verificação dos tipos de dados
             st.subheader("🔍 Verificação dos Tipos de Dados")
             st.write(df_para_modelo.dtypes)
-       
-        
-        # Botão para processar a predição em lote
-        # E na parte da predição, CORRIJA para:
-        if st.button("🚀 Prever Evasão em Lote", type="primary"):
-            placeholder_mensagem = st.empty()
-            placeholder_mensagem.success("🔄 Processando previsão em lote...")
             
-            try:
-                # 🔹 CATBOOST: Não precisa de pré-processamento para variáveis categóricas
-                placeholder_mensagem.info("🎯 Realizando predições com CatBoost...")
+            # 🔹 CORREÇÃO: Remover a parte do array que não é mais necessária
+            # Já que estamos usando o DataFrame diretamente com CatBoost
+            
+            # Botão para processar a predição em lote
+            if st.button("🚀 Prever Evasão em Lote", type="primary"):
+                placeholder_mensagem = st.empty()
+                placeholder_mensagem.success("🔄 Processando previsão em lote...")
                 
-                # 🔹 CORREÇÃO: Passar o DataFrame diretamente para o CatBoost
-                probabilidades = model.predict_proba(df_para_modelo)
-                
-                # 🔹 DEBUG: Verificar a forma das probabilidades
-                st.write(f"📊 Forma das probabilidades: {probabilidades.shape}")
-                st.write(f"📊 Tipo das probabilidades: {type(probabilidades)}")
-                
-                # Processar probabilidades baseado na forma do output
-                if len(probabilidades.shape) == 2:
-                    # Se for matriz 2D [prob_classe_0, prob_classe_1]
-                    if probabilidades.shape[1] == 2:
-                        probabilidades_evasao = probabilidades[:, 1]  # Pega a coluna da classe 1 (evasão)
-                    else:
-                        probabilidades_evasao = probabilidades[:, 0]  # Pega a primeira coluna
-                else:
-                    # Se for array 1D, usar diretamente
-                    probabilidades_evasao = probabilidades
-                
-                # Adicionar colunas de resultados
-                df_resultado = df_para_modelo.copy()
-                df_resultado['Chance de Não Evadir'] = [f"{(1 - prob):.2%}" for prob in probabilidades_evasao]
-                df_resultado['Chance de Evadir'] = [f"{prob:.2%}" for prob in probabilidades_evasao]
-                df_resultado['Categoria de Risco'] = [categorizar_risco(prob) for prob in probabilidades_evasao]
-                
-                # Remover mensagem de processamento
-                placeholder_mensagem.empty()
-                
-                # Exibir resultados
-                st.subheader("📈 Resultados da Predição em Lote")
-                st.dataframe(df_resultado)
-                
-                # Botão para download dos resultados
-                csv_resultado = df_resultado.to_csv(index=False)
-                st.download_button(
-                    label="📥 Download dos Resultados em CSV",
-                    data=csv_resultado,
-                    file_name="resultados_predicao_evasao.csv",
-                    mime="text/csv"
-                )
-                
-                # Estatísticas resumidas
-                st.subheader("📊 Estatísticas das Predições")
-                col1, col2, col3 = st.columns(3)
-                
-                with col1:
-                    alta_evasao = sum(prob > 0.7 for prob in probabilidades_evasao)
-                    st.metric("Alto Risco de Evasão", alta_evasao)
-                
-                with col2:
-                    moderada_evasao = sum(0.5 <= prob <= 0.7 for prob in probabilidades_evasao)
-                    st.metric("Risco Moderado", moderada_evasao)
-                
-                with col3:
-                    baixa_evasao = sum(prob < 0.5 for prob in probabilidades_evasao)
-                    st.metric("Baixo Risco", baixa_evasao)
+                try:
+                    # 🔹 CATBOOST: Passar o DataFrame diretamente
+                    placeholder_mensagem.info("🎯 Realizando predições com CatBoost...")
                     
-            except Exception as e:
-                placeholder_mensagem.empty()
-                st.error(f"❌ Erro ao processar as predições: {str(e)}")
-                
-                # 🔹 DEBUG DETALHADO
-                st.subheader("🔍 Debug Detalhado")
-                st.write("**DataFrame info:**")
-                st.write(f"Colunas: {list(df_para_modelo.columns)}")
-                st.write(f"Forma: {df_para_modelo.shape}")
-                st.write(f"Tipos de dados:")
-                st.write(df_para_modelo.dtypes)
-                st.write("**Primeiras linhas do DataFrame:**")
-                st.dataframe(df_para_modelo.head(3))
-                
-                import traceback
-                st.code(traceback.format_exc())
-                
-                
+                    probabilidades = model.predict_proba(df_para_modelo)
+                    
+                    # 🔹 DEBUG: Verificar a forma das probabilidades
+                    st.write(f"📊 Forma das probabilidades: {probabilidades.shape}")
+                    
+                    # Processar probabilidades
+                    if len(probabilidades.shape) == 2 and probabilidades.shape[1] == 2:
+                        probabilidades_evasao = probabilidades[:, 1]  # Classe 1 (evasão)
+                    else:
+                        probabilidades_evasao = probabilidades
+                    
+                    # Adicionar colunas de resultados
+                    df_resultado = df_para_modelo.copy()
+                    df_resultado['Chance de Não Evadir'] = [f"{(1 - prob):.2%}" for prob in probabilidades_evasao]
+                    df_resultado['Chance de Evadir'] = [f"{prob:.2%}" for prob in probabilidades_evasao]
+                    df_resultado['Categoria de Risco'] = [categorizar_risco(prob) for prob in probabilidades_evasao]
+                    
+                    placeholder_mensagem.empty()
+                    
+                    # Exibir resultados
+                    st.subheader("📈 Resultados da Predição em Lote")
+                    st.dataframe(df_resultado)
+                    
+                    # Botão para download
+                    csv_resultado = df_resultado.to_csv(index=False)
+                    st.download_button(
+                        label="📥 Download dos Resultados em CSV",
+                        data=csv_resultado,
+                        file_name="resultados_predicao_evasao.csv",
+                        mime="text/csv"
+                    )
+                    
+                    # Estatísticas
+                    st.subheader("📊 Estatísticas das Predições")
+                    col1, col2, col3 = st.columns(3)
+                    
+                    with col1:
+                        alta_evasao = sum(prob > 0.7 for prob in probabilidades_evasao)
+                        st.metric("Alto Risco de Evasão", alta_evasao)
+                    
+                    with col2:
+                        moderada_evasao = sum(0.5 <= prob <= 0.7 for prob in probabilidades_evasao)
+                        st.metric("Risco Moderado", moderada_evasao)
+                    
+                    with col3:
+                        baixa_evasao = sum(prob < 0.5 for prob in probabilidades_evasao)
+                        st.metric("Baixo Risco", baixa_evasao)
+                        
+                except Exception as e:
+                    placeholder_mensagem.empty()
+                    st.error(f"❌ Erro ao processar as predições: {str(e)}")
+                    
     except Exception as e:
         st.error(f"❌ Erro ao ler o arquivo CSV: {str(e)}")
         st.info("💡 Verifique se o arquivo está no formato correto e contém todas as colunas necessárias.")
-
 # Linha divisória antes do formulário individual
 st.markdown("---")
 
