@@ -252,7 +252,7 @@ def categorizar_risco(prob_evasao):
         return "Muito alta chance de evasão"
 
 # Seção de Upload de Arquivo CSV em Lote
-st.subheader("📊 Carga de Dados em Lote")
+st.subheader("📁 Carga de Dados em Lote")
 
 
 
