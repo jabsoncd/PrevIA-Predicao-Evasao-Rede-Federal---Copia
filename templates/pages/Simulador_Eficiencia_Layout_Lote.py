@@ -288,40 +288,36 @@ def transformar_dados_para_array(df):
 def processar_csv_para_modelo(uploaded_file):
     """
     Processa o CSV carregado e transforma para o formato do modelo
-    com os nomes de colunas corretos
+    com os nomes de colunas corretos - SEM converter categóricas
     """
     try:
         # Ler CSV
         df = pd.read_csv(uploaded_file)
         
-        # Transformar para array no formato correto
-        array_dados = transformar_dados_para_array(df)
-        
         # Criar DataFrame com os nomes de colunas EXATOS do modelo
-        colunas_modelo = [
-            'cor_raca',      # cat_features[0]
-            'idade',         # variável numérica
-            'sexo',          # cat_features[1]
-            'renda_familiar', # cat_features[2]
-            'modalidade_de_ensino', # cat_features[3]
-            'tipo_de_oferta', # cat_features[4]
-            'turno',         # cat_features[5]
-            'nome_de_curso', # cat_features[6]
-            'eixo_tecnologico', # cat_features[7] (nome ajustado)
-            'carga_horaria_minima', # variável numérica
-            'uf',            # cat_features[8] (nome ajustado)
-            'regiao',        # cat_features[9] (nome ajustado)
-            'instituicao',   # cat_features[10] (nome ajustado)
-            'região_metropolina_ue' # cat_features[11] (nome ajustado)
-        ]
+        df_para_modelo = pd.DataFrame({
+            'cor_raca': df['cor_raca'],
+            'idade': pd.to_numeric(df['idade'], errors='coerce').fillna(0).astype(int),
+            'sexo': df['sexo'],
+            'renda_familiar': df['renda_familiar'],
+            'modalidade_de_ensino': df['modalidade_de_ensino'],
+            'tipo_de_oferta': df['tipo_de_oferta'],
+            'turno': df['turno'],
+            'nome_de_curso': df['nome_de_curso'],
+            'eixo_tecnologico': df['eixo_tecnologico_escolhido'],
+            'carga_horaria_minima': pd.to_numeric(df['carga_horaria_minima'], errors='coerce').fillna(0).astype(int),
+            'uf': df['estado_escolhido'],
+            'regiao': df['regiao_escolhida'],
+            'instituicao': df['instituicao_escolhida'],
+            'região_metropolina_ue': df['regiao_metropolitana_ue']
+        })
         
-        df_para_modelo = pd.DataFrame(array_dados, columns=colunas_modelo)
-        
-        return df_para_modelo, array_dados
+        return df_para_modelo
         
     except Exception as e:
         st.error(f"Erro ao processar CSV: {e}")
-        return None, None
+        return None
+
     
 
 
@@ -391,20 +387,38 @@ if uploaded_file is not None:
        
         
         # Botão para processar a predição em lote
+        # E na parte da predição, CORRIJA para:
         if st.button("🚀 Prever Evasão em Lote", type="primary"):
-            # Mensagem de processamento
             placeholder_mensagem = st.empty()
             placeholder_mensagem.success("🔄 Processando previsão em lote...")
             
             try:
-                # Realizar as predições para todos os registros
-                probabilidades = model.predict_proba(df_para_modelo)[0]
+                # 🔹 CATBOOST: Não precisa de pré-processamento para variáveis categóricas
+                placeholder_mensagem.info("🎯 Realizando predições com CatBoost...")
+                
+                # 🔹 CORREÇÃO: Passar o DataFrame diretamente para o CatBoost
+                probabilidades = model.predict_proba(df_para_modelo)
+                
+                # 🔹 DEBUG: Verificar a forma das probabilidades
+                st.write(f"📊 Forma das probabilidades: {probabilidades.shape}")
+                st.write(f"📊 Tipo das probabilidades: {type(probabilidades)}")
+                
+                # Processar probabilidades baseado na forma do output
+                if len(probabilidades.shape) == 2:
+                    # Se for matriz 2D [prob_classe_0, prob_classe_1]
+                    if probabilidades.shape[1] == 2:
+                        probabilidades_evasao = probabilidades[:, 1]  # Pega a coluna da classe 1 (evasão)
+                    else:
+                        probabilidades_evasao = probabilidades[:, 0]  # Pega a primeira coluna
+                else:
+                    # Se for array 1D, usar diretamente
+                    probabilidades_evasao = probabilidades
                 
                 # Adicionar colunas de resultados
                 df_resultado = df_para_modelo.copy()
-                df_resultado['Chance de Não Evadir'] = [f"{prob[0]:.2%}" for prob in probabilidades]
-                df_resultado['Chance de Evadir'] = [f"{prob[1]:.2%}" for prob in probabilidades]
-                df_resultado['Categoria de Risco'] = [categorizar_risco(prob[1]) for prob in probabilidades]
+                df_resultado['Chance de Não Evadir'] = [f"{(1 - prob):.2%}" for prob in probabilidades_evasao]
+                df_resultado['Chance de Evadir'] = [f"{prob:.2%}" for prob in probabilidades_evasao]
+                df_resultado['Categoria de Risco'] = [categorizar_risco(prob) for prob in probabilidades_evasao]
                 
                 # Remover mensagem de processamento
                 placeholder_mensagem.empty()
@@ -427,20 +441,34 @@ if uploaded_file is not None:
                 col1, col2, col3 = st.columns(3)
                 
                 with col1:
-                    alta_evasao = len([prob for prob in probabilidades if prob[1] > 0.7])
+                    alta_evasao = sum(prob > 0.7 for prob in probabilidades_evasao)
                     st.metric("Alto Risco de Evasão", alta_evasao)
                 
                 with col2:
-                    moderada_evasao = len([prob for prob in probabilidades if 0.5 <= prob[1] <= 0.7])
+                    moderada_evasao = sum(0.5 <= prob <= 0.7 for prob in probabilidades_evasao)
                     st.metric("Risco Moderado", moderada_evasao)
                 
                 with col3:
-                    baixa_evasao = len([prob for prob in probabilidades if prob[1] < 0.5])
+                    baixa_evasao = sum(prob < 0.5 for prob in probabilidades_evasao)
                     st.metric("Baixo Risco", baixa_evasao)
                     
             except Exception as e:
                 placeholder_mensagem.empty()
                 st.error(f"❌ Erro ao processar as predições: {str(e)}")
+                
+                # 🔹 DEBUG DETALHADO
+                st.subheader("🔍 Debug Detalhado")
+                st.write("**DataFrame info:**")
+                st.write(f"Colunas: {list(df_para_modelo.columns)}")
+                st.write(f"Forma: {df_para_modelo.shape}")
+                st.write(f"Tipos de dados:")
+                st.write(df_para_modelo.dtypes)
+                st.write("**Primeiras linhas do DataFrame:**")
+                st.dataframe(df_para_modelo.head(3))
+                
+                import traceback
+                st.code(traceback.format_exc())
+                
                 
     except Exception as e:
         st.error(f"❌ Erro ao ler o arquivo CSV: {str(e)}")
