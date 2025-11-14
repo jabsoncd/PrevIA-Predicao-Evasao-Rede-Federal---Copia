@@ -344,7 +344,7 @@ st.markdown(
 
     <p style='color: #3f3f4f; margin-bottom: 15px;'>
     Faça a carga de dados em lote utilizando o dicionário de dados disponível neste 
-    <a href='https://drive.google.com/file/d/1DSUj_d4tyYKtVsS76-L_HkfalCEWRnvI/view?usp=sharing' 
+    <a href='https://drive.google.com/file/d/1hqpTKiU_bG-UJRjiLel-A0PWWFrDLCeo/view?usp=sharing' 
        target='_blank' 
        style='color: blue !important; text-decoration: none;'>
        link para download do template CSV
@@ -385,7 +385,7 @@ if uploaded_file is not None:
             # Já que estamos usando o DataFrame diretamente com CatBoost
             
             # Botão para processar a predição em lote
-            if st.button("🚀 Prever Evasão em Lote", type="primary"):
+            if st.button("Prever Evasão em Lote", type="primary"):
                 placeholder_mensagem = st.empty()
                 placeholder_mensagem.success("🔄 Processando previsão em lote...")
                 
