@@ -7,6 +7,10 @@ import os
 import base64
 from pathlib import Path
 
+
+
+import numpy as np
+
 # Caminho da logo (ajuste se necessário)
 logo_path = Path("templates/logo_branca_laranja.png")
 
