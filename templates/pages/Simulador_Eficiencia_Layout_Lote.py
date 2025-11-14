@@ -335,12 +335,19 @@ def processar_csv_para_modelo(uploaded_file):
 
 st.markdown(
     """
+    <style>
+    .download-link {
+        color: #007bff !important;
+        text-decoration: none !important;
+        font-weight: bold;
+    }
+    </style>
     <p style='color: #3f3f4f; margin-bottom: 15px;'>
     Faça a carga de dados em lote utilizando o dicionário de dados disponível neste 
     <a href='https://drive.google.com/file/d/1hqpTKiU_bG-UJRjiLel-A0PWWFrDLCeo/view?usp=sharing' 
-    target='_blank' 
-    style='color: #007bff !important; text-decoration: none;'>
-    link para download do template CSV
+   target='_blank' 
+   class='download-link'>
+   link para download do template CSV
     </a>
     O arquivo deve conter os campos que fazem parte do formulário desta página.
     </p>
