@@ -1532,7 +1532,7 @@ elif st.session_state.selected_tab == "🌎 Mapa da Evasão":
             fill_color='viridis', 
             nan_fill_color='white',
             fill_opacity=0.7,
-            line_opacity=0.2
+            line_opacity=0.2,
             legend_name='Proporção de Evadidos (%) por Estado'
         ).add_to(mapa)
 
