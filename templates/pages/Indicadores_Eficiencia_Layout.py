@@ -1518,8 +1518,7 @@ elif st.session_state.selected_tab == "🌎 Mapa da Evasão":
     # Centro aproximado do Brasil
     latitude_centro = -14.2350
     longitude_centro = -51.9253
-
-
+    
     with col2:
         # Criar mapa base
         mapa = folium.Map(location=[
@@ -1531,7 +1530,7 @@ elif st.session_state.selected_tab == "🌎 Mapa da Evasão":
             data=gdf_mapa,
             columns=['NM_UF', 'proporcao'],
             key_on='properties.NM_UF',
-            fill_color='PuBu', 
+            fill_color='YlOrRd', 
             nan_fill_color='white',
             fill_opacity=0.7,
             line_opacity=0.2,
