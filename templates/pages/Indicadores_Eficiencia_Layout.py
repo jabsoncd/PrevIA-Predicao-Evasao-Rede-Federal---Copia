@@ -1469,104 +1469,104 @@ elif st.session_state.selected_tab == "🌎 Mapa da Evasão":
     # Configuração da página no Streamlit
     # st.set_page_config(page_title="Mapa de Evadidos", layout="wide")
      # Usando colunas para exibir os cards lado a lado
-    col1, col2, col3 = st.columns([1, 5, 1])
+    col1, col2, col3 = st.columns([1, 7, 1])
 
     # Cards com cores sólidas vibrantes
-    # with col2:
-    # Carregar datasets
-    data_path = 'artifacts/microdados_eficiencia_academica_RedeFederal_2023_tecnico_RegiaoMetropolitana.csv' #../artifacts/microdados_eficiencia_academica_RedeFederal_2023_tecnico_RegiaoMetropolitana.csv
-    data_geo = pd.read_csv(data_path, sep=';')
+    with col2:
+        # Carregar datasets
+        data_path = 'artifacts/microdados_eficiencia_academica_RedeFederal_2023_tecnico_RegiaoMetropolitana.csv' #../artifacts/microdados_eficiencia_academica_RedeFederal_2023_tecnico_RegiaoMetropolitana.csv
+        data_geo = pd.read_csv(data_path, sep=';')
 
-    codUF_path = 'artifacts/codigo_estados.csv'
-    data_cod = pd.read_csv(codUF_path, sep=';', encoding='ISO-8859-1')
+        codUF_path = 'artifacts/codigo_estados.csv'
+        data_cod = pd.read_csv(codUF_path, sep=';', encoding='ISO-8859-1')
 
-    # Converter colunas para string
-    data_geo['UF'] = data_geo['UF'].astype(str)
-    data_cod['SG_UF'] = data_cod['SG_UF'].astype(str)
+        # Converter colunas para string
+        data_geo['UF'] = data_geo['UF'].astype(str)
+        data_cod['SG_UF'] = data_cod['SG_UF'].astype(str)
 
-    # Merge entre dados e códigos de UF
-    data_geo_merge = pd.merge(
-        data_geo, data_cod, left_on='UF', right_on='SG_UF', how='left')
+        # Merge entre dados e códigos de UF
+        data_geo_merge = pd.merge(
+            data_geo, data_cod, left_on='UF', right_on='SG_UF', how='left')
 
-    # Total de matrículas por UF
-    total_por_uf = data_geo_merge.groupby(
-        'NM_UF').size().reset_index(name='total_matriculas')
+        # Total de matrículas por UF
+        total_por_uf = data_geo_merge.groupby(
+            'NM_UF').size().reset_index(name='total_matriculas')
 
-    # Total de evadidos por UF
-    evadidos = data_geo_merge[data_geo_merge['CATEGORIA_SITUACAO'] == 'Evadidos']
-    evadidos_por_uf = evadidos.groupby(
-        'NM_UF').size().reset_index(name='evadidos')
+        # Total de evadidos por UF
+        evadidos = data_geo_merge[data_geo_merge['CATEGORIA_SITUACAO'] == 'Evadidos']
+        evadidos_por_uf = evadidos.groupby(
+            'NM_UF').size().reset_index(name='evadidos')
 
-    # Merge para calcular proporção
-    proporcao_df = pd.merge(
-        total_por_uf, evadidos_por_uf, on='NM_UF', how='left')
-    proporcao_df['evadidos'] = proporcao_df['evadidos'].fillna(0)
-    proporcao_df['proporcao'] = (
-        proporcao_df['evadidos'] / proporcao_df['total_matriculas']) * 100
+        # Merge para calcular proporção
+        proporcao_df = pd.merge(
+            total_por_uf, evadidos_por_uf, on='NM_UF', how='left')
+        proporcao_df['evadidos'] = proporcao_df['evadidos'].fillna(0)
+        proporcao_df['proporcao'] = (
+            proporcao_df['evadidos'] / proporcao_df['total_matriculas']) * 100
 
-    # Carregar shapefile dos estados do Brasil (GeoJSON)
-    geojson_path = 'artifacts/BR_UF_2024.geojson'
-    gdf_estados = gpd.read_file(geojson_path)
+        # Carregar shapefile dos estados do Brasil (GeoJSON)
+        geojson_path = 'artifacts/BR_UF_2024.geojson'
+        gdf_estados = gpd.read_file(geojson_path)
 
-    # Dissolver para obter geometria por estado
-    gdf_estados = gdf_estados.dissolve(by='NM_UF', as_index=False)
+        # Dissolver para obter geometria por estado
+        gdf_estados = gdf_estados.dissolve(by='NM_UF', as_index=False)
 
-    # Merge com dados de proporção
-    gdf_mapa = gdf_estados.merge(proporcao_df, on='NM_UF', how='left')
-    gdf_mapa['proporcao'] = gdf_mapa['proporcao'].fillna(0)
+        # Merge com dados de proporção
+        gdf_mapa = gdf_estados.merge(proporcao_df, on='NM_UF', how='left')
+        gdf_mapa['proporcao'] = gdf_mapa['proporcao'].fillna(0)
 
-    # Centro aproximado do Brasil
-    latitude_centro = -14.2350
-    longitude_centro = -51.9253
+        # Centro aproximado do Brasil
+        latitude_centro = -14.2350
+        longitude_centro = -51.9253
 
-    # Criar mapa base
-    mapa = folium.Map(location=[
-                    latitude_centro, longitude_centro], tiles="Cartodb Positron", zoom_start=5)
+        # Criar mapa base
+        mapa = folium.Map(location=[
+                        latitude_centro, longitude_centro], tiles="Cartodb Positron", zoom_start=5)
 
-    # Mapa coroplético com proporção
-    Choropleth(
-        geo_data=gdf_estados,
-        data=gdf_mapa,
-        columns=['NM_UF', 'proporcao'],
-        key_on='properties.NM_UF',
-        fill_color='YlOrRd',
-        nan_fill_color='white',
-        fill_opacity=0.7,
-        line_opacity=0.2,
-        legend_name='Proporção de Evadidos (%) por Estado'
-    ).add_to(mapa)
+        # Mapa coroplético com proporção
+        Choropleth(
+            geo_data=gdf_estados,
+            data=gdf_mapa,
+            columns=['NM_UF', 'proporcao'],
+            key_on='properties.NM_UF',
+            fill_color='YlOrRd',
+            nan_fill_color='white',
+            fill_opacity=0.7,
+            line_opacity=0.2,
+            legend_name='Proporção de Evadidos (%) por Estado'
+        ).add_to(mapa)
 
-    # Estilo para destaque
-    def estilo(x): return {"fillColor": "white",
-                        "color": "black", "fillOpacity": 0.001, "weight": 0.001}
+        # Estilo para destaque
+        def estilo(x): return {"fillColor": "white",
+                            "color": "black", "fillOpacity": 0.001, "weight": 0.001}
 
-    def estilo_destaque(x): return {
-        "fillColor": "darkblue", "color": "black", "fillOpacity": 0.5, "weight": 1}
+        def estilo_destaque(x): return {
+            "fillColor": "darkblue", "color": "black", "fillOpacity": 0.5, "weight": 1}
 
-    # Adicionar tooltip com proporção
-    highlight = folium.features.GeoJson(
-        data=gdf_mapa,
-        style_function=estilo,
-        highlight_function=estilo_destaque,
-        tooltip=folium.features.GeoJsonTooltip(
-            fields=['NM_UF', 'proporcao'],
-            aliases=['Estado:', 'Proporção de Evadidos (%):'],
-            localize=True,
-            style=("background: white; color: black"),
-            labels=True,
-            sticky=True
+        # Adicionar tooltip com proporção
+        highlight = folium.features.GeoJson(
+            data=gdf_mapa,
+            style_function=estilo,
+            highlight_function=estilo_destaque,
+            tooltip=folium.features.GeoJsonTooltip(
+                fields=['NM_UF', 'proporcao'],
+                aliases=['Estado:', 'Proporção de Evadidos (%):'],
+                localize=True,
+                style=("background: white; color: black"),
+                labels=True,
+                sticky=True
+            )
         )
-    )
-    highlight.add_to(mapa)
+        highlight.add_to(mapa)
 
-    # Controles
-    folium.LayerControl().add_to(mapa)
+        # Controles
+        folium.LayerControl().add_to(mapa)
 
         # Exibir
         # folium_static(mapa, width=1400, height=800)
         
         # Supondo que m seja um mapa folium.Map
-    st_folium(mapa, width=1600, height=800) #800 e 500  ok
+    st_folium(mapa, width=800, height=600) #800 e 500  ok
         # # folium_static(mapa, width=None, height=900)  # Largura automática, altura grande para tela cheia
 
 st.write("Resultados filtrados:")
