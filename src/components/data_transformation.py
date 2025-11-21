@@ -150,11 +150,11 @@ class DataTransformation:
             preprocessor = self.get_preprocessor()
 
             # Get train and test predictor and target sets.
-            X_train = train.drop(columns=['churn_flag'])
-            y_train = train['churn_flag'].copy()
+            X_train = train.drop(columns=['evadido'])
+            y_train = train['evadido'].copy()
 
-            X_test = test.drop(columns=['churn_flag'])
-            y_test = test['churn_flag'].copy()
+            X_test = test.drop(columns=['evadido'])
+            y_test = test['evadido'].copy()
 
             logging.info('Preprocess training and test sets.')
 

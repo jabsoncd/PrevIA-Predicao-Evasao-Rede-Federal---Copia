@@ -48,7 +48,7 @@ class ModelTrainerConfig:
 
 class ModelTrainer:
     '''
-    This class is responsible for training and saving the best LightGBM model
+    This class is responsible for training and saving the best CatBoost model
     using the best hyperparameters found in modelling notebook analysis with stratified 
     k-fold cross-validation and Bayesian optimization.
 
@@ -57,7 +57,7 @@ class ModelTrainer:
 
     Methods:
         apply_model_trainer(train_prepared, test_prepared):
-            Trains the best LightGBM model using the provided prepared training and test data,
+            Trains the best CatBoost model using the provided prepared training and test data,
             and returns the classification report and ROC-AUC score on the test set.
 
     '''
@@ -74,7 +74,7 @@ class ModelTrainer:
     
     def apply_model_trainer(self, train_prepared, test_prepared):
         '''
-        Trains the best LightGBM model using the provided prepared training and test data, 
+        Trains the best CatBoost model using the provided prepared training and test data, 
         the best hyperparameters found during the modelling notebook analysis using stratified k-fold
         cross validation and bayesian optimization and returns the classification report and ROC-AUC 
         score on the test set.
@@ -95,12 +95,12 @@ class ModelTrainer:
         try:
             logging.info('Split train and test prepared sets.')
             
-            X_train_prepared = train_prepared.drop(columns=['churn_flag'])
-            X_test_prepared = test_prepared.drop(columns=['churn_flag'])
-            y_train = train_prepared['churn_flag'].copy()
-            y_test = test_prepared['churn_flag'].copy()
+            X_train_prepared = train_prepared.drop(columns=['evadido'])
+            X_test_prepared = test_prepared.drop(columns=['evadido'])
+            y_train = train_prepared['evadido'].copy()
+            y_test = test_prepared['evadido'].copy()
             
-            logging.info('Train LightGBM with the best hyparameters found in modelling step.')
+            logging.info('Train CatBoost with the best hyparameters found in modelling step.')
 
             best_params = { 'objective': 'binary',
                             'metric': 'roc_auc',

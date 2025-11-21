@@ -1,8 +1,4 @@
 '''
-This script aims to define custom exception for exception handling purposes. It will be easier to identify errors and issues.
-'''
-
-'''
 Importing the libraries.
 '''
 

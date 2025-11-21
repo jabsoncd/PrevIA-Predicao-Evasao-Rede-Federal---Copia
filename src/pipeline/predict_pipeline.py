@@ -78,8 +78,8 @@ class PredictPipeline:
             # Predict customer's churn probability.
             predicted_proba = model.predict_proba(prepared_data)[:, 1][0]
 
-            # Prediction output (customer's probability of churning).
-            prediction = f"""Customer's probability of churning:
+            # Prediction output (Probabilidade de perda com evasão).
+            prediction = f"""Probabilidade de perda com evasão:
                              {round(predicted_proba * 100, 3)}%"""
 
             logging.info('Prediction successfully made.')
@@ -97,26 +97,6 @@ class InputData:
     This class provides a structured representation for input data that is meant to be used for making predictions.
     It maps input variables from HTML inputs to class attributes and provides a method to convert the input data into
     a DataFrame format suitable for making predictions.
-
-    Attributes:
-        customer_age (int)              
-        gender (str)                      
-        dependent_count (int)             
-        education_level (str)             
-        marital_status (str)              
-        income_category (str)             
-        card_category (str)               
-        months_on_book (int)              
-        total_relationship_count (int)    
-        months_inactive_12_mon (int)      
-        contacts_count_12_mon (int)       
-        credit_limit (float)                
-        total_revolving_bal (int)         
-        total_amt_chng_q4_q1 (float)       
-        total_trans_amt (int)            
-        total_trans_ct (int)              
-        total_ct_chng_q4_q1 (float)         
-        avg_utilization_ratio (float)       
 
     Methods:
         get_input_data_df():
@@ -148,25 +128,6 @@ class InputData:
         '''
         Initialize an InputData instance with mapped input data.
 
-        Args:
-            customer_age (int)              
-            gender (str)                      
-            dependent_count (int)             
-            education_level (str)             
-            marital_status (str)              
-            income_category (str)             
-            card_category (str)               
-            months_on_book (int)              
-            total_relationship_count (int)    
-            months_inactive_12_mon (int)      
-            contacts_count_12_mon (int)       
-            credit_limit (float)                
-            total_revolving_bal (int)         
-            total_amt_chng_q4_q1 (float)       
-            total_trans_amt (int)            
-            total_trans_ct (int)              
-            total_ct_chng_q4_q1 (float)         
-            avg_utilization_ratio (float)
         '''
 
         # Map variables from html inputs.
