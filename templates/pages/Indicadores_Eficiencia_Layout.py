@@ -1521,7 +1521,7 @@ elif st.session_state.selected_tab == "🌎 Mapa da Evasão":
 
         # Criar mapa base
         mapa = folium.Map(location=[
-                        latitude_centro, longitude_centro], tiles="Cartodb Positron", zoom_start=6)
+                        latitude_centro, longitude_centro], tiles="Cartodb Positron", zoom_start=4)
 
         # Mapa coroplético com proporção
         Choropleth(
@@ -1533,7 +1533,8 @@ elif st.session_state.selected_tab == "🌎 Mapa da Evasão":
             nan_fill_color='white',
             fill_opacity=0.7,
             line_opacity=0.2,
-            legend_name='Proporção de Evadidos (%) por Estado'
+            legend_name='Proporção de Evadidos (%) por Estado',
+            legend_format=folium.utilities.iframe_max_width("90%") 
         ).add_to(mapa)
 
         # Estilo para destaque
