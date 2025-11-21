@@ -1521,7 +1521,7 @@ elif st.session_state.selected_tab == "🌎 Mapa da Evasão":
 
         # Criar mapa base
         mapa = folium.Map(location=[
-                        latitude_centro, longitude_centro], tiles="Cartodb Positron", zoom_start=5)
+                        latitude_centro, longitude_centro], tiles="Cartodb Positron", zoom_start=5, location=[-15,-55])
 
         # Mapa coroplético com proporção
         Choropleth(
