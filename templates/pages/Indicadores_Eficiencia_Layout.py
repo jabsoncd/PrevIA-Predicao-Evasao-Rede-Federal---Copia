@@ -1521,55 +1521,55 @@ elif st.session_state.selected_tab == "🌎 Mapa da Evasão":
 
 
 
-    with col2:
-        # Criar mapa base
-        mapa = folium.Map(location=[
-                        latitude_centro, longitude_centro], tiles="Cartodb Positron", zoom_start=5)
+    # with col2:
+    # Criar mapa base
+    mapa = folium.Map(location=[
+                    latitude_centro, longitude_centro], tiles="Cartodb Positron", zoom_start=5)
 
-        # Mapa coroplético com proporção
-        Choropleth(
-            geo_data=gdf_estados,
-            data=gdf_mapa,
-            columns=['NM_UF', 'proporcao'],
-            key_on='properties.NM_UF',
-            fill_color='YlOrRd',
-            nan_fill_color='white',
-            fill_opacity=0.7,
-            line_opacity=0.2,
-            legend_name='Proporção de Evadidos (%) por Estado'
-        ).add_to(mapa)
+    # Mapa coroplético com proporção
+    Choropleth(
+        geo_data=gdf_estados,
+        data=gdf_mapa,
+        columns=['NM_UF', 'proporcao'],
+        key_on='properties.NM_UF',
+        fill_color='YlOrRd',
+        nan_fill_color='white',
+        fill_opacity=0.7,
+        line_opacity=0.2,
+        legend_name='Proporção de Evadidos (%) por Estado'
+    ).add_to(mapa)
 
-        # Estilo para destaque
-        def estilo(x): return {"fillColor": "white",
-                            "color": "black", "fillOpacity": 0.001, "weight": 0.009}
+    # Estilo para destaque
+    def estilo(x): return {"fillColor": "white",
+                        "color": "black", "fillOpacity": 0.001, "weight": 0.009}
 
-        def estilo_destaque(x): return {
-            "fillColor": "darkblue", "color": "black", "fillOpacity": 0.5, "weight": 1}
+    def estilo_destaque(x): return {
+        "fillColor": "darkblue", "color": "black", "fillOpacity": 0.5, "weight": 1}
 
-        # Adicionar tooltip com proporção
-        highlight = folium.features.GeoJson(
-            data=gdf_mapa,
-            style_function=estilo,
-            highlight_function=estilo_destaque,
-            tooltip=folium.features.GeoJsonTooltip(
-                fields=['NM_UF', 'proporcao'],
-                aliases=['Estado:', 'Proporção de Evadidos (%):'],
-                localize=True,
-                style=("background: white; color: black"),
-                labels=True,
-                sticky=True
-            )
+    # Adicionar tooltip com proporção
+    highlight = folium.features.GeoJson(
+        data=gdf_mapa,
+        style_function=estilo,
+        highlight_function=estilo_destaque,
+        tooltip=folium.features.GeoJsonTooltip(
+            fields=['NM_UF', 'proporcao'],
+            aliases=['Estado:', 'Proporção de Evadidos (%):'],
+            localize=True,
+            style=("background: white; color: black"),
+            labels=True,
+            sticky=True
         )
-        highlight.add_to(mapa)
+    )
+    highlight.add_to(mapa)
 
-        # Controles
-        folium.LayerControl().add_to(mapa)
+    # Controles
+    folium.LayerControl().add_to(mapa)
 
-        # Exibir
-        # folium_static(mapa, width=1400, height=800)
-        
-        # Supondo que m seja um mapa folium.Map
-        st_folium(mapa, width=1400, height=800) #800 e 500
+    # Exibir
+    # folium_static(mapa, width=1400, height=800)
+    
+    # Supondo que m seja um mapa folium.Map
+    st_folium(mapa, width=None, height=800) #800 e 500
         # # folium_static(mapa, width=None, height=900)  # Largura automática, altura grande para tela cheia
 
 st.write("Resultados filtrados:")
