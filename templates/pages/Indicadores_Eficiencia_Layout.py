@@ -1532,9 +1532,8 @@ elif st.session_state.selected_tab == "🌎 Mapa da Evasão":
             fill_color='YlOrRd',
             nan_fill_color='white',
             fill_opacity=0.7,
-            line_opacity=0.2,
-            legend_name='Proporção de Evadidos (%) por Estado',
-            legend_format=folium.utilities.iframe_max_width("90%") 
+            line_opacity=0.2
+            # legend_name='Proporção de Evadidos (%) por Estado'
         ).add_to(mapa)
 
         # Estilo para destaque
