@@ -1538,10 +1538,10 @@ elif st.session_state.selected_tab == "🌎 Mapa da Evasão":
 
         # Estilo para destaque
         def estilo(x): return {"fillColor": "white",
-                            "color": "black", "fillOpacity": 0.001, "weight": 2}
+                            "color": "black", "fillOpacity": 0.001, "weight": 0.01}
 
         def estilo_destaque(x): return {
-            "fillColor": "darkblue", "color": "black", "fillOpacity": 0.5, "weight": 2}
+            "fillColor": "darkblue", "color": "black", "fillOpacity": 0.5, "weight": 1}
 
         # Adicionar tooltip com proporção
         highlight = folium.features.GeoJson(
