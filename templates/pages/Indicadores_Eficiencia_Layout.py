@@ -1529,7 +1529,7 @@ elif st.session_state.selected_tab == "🌎 Mapa da Evasão":
             data=gdf_mapa,
             columns=['NM_UF', 'proporcao'],
             key_on='properties.NM_UF',
-            fill_color='viridis', YlOrRd
+            fill_color='viridis', 
             nan_fill_color='white',
             fill_opacity=0.7,
             line_opacity=0.2
