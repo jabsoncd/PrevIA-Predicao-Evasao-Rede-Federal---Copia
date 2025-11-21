@@ -1229,7 +1229,7 @@ elif st.session_state.selected_tab == "🌎 Mapa da Evasão":
     # folium_static(mapa, width=1400, height=800)
     
     # Supondo que m seja um mapa folium.Map
-    st_folium(mapa, width=1400, height=800) #800 e 500
+    st_folium(mapa, width=800, height=600) #800 e 500
     # # folium_static(mapa, width=None, height=900)  # Largura automática, altura grande para tela cheia
 
     # st.title("Mapa Dinâmico do Brasil - Evadidos")
