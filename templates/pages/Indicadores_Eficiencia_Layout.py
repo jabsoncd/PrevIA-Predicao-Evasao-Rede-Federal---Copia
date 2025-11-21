@@ -1529,16 +1529,16 @@ elif st.session_state.selected_tab == "🌎 Mapa da Evasão":
             data=gdf_mapa,
             columns=['NM_UF', 'proporcao'],
             key_on='properties.NM_UF',
-            fill_color='YlOrRd',
+            fill_color='viridis', YlOrRd
             nan_fill_color='white',
             fill_opacity=0.7,
             line_opacity=0.2
-            # legend_name='Proporção de Evadidos (%) por Estado'
+            legend_name='Proporção de Evadidos (%) por Estado'
         ).add_to(mapa)
 
         # Estilo para destaque
         def estilo(x): return {"fillColor": "white",
-                            "color": "black", "fillOpacity": 0.001, "weight": 0.01}
+                            "color": "black", "fillOpacity": 0.001, "weight": 0.009}
 
         def estilo_destaque(x): return {
             "fillColor": "darkblue", "color": "black", "fillOpacity": 0.5, "weight": 1}
