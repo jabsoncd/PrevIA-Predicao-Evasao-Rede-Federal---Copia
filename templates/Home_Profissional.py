@@ -175,8 +175,8 @@ a, a:visited, a:active {{
         <a class="nav-link" href="/" target="_self">Início</a>
         <a class="nav-link" href="/Simulador_Eficiencia_Layout" target="_self">Simular</a>
         <a class="nav-link" href="/Indicadores_Eficiencia_Layout" target="_self">Indicadores</a>
-        <a class="nav-link" href="#" target="_self">Módulo Gestor</a>
-        <a class="nav-link" href="#" target="_self">Módulo Carga</a>
+        <a class="nav-link" href="/Simulador_Eficiencia_Layout_Gestor" target="_self">Módulo Gestor</a>
+        <a class="nav-link" href="/Simulador_Eficiencia_Layout_Lote" target="_self">Simular em Lote</a>
         <a class="nav-link" href="/Sobre" target="_self">Sobre</a>
     </div>
 </div>
@@ -201,7 +201,7 @@ if st.session_state.current_page == "home":
 
     st.markdown("---")
 
-    col1, col2 = st.columns(2)
+    col1, col2, col3 = st.columns(3)
 
     with col1:
         st.markdown("""
@@ -248,7 +248,29 @@ if st.session_state.current_page == "home":
         unsafe_allow_html=True
         )   
 
-    
+    with col3: 
+        st.markdown("""
+        <div class="feature-card">
+            <h3>Módulo Gestor</h3>
+            <p>Ferramenta avançada para que gestores possam simular a probabilidade de evasão de estudantes na Rede Federal EPCT.</p>
+        </div>
+        """, unsafe_allow_html=True)
+
+        st.markdown(
+        """
+        <div>        
+            <a href="Simulador_Eficiencia_Layout_Gestor" target="_self">
+                <button style="padding: 4px 15px; border-radius: 7px; 
+                              border: none; background-color: #dedede; 
+                              color: #696b6e; font-size: 19px; cursor: pointer;">
+                    Acessar Módulo
+                </button>
+            </a>
+        </div>
+        """,
+        unsafe_allow_html=True
+        ) 
+
 
     st.markdown("""
     <div style="
