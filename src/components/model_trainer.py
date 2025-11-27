@@ -32,18 +32,18 @@ class ModelTrainerConfig:
 
     Attributes:
         model_file_path (str): The default file path for saving the trained model. By default, it is set to the
-                              'artifacts' directory with the filename 'model.pkl'.
+                              'artifacts' directory with the filename 'modelo.pkl'.
 
     Example:
         config = ModelTrainerConfig()
-        print(config.model_file_path)  # Output: 'artifacts/model.pkl'
+        print(config.model_file_path)  # Output: 'artifacts/modelo.pkl'
 
     Note:
         This class uses the @dataclass decorator to automatically generate special methods like __init__ and __repr__
         based on the defined attributes.
     '''
 
-    model_file_path = os.path.join('artifacts', 'model.pkl')
+    model_file_path = os.path.join('artifacts', 'modelo.pkl')
 
 
 class ModelTrainer:

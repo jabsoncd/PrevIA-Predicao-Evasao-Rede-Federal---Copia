@@ -99,7 +99,7 @@ class OneHotFeatureEncoder(BaseEstimator, TransformerMixin):
             to_encode (list): A list of column names to be one-hot encoded.
         '''
         self.to_encode = to_encode
-        self.encoder = OneHotEncoder(drop='first',
+        self.encoder = OneHotEncoder(drop='unidade_ensino',
                                      sparse_output=False,
                                      dtype=np.int8,
                                      handle_unknown='ignore',
@@ -873,11 +873,11 @@ def get_threshold_metrics(precision, recall, threshold, target_metric, target_me
 
 def plot_probability_distributions(y_true, probas):
     '''
-    Plots the kernel density estimate (KDE) of predicted probabilities for churners and non-churners.
+    Plots the kernel density estimate (KDE) of predicted probabilities.
 
     Parameters:
-    - y_true (array-like): The true class labels (1 for churner, 0 for non-churner).
-    - probas (array-like): Predicted probabilities for the positive class (churners).
+    - y_true (array-like): The true class labels.
+    - probas (array-like): Predicted probabilities for the positive class.
 
     Raises:
     - CustomException: Raised if an unexpected error occurs during plotting.
@@ -893,18 +893,18 @@ def plot_probability_distributions(y_true, probas):
     - matplotlib
 
     Note:
-    The function creates a KDE plot illustrating the distribution of predicted probabilities for churners and non-churners.
+    The function creates a KDE plot illustrating the distribution of predicted probabilities .
     It provides visual insights into the model's ability to distinguish between the two classes.
 
     '''
     try:
-        probas_df = pd.DataFrame({'churn_probability': probas,
-                                  'churn': y_true})
+        probas_df = pd.DataFrame({'evadido_probability': probas,
+                                  'evadido': y_true})
 
         fig, ax = plt.subplots(figsize=(10, 4))
-        sns.kdeplot(data=probas_df, x='churn_probability', hue='churn',
+        sns.kdeplot(data=probas_df, x='evadido_probability', hue='templates/Home_Profissional.py',
                     fill=True, ax=ax, palette=['#023047', '#e85d04'])
-        ax.set_title('Predicted probabilities distribution - churners and non-churners',
+        ax.set_title('Predicted probabilities distribution',
                      fontweight='bold', fontsize=12, pad=45, loc='left')
         ax.set_xlabel('Predicted probabilities',
                       fontsize=10.8, labelpad=20, loc='left')
@@ -919,7 +919,7 @@ def plot_probability_distributions(y_true, probas):
 
         handles = [plt.Rectangle((0, 0), 0.1, 0.1, fc='#e85d04', edgecolor='none'),
                    plt.Rectangle((0, 0), 0.1, 0.1, fc='#023047', edgecolor='none')]
-        labels = ['Churn', 'Not churn']
+        labels = ['evadido', 'Nao evadido']
 
         ax.legend(handles, labels, loc='upper center', bbox_to_anchor=(
             0.14, 1.15), frameon=False, ncol=2, fontsize=10)
@@ -933,8 +933,8 @@ def probability_scores_ordering(y_true, probas):
     Order and visualize the probability scores in deciles based on predicted probabilities and true labels.
 
     Parameters:
-    - y_true (pd.Series): Actual target values for the set. 1 is churner and 0 is non-churner.
-    - probas (pd.Series): Predicted probabilities of churning for the passed set.
+    - y_true (pd.Series): Actual target values for the set.
+    - probas (pd.Series): Predicted probabilities.
 
     Returns:
     - None: Plots the probability scores ordering.
@@ -967,16 +967,16 @@ def probability_scores_ordering(y_true, probas):
 
         # Calculate the churn rate per decile.
         decile_df = probas_actual_df.groupby(['deciles'])['actual'].mean(
-        ).reset_index().rename(columns={'actual': 'churn_rate'})
+        ).reset_index().rename(columns={'actual': 'evadido_rate'})
 
         # Plot probability scores ordering.
         # Plot bar graph of deciles vs event rate.
         fig, ax = plt.subplots(figsize=(12, 3))
 
         bars = ax.bar(decile_df['deciles'],
-                      decile_df['churn_rate'], color='#023047')
+                      decile_df['evadido_rate'], color='#023047')
 
-        ax.set_title('Probability scores ordering - Churn rate per decile',
+        ax.set_title('Probability scores ordering - Evadido rate per decile',
                      loc='left', fontweight='bold', fontsize=14)
         ax.set_xticks(range(10), ['1', '2', '3', '4',
                       '5', '6', '7', '8', '9', '10'])
@@ -990,7 +990,7 @@ def probability_scores_ordering(y_true, probas):
         ax.grid(False)
 
         # Annotate churn rate inside each bar with increased font size
-        for bar, absent_rate in zip(bars, decile_df['churn_rate']):
+        for bar, absent_rate in zip(bars, decile_df['evadido_rate']):
             height = bar.get_height()
             ax.text(bar.get_x() + bar.get_width() / 2, height + 0.08,
                     f'{absent_rate*100:.1f}%', ha='center', va='top', color='white', fontsize=10.4)
